@@ -10,6 +10,27 @@ release_to_numeric <- function(rel) {
   p[1] * 1000 + p[2]
 }
 
+#' Convert a named dates vector (version -> ISO date) to an ordered
+#' bioc_releases data.frame with columns version, released, seq.
+#' Rows are ordered by release_to_numeric ascending; seq is 1-based.
+#' Empty-safe: returns the 3-column zero-row frame when dates is empty.
+bioc_releases_from_dates <- function(dates) {
+  cols  <- c("version", "released", "seq")
+  empty <- setNames(
+    data.frame(character(0), character(0), integer(0), stringsAsFactors = FALSE),
+    cols
+  )
+  if (length(dates) == 0L) return(empty)
+  nums <- vapply(names(dates), release_to_numeric, numeric(1))
+  ord  <- order(nums)
+  data.frame(
+    version  = names(dates)[ord],
+    released = unname(dates[ord]),
+    seq      = seq_len(length(dates)),
+    stringsAsFactors = FALSE
+  )
+}
+
 #' Parse a Bioconductor VIEWS file (DCF text) into a catalog data.frame.
 #' Returns a stable 14-column data.frame (zero rows when input is empty or invalid).
 parse_views <- function(views_text, category) {
@@ -91,10 +112,11 @@ package_lineage <- function(branches, current_release, dates) {
 
 #' Export the assembled catalog to a fresh SQLite database.
 #'
-#' Creates (or replaces) the file at `path` with two tables:
+#' Creates (or replaces) the file at `path` with three tables:
 #'   bioc_packages  -- one row per package (21 columns)
 #'   bioc_authors   -- one row per author credit (6 columns)
-#' and three indexes for common lookup patterns.
+#'   bioc_releases  -- ordered release list (version, released, seq)
+#' and four indexes for common lookup patterns.
 #'
 #' @param path        File path for the output .db file.
 #' @param packages_df data.frame with exactly the 21 bioc_packages columns in
@@ -104,7 +126,10 @@ package_lineage <- function(branches, current_release, dates) {
 #'   last_release_date, in_current, in_devel, updated_at).
 #' @param authors_df  data.frame with 6 bioc_authors columns in schema order
 #'   (package, given, family, email, role, orcid).
-export_catalog <- function(path, packages_df, authors_df) {
+#' @param releases_df data.frame with 3 bioc_releases columns (version, released,
+#'   seq) as returned by bioc_releases_from_dates(). NULL or 0-row creates the
+#'   empty table only.
+export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -155,6 +180,20 @@ export_catalog <- function(path, packages_df, authors_df) {
 
   RSQLite::dbWriteTable(con, "bioc_packages", packages_df, append = TRUE)
   RSQLite::dbWriteTable(con, "bioc_authors",  authors_df,  append = TRUE)
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_releases (
+      version  TEXT PRIMARY KEY,
+      released TEXT,
+      seq      INTEGER
+    )
+  ")
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_releases_seq ON bioc_releases(seq)")
+
+  if (!is.null(releases_df) && nrow(releases_df) > 0L) {
+    RSQLite::dbWriteTable(con, "bioc_releases", releases_df, append = TRUE)
+  }
 
   RSQLite::dbExecute(con, "VACUUM")
   invisible(NULL)

@@ -428,6 +428,9 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
 # sorted "name:version" pairs joined by commas.
 .FIXTURE_FP <- "PkgAnnot:2.0.0,PkgSoft:1.2.0"
 
+# The releases fingerprint for the fixture config (3.22, 3.23 ordered ascending).
+.FIXTURE_RELEASES_FP <- "3.22,3.23"
+
 test_that("manifest$changed is FALSE on steady-state incremental run", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")
@@ -457,7 +460,10 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
                            "2025-10-30T00:00:00Z"),
     stringsAsFactors   = FALSE
   )
-  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+  prev_manifest <- list(source = list(
+    views_fingerprint    = .FIXTURE_FP,
+    releases_fingerprint = .FIXTURE_RELEASES_FP
+  ))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
   res <- run_update(io, out, force_full = FALSE)
@@ -466,6 +472,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
                label = "changed=FALSE when nothing new or modified")
   expect_equal(res$manifest$source$views_fingerprint, .FIXTURE_FP,
                label = "fingerprint round-trips through manifest")
+  expect_equal(res$manifest$source$releases_fingerprint, .FIXTURE_RELEASES_FP,
+               label = "releases_fingerprint round-trips through manifest")
 })
 
 test_that("manifest$changed is TRUE on force_full even with matching fingerprint", {
@@ -517,4 +525,81 @@ test_that("manifest$changed is TRUE when views fingerprint differs from prior", 
 
   expect_true(res$manifest$changed,
               label = "changed=TRUE when VIEWS fingerprint changed")
+})
+
+# ---------------------------------------------------------------------------
+# bioc_releases table in the written DB
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes bioc_releases table with ordered rows", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  run_update(make_stub_io(), out, force_full = TRUE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  # Fixture has releases 3.22 and 3.23
+  rels <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_releases ORDER BY seq")
+  expect_equal(nrow(rels), 2L)
+  expect_equal(rels$version,  c("3.22", "3.23"))
+  expect_equal(rels$seq,      c(1L, 2L))
+  expect_equal(rels$released, c("2025-10-30", "2026-04-15"))
+})
+
+test_that("run_update manifest includes n_releases and releases_fingerprint", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  res <- run_update(make_stub_io(), out, force_full = TRUE)
+
+  expect_equal(res$manifest$n_releases, 2L,
+               label = "n_releases equals number of release entries")
+  expect_equal(res$manifest$source$releases_fingerprint, .FIXTURE_RELEASES_FP,
+               label = "releases_fingerprint in manifest source")
+})
+
+# ---------------------------------------------------------------------------
+# Self-healing: prior manifest lacks releases_fingerprint -> changed=TRUE
+# ---------------------------------------------------------------------------
+
+test_that("manifest$changed is TRUE when prior manifest lacks releases_fingerprint", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Prior manifest matches current views fingerprint but predates releases_fingerprint
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.2.0", "2.0.0", "0.9.0"),
+    title              = c("The Soft Package", "The Annotation Package", "The Old Package"),
+    description        = c("d", "d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.22", "3.22", "3.18"),
+    first_release_date = c("2025-10-30", "2025-10-30", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+  # Old manifest has views_fingerprint but NO releases_fingerprint
+  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+
+  io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_true(res$manifest$changed,
+              label = "changed=TRUE when prior manifest predates releases_fingerprint")
 })
