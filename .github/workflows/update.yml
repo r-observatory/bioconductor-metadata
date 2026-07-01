@@ -1,0 +1,63 @@
+name: Update Bioconductor Metadata
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "Full cold crawl of all bioc repos (ignore the prior catalog). Slow; use once."
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bioconductor-metadata-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::RSQLite
+            any::DBI
+            any::jsonlite
+            any::yaml
+            any::testthat
+            any::withr
+            any::curl
+      - name: Run unit tests
+        run: Rscript tests/testthat.R
+      - name: Build catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p out
+          if [ "${{ inputs.bootstrap }}" = "true" ]; then
+            Rscript scripts/update.R out/ --bootstrap
+          else
+            Rscript scripts/update.R out/
+          fi
+      - name: Publish to the "current" release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if ! gh release view current >/dev/null 2>&1; then
+            git tag -f current
+            git push -f origin current || true
+            gh release create current --title "Bioconductor Metadata (rolling)" --notes "Rolling catalog of Bioconductor package metadata, authors, and release lineage." --latest
+          fi
+          gh release upload current out/bioconductor-metadata.db --clobber
+          gh release upload current out/manifest.json --clobber
