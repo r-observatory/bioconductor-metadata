@@ -1,5 +1,8 @@
 # scripts/helpers.R: pure helper functions for the bioconductor-metadata pipeline.
 
+#' Null/NA/empty coalescing operator.
+`%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a)) b else a
+
 #' Map a Bioconductor release "X.Y" to a sortable number (major*1000 + minor).
 release_to_numeric <- function(rel) {
   p <- as.integer(strsplit(rel, ".", fixed = TRUE)[[1]])
@@ -59,6 +62,31 @@ parse_authors_at_r <- function(authors_r_text, package) {
   })
   out <- do.call(rbind, rows)
   out[nzchar(out$given) | nzchar(out$family), , drop = FALSE]
+}
+
+#' Derive a package's Bioconductor release lineage from its git branch names.
+#' Returns a named list with first_release, first_release_date, last_release,
+#' last_release_date, in_current, and in_devel.
+#' @param branches  Character vector of git branch names (e.g. from git ls-remote).
+#' @param current_release  The current Bioconductor release string, e.g. "3.23".
+#' @param dates  Named character vector mapping release string -> ISO date, as
+#'   returned by parse_release_dates().
+package_lineage <- function(branches, current_release, dates) {
+  rels <- sub("^RELEASE_", "", grep("^RELEASE_[0-9]+_[0-9]+$", branches, value = TRUE))
+  rels <- gsub("_", ".", rels)
+  res <- list(first_release = NA_character_, first_release_date = NA_character_,
+              last_release = NA_character_, last_release_date = NA_character_,
+              in_current = FALSE,
+              in_devel = any(branches %in% c("devel", "master")))
+  if (length(rels) == 0) return(res)
+  ord <- order(vapply(rels, release_to_numeric, numeric(1)))
+  rels <- rels[ord]
+  first <- rels[1]; last <- rels[length(rels)]
+  res$first_release <- first; res$last_release <- last
+  res$first_release_date <- unname(dates[first]) %||% NA_character_
+  res$last_release_date  <- unname(dates[last])  %||% NA_character_
+  res$in_current <- current_release %in% rels
+  res
 }
 
 #' Parse the `release_dates:` block of config.yaml into a named vector of ISO
