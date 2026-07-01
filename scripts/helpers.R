@@ -1,7 +1,7 @@
 # scripts/helpers.R: pure helper functions for the bioconductor-metadata pipeline.
 
 #' Null/NA/empty coalescing operator.
-`%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a)) b else a
+`%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || (length(a) == 1 && is.na(a))) b else a
 
 #' Map a Bioconductor release "X.Y" to a sortable number (major*1000 + minor).
 release_to_numeric <- function(rel) {
