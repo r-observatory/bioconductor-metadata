@@ -60,6 +60,9 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   nums   <- vapply(names(dates), release_to_numeric, numeric(1))
   current_release <- names(dates)[which.max(nums)]
 
+  releases_df          <- bioc_releases_from_dates(dates)
+  releases_fingerprint <- paste0(releases_df$version, collapse = ",")
+
   # 2. Fetch VIEWS metadata for every category
   views_parts <- lapply(names(VIEWS_URLS), function(cat) {
     parse_views(io$fetch_views(cat), cat)
@@ -378,10 +381,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
 
   # 7. Export catalog and manifest
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
-  export_catalog(db_path, packages_df, authors_df)
+  export_catalog(db_path, packages_df, authors_df, releases_df)
 
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
-    (prev$manifest$source$views_fingerprint %||% "") != views_fingerprint
+    (prev$manifest$source$views_fingerprint    %||% "") != views_fingerprint ||
+    (prev$manifest$source$releases_fingerprint %||% "") != releases_fingerprint
 
   manifest <- list(
     release         = paste0("v", format(Sys.time(), "%Y%m%d-%H%M%S", tz = "UTC")),
@@ -390,8 +394,12 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_packages      = nrow(packages_df),
     n_current       = sum(packages_df$in_current == 1L),
     n_authors       = nrow(authors_df),
-    changed         = manifest_changed,
-    source          = list(views_fingerprint = views_fingerprint)
+    changed              = manifest_changed,
+    n_releases           = nrow(releases_df),
+    source               = list(
+      views_fingerprint    = views_fingerprint,
+      releases_fingerprint = releases_fingerprint
+    )
   )
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
