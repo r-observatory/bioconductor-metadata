@@ -1,0 +1,5 @@
+docs/
+out/
+*.db
+.superpowers/
+.Rproj.user
