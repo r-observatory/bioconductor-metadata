@@ -83,7 +83,7 @@ FIXTURE_BRANCHES <- list(
 # Stub io builder
 # ---------------------------------------------------------------------------
 
-make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL) {
+make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list()) {
   all_repos <- c("PkgSoft", "PkgAnnot", "PkgOld")
 
   list(
@@ -108,13 +108,14 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL) {
     },
 
     prev_catalog = function() {
-      if (is.null(prev_pkgs)) return(list())
+      if (is.null(prev_pkgs)) return(list(manifest = prev_manifest))
       list(
         packages = prev_pkgs,
         authors  = prev_auths %||% data.frame(
           package = character(0), given = character(0), family = character(0),
           email   = character(0), role  = character(0), orcid  = character(0),
-          stringsAsFactors = FALSE)
+          stringsAsFactors = FALSE),
+        manifest = prev_manifest
       )
     }
   )
@@ -350,4 +351,170 @@ test_that("run_update incremental crawls and includes new-in-views package absen
   # PkgNew must be present in the catalog with in_current = 1
   expect_true("PkgNew" %in% pkgs$name)
   expect_equal(pkgs$in_current[pkgs$name == "PkgNew"], 1L)
+})
+
+# ---------------------------------------------------------------------------
+# C1 regression: authors survive an incremental run that does not re-crawl
+# ---------------------------------------------------------------------------
+
+test_that("C1: bioc_authors carries forward for non-recrawled packages on incremental run", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Prior catalog: PkgSoft and PkgAnnot are current, PkgOld removed.
+  # The incremental crawl_set will be empty (no new / removed packages in views).
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.2.0", "2.0.0", "0.9.0"),
+    title              = c("The Soft Package", "The Annotation Package", "The Old Package"),
+    description        = c("Does soft things.", "Does annotation things.", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.22", "3.22", "3.18"),
+    first_release_date = c("2025-10-30", "2025-10-30", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+  prev_auths <- data.frame(
+    package = c("PkgSoft", "PkgAnnot"),
+    given   = c("Alice", "Bob"),
+    family  = c("Smith", "Jones"),
+    email   = c("alice@example.com", "bob@example.com"),
+    role    = c("aut, cre", "aut, cre"),
+    orcid   = c(NA_character_, NA_character_),
+    stringsAsFactors = FALSE
+  )
+
+  crawled <- character(0L)
+  io <- make_stub_io(prev_pkgs = prev_pkgs, prev_auths = prev_auths)
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) { crawled <<- c(crawled, pkg); orig_ls(pkg) }
+
+  run_update(io, out, force_full = FALSE)
+
+  # Confirm no packages were re-crawled (pure carry-forward run)
+  expect_equal(crawled, character(0L), label = "crawl_set empty")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors ORDER BY family")
+  expect_equal(nrow(auths), 2L,
+               label = "authors carried forward from prior catalog")
+  expect_true("Smith" %in% auths$family,
+              label = "PkgSoft author Smith present")
+  expect_true("Jones" %in% auths$family,
+              label = "PkgAnnot author Jones present")
+})
+
+# ---------------------------------------------------------------------------
+# Change detection: manifest$changed reflects real differences
+# ---------------------------------------------------------------------------
+
+# The fingerprint for the fixture VIEWS (PkgSoft 1.2.0, PkgAnnot 2.0.0):
+# sorted "name:version" pairs joined by commas.
+.FIXTURE_FP <- "PkgAnnot:2.0.0,PkgSoft:1.2.0"
+
+test_that("manifest$changed is FALSE on steady-state incremental run", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.2.0", "2.0.0", "0.9.0"),
+    title              = c("The Soft Package", "The Annotation Package", "The Old Package"),
+    description        = c("d", "d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.22", "3.22", "3.18"),
+    first_release_date = c("2025-10-30", "2025-10-30", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+
+  io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_false(res$manifest$changed,
+               label = "changed=FALSE when nothing new or modified")
+  expect_equal(res$manifest$source$views_fingerprint, .FIXTURE_FP,
+               label = "fingerprint round-trips through manifest")
+})
+
+test_that("manifest$changed is TRUE on force_full even with matching fingerprint", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+  io  <- make_stub_io(prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = TRUE)
+
+  expect_true(res$manifest$changed,
+              label = "changed=TRUE when force_full=TRUE")
+})
+
+test_that("manifest$changed is TRUE when views fingerprint differs from prior", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Simulate a prior manifest with a stale fingerprint
+  prev_manifest <- list(source = list(views_fingerprint = "PkgAnnot:1.0.0,PkgSoft:1.0.0"))
+
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot"),
+    name_lower         = c("pkgsoft", "pkgannot"),
+    category           = c("software", "annotation"),
+    version            = c("1.2.0", "2.0.0"),
+    title              = c("The Soft Package", "The Annotation Package"),
+    description        = c("d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones"),
+    maintainer_email   = c("alice@example.com", "bob@example.com"),
+    license            = c("MIT", "GPL-3"),
+    depends            = c(NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation"),
+    git_url            = c(NA_character_, NA_character_),
+    first_release      = c("3.22", "3.22"),
+    first_release_date = c("2025-10-30", "2025-10-30"),
+    last_release       = c("3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L),
+    in_devel           = c(1L, 1L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+
+  io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_true(res$manifest$changed,
+              label = "changed=TRUE when VIEWS fingerprint changed")
 })

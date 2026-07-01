@@ -34,9 +34,14 @@ if (!exists("parse_views", mode = "function")) {
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
 with_retry <- function(expr, tries = 3L, wait = 3) {
-  # a failed force() leaves the promise un-cached, so the loop re-evaluates expr
+  # a failed force() leaves the promise un-cached, so the loop re-evaluates expr.
+  # Retry attempts are wrapped in suppressWarnings() to silence the
+  # "restarting interrupted promise evaluation" diagnostic that R emits when a
+  # previously-failed lazy promise is re-evaluated.
   for (i in seq_len(tries)) {
-    val <- tryCatch(force(expr), error = function(e) e)
+    val <- tryCatch(
+      if (i == 1L) force(expr) else suppressWarnings(force(expr)),
+      error = function(e) e)
     if (!inherits(val, "error")) return(val)
     if (i < tries) Sys.sleep(wait * i)
   }
@@ -62,6 +67,13 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   views_df <- do.call(rbind, views_parts)
   rownames(views_df) <- NULL
   views_names <- views_df$name
+
+  # Fingerprint of the current VIEWS state: sorted "name:version" pairs joined
+  # by commas. Dependency-free and stable; used for change detection below.
+  views_fingerprint <- paste(
+    sort(paste0(views_df$name, ":", views_df$version)),
+    collapse = ","
+  )
 
   # 3. Prior catalog (empty list on cold start or force_full)
   prev      <- io$prev_catalog()
@@ -349,9 +361,27 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     empty_auths
   }
 
+  # Carry forward authors for packages that are in the final catalog but were
+  # NOT re-crawled this run. Key off names(lineage_list) (built in the crawl
+  # loop) so that a re-crawled package whose Authors@R yielded zero rows is
+  # still treated as authoritative -- no stale rows come back from prev for it.
+  if (has_prev && !is.null(prev$authors) && nrow(prev$authors) > 0L) {
+    recrawled  <- names(lineage_list)
+    keep       <- setdiff(packages_df$name, recrawled)
+    carry      <- prev$authors[prev$authors$package %in% keep, , drop = FALSE]
+    if (nrow(carry) > 0L) {
+      carry    <- carry[, c("package", "given", "family", "email", "role", "orcid"),
+                        drop = FALSE]
+      authors_df <- rbind(authors_df, carry)
+    }
+  }
+
   # 7. Export catalog and manifest
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
   export_catalog(db_path, packages_df, authors_df)
+
+  manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
+    (prev$manifest$source$views_fingerprint %||% "") != views_fingerprint
 
   manifest <- list(
     release         = paste0("v", format(Sys.time(), "%Y%m%d-%H%M%S", tz = "UTC")),
@@ -360,11 +390,12 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_packages      = nrow(packages_df),
     n_current       = sum(packages_df$in_current == 1L),
     n_authors       = nrow(authors_df),
-    changed         = TRUE
+    changed         = manifest_changed,
+    source          = list(views_fingerprint = views_fingerprint)
   )
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
-  list(changed = TRUE, manifest = manifest)
+  list(changed = manifest_changed, manifest = manifest)
 }
 
 # ---------------------------------------------------------------------------
@@ -388,7 +419,8 @@ default_io <- function() {
     list_repos = function() {
       out <- suppressWarnings(system2(
         "gh",
-        c("api", "--paginate", sprintf("orgs/%s/repos", BIOC_ORG), "--jq", ".[].name"),
+        c("api", "--paginate", sprintf("orgs/%s/repos?per_page=100", BIOC_ORG),
+          "--jq", ".[].name"),
         stdout = TRUE, stderr = FALSE))
       sort(out[nzchar(trimws(out))])
     },
@@ -413,6 +445,20 @@ default_io <- function() {
       tmp_dir <- tempfile()
       dir.create(tmp_dir, showWarnings = FALSE)
       on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
+
+      # Download prior manifest for fingerprint comparison; non-fatal on absence.
+      suppressWarnings(system2(
+        "gh",
+        c("release", "download", "current",
+          "--repo", PUBLISH_REPO,
+          "--pattern", "manifest.json",
+          "--dir", tmp_dir, "--clobber"),
+        stdout = FALSE, stderr = FALSE))
+      prev_manifest <- tryCatch({
+        mf <- file.path(tmp_dir, "manifest.json")
+        if (file.exists(mf)) jsonlite::read_json(mf) else list()
+      }, error = function(e) list())
+
       st <- suppressWarnings(system2(
         "gh",
         c("release", "download", "current",
@@ -421,12 +467,14 @@ default_io <- function() {
           "--dir", tmp_dir, "--clobber"),
         stdout = FALSE, stderr = FALSE))
       db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
-      if (!identical(as.integer(st), 0L) || !file.exists(db_path)) return(list())
+      if (!identical(as.integer(st), 0L) || !file.exists(db_path)) {
+        return(list(manifest = prev_manifest))
+      }
       con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
       on.exit(RSQLite::dbDisconnect(con), add = TRUE)
-      pkgs <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
+      pkgs  <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
       auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors")
-      list(packages = pkgs, authors = auths)
+      list(packages = pkgs, authors = auths, manifest = prev_manifest)
     }
   )
 }
