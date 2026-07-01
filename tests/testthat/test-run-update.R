@@ -259,3 +259,95 @@ test_that("run_update incremental only crawls new and removed packages", {
   expect_equal(pkgs$in_current[pkgs$name == "PkgAnnot"], 1L)
   expect_equal(pkgs$in_current[pkgs$name == "PkgOld"],   0L)
 })
+
+test_that("run_update incremental crawls and includes new-in-views package absent from prior catalog", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # PkgNew is in software VIEWS but NOT in the prior catalog
+  views_software_with_new <- paste(
+    FIXTURE_VIEWS_SOFTWARE,
+    "Package: PkgNew",
+    "Version: 0.1.0",
+    "Title: The New Package",
+    "Description: Newly added.",
+    "Maintainer: Dan Green <dan@example.com>",
+    "License: MIT",
+    "biocViews: Software",
+    "git_url: https://git.bioconductor.org/packages/PkgNew",
+    "", sep = "\n")
+
+  # Prior catalog knows PkgSoft and PkgAnnot as current, PkgOld as removed.
+  # PkgNew is deliberately absent -- it is new this cycle.
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.1.0", "1.9.0", "0.9.0"),
+    title              = c("Old Soft", "Old Annot", "Old Old"),
+    description        = c("d", "d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.20", "3.21", "3.18"),
+    first_release_date = c("2024-10-30", "2025-04-16", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+
+  crawled_ls   <- character(0L)
+  crawled_desc <- character(0L)
+  spy_io <- make_stub_io(prev_pkgs = prev_pkgs)
+
+  # Inject PkgNew into software VIEWS
+  spy_io$fetch_views <- function(cat) {
+    if (cat == "software") return(views_software_with_new)
+    switch(cat, annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+
+  # Spy on ls_remote and fetch_description
+  orig_ls   <- spy_io$ls_remote
+  orig_desc <- spy_io$fetch_description
+  spy_io$ls_remote <- function(pkg) {
+    crawled_ls <<- c(crawled_ls, pkg)
+    if (pkg == "PkgNew") return(c("RELEASE_3_23", "devel"))
+    orig_ls(pkg)
+  }
+  spy_io$fetch_description <- function(pkg, branch) {
+    crawled_desc <<- c(crawled_desc, pkg)
+    if (pkg == "PkgNew") return(paste(
+      "Package: PkgNew",
+      "Version: 0.1.0",
+      "Title: The New Package",
+      'Authors@R: person("Dan", "Green", email = "dan@example.com", role = c("aut", "cre"))',
+      "License: MIT",
+      "", sep = "\n"))
+    orig_desc(pkg, branch)
+  }
+
+  run_update(spy_io, out, force_full = FALSE)
+
+  # PkgNew must have been crawled via both ls_remote and fetch_description
+  expect_true("PkgNew" %in% crawled_ls,
+              label = "ls_remote called for new-in-views PkgNew")
+  expect_true("PkgNew" %in% crawled_desc,
+              label = "fetch_description called for PkgNew")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con, "SELECT name, in_current FROM bioc_packages ORDER BY name")
+
+  # PkgNew must be present in the catalog with in_current = 1
+  expect_true("PkgNew" %in% pkgs$name)
+  expect_equal(pkgs$in_current[pkgs$name == "PkgNew"], 1L)
+})

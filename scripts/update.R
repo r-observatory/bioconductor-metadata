@@ -34,6 +34,7 @@ if (!exists("parse_views", mode = "function")) {
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
 with_retry <- function(expr, tries = 3L, wait = 3) {
+  # a failed force() leaves the promise un-cached, so the loop re-evaluates expr
   for (i in seq_len(tries)) {
     val <- tryCatch(force(expr), error = function(e) e)
     if (!inherits(val, "error")) return(val)
@@ -422,9 +423,9 @@ default_io <- function() {
       db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
       if (!identical(as.integer(st), 0L) || !file.exists(db_path)) return(list())
       con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
+      on.exit(RSQLite::dbDisconnect(con), add = TRUE)
       pkgs <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
       auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors")
-      RSQLite::dbDisconnect(con)
       list(packages = pkgs, authors = auths)
     }
   )
@@ -437,7 +438,7 @@ default_io <- function() {
 if (sys.nframe() == 0L) {
   args    <- commandArgs(trailingOnly = TRUE)
   out_dir <- if (length(args) >= 1L) args[1L] else "out"
-  force   <- "--bootstrap" %in% args
+  force_full <- "--bootstrap" %in% args
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
-  run_update(default_io(), out_dir, force)
+  run_update(default_io(), out_dir, force_full)
 }
