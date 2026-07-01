@@ -84,7 +84,7 @@ test_that("export_catalog writes bioc_authors with correct row count and orcid",
   expect_equal(alpha_aut$orcid, "0000-0001-2345-6789")
 })
 
-test_that("export_catalog creates all three required indexes", {
+test_that("export_catalog creates all required indexes including bioc_releases", {
   tmp <- tempfile(fileext = ".db")
   on.exit(unlink(tmp), add = TRUE)
 
@@ -97,9 +97,51 @@ test_that("export_catalog creates all three required indexes", {
     con,
     "SELECT name FROM sqlite_master WHERE type = 'index' ORDER BY name"
   )$name
-  expect_true("idx_bioc_meta_lower"    %in% idx)
+  expect_true("idx_bioc_meta_lower"      %in% idx)
   expect_true("idx_bioc_authors_package" %in% idx)
-  expect_true("idx_bioc_authors_name"  %in% idx)
+  expect_true("idx_bioc_authors_name"    %in% idx)
+  expect_true("idx_bioc_releases_seq"    %in% idx)
+})
+
+test_that("export_catalog with releases_df writes bioc_releases rows in seq order", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  releases <- data.frame(
+    version  = c("3.9", "3.10"),
+    released = c("2019-05-03", "2019-10-30"),
+    seq      = c(1L, 2L),
+    stringsAsFactors = FALSE
+  )
+  export_catalog(tmp, make_packages_df(), make_authors_df(), releases)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_releases ORDER BY seq")
+  expect_equal(nrow(rows), 2L)
+  expect_equal(rows$version,  c("3.9", "3.10"))
+  expect_equal(rows$released, c("2019-05-03", "2019-10-30"))
+  expect_equal(rows$seq,      c(1L, 2L))
+})
+
+test_that("export_catalog without releases_df creates empty bioc_releases table", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_releases")
+  expect_equal(nrow(rows), 0L)
+
+  # Table must still carry the right column names
+  tbl_info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_releases)")
+  expect_true("version"  %in% tbl_info$name)
+  expect_true("released" %in% tbl_info$name)
+  expect_true("seq"      %in% tbl_info$name)
 })
 
 test_that("export_catalog overwrites an existing DB file cleanly", {
