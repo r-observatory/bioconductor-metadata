@@ -176,6 +176,11 @@ parse_release_dates <- function(yaml_text) {
   y <- yaml::yaml.load(yaml_text)
   rd <- y$release_dates
   if (is.null(rd)) return(setNames(character(0), character(0)))
+  # NOTE: Release keys such as "3.20" MUST be quoted in config.yaml.
+  # An unquoted 3.20 is parsed by YAML as the number 3.2, silently dropping
+  # the trailing zero and producing an unrecoverable wrong key. The names()
+  # call below reads keys as character strings, but only if the YAML source
+  # keeps them quoted (e.g. "3.20": ...). Keep that quoting in place.
   out <- vapply(rd, function(v) {
     d <- as.Date(as.character(v), tryFormats = c("%m/%d/%Y", "%Y-%m-%d"))
     if (is.na(d)) NA_character_ else format(d, "%Y-%m-%d")

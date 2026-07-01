@@ -54,10 +54,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          CHANGED=$(jq -r '.changed' out/manifest.json)
           if ! gh release view current >/dev/null 2>&1; then
             git tag -f current
             git push -f origin current || true
             gh release create current --title "Bioconductor Metadata (rolling)" --notes "Rolling catalog of Bioconductor package metadata, authors, and release lineage." --latest
+            CHANGED=true
           fi
-          gh release upload current out/bioconductor-metadata.db --clobber
-          gh release upload current out/manifest.json --clobber
+          if [ "$CHANGED" = "true" ]; then
+            gh release upload current out/bioconductor-metadata.db --clobber
+            gh release upload current out/manifest.json --clobber
+          fi
