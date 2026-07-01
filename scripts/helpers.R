@@ -32,6 +32,35 @@ parse_views <- function(views_text, category) {
     stringsAsFactors = FALSE)
 }
 
+#' Parse an Authors@R field (R code) into a data.frame of author rows.
+#' Evaluates the expression in a restricted environment that exposes only
+#' `person` and `c`, limiting arbitrary-code risk from untrusted DESCRIPTION
+#' content. Returns an empty 6-column frame on any parse/eval failure.
+parse_authors_at_r <- function(authors_r_text, package) {
+  cols <- c("package","given","family","email","role","orcid")
+  empty <- setNames(data.frame(matrix(character(0), ncol = 6), stringsAsFactors = FALSE), cols)
+  if (is.na(authors_r_text) || !nzchar(trimws(authors_r_text))) return(empty)
+  env <- new.env(parent = emptyenv())
+  env$person <- utils::person
+  env$c      <- base::c
+  pp <- tryCatch(eval(parse(text = authors_r_text), envir = env), error = function(e) NULL)
+  if (is.null(pp) || length(pp) == 0) return(empty)
+  rows <- lapply(seq_along(pp), function(i) {
+    p <- pp[i]
+    orc <- tryCatch(unname(p$comment[["ORCID"]]), error = function(e) NULL)
+    data.frame(
+      package = package,
+      given  = paste(p$given,  collapse = " "),
+      family = paste(p$family, collapse = " "),
+      email  = if (length(p$email)) p$email[1] else NA_character_,
+      role   = if (length(p$role))  paste(p$role, collapse = ", ") else NA_character_,
+      orcid  = if (!is.null(orc) && nzchar(orc)) orc else NA_character_,
+      stringsAsFactors = FALSE)
+  })
+  out <- do.call(rbind, rows)
+  out[nzchar(out$given) | nzchar(out$family), , drop = FALSE]
+}
+
 #' Parse the `release_dates:` block of config.yaml into a named vector of ISO
 #' dates (release -> YYYY-MM-DD). Uses the yaml parser; the source dates are
 #' M/D/YYYY or MM/DD/YYYY. Non-date entries are dropped.
