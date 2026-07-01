@@ -89,6 +89,86 @@ package_lineage <- function(branches, current_release, dates) {
   res
 }
 
+#' Export the assembled catalog to a fresh SQLite database.
+#'
+#' Creates (or replaces) the file at `path` with two tables:
+#'   bioc_packages  -- one row per package (21 columns)
+#'   bioc_authors   -- one row per author credit (6 columns)
+#' and three indexes for common lookup patterns.
+#'
+#' @param path        File path for the output .db file.
+#' @param packages_df data.frame with exactly the 21 bioc_packages columns in
+#'   schema order (name, name_lower, category, version, title, description,
+#'   maintainer, maintainer_email, license, depends, imports, suggests,
+#'   biocviews, git_url, first_release, first_release_date, last_release,
+#'   last_release_date, in_current, in_devel, updated_at).
+#' @param authors_df  data.frame with 6 bioc_authors columns in schema order
+#'   (package, given, family, email, role, orcid).
+export_catalog <- function(path, packages_df, authors_df) {
+  if (file.exists(path)) unlink(path)
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_packages (
+      name TEXT PRIMARY KEY,
+      name_lower TEXT NOT NULL,
+      category TEXT NOT NULL,
+      version TEXT,
+      title TEXT,
+      description TEXT,
+      maintainer TEXT,
+      maintainer_email TEXT,
+      license TEXT,
+      depends TEXT,
+      imports TEXT,
+      suggests TEXT,
+      biocviews TEXT,
+      git_url TEXT,
+      first_release TEXT,
+      first_release_date TEXT,
+      last_release TEXT,
+      last_release_date TEXT,
+      in_current INTEGER NOT NULL DEFAULT 0,
+      in_devel INTEGER NOT NULL DEFAULT 0,
+      updated_at TEXT
+    )
+  ")
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_authors (
+      package TEXT NOT NULL,
+      given TEXT,
+      family TEXT,
+      email TEXT,
+      role TEXT,
+      orcid TEXT
+    )
+  ")
+
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_meta_lower ON bioc_packages(name_lower)")
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_authors_package ON bioc_authors(package)")
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_authors_name ON bioc_authors(family, given)")
+
+  RSQLite::dbWriteTable(con, "bioc_packages", packages_df, append = TRUE)
+  RSQLite::dbWriteTable(con, "bioc_authors",  authors_df,  append = TRUE)
+
+  RSQLite::dbExecute(con, "VACUUM")
+  invisible(NULL)
+}
+
+#' Write an R list as pretty-printed JSON.
+#'
+#' @param path File path for the output .json file.
+#' @param obj  R list to serialise.
+write_manifest <- function(path, obj) {
+  jsonlite::write_json(obj, path, auto_unbox = TRUE, pretty = TRUE)
+  invisible(NULL)
+}
+
 #' Parse the `release_dates:` block of config.yaml into a named vector of ISO
 #' dates (release -> YYYY-MM-DD). Uses the yaml parser; the source dates are
 #' M/D/YYYY or MM/DD/YYYY. Non-date entries are dropped.
