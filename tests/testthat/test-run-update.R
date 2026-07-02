@@ -49,6 +49,23 @@ FIXTURE_VIEWS_ANNOTATION <- paste(
   "git_url: https://git.bioconductor.org/packages/PkgAnnot",
   "", sep = "\n")
 
+FIXTURE_BIOCVIEWS_DOT_3_22 <- paste(
+  'digraph G {',
+  '  BiocViews -> OldView;',
+  '  OldView -> OldChild;',
+  '}', sep = "\n")
+
+FIXTURE_BIOCVIEWS_DOT_3_23 <- paste(
+  'digraph G {',
+  '  BiocViews -> Software;',
+  '  Software -> Infrastructure;',
+  '}', sep = "\n")
+
+.FIXTURE_BIOCVIEWS_FP_3_23 <- paste0(
+  sort(c("BiocViews->Software", "Software->Infrastructure")),
+  collapse = ","
+)
+
 FIXTURE_DESC <- list(
   PkgSoft = paste(
     'Package: PkgSoft',
@@ -86,7 +103,8 @@ FIXTURE_BRANCHES <- list(
 # Stub io builder
 # ---------------------------------------------------------------------------
 
-make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list()) {
+make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list(),
+                         prev_view_edges = NULL) {
   all_repos <- c("PkgSoft", "PkgAnnot", "PkgOld")
 
   list(
@@ -110,6 +128,13 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
       FIXTURE_DESC[[pkg]] %||% ""
     },
 
+    fetch_biocviews_dot = function(branch) {
+      switch(branch,
+        RELEASE_3_22 = FIXTURE_BIOCVIEWS_DOT_3_22,
+        RELEASE_3_23 = FIXTURE_BIOCVIEWS_DOT_3_23,
+        NULL)
+    },
+
     prev_catalog = function() {
       if (is.null(prev_pkgs)) return(list(manifest = prev_manifest))
       list(
@@ -117,6 +142,9 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
         authors  = prev_auths %||% data.frame(
           package = character(0), given = character(0), family = character(0),
           email   = character(0), role  = character(0), orcid  = character(0),
+          stringsAsFactors = FALSE),
+        view_edges = prev_view_edges %||% data.frame(
+          release = character(0), parent = character(0), child = character(0),
           stringsAsFactors = FALSE),
         manifest = prev_manifest
       )
@@ -577,8 +605,9 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
     stringsAsFactors   = FALSE
   )
   prev_manifest <- list(source = list(
-    views_fingerprint    = .FIXTURE_FP,
-    releases_fingerprint = .FIXTURE_RELEASES_FP
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23
   ))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
@@ -590,6 +619,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
                label = "fingerprint round-trips through manifest")
   expect_equal(res$manifest$source$releases_fingerprint, .FIXTURE_RELEASES_FP,
                label = "releases_fingerprint round-trips through manifest")
+  expect_equal(res$manifest$source$biocviews_fingerprint, .FIXTURE_BIOCVIEWS_FP_3_23,
+               label = "biocviews_fingerprint round-trips through manifest")
 })
 
 test_that("manifest$changed is TRUE on force_full even with matching fingerprint", {
@@ -719,4 +750,114 @@ test_that("manifest$changed is TRUE when prior manifest lacks releases_fingerpri
 
   expect_true(res$manifest$changed,
               label = "changed=TRUE when prior manifest predates releases_fingerprint")
+})
+
+# ---------------------------------------------------------------------------
+# biocViews vocabulary per release
+# ---------------------------------------------------------------------------
+
+# Shared prev_pkgs fixture for biocviews tests.
+.bv_prev_pkgs <- data.frame(
+  name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+  name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+  category           = c("software", "annotation", "software"),
+  version            = c("1.2.0", "2.0.0", "0.9.0"),
+  title              = c("The Soft Package", "The Annotation Package", "The Old Package"),
+  description        = c("d", "d", "d"),
+  maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+  maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+  license            = c("MIT", "GPL-3", "LGPL"),
+  depends            = c(NA_character_, NA_character_, NA_character_),
+  imports            = c(NA_character_, NA_character_, NA_character_),
+  suggests           = c(NA_character_, NA_character_, NA_character_),
+  biocviews          = c("Software", "Annotation", "Software"),
+  git_url            = c(NA_character_, NA_character_, NA_character_),
+  first_release      = c("3.22", "3.22", "3.18"),
+  first_release_date = c("2025-10-30", "2025-10-30", "2022-04-27"),
+  last_release       = c("3.22", "3.22", "3.22"),
+  last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+  in_current         = c(1L, 1L, 0L),
+  in_devel           = c(1L, 1L, 0L),
+  updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                         "2025-10-30T00:00:00Z"),
+  stringsAsFactors   = FALSE
+)
+
+test_that("biocviews: current-release edges fetched; past-captured edges carried forward without refetch", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # 3.22 is already captured in prev; 3.23 is current (always re-fetched).
+  prev_view_edges <- data.frame(
+    release = c("3.22", "3.22"),
+    parent  = c("BiocViews", "OldView"),
+    child   = c("OldView",   "OldChild"),
+    stringsAsFactors = FALSE
+  )
+
+  dot_calls <- character(0L)
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_view_edges = prev_view_edges)
+  io$fetch_biocviews_dot <- function(branch) {
+    dot_calls <<- c(dot_calls, branch)
+    if (branch == "RELEASE_3_23") return(FIXTURE_BIOCVIEWS_DOT_3_23)
+    NULL  # 3.22 must not be called; guard returns NULL in case it is
+  }
+
+  run_update(io, out, force_full = FALSE)
+
+  expect_false("RELEASE_3_22" %in% dot_calls,
+               label = "past captured release 3.22 not re-fetched")
+  expect_true("RELEASE_3_23" %in% dot_calls,
+              label = "current release 3.23 always re-fetched")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  edges <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges ORDER BY release, parent, child")
+
+  edges_23 <- edges[edges$release == "3.23", ]
+  expect_true(nrow(edges_23) > 0L,
+              label = "current-release 3.23 edges written to DB")
+  expect_true(any(edges_23$parent == "BiocViews" & edges_23$child == "Software"),
+              label = "BiocViews->Software edge present for 3.23")
+
+  edges_22 <- edges[edges$release == "3.22", ]
+  expect_equal(nrow(edges_22), 2L,
+               label = "past 3.22 edges carried forward (2 rows)")
+  expect_true(any(edges_22$parent == "BiocViews" & edges_22$child == "OldView"),
+              label = "carried-forward BiocViews->OldView edge present for 3.22")
+})
+
+test_that("biocviews: fetch returning NULL for all branches contributes no edges and does not error", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io()
+  io$fetch_biocviews_dot <- function(branch) NULL
+
+  expect_no_error(run_update(io, out, force_full = TRUE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  edges <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
+  expect_equal(nrow(edges), 0L,
+               label = "no edges written when all fetches return NULL")
+})
+
+test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerprint (self-heal)", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Prior manifest has views + releases fingerprints but NO biocviews_fingerprint.
+  prev_manifest <- list(source = list(
+    views_fingerprint    = .FIXTURE_FP,
+    releases_fingerprint = .FIXTURE_RELEASES_FP
+  ))
+
+  io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_true(res$manifest$changed,
+              label = "changed=TRUE when prior manifest predates biocviews_fingerprint")
+  expect_true(nzchar(res$manifest$source$biocviews_fingerprint),
+              label = "biocviews_fingerprint written to new manifest")
 })
