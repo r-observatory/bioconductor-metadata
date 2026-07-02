@@ -108,9 +108,10 @@ test_that("export_catalog with releases_df writes bioc_releases rows in seq orde
   on.exit(unlink(tmp), add = TRUE)
 
   releases <- data.frame(
-    version  = c("3.9", "3.10"),
-    released = c("2019-05-03", "2019-10-30"),
-    seq      = c(1L, 2L),
+    version   = c("3.9", "3.10"),
+    released  = c("2019-05-03", "2019-10-30"),
+    seq       = c(1L, 2L),
+    r_version = c(NA_character_, "3.6"),
     stringsAsFactors = FALSE
   )
   export_catalog(tmp, make_packages_df(), make_authors_df(), releases)
@@ -120,9 +121,10 @@ test_that("export_catalog with releases_df writes bioc_releases rows in seq orde
 
   rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_releases ORDER BY seq")
   expect_equal(nrow(rows), 2L)
-  expect_equal(rows$version,  c("3.9", "3.10"))
-  expect_equal(rows$released, c("2019-05-03", "2019-10-30"))
-  expect_equal(rows$seq,      c(1L, 2L))
+  expect_equal(rows$version,   c("3.9", "3.10"))
+  expect_equal(rows$released,  c("2019-05-03", "2019-10-30"))
+  expect_equal(rows$seq,       c(1L, 2L))
+  expect_equal(rows$r_version, c(NA_character_, "3.6"))
 })
 
 test_that("export_catalog without releases_df creates empty bioc_releases table", {
@@ -139,9 +141,10 @@ test_that("export_catalog without releases_df creates empty bioc_releases table"
 
   # Table must still carry the right column names
   tbl_info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_releases)")
-  expect_true("version"  %in% tbl_info$name)
-  expect_true("released" %in% tbl_info$name)
-  expect_true("seq"      %in% tbl_info$name)
+  expect_true("version"   %in% tbl_info$name)
+  expect_true("released"  %in% tbl_info$name)
+  expect_true("seq"       %in% tbl_info$name)
+  expect_true("r_version" %in% tbl_info$name)
 })
 
 test_that("export_catalog overwrites an existing DB file cleanly", {
