@@ -357,6 +357,85 @@ test_that("run_update incremental crawls and includes new-in-views package absen
 })
 
 # ---------------------------------------------------------------------------
+# Self-heal: current packages with NULL first_release are re-crawled
+# ---------------------------------------------------------------------------
+
+test_that("run_update incremental self-heals current packages with NULL first_release", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # PkgSoft has a valid first_release; PkgAnnot has first_release = NA.
+  # Both are current (in_current=1) and present in the current VIEWS.
+  # Only PkgAnnot should enter the crawl set via null_first.
+  # PkgSoft must NOT be re-crawled.
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot"),
+    name_lower         = c("pkgsoft", "pkgannot"),
+    category           = c("software", "annotation"),
+    version            = c("1.2.0", "2.0.0"),
+    title              = c("The Soft Package", "The Annotation Package"),
+    description        = c("Does soft things.", "Does annotation things."),
+    maintainer         = c("Alice Smith", "Bob Jones"),
+    maintainer_email   = c("alice@example.com", "bob@example.com"),
+    license            = c("MIT", "GPL-3"),
+    depends            = c(NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation"),
+    git_url            = c(NA_character_, NA_character_),
+    first_release      = c("3.20", NA_character_),   # PkgAnnot missing entry release
+    first_release_date = c("2024-10-30", NA_character_),
+    last_release       = c("3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L),
+    in_devel           = c(1L, 1L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+
+  crawled_ls   <- character(0L)
+  crawled_desc <- character(0L)
+  io <- make_stub_io(prev_pkgs = prev_pkgs)
+  orig_ls   <- io$ls_remote
+  orig_desc <- io$fetch_description
+  io$ls_remote <- function(pkg) {
+    crawled_ls <<- c(crawled_ls, pkg)
+    orig_ls(pkg)
+  }
+  io$fetch_description <- function(pkg, branch) {
+    crawled_desc <<- c(crawled_desc, pkg)
+    orig_desc(pkg, branch)
+  }
+
+  run_update(io, out, force_full = FALSE)
+
+  # PkgAnnot must be crawled via both hooks (null_first path)
+  expect_true("PkgAnnot" %in% crawled_ls,
+              label = "ls_remote called for PkgAnnot (null first_release)")
+  expect_true("PkgAnnot" %in% crawled_desc,
+              label = "fetch_description called for PkgAnnot")
+
+  # PkgSoft already has a first_release and must NOT be re-crawled
+  expect_false("PkgSoft" %in% crawled_ls,
+               label = "PkgSoft not re-crawled (already has first_release)")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(
+    con, "SELECT name, first_release FROM bioc_packages ORDER BY name")
+
+  # PkgAnnot must now have a non-NULL first_release (self-healed)
+  annot <- pkgs[pkgs$name == "PkgAnnot", ]
+  expect_true(!is.na(annot$first_release) && nzchar(annot$first_release),
+              label = "PkgAnnot first_release self-healed from NULL")
+
+  # PkgSoft first_release carries forward from prev unchanged
+  soft <- pkgs[pkgs$name == "PkgSoft", ]
+  expect_equal(soft$first_release, "3.20",
+               label = "PkgSoft first_release unchanged (not re-crawled)")
+})
+
+# ---------------------------------------------------------------------------
 # C1 regression: authors survive an incremental run that does not re-crawl
 # ---------------------------------------------------------------------------
 

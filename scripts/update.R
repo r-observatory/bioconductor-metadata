@@ -89,10 +89,20 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   if (force_full || !has_prev) {
     crawl_set <- io$list_repos()
   } else {
-    new_in_views      <- setdiff(views_names, prev_pkgs$name)
-    prev_current      <- prev_pkgs$name[prev_pkgs$in_current == 1L]
+    new_in_views       <- setdiff(views_names, prev_pkgs$name)
+    prev_current       <- prev_pkgs$name[prev_pkgs$in_current == 1L]
     removed_from_views <- setdiff(prev_current, views_names)
-    crawl_set         <- union(new_in_views, removed_from_views)
+    # Re-crawl current packages whose first_release was not established yet
+    # (e.g., git ls-remote failed during a cold bootstrap run).
+    null_first <- if ("first_release" %in% names(prev_pkgs)) {
+      prev_pkgs$name[
+        (is.na(prev_pkgs$first_release) | prev_pkgs$first_release == "") &
+        prev_pkgs$name %in% views_names
+      ]
+    } else {
+      character(0L)
+    }
+    crawl_set <- union(union(new_in_views, removed_from_views), null_first)
   }
 
   # 5. Crawl each package in the set (per-package failures are caught and skipped)
