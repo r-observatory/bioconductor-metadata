@@ -94,10 +94,13 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     removed_from_views <- setdiff(prev_current, views_names)
     # Re-crawl current packages whose first_release was not established yet
     # (e.g., git ls-remote failed during a cold bootstrap run).
-    null_first <- if ("first_release" %in% names(prev_pkgs)) {
+    # Restrict to software/workflows only: annotation and experiment data packages
+    # have no RELEASE branches on github.com/bioc, so re-crawling them is fruitless.
+    null_first <- if (all(c("first_release", "category") %in% names(prev_pkgs))) {
       prev_pkgs$name[
         (is.na(prev_pkgs$first_release) | prev_pkgs$first_release == "") &
-        prev_pkgs$name %in% views_names
+        prev_pkgs$name %in% views_names &
+        prev_pkgs$category %in% c("software", "workflows")
       ]
     } else {
       character(0L)
