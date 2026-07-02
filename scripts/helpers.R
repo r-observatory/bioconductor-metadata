@@ -122,26 +122,64 @@ package_lineage <- function(branches, current_release, dates) {
   res
 }
 
+#' Parse a Bioconductor biocViewsVocab.dot file into a parent/child edge table.
+#'
+#' Strips block comments (/* ... */), line comments (//), the digraph header
+#' and braces, then extracts every `NAME -> NAME ;` edge as written (typos
+#' included, no deduplication beyond exact-duplicate rows).
+#'
+#' @param dot_text  Character string containing the full .dot file text.
+#' @return data.frame(parent, child) -- zero rows on empty or unrecognised input.
+parse_biocviews_dot <- function(dot_text) {
+  empty <- data.frame(parent = character(0), child = character(0),
+                      stringsAsFactors = FALSE)
+  if (length(dot_text) == 0L || !nzchar(trimws(paste(dot_text, collapse = "\n")))) {
+    return(empty)
+  }
+  # Collapse vector input to a single string, then strip block comments.
+  text <- paste(dot_text, collapse = "\n")
+  text <- gsub("(?s)/\\*.*?\\*/", "", text, perl = TRUE)
+  # Split into lines, strip // line comments, trim whitespace.
+  lines <- unlist(strsplit(text, "\n", fixed = TRUE))
+  lines <- sub("//.*$", "", lines)
+  lines <- trimws(lines)
+  # Match edge pattern: NAME -> NAME ;
+  pat <- "^([A-Za-z0-9_.]+)\\s*->\\s*([A-Za-z0-9_.]+)\\s*;\\s*$"
+  m <- regmatches(lines, regexec(pat, lines))
+  matched <- Filter(function(x) length(x) == 3L, m)
+  if (length(matched) == 0L) return(empty)
+  data.frame(
+    parent = vapply(matched, `[[`, character(1L), 2L),
+    child  = vapply(matched, `[[`, character(1L), 3L),
+    stringsAsFactors = FALSE
+  )
+}
+
 #' Export the assembled catalog to a fresh SQLite database.
 #'
-#' Creates (or replaces) the file at `path` with three tables:
-#'   bioc_packages  -- one row per package (21 columns)
-#'   bioc_authors   -- one row per author credit (6 columns)
-#'   bioc_releases  -- ordered release list (version, released, seq)
-#' and four indexes for common lookup patterns.
+#' Creates (or replaces) the file at `path` with four tables:
+#'   bioc_packages    -- one row per package (21 columns)
+#'   bioc_authors     -- one row per author credit (6 columns)
+#'   bioc_releases    -- ordered release list (version, released, seq)
+#'   bioc_view_edges  -- biocViews DAG edges (release, parent, child)
+#' and six indexes for common lookup patterns.
 #'
-#' @param path        File path for the output .db file.
-#' @param packages_df data.frame with exactly the 21 bioc_packages columns in
+#' @param path          File path for the output .db file.
+#' @param packages_df   data.frame with exactly the 21 bioc_packages columns in
 #'   schema order (name, name_lower, category, version, title, description,
 #'   maintainer, maintainer_email, license, depends, imports, suggests,
 #'   biocviews, git_url, first_release, first_release_date, last_release,
 #'   last_release_date, in_current, in_devel, updated_at).
-#' @param authors_df  data.frame with 6 bioc_authors columns in schema order
+#' @param authors_df    data.frame with 6 bioc_authors columns in schema order
 #'   (package, given, family, email, role, orcid).
-#' @param releases_df data.frame with 4 bioc_releases columns (version, released,
+#' @param releases_df   data.frame with 4 bioc_releases columns (version, released,
 #'   seq, r_version) as returned by bioc_releases_from_dates(). NULL or 0-row
 #'   creates the empty table only.
-export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
+#' @param view_edges_df data.frame with 3 bioc_view_edges columns (release,
+#'   parent, child) as produced by parse_biocviews_dot(). NULL or 0-row creates
+#'   the empty table only.
+export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
+                           view_edges_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -206,6 +244,22 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
 
   if (!is.null(releases_df) && nrow(releases_df) > 0L) {
     RSQLite::dbWriteTable(con, "bioc_releases", releases_df, append = TRUE)
+  }
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_view_edges (
+      release TEXT,
+      parent  TEXT,
+      child   TEXT
+    )
+  ")
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_view_edges_rel   ON bioc_view_edges(release)")
+  RSQLite::dbExecute(con,
+    "CREATE INDEX idx_bioc_view_edges_child ON bioc_view_edges(release, child)")
+
+  if (!is.null(view_edges_df) && nrow(view_edges_df) > 0L) {
+    RSQLite::dbWriteTable(con, "bioc_view_edges", view_edges_df, append = TRUE)
   }
 
   RSQLite::dbExecute(con, "VACUUM")

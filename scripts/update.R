@@ -85,6 +85,58 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   prev_pkgs <- prev$packages
   has_prev  <- !is.null(prev_pkgs) && nrow(prev_pkgs) > 0
 
+  # 3b. biocViews vocabulary per release
+  empty_edges <- data.frame(
+    release = character(0), parent = character(0), child = character(0),
+    stringsAsFactors = FALSE
+  )
+  prev_edges <- prev$view_edges %||% empty_edges
+  captured   <- unique(prev_edges$release)
+
+  edges_parts <- list()
+  for (v in releases_df$version) {
+    branch <- paste0("RELEASE_", gsub(".", "_", v, fixed = TRUE))
+    if (v == current_release || !(v %in% captured)) {
+      fetched <- tryCatch({
+        dot <- io$fetch_biocviews_dot(branch)
+        if (!is.null(dot) && nzchar(dot)) {
+          e <- parse_biocviews_dot(dot)
+          if (nrow(e) > 0L) {
+            e$release <- v
+            e[, c("release", "parent", "child"), drop = FALSE]
+          } else {
+            NULL
+          }
+        } else {
+          NULL
+        }
+      }, error = function(e_err) NULL)
+
+      if (!is.null(fetched)) {
+        edges_parts[[v]] <- fetched
+      } else if (v %in% captured) {
+        edges_parts[[v]] <- prev_edges[prev_edges$release == v, , drop = FALSE]
+      }
+    } else {
+      edges_parts[[v]] <- prev_edges[prev_edges$release == v, , drop = FALSE]
+    }
+  }
+
+  view_edges_df <- if (length(edges_parts) > 0L) {
+    out_df <- do.call(rbind, edges_parts)
+    rownames(out_df) <- NULL
+    out_df
+  } else {
+    empty_edges
+  }
+
+  cur_edges <- view_edges_df[view_edges_df$release == current_release, , drop = FALSE]
+  biocviews_fingerprint <- if (nrow(cur_edges) > 0L) {
+    paste0(sort(paste0(cur_edges$parent, "->", cur_edges$child)), collapse = ",")
+  } else {
+    ""
+  }
+
   # 4. Determine which packages to (re)crawl
   if (force_full || !has_prev) {
     crawl_set <- io$list_repos()
@@ -396,11 +448,12 @@ run_update <- function(io, out_dir, force_full = FALSE) {
 
   # 7. Export catalog and manifest
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
-  export_catalog(db_path, packages_df, authors_df, releases_df)
+  export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df)
 
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
-    (prev$manifest$source$views_fingerprint    %||% "") != views_fingerprint ||
-    (prev$manifest$source$releases_fingerprint %||% "") != releases_fingerprint
+    (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
+    (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
+    (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint
 
   manifest <- list(
     release         = paste0("v", format(Sys.time(), "%Y%m%d-%H%M%S", tz = "UTC")),
@@ -412,8 +465,10 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     changed              = manifest_changed,
     n_releases           = nrow(releases_df),
     source               = list(
-      views_fingerprint    = views_fingerprint,
-      releases_fingerprint = releases_fingerprint
+      views_fingerprint     = views_fingerprint,
+      releases_fingerprint  = releases_fingerprint,
+      biocviews_fingerprint = biocviews_fingerprint,
+      n_view_edges          = nrow(view_edges_df)
     )
   )
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
@@ -464,6 +519,17 @@ default_io <- function() {
       )
     },
 
+    fetch_biocviews_dot = function(branch) {
+      url_str <- paste(BIOC_RAW_BASE, "biocViews", branch,
+                       "inst/dot/biocViewsVocab.dot", sep = "/")
+      tryCatch(
+        with_retry(
+          paste(readLines(url(url_str), warn = FALSE), collapse = "\n")
+        ),
+        error = function(e) NULL
+      )
+    },
+
     prev_catalog = function() {
       tmp_dir <- tempfile()
       dir.create(tmp_dir, showWarnings = FALSE)
@@ -497,7 +563,19 @@ default_io <- function() {
       on.exit(RSQLite::dbDisconnect(con), add = TRUE)
       pkgs  <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
       auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors")
-      list(packages = pkgs, authors = auths, manifest = prev_manifest)
+      view_edges <- tryCatch({
+        if (RSQLite::dbExistsTable(con, "bioc_view_edges")) {
+          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
+        } else {
+          data.frame(release = character(0), parent = character(0),
+                     child = character(0), stringsAsFactors = FALSE)
+        }
+      }, error = function(e) {
+        data.frame(release = character(0), parent = character(0),
+                   child = character(0), stringsAsFactors = FALSE)
+      })
+      list(packages = pkgs, authors = auths, view_edges = view_edges,
+           manifest = prev_manifest)
     }
   )
 }
