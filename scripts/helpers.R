@@ -11,22 +11,34 @@ release_to_numeric <- function(rel) {
 }
 
 #' Convert a named dates vector (version -> ISO date) to an ordered
-#' bioc_releases data.frame with columns version, released, seq.
+#' bioc_releases data.frame with columns version, released, seq, r_version.
 #' Rows are ordered by release_to_numeric ascending; seq is 1-based.
-#' Empty-safe: returns the 3-column zero-row frame when dates is empty.
-bioc_releases_from_dates <- function(dates) {
-  cols  <- c("version", "released", "seq")
+#' Empty-safe: returns the 4-column zero-row frame when dates is empty.
+#' @param r_versions  Named character vector (bioc version -> R version) as
+#'   returned by parse_r_ver_for_bioc(). NULL or zero-length gives NA for all.
+bioc_releases_from_dates <- function(dates, r_versions = NULL) {
+  cols  <- c("version", "released", "seq", "r_version")
   empty <- setNames(
-    data.frame(character(0), character(0), integer(0), stringsAsFactors = FALSE),
+    data.frame(
+      character(0), character(0), integer(0), character(0),
+      stringsAsFactors = FALSE
+    ),
     cols
   )
   if (length(dates) == 0L) return(empty)
   nums <- vapply(names(dates), release_to_numeric, numeric(1))
   ord  <- order(nums)
+  vers <- names(dates)[ord]
+  r_ver <- if (!is.null(r_versions) && length(r_versions) > 0L) {
+    unname(r_versions[vers])
+  } else {
+    rep(NA_character_, length(vers))
+  }
   data.frame(
-    version  = names(dates)[ord],
-    released = unname(dates[ord]),
-    seq      = seq_len(length(dates)),
+    version   = vers,
+    released  = unname(dates[ord]),
+    seq       = seq_len(length(dates)),
+    r_version = r_ver,
     stringsAsFactors = FALSE
   )
 }
@@ -126,9 +138,9 @@ package_lineage <- function(branches, current_release, dates) {
 #'   last_release_date, in_current, in_devel, updated_at).
 #' @param authors_df  data.frame with 6 bioc_authors columns in schema order
 #'   (package, given, family, email, role, orcid).
-#' @param releases_df data.frame with 3 bioc_releases columns (version, released,
-#'   seq) as returned by bioc_releases_from_dates(). NULL or 0-row creates the
-#'   empty table only.
+#' @param releases_df data.frame with 4 bioc_releases columns (version, released,
+#'   seq, r_version) as returned by bioc_releases_from_dates(). NULL or 0-row
+#'   creates the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
@@ -183,9 +195,10 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
 
   RSQLite::dbExecute(con, "
     CREATE TABLE bioc_releases (
-      version  TEXT PRIMARY KEY,
-      released TEXT,
-      seq      INTEGER
+      version   TEXT PRIMARY KEY,
+      released  TEXT,
+      seq       INTEGER,
+      r_version TEXT
     )
   ")
   RSQLite::dbExecute(con,
@@ -206,6 +219,16 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL) {
 write_manifest <- function(path, obj) {
   jsonlite::write_json(obj, path, auto_unbox = TRUE, pretty = TRUE)
   invisible(NULL)
+}
+
+#' Parse the `r_ver_for_bioc_ver:` block of config.yaml into a named character
+#' vector mapping Bioconductor version -> R version string. Returns an empty
+#' named character vector when the key is absent.
+parse_r_ver_for_bioc <- function(yaml_text) {
+  y  <- yaml::yaml.load(yaml_text)
+  rv <- y$r_ver_for_bioc_ver
+  if (is.null(rv)) return(setNames(character(0), character(0)))
+  setNames(as.character(unlist(rv)), names(rv))
 }
 
 #' Parse the `release_dates:` block of config.yaml into a named vector of ISO

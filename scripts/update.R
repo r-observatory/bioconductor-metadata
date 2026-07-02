@@ -56,12 +56,14 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
-  dates  <- parse_release_dates(io$config_yaml())
-  nums   <- vapply(names(dates), release_to_numeric, numeric(1))
+  config_text     <- io$config_yaml()
+  dates           <- parse_release_dates(config_text)
+  r_vers          <- parse_r_ver_for_bioc(config_text)
+  nums            <- vapply(names(dates), release_to_numeric, numeric(1))
   current_release <- names(dates)[which.max(nums)]
 
-  releases_df          <- bioc_releases_from_dates(dates)
-  releases_fingerprint <- paste0(releases_df$version, collapse = ",")
+  releases_df          <- bioc_releases_from_dates(dates, r_vers)
+  releases_fingerprint <- paste0(releases_df$version, ":", releases_df$r_version, collapse = ",")
 
   # 2. Fetch VIEWS metadata for every category
   views_parts <- lapply(names(VIEWS_URLS), function(cat) {

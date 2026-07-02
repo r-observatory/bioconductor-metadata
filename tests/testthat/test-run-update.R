@@ -20,6 +20,9 @@ FIXTURE_CONFIG_YAML <- "
 release_dates:
   3.22: 10/30/2025
   3.23: 04/15/2026
+r_ver_for_bioc_ver:
+  '3.22': '4.5'
+  '3.23': '4.6'
 "
 
 # software VIEWS: only PkgSoft (PkgOld is absent -- it has been removed)
@@ -428,8 +431,9 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
 # sorted "name:version" pairs joined by commas.
 .FIXTURE_FP <- "PkgAnnot:2.0.0,PkgSoft:1.2.0"
 
-# The releases fingerprint for the fixture config (3.22, 3.23 ordered ascending).
-.FIXTURE_RELEASES_FP <- "3.22,3.23"
+# The releases fingerprint for the fixture config (3.22, 3.23 ordered ascending,
+# each with their R version from r_ver_for_bioc_ver).
+.FIXTURE_RELEASES_FP <- "3.22:4.5,3.23:4.6"
 
 test_that("manifest$changed is FALSE on steady-state incremental run", {
   tmp <- withr::local_tempdir()
@@ -531,7 +535,7 @@ test_that("manifest$changed is TRUE when views fingerprint differs from prior", 
 # bioc_releases table in the written DB
 # ---------------------------------------------------------------------------
 
-test_that("run_update writes bioc_releases table with ordered rows", {
+test_that("run_update writes bioc_releases table with ordered rows and r_version", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")
 
@@ -540,12 +544,13 @@ test_that("run_update writes bioc_releases table with ordered rows", {
   con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
 
-  # Fixture has releases 3.22 and 3.23
+  # Fixture has releases 3.22 and 3.23 with R versions from r_ver_for_bioc_ver
   rels <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_releases ORDER BY seq")
   expect_equal(nrow(rels), 2L)
-  expect_equal(rels$version,  c("3.22", "3.23"))
-  expect_equal(rels$seq,      c(1L, 2L))
-  expect_equal(rels$released, c("2025-10-30", "2026-04-15"))
+  expect_equal(rels$version,   c("3.22", "3.23"))
+  expect_equal(rels$seq,       c(1L, 2L))
+  expect_equal(rels$released,  c("2025-10-30", "2026-04-15"))
+  expect_equal(rels$r_version, c("4.5", "4.6"))
 })
 
 test_that("run_update manifest includes n_releases and releases_fingerprint", {
