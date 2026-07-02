@@ -167,6 +167,84 @@ test_that("export_catalog overwrites an existing DB file cleanly", {
 # write_manifest
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# export_catalog -- bioc_view_edges
+# ---------------------------------------------------------------------------
+
+test_that("export_catalog with view_edges_df writes bioc_view_edges rows", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  ve <- data.frame(
+    release = c("3.20", "3.20", "3.20"),
+    parent  = c("BiocViews", "Software", "AssayDomain"),
+    child   = c("Software",  "AssayDomain", "aCGH"),
+    stringsAsFactors = FALSE
+  )
+  export_catalog(tmp, make_packages_df(), make_authors_df(),
+                 view_edges_df = ve)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges ORDER BY rowid")
+  expect_equal(nrow(rows), 3L)
+  expect_equal(rows$release, c("3.20", "3.20", "3.20"))
+  expect_equal(rows$parent,  c("BiocViews", "Software", "AssayDomain"))
+  expect_equal(rows$child,   c("Software",  "AssayDomain", "aCGH"))
+})
+
+test_that("export_catalog with view_edges_df creates the two view_edges indexes", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  ve <- data.frame(
+    release = "3.20", parent = "BiocViews", child = "Software",
+    stringsAsFactors = FALSE
+  )
+  export_catalog(tmp, make_packages_df(), make_authors_df(),
+                 view_edges_df = ve)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  idx <- RSQLite::dbGetQuery(
+    con,
+    "SELECT name FROM sqlite_master WHERE type = 'index' ORDER BY name"
+  )$name
+  expect_true("idx_bioc_view_edges_rel"   %in% idx)
+  expect_true("idx_bioc_view_edges_child" %in% idx)
+})
+
+test_that("export_catalog without view_edges_df creates empty bioc_view_edges table", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
+  expect_equal(nrow(rows), 0L)
+
+  tbl_info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_view_edges)")
+  expect_true("release" %in% tbl_info$name)
+  expect_true("parent"  %in% tbl_info$name)
+  expect_true("child"   %in% tbl_info$name)
+
+  idx <- RSQLite::dbGetQuery(
+    con,
+    "SELECT name FROM sqlite_master WHERE type = 'index' ORDER BY name"
+  )$name
+  expect_true("idx_bioc_view_edges_rel"   %in% idx)
+  expect_true("idx_bioc_view_edges_child" %in% idx)
+})
+
+# ---------------------------------------------------------------------------
+# write_manifest
+# ---------------------------------------------------------------------------
+
 test_that("write_manifest writes valid JSON readable by jsonlite::read_json", {
   tmp <- tempfile(fileext = ".json")
   on.exit(unlink(tmp), add = TRUE)
