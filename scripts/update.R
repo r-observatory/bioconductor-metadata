@@ -56,12 +56,14 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
-  dates  <- parse_release_dates(io$config_yaml())
-  nums   <- vapply(names(dates), release_to_numeric, numeric(1))
+  config_text     <- io$config_yaml()
+  dates           <- parse_release_dates(config_text)
+  r_vers          <- parse_r_ver_for_bioc(config_text)
+  nums            <- vapply(names(dates), release_to_numeric, numeric(1))
   current_release <- names(dates)[which.max(nums)]
 
-  releases_df          <- bioc_releases_from_dates(dates)
-  releases_fingerprint <- paste0(releases_df$version, collapse = ",")
+  releases_df          <- bioc_releases_from_dates(dates, r_vers)
+  releases_fingerprint <- paste0(releases_df$version, ":", releases_df$r_version, collapse = ",")
 
   # 2. Fetch VIEWS metadata for every category
   views_parts <- lapply(names(VIEWS_URLS), function(cat) {
@@ -87,10 +89,20 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   if (force_full || !has_prev) {
     crawl_set <- io$list_repos()
   } else {
-    new_in_views      <- setdiff(views_names, prev_pkgs$name)
-    prev_current      <- prev_pkgs$name[prev_pkgs$in_current == 1L]
+    new_in_views       <- setdiff(views_names, prev_pkgs$name)
+    prev_current       <- prev_pkgs$name[prev_pkgs$in_current == 1L]
     removed_from_views <- setdiff(prev_current, views_names)
-    crawl_set         <- union(new_in_views, removed_from_views)
+    # Re-crawl current packages whose first_release was not established yet
+    # (e.g., git ls-remote failed during a cold bootstrap run).
+    null_first <- if ("first_release" %in% names(prev_pkgs)) {
+      prev_pkgs$name[
+        (is.na(prev_pkgs$first_release) | prev_pkgs$first_release == "") &
+        prev_pkgs$name %in% views_names
+      ]
+    } else {
+      character(0L)
+    }
+    crawl_set <- union(union(new_in_views, removed_from_views), null_first)
   }
 
   # 5. Crawl each package in the set (per-package failures are caught and skipped)
