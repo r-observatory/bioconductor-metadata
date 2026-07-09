@@ -179,7 +179,7 @@ parse_biocviews_dot <- function(dot_text) {
 #'   parent, child) as produced by parse_biocviews_dot(). NULL or 0-row creates
 #'   the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
-                           view_edges_df = NULL) {
+                           view_edges_df = NULL, names_all_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -262,6 +262,22 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
     RSQLite::dbWriteTable(con, "bioc_view_edges", view_edges_df, append = TRUE)
   }
 
+  if (!is.null(names_all_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_names_all (
+        name_lower     TEXT PRIMARY KEY,
+        canonical_name TEXT NOT NULL,
+        identity_state TEXT NOT NULL,
+        first_seen     TEXT NOT NULL,
+        last_seen      TEXT NOT NULL
+      )")
+    if (nrow(names_all_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_names_all",
+        names_all_df[, c("name_lower", "canonical_name", "identity_state",
+                         "first_seen", "last_seen"), drop = FALSE], append = TRUE)
+    }
+  }
+
   RSQLite::dbExecute(con, "VACUUM")
   invisible(NULL)
 }
@@ -302,4 +318,38 @@ parse_release_dates <- function(yaml_text) {
     if (is.na(d)) NA_character_ else format(d, "%Y-%m-%d")
   }, character(1))
   out[!is.na(out)]
+}
+
+#' Project bioc_packages into the shared name-authority shape. canonical_name is
+#' the Bioc-cased name; identity_state is live when in_current else archived;
+#' first_seen is the first_release_date (empty string when unknown, so it never
+#' churns); last_seen is updated_at. One row per name_lower, keeping live on a
+#' case collision.
+build_bioc_names_all <- function(packages_df) {
+  cols <- c("name_lower", "canonical_name", "identity_state", "first_seen", "last_seen")
+  if (is.null(packages_df) || nrow(packages_df) == 0L) {
+    empty <- as.data.frame(setNames(rep(list(character(0)), length(cols)), cols),
+                           stringsAsFactors = FALSE)
+    return(empty)
+  }
+  frd <- packages_df$first_release_date
+  first_seen <- ifelse(is.na(frd) | frd == "", "", frd)
+  df <- data.frame(
+    name_lower     = packages_df$name_lower,
+    canonical_name = packages_df$name,
+    identity_state = ifelse(packages_df$in_current == 1L, "live", "archived"),
+    first_seen     = first_seen,
+    last_seen      = packages_df$updated_at,
+    stringsAsFactors = FALSE
+  )
+  df <- df[order(df$name_lower, df$identity_state != "live"), , drop = FALSE]
+  df <- df[!duplicated(df$name_lower), , drop = FALSE]
+  rownames(df) <- NULL
+  df
+}
+
+#' Reject a truncated VIEWS fetch: FALSE when the live package count is below the
+#' floor, signalling the caller to reuse the prior bioc_names_all.
+bioc_names_size_ok <- function(n_live, floor = BIOC_LIVE_FLOOR) {
+  is.finite(n_live) && n_live >= floor
 }

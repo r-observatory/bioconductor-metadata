@@ -104,7 +104,7 @@ FIXTURE_BRANCHES <- list(
 # ---------------------------------------------------------------------------
 
 make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list(),
-                         prev_view_edges = NULL) {
+                         prev_view_edges = NULL, prev_names_all = NULL) {
   all_repos <- c("PkgSoft", "PkgAnnot", "PkgOld")
 
   list(
@@ -146,7 +146,11 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
         view_edges = prev_view_edges %||% data.frame(
           release = character(0), parent = character(0), child = character(0),
           stringsAsFactors = FALSE),
-        manifest = prev_manifest
+        manifest = prev_manifest,
+        names_all = prev_names_all %||% data.frame(
+          name_lower = character(0), canonical_name = character(0),
+          identity_state = character(0), first_seen = character(0),
+          last_seen = character(0), stringsAsFactors = FALSE)
       )
     }
   )
@@ -841,6 +845,152 @@ test_that("biocviews: fetch returning NULL for all branches contributes no edges
   edges <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
   expect_equal(nrow(edges), 0L,
                label = "no edges written when all fetches return NULL")
+})
+
+# ---------------------------------------------------------------------------
+# bioc_names_all table published each run
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes bioc_names_all and records n_names/names_gate_ok in the manifest", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # The stub fixture only has 2 live packages, well under BIOC_LIVE_FLOOR, so
+  # the gate fails; make_stub_io() has no prior names_all, so run_update falls
+  # back to building the projection fresh from the just-assembled packages_df.
+  res <- run_update(make_stub_io(), out, force_full = TRUE)
+
+  expect_false(res$manifest$names_gate_ok,
+               label = "gate fails below BIOC_LIVE_FLOOR with only 2 live packages")
+  expect_equal(res$manifest$n_names, 3L,
+               label = "n_names counts every row in the fallback projection")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  names_all <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all ORDER BY name_lower")
+
+  expect_equal(nrow(names_all), 3L)
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgsoft"],  "live")
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgannot"], "live")
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgold"],   "archived")
+})
+
+test_that("run_update reuses a non-empty prior bioc_names_all on a gate-failing run instead of wiping it", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Prior catalog: PkgSoft and PkgAnnot current, PkgOld already removed. With
+  # only 2 live packages the fresh projection would also fail well below
+  # BIOC_LIVE_FLOOR, so the gate fails here too -- but a real, non-empty prior
+  # bioc_names_all is injected. The regression this guards: %||% on a
+  # data.frame tests column count, not row count, so an empty-but-columned
+  # prior (the realistic shape prev_catalog() returns on a failed download or
+  # a pre-feature DB) would previously be treated as "present" and passed
+  # through unchanged; a genuinely non-empty prior must be reused verbatim.
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.1.0", "1.9.0", "0.9.0"),
+    title              = c("Old Soft", "Old Annot", "Old Old"),
+    description        = c("d", "d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.20", "3.21", "3.18"),
+    first_release_date = c("2024-10-30", "2025-04-16", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+  prev_names_all <- data.frame(
+    name_lower = "prevonly", canonical_name = "PrevOnly",
+    identity_state = "archived", first_seen = "2015-01-01",
+    last_seen = "2025-01-01", stringsAsFactors = FALSE
+  )
+
+  io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_names_all = prev_names_all)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_false(res$manifest$names_gate_ok,
+               label = "gate fails below BIOC_LIVE_FLOOR with only 2 live packages")
+  expect_equal(res$manifest$n_names, 1L,
+               label = "n_names reflects the reused prior, not a fresh 3-row build")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  names_all <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
+
+  expect_equal(nrow(names_all), 1L,
+               label = "the prior row is written, not wiped to empty")
+  expect_equal(names_all$name_lower, "prevonly")
+  expect_equal(names_all$canonical_name, "PrevOnly")
+})
+
+test_that("run_update builds bioc_names_all when the gate fails and the prior is empty-columned", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # Prior catalog: PkgSoft and PkgAnnot current, PkgOld already removed. This
+  # non-empty prev_pkgs makes has_prev TRUE and carries names forward into
+  # packages_df, so build_bioc_names_all(packages_df) yields > 0 rows. With
+  # only 2 live packages the gate fails well below BIOC_LIVE_FLOOR (1500).
+  #
+  # prev_names_all is left NULL, which is the realistic shape: prev_catalog()
+  # falls back via %||% to an empty-but-5-columned data.frame, NOT a true
+  # NULL. The buggy form (`prev$names_all %||% build_bioc_names_all(...)`)
+  # tests column count, and an empty 5-column frame has length 5, so %||%
+  # treats it as "present" and reuses it verbatim -- publishing an empty
+  # bioc_names_all even though a real, non-empty projection could have been
+  # built from packages_df. The fix instead checks nrow(prev$names_all) > 0L
+  # explicitly, so it falls through to building fresh from packages_df.
+  prev_pkgs <- data.frame(
+    name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
+    name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
+    category           = c("software", "annotation", "software"),
+    version            = c("1.1.0", "1.9.0", "0.9.0"),
+    title              = c("Old Soft", "Old Annot", "Old Old"),
+    description        = c("d", "d", "d"),
+    maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
+    maintainer_email   = c("alice@example.com", "bob@example.com", "carol@example.com"),
+    license            = c("MIT", "GPL-3", "LGPL"),
+    depends            = c(NA_character_, NA_character_, NA_character_),
+    imports            = c(NA_character_, NA_character_, NA_character_),
+    suggests           = c(NA_character_, NA_character_, NA_character_),
+    biocviews          = c("Software", "Annotation", "Software"),
+    git_url            = c(NA_character_, NA_character_, NA_character_),
+    first_release      = c("3.20", "3.21", "3.18"),
+    first_release_date = c("2024-10-30", "2025-04-16", "2022-04-27"),
+    last_release       = c("3.22", "3.22", "3.22"),
+    last_release_date  = c("2025-10-30", "2025-10-30", "2025-10-30"),
+    in_current         = c(1L, 1L, 0L),
+    in_devel           = c(1L, 1L, 0L),
+    updated_at         = c("2025-10-30T00:00:00Z", "2025-10-30T00:00:00Z",
+                           "2025-10-30T00:00:00Z"),
+    stringsAsFactors   = FALSE
+  )
+
+  io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_names_all = NULL)
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_false(res$manifest$names_gate_ok,
+               label = "gate fails below BIOC_LIVE_FLOOR with only 2 live packages")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  names_all <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
+
+  expect_true(nrow(names_all) > 0L,
+              label = "bioc_names_all built from packages_df, not the empty-columned prior")
 })
 
 test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerprint (self-heal)", {

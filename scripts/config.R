@@ -9,3 +9,7 @@ BIOC_ORG        <- "bioc"
 BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pkg>
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION
 PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
+
+# Floor for the names size gate: a live count below this is treated as a partial
+# VIEWS fetch and the run reuses the prior bioc_names_all.
+BIOC_LIVE_FLOOR <- 1500L

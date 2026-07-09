@@ -448,7 +448,23 @@ run_update <- function(io, out_dir, force_full = FALSE) {
 
   # 7. Export catalog and manifest
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
-  export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df)
+
+  n_live_bioc   <- sum(packages_df$in_current == 1L)
+  names_gate_ok <- bioc_names_size_ok(n_live_bioc)
+  names_all_df  <- if (names_gate_ok) {
+    build_bioc_names_all(packages_df)
+  } else if (!is.null(prev$names_all) && nrow(prev$names_all) > 0L) {
+    message("bioc names size gate failed (live=", n_live_bioc,
+            "); reusing the prior bioc_names_all")
+    prev$names_all
+  } else {
+    message("bioc names size gate failed (live=", n_live_bioc,
+            ") and no prior names table; building from the current catalog")
+    build_bioc_names_all(packages_df)
+  }
+  n_names <- nrow(names_all_df)
+  export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
+                 names_all_df = names_all_df)
 
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
@@ -462,6 +478,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_packages      = nrow(packages_df),
     n_current       = sum(packages_df$in_current == 1L),
     n_authors       = nrow(authors_df),
+    n_names         = n_names,
+    names_gate_ok   = names_gate_ok,
     changed              = manifest_changed,
     n_releases           = nrow(releases_df),
     source               = list(
@@ -557,7 +575,9 @@ default_io <- function() {
         stdout = FALSE, stderr = FALSE))
       db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
       if (!identical(as.integer(st), 0L) || !file.exists(db_path)) {
-        return(list(manifest = prev_manifest))
+        return(list(manifest = prev_manifest, names_all = data.frame(name_lower = character(0), canonical_name = character(0),
+                     identity_state = character(0), first_seen = character(0),
+                     last_seen = character(0), stringsAsFactors = FALSE)))
       }
       con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
       on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -574,8 +594,21 @@ default_io <- function() {
         data.frame(release = character(0), parent = character(0),
                    child = character(0), stringsAsFactors = FALSE)
       })
+      names_all <- tryCatch({
+        if (RSQLite::dbExistsTable(con, "bioc_names_all")) {
+          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
+        } else {
+          data.frame(name_lower = character(0), canonical_name = character(0),
+                     identity_state = character(0), first_seen = character(0),
+                     last_seen = character(0), stringsAsFactors = FALSE)
+        }
+      }, error = function(e) {
+        data.frame(name_lower = character(0), canonical_name = character(0),
+                   identity_state = character(0), first_seen = character(0),
+                   last_seen = character(0), stringsAsFactors = FALSE)
+      })
       list(packages = pkgs, authors = auths, view_edges = view_edges,
-           manifest = prev_manifest)
+           manifest = prev_manifest, names_all = names_all)
     }
   )
 }
