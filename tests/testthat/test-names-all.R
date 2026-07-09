@@ -25,6 +25,21 @@ test_that("build_bioc_names_all projects bioc_packages with a live/archived stat
   expect_equal(nrow(build_bioc_names_all(.pkgs())), 0L)
 })
 
+test_that("build_bioc_names_all keeps the live entry on a case collision", {
+  # "Foo" (archived) and "foo" (live) collide on name_lower; the live row must win.
+  pdf <- .pkgs(
+    data.frame(name = "Foo", name_lower = "foo", in_current = 0L,
+               first_release_date = "2015-01-01", updated_at = "2020-01-01", stringsAsFactors = FALSE),
+    data.frame(name = "foo", name_lower = "foo", in_current = 1L,
+               first_release_date = "2018-01-01", updated_at = "2026-07-09", stringsAsFactors = FALSE))
+  hit <- build_bioc_names_all(pdf)
+  hit <- hit[hit$name_lower == "foo", ]
+  expect_equal(nrow(hit), 1L)
+  expect_equal(hit$canonical_name, "foo")      # live row's name
+  expect_equal(hit$identity_state, "live")
+  expect_equal(hit$first_seen, "2018-01-01")   # live row's first_release_date
+})
+
 test_that("bioc_names_size_ok rejects a truncated VIEWS fetch", {
   expect_true(bioc_names_size_ok(4000))
   expect_false(bioc_names_size_ok(200))
