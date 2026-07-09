@@ -179,7 +179,7 @@ parse_biocviews_dot <- function(dot_text) {
 #'   parent, child) as produced by parse_biocviews_dot(). NULL or 0-row creates
 #'   the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
-                           view_edges_df = NULL) {
+                           view_edges_df = NULL, names_all_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -260,6 +260,22 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
 
   if (!is.null(view_edges_df) && nrow(view_edges_df) > 0L) {
     RSQLite::dbWriteTable(con, "bioc_view_edges", view_edges_df, append = TRUE)
+  }
+
+  if (!is.null(names_all_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_names_all (
+        name_lower     TEXT PRIMARY KEY,
+        canonical_name TEXT NOT NULL,
+        identity_state TEXT NOT NULL,
+        first_seen     TEXT NOT NULL,
+        last_seen      TEXT NOT NULL
+      )")
+    if (nrow(names_all_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_names_all",
+        names_all_df[, c("name_lower", "canonical_name", "identity_state",
+                         "first_seen", "last_seen"), drop = FALSE], append = TRUE)
+    }
   }
 
   RSQLite::dbExecute(con, "VACUUM")

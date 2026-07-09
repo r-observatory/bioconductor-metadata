@@ -557,7 +557,9 @@ default_io <- function() {
         stdout = FALSE, stderr = FALSE))
       db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
       if (!identical(as.integer(st), 0L) || !file.exists(db_path)) {
-        return(list(manifest = prev_manifest))
+        return(list(manifest = prev_manifest, names_all = data.frame(name_lower = character(0), canonical_name = character(0),
+                     identity_state = character(0), first_seen = character(0),
+                     last_seen = character(0), stringsAsFactors = FALSE)))
       }
       con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
       on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -574,8 +576,21 @@ default_io <- function() {
         data.frame(release = character(0), parent = character(0),
                    child = character(0), stringsAsFactors = FALSE)
       })
+      names_all <- tryCatch({
+        if (RSQLite::dbExistsTable(con, "bioc_names_all")) {
+          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
+        } else {
+          data.frame(name_lower = character(0), canonical_name = character(0),
+                     identity_state = character(0), first_seen = character(0),
+                     last_seen = character(0), stringsAsFactors = FALSE)
+        }
+      }, error = function(e) {
+        data.frame(name_lower = character(0), canonical_name = character(0),
+                   identity_state = character(0), first_seen = character(0),
+                   last_seen = character(0), stringsAsFactors = FALSE)
+      })
       list(packages = pkgs, authors = auths, view_edges = view_edges,
-           manifest = prev_manifest)
+           manifest = prev_manifest, names_all = names_all)
     }
   )
 }

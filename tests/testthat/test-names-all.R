@@ -45,3 +45,30 @@ test_that("bioc_names_size_ok rejects a truncated VIEWS fetch", {
   expect_false(bioc_names_size_ok(200))
   expect_false(bioc_names_size_ok(0))
 })
+
+test_that("export_catalog writes bioc_names_all when given a projection", {
+  path <- tempfile(fileext = ".db")
+  on.exit(unlink(path))
+  pdf <- .pkgs(data.frame(name = "ComplexHeatmap", name_lower = "complexheatmap",
+                          in_current = 1L, first_release_date = "2016-05-01",
+                          updated_at = "2026-07-09", stringsAsFactors = FALSE))
+  # bioc_packages needs its full column set; build a minimal compliant frame.
+  full <- data.frame(name = "ComplexHeatmap", name_lower = "complexheatmap",
+    category = "software", version = "1.0", title = "t", description = "d",
+    maintainer = "m", maintainer_email = "e", license = "MIT", depends = "",
+    imports = "", suggests = "", biocviews = "", git_url = "",
+    first_release = "3.3", first_release_date = "2016-05-01", last_release = "3.19",
+    last_release_date = "2026-07-09", in_current = 1L, in_devel = 0L,
+    updated_at = "2026-07-09", stringsAsFactors = FALSE)
+  auth <- data.frame(package = character(0), given = character(0), family = character(0),
+                     email = character(0), role = character(0), orcid = character(0),
+                     stringsAsFactors = FALSE)
+  export_catalog(path, full, auth, names_all_df = build_bioc_names_all(pdf))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
+  got <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
+  RSQLite::dbDisconnect(con)
+  expect_equal(nrow(got), 1L)
+  expect_equal(got$canonical_name, "ComplexHeatmap")
+  expect_equal(got$identity_state, "live")
+})
