@@ -843,6 +843,34 @@ test_that("biocviews: fetch returning NULL for all branches contributes no edges
                label = "no edges written when all fetches return NULL")
 })
 
+# ---------------------------------------------------------------------------
+# bioc_names_all table published each run
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes bioc_names_all and records n_names/names_gate_ok in the manifest", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  # The stub fixture only has 2 live packages, well under BIOC_LIVE_FLOOR, so
+  # the gate fails; make_stub_io() has no prior names_all, so run_update falls
+  # back to building the projection fresh from the just-assembled packages_df.
+  res <- run_update(make_stub_io(), out, force_full = TRUE)
+
+  expect_false(res$manifest$names_gate_ok,
+               label = "gate fails below BIOC_LIVE_FLOOR with only 2 live packages")
+  expect_equal(res$manifest$n_names, 3L,
+               label = "n_names counts every row in the fallback projection")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  names_all <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all ORDER BY name_lower")
+
+  expect_equal(nrow(names_all), 3L)
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgsoft"],  "live")
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgannot"], "live")
+  expect_equal(names_all$identity_state[names_all$name_lower == "pkgold"],   "archived")
+})
+
 test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerprint (self-heal)", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")

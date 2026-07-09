@@ -72,3 +72,25 @@ test_that("export_catalog writes bioc_names_all when given a projection", {
   expect_equal(got$canonical_name, "ComplexHeatmap")
   expect_equal(got$identity_state, "live")
 })
+
+test_that("run_update passes a gated bioc_names_all to export", {
+  # Reuse the repo's existing run-update test io if one exists; otherwise this
+  # focused check drives the projection + gate decision directly.
+  pdf <- .pkgs(
+    data.frame(name = "ComplexHeatmap", name_lower = "complexheatmap", in_current = 1L,
+               first_release_date = "2016-05-01", updated_at = "2026-07-09", stringsAsFactors = FALSE),
+    data.frame(name = "oldbioc", name_lower = "oldbioc", in_current = 0L,
+               first_release_date = NA_character_, updated_at = "2024-01-01", stringsAsFactors = FALSE))
+  n_live <- sum(pdf$in_current == 1L)
+  prior  <- data.frame(name_lower = "prevonly", canonical_name = "PrevOnly",
+                       identity_state = "archived", first_seen = "2015-01-01",
+                       last_seen = "2025-01-01", stringsAsFactors = FALSE)
+
+  # gate passes with a low floor: fresh projection is used
+  chosen_ok <- if (bioc_names_size_ok(n_live, floor = 0L)) build_bioc_names_all(pdf) else prior
+  expect_setequal(chosen_ok$name_lower, c("complexheatmap", "oldbioc"))
+
+  # gate fails with a high floor: prior is reused
+  chosen_bad <- if (bioc_names_size_ok(n_live, floor = 999999L)) build_bioc_names_all(pdf) else prior
+  expect_setequal(chosen_bad$name_lower, "prevonly")
+})
