@@ -94,3 +94,22 @@ test_that("run_update passes a gated bioc_names_all to export", {
   chosen_bad <- if (bioc_names_size_ok(n_live, floor = 999999L)) build_bioc_names_all(pdf) else prior
   expect_setequal(chosen_bad$name_lower, "prevonly")
 })
+
+test_that("the gate-fail reuse falls back to build, not an empty prior frame", {
+  empty_prior <- data.frame(name_lower = character(0), canonical_name = character(0),
+                            identity_state = character(0), first_seen = character(0),
+                            last_seen = character(0), stringsAsFactors = FALSE)
+  pdf <- .pkgs(data.frame(name = "Live", name_lower = "live", in_current = 1L,
+                          first_release_date = "2016-01-01", updated_at = "2026-07-09",
+                          stringsAsFactors = FALSE))
+  # emulate the run_update gate-fail decision with an empty prior:
+  chosen <- if (!is.null(empty_prior) && nrow(empty_prior) > 0L) empty_prior else build_bioc_names_all(pdf)
+  expect_equal(nrow(chosen), 1L)                 # NOT the empty prior
+  expect_equal(chosen$name_lower, "live")
+  # and with a genuinely non-empty prior, the prior is reused:
+  nonempty_prior <- data.frame(name_lower = "keepme", canonical_name = "KeepMe",
+                               identity_state = "archived", first_seen = "2015-01-01",
+                               last_seen = "2025-01-01", stringsAsFactors = FALSE)
+  chosen2 <- if (!is.null(nonempty_prior) && nrow(nonempty_prior) > 0L) nonempty_prior else build_bioc_names_all(pdf)
+  expect_equal(chosen2$name_lower, "keepme")
+})

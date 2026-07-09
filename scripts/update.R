@@ -453,10 +453,14 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   names_gate_ok <- bioc_names_size_ok(n_live_bioc)
   names_all_df  <- if (names_gate_ok) {
     build_bioc_names_all(packages_df)
-  } else {
+  } else if (!is.null(prev$names_all) && nrow(prev$names_all) > 0L) {
     message("bioc names size gate failed (live=", n_live_bioc,
             "); reusing the prior bioc_names_all")
-    prev$names_all %||% build_bioc_names_all(packages_df)
+    prev$names_all
+  } else {
+    message("bioc names size gate failed (live=", n_live_bioc,
+            ") and no prior names table; building from the current catalog")
+    build_bioc_names_all(packages_df)
   }
   n_names <- nrow(names_all_df)
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
