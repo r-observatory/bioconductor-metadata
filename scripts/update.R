@@ -466,6 +466,29 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
                  names_all_df = names_all_df)
 
+  # Integrity / completeness core for the primary published db. export_catalog
+  # closes its own connection before returning, so the file on disk is
+  # finalized here; db_integrity_core enumerates tables/counts on a fresh
+  # connection, disconnects, and only then hashes the closed file's bytes.
+  #
+  # complete = the db holds the full, non-partial catalog (freshness is tracked
+  # separately via generated_at and the source fingerprint). Two genuine
+  # partial/bootstrap states make it FALSE:
+  #   1. A truncated VIEWS fetch: names_gate_ok is FALSE when the live count
+  #      falls below the floor, i.e. the live catalog itself came up short.
+  #   2. Unresolved cold-bootstrap lineage: current software/workflows packages
+  #      whose first_release could not be established yet (git ls-remote
+  #      failures the pipeline keeps re-crawling until resolved). This mirrors
+  #      the null_first re-crawl set; lineage_remaining == 0 means the lineage
+  #      is fully built.
+  lineage_remaining <- sum(
+    packages_df$in_current == 1L &
+      packages_df$category %in% c("software", "workflows") &
+      (is.na(packages_df$first_release) | packages_df$first_release == "")
+  )
+  db_complete <- isTRUE(names_gate_ok) && lineage_remaining == 0L
+  db_core <- db_integrity_core(db_path, complete = db_complete)
+
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
@@ -489,6 +512,10 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       n_view_edges          = nrow(view_edges_df)
     )
   )
+  # Attach the integrity/completeness core as TOP-LEVEL manifest fields
+  # (db_filename, db_bytes, db_sha256, tables, complete) alongside the existing
+  # ones, so a downstream merge can content-verify the db it pulls.
+  manifest <- c(manifest, db_core)
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
   list(changed = manifest_changed, manifest = manifest)

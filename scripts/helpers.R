@@ -291,6 +291,97 @@ write_manifest <- function(path, obj) {
   invisible(NULL)
 }
 
+#' Compute the lowercase hex SHA-256 of a file's exact on-disk bytes.
+#'
+#' Uses whatever the runner already provides, in preference order:
+#'   1. digest  package        (if installed)
+#'   2. openssl package        (if installed)
+#'   3. sha256sum (coreutils)  - present on the ubuntu-latest CI runner
+#'   4. shasum -a 256 (BSD)    - macOS/local fallback
+#' No extra dependency is required: the CI job installs RSQLite, DBI, jsonlite,
+#' yaml, testthat, withr and curl, none of which pull in digest, so the
+#' coreutils sha256sum path is taken on CI. If a sibling pipeline already
+#' installs digest, that path wins automatically.
+#'
+#' @param path File whose bytes are hashed.
+#' @return lowercase 64-character hex string.
+file_sha256 <- function(path) {
+  if (requireNamespace("digest", quietly = TRUE)) {
+    return(tolower(digest::digest(file = path, algo = "sha256")))
+  }
+  if (requireNamespace("openssl", quietly = TRUE)) {
+    con <- file(path, open = "rb")
+    on.exit(close(con), add = TRUE)
+    return(tolower(as.character(openssl::sha256(con))))
+  }
+  sha_tool <- Sys.which("sha256sum")
+  if (nzchar(sha_tool)) {
+    out <- system2(sha_tool, shQuote(path), stdout = TRUE)
+    return(tolower(sub("\\s.*$", "", out[1])))
+  }
+  shasum_tool <- Sys.which("shasum")
+  if (nzchar(shasum_tool)) {
+    out <- system2(shasum_tool, c("-a", "256", shQuote(path)), stdout = TRUE)
+    return(tolower(sub("\\s.*$", "", out[1])))
+  }
+  stop("No SHA-256 backend found (need one of: digest, openssl, sha256sum, shasum)")
+}
+
+#' Build the integrity / completeness core describing a finalized SQLite file.
+#'
+#' Returns a named list of TOP-LEVEL manifest fields computed from the exact
+#' on-disk bytes of `db_path`. Call this only after the catalog is fully
+#' written and its connection is closed (export_catalog closes its own handle
+#' before returning), so no open journal skews the size or hash:
+#'   * db_filename - basename of the file
+#'   * db_bytes    - byte size of the file as a double. Deliberately NOT cast
+#'                   to integer: R's integer range is 32-bit and overflows to
+#'                   NA (serialized as the string "NA") for files >= ~2 GiB.
+#'   * db_sha256   - lowercase hex sha256 of the file's exact bytes, hashed
+#'                   only after the enumeration connection below is closed.
+#'   * tables      - named list mapping each user table (sqlite_master
+#'                   type='table', excluding sqlite_% internals) to its row count
+#'   * complete    - passed through by the caller. complete = the DB holds the
+#'                   full, non-partial dataset, NOT how fresh it is; freshness is
+#'                   tracked separately via generated_at and the source
+#'                   fingerprint. The caller derives it from the pipeline's
+#'                   genuine partial/bootstrap state rather than hardcoding TRUE.
+#' Lets a downstream merge content-verify the asset it pulls and confirm the
+#' expected tables/rows are present before consuming it.
+#'
+#' @param db_path  Path to the finalized SQLite database.
+#' @param complete Honest boolean derived by the caller (see above).
+#' @return named list of top-level integrity/completeness fields.
+db_integrity_core <- function(db_path, complete) {
+  stopifnot(file.exists(db_path))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
+  tables <- tryCatch({
+    tbl_names <- RSQLite::dbGetQuery(con, "
+      SELECT name FROM sqlite_master
+       WHERE type = 'table' AND name NOT LIKE 'sqlite_%'
+       ORDER BY name")$name
+
+    stats::setNames(
+      lapply(tbl_names, function(t) {
+        RSQLite::dbGetQuery(con, sprintf('SELECT count(*) AS n FROM "%s"', t))$n
+      }),
+      tbl_names
+    )
+  }, finally = RSQLite::dbDisconnect(con))
+
+  # db_bytes / db_sha256 read the raw on-disk file only after the enumeration
+  # connection above is disconnected, so no open handle or journal file skews
+  # the byte count or the hash.
+  list(
+    db_filename = basename(db_path),
+    db_bytes    = file.size(db_path),
+    db_sha256   = file_sha256(db_path),
+    tables      = tables,
+    complete    = complete
+  )
+}
+
 #' Parse the `r_ver_for_bioc_ver:` block of config.yaml into a named character
 #' vector mapping Bioconductor version -> R version string. Returns an empty
 #' named character vector when the key is absent.
