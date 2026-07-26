@@ -33,17 +33,23 @@ if (!exists("parse_views", mode = "function")) {
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
-with_retry <- function(expr, tries = 3L, wait = 3) {
+with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
+                       rand = function() stats::runif(1, 1, 1.25)) {
   # a failed force() leaves the promise un-cached, so the loop re-evaluates expr.
   # Retry attempts are wrapped in suppressWarnings() to silence the
   # "restarting interrupted promise evaluation" diagnostic that R emits when a
-  # previously-failed lazy promise is re-evaluated.
-  for (i in seq_len(tries)) {
+  # previously-failed lazy promise is re-evaluated. The first attempt is left
+  # unsuppressed so the real diagnostic, HTTP status included, still reaches the
+  # log. One more attempt is made than there are waits, and the original error is
+  # the one re-raised. sleep and rand are injected so the suite can assert the
+  # schedule without waiting.
+  n <- length(waits) + 1L
+  for (i in seq_len(n)) {
     val <- tryCatch(
       if (i == 1L) force(expr) else suppressWarnings(force(expr)),
       error = function(e) e)
     if (!inherits(val, "error")) return(val)
-    if (i < tries) Sys.sleep(wait * i)
+    if (i < n) sleep(waits[[i]] * rand())
   }
   stop(val)
 }
@@ -560,7 +566,8 @@ default_io <- function() {
     fetch_description = function(pkg, branch) {
       url_str <- paste(BIOC_RAW_BASE, pkg, branch, "DESCRIPTION", sep = "/")
       with_retry(
-        paste(readLines(url(url_str), warn = FALSE), collapse = "\n")
+        paste(readLines(url(url_str), warn = FALSE), collapse = "\n"),
+        waits = ITEM_RETRY_WAITS_S
       )
     },
 
@@ -569,7 +576,8 @@ default_io <- function() {
                        "inst/dot/biocViewsVocab.dot", sep = "/")
       tryCatch(
         with_retry(
-          paste(readLines(url(url_str), warn = FALSE), collapse = "\n")
+          paste(readLines(url(url_str), warn = FALSE), collapse = "\n"),
+          waits = ITEM_RETRY_WAITS_S
         ),
         error = function(e) NULL
       )
