@@ -566,7 +566,8 @@ default_io <- function() {
     fetch_description = function(pkg, branch) {
       url_str <- paste(BIOC_RAW_BASE, pkg, branch, "DESCRIPTION", sep = "/")
       with_retry(
-        paste(readLines(url(url_str), warn = FALSE), collapse = "\n")
+        paste(readLines(url(url_str), warn = FALSE), collapse = "\n"),
+        waits = ITEM_RETRY_WAITS_S
       )
     },
 
@@ -576,7 +577,7 @@ default_io <- function() {
       tryCatch(
         with_retry(
           paste(readLines(url(url_str), warn = FALSE), collapse = "\n"),
-          waits = DOT_RETRY_WAITS_S
+          waits = ITEM_RETRY_WAITS_S
         ),
         error = function(e) NULL
       )

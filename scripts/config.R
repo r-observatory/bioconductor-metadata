@@ -16,12 +16,24 @@ CONFIG_YAML_URL <- "https://bioconductor.org/config.yaml"
 # multiply across the catalog.
 RETRY_WAITS_S   <- c(5, 15, 30, 60, 120, 300, 600)
 
-# The oldest biocViews release branches have no inst/dot/biocViewsVocab.dot at
-# all (RELEASE_1_0 and RELEASE_1_5 return 404), and fetch_biocviews_dot already
-# treats failure as NULL. Sitting out the full outage budget on a 404 that can
-# never succeed would add tens of minutes to a cold run for nothing, so that one
-# fetch retries briefly and moves on.
-DOT_RETRY_WAITS_S <- c(5, 15)
+# Backoff for the fetches that run once per ITEM rather than once per run, in
+# seconds. The budget above is worth waiting out for config.yaml and the four
+# VIEWS files, where a failure kills the run and there is exactly one of each.
+# It is the wrong trade for the per-item fetches, because it multiplies:
+#
+#   fetch_biocviews_dot  once per release branch; the oldest branches have no
+#                        inst/dot/biocViewsVocab.dot at all (RELEASE_1_0 and
+#                        RELEASE_1_5 return 404, RELEASE_1_8 onward do not), and
+#                        the caller already treats failure as NULL
+#   fetch_description    once per package across a ~2800 package catalog, inside
+#                        a loop that logs a skip and moves on
+#
+# At the full budget, roughly 16 packages failing every attempt would consume
+# the job's entire 300 minute timeout by themselves, so a partial upstream
+# degradation would wedge the run instead of merely thinning that day's results.
+# Giving up early on one item costs a day of that item's metadata, which is much
+# the cheaper mistake.
+ITEM_RETRY_WAITS_S <- c(5, 15, 30)
 BIOC_ORG        <- "bioc"
 BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pkg>
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION

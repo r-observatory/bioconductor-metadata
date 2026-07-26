@@ -88,10 +88,39 @@ test_that("the first retry is cheap so a one-off blip costs seconds", {
   expect_lte(RETRY_WAITS_S[[1]], 5)
 })
 
-# The oldest biocViews release branches (RELEASE_1_0, RELEASE_1_5) genuinely have
-# no inst/dot/biocViewsVocab.dot, and fetch_biocviews_dot already treats failure
-# as NULL. Spending the full outage budget on a 404 that cannot succeed would add
-# tens of minutes to a cold run for nothing.
-test_that("the biocViews vocabulary backoff stays far below the outage budget", {
-  expect_lt(sum(DOT_RETRY_WAITS_S), 60)
+# Budget scales inversely with how many times a fetcher runs.
+#
+# config.yaml and the four VIEWS files are fetched once per run and a failure
+# there kills the run outright, so they are worth waiting out an outage for.
+# The per-item fetchers are not: fetch_biocviews_dot runs once per release
+# branch and already treats failure as NULL, and fetch_description runs once per
+# package across a ~2800 package catalog inside a swallow-and-continue loop
+# (update.R:174-213). Giving those the outage budget multiplies it: at ~19
+# minutes each, roughly 16 packages failing every attempt would consume the
+# job's entire 300 minute timeout on their own, turning a partial upstream
+# degradation into a wedged run. Giving up on one package costs a day of that
+# package's metadata, which is the cheaper mistake by far.
+test_that("per-item fetches stay far below the outage budget", {
+  expect_lt(sum(ITEM_RETRY_WAITS_S), 60)
+  expect_gt(sum(RETRY_WAITS_S), 15 * 60)
+})
+
+test_that("the per-package DESCRIPTION fetch takes the per-item budget", {
+  io <- default_io()
+  expect_match(paste(deparse(io$fetch_description), collapse = " "),
+               "ITEM_RETRY_WAITS_S", fixed = TRUE)
+})
+
+test_that("the biocViews vocabulary fetch takes the per-item budget", {
+  io <- default_io()
+  expect_match(paste(deparse(io$fetch_biocviews_dot), collapse = " "),
+               "ITEM_RETRY_WAITS_S", fixed = TRUE)
+})
+
+test_that("the once-per-run fetches keep the full outage budget", {
+  io <- default_io()
+  for (f in c("config_yaml", "fetch_views")) {
+    expect_false(grepl("ITEM_RETRY_WAITS_S",
+                       paste(deparse(io[[f]]), collapse = " "), fixed = TRUE))
+  }
 })
