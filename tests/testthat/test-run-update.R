@@ -1054,6 +1054,8 @@ test_that("run_update never carries VIEWS flags forward from the prior catalog",
 
   expect_identical(pkgs$has_news[pkgs$name == "PkgSoft"], 1L)
   expect_identical(pkgs$views_has_readme[pkgs$name == "PkgSoft"], 0L)
-  expect_identical(pkgs$has_news[pkgs$name == "PkgOld"], NA_integer_)
-  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgOld"], NA_integer_)
+  expect_identical(pkgs$has_news[pkgs$name %in% c("PkgAnnot", "PkgOld")],
+                   c(NA_integer_, NA_integer_))
+  expect_identical(pkgs$views_has_readme[pkgs$name %in% c("PkgAnnot", "PkgOld")],
+                   c(NA_integer_, NA_integer_))
 })
