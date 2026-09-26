@@ -69,6 +69,27 @@ test_that("export_catalog writes bioc_packages with correct row count and values
   expect_equal(alpha$in_devel, 1L)
 })
 
+test_that("export_catalog stores has_news and views_has_readme as INTEGER after updated_at", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  pkgs <- make_packages_df()
+  pkgs$has_news <- c(1L, NA_integer_)
+  pkgs$views_has_readme <- c(0L, 1L)
+  export_catalog(tmp, pkgs, make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
+  expect_equal(tail(info$name, 3), c("updated_at", "has_news", "views_has_readme"))
+  expect_equal(info$type[info$name %in% c("has_news", "views_has_readme")],
+               c("INTEGER", "INTEGER"))
+  rows <- RSQLite::dbGetQuery(con, "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+  expect_identical(rows$has_news, c(1L, NA_integer_))
+  expect_identical(rows$views_has_readme, c(0L, 1L))
+})
+
 test_that("export_catalog writes bioc_authors with correct row count and orcid", {
   tmp <- tempfile(fileext = ".db")
   on.exit(unlink(tmp), add = TRUE)
@@ -82,6 +103,25 @@ test_that("export_catalog writes bioc_authors with correct row count and orcid",
   expect_equal(nrow(rows), 3L)
   alpha_aut <- rows[rows$package == "PkgAlpha" & rows$given == "Alice", ]
   expect_equal(alpha_aut$orcid, "0000-0001-2345-6789")
+})
+
+test_that("export_catalog writes ror_id and comment after orcid in bioc_authors", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  auths <- make_authors_df()
+  auths$ror_id  <- c(NA_character_, "02nr0ka47", NA_character_)
+  auths$comment <- c("University X", NA_character_, NA_character_)
+  export_catalog(tmp, make_packages_df(), auths)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_authors)")
+  expect_equal(info$name, BIOC_AUTHOR_COLS)
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors ORDER BY given")
+  expect_equal(rows$comment[rows$given == "Alice"], "University X")
+  expect_equal(rows$ror_id[rows$given == "Carol"], "02nr0ka47")
 })
 
 test_that("export_catalog creates all required indexes including bioc_releases", {
@@ -256,4 +296,59 @@ test_that("write_manifest writes valid JSON readable by jsonlite::read_json", {
   expect_equal(result$pipeline, "bioconductor-metadata")
   expect_equal(result$version, "1.0")
   expect_equal(result$packages, 42L)
+})
+
+# ---------------------------------------------------------------------------
+# export_catalog -- bioc_vignettes
+# ---------------------------------------------------------------------------
+
+make_vignettes_df <- function() {
+  data.frame(
+    package  = c("PkgAlpha", "PkgAlpha"),
+    release  = c("3.23", "3.23"),
+    category = c("software", "software"),
+    version  = c("1.0.0", "1.0.0"),
+    seq      = c(1L, 2L),
+    file     = c("vignettes/PkgAlpha/inst/doc/intro.html",
+                 "vignettes/PkgAlpha/inst/doc/more.pdf"),
+    title    = c("Intro", NA_character_),
+    output   = c("html", "pdf"),
+    url      = c("https://bioconductor.org/packages/3.23/bioc/vignettes/PkgAlpha/inst/doc/intro.html",
+                 "https://bioconductor.org/packages/3.23/bioc/vignettes/PkgAlpha/inst/doc/more.pdf"),
+    stringsAsFactors = FALSE
+  )
+}
+
+test_that("export_catalog writes bioc_vignettes rows keyed by package and seq", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  export_catalog(tmp, make_packages_df(), make_authors_df(),
+                 vignettes_df = make_vignettes_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_vignettes ORDER BY seq")
+  expect_equal(nrow(rows), 2L)
+  expect_equal(rows$title, c("Intro", NA_character_))
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_vignettes)")
+  expect_equal(info$name, c("package", "release", "category", "version", "seq",
+                            "file", "title", "output", "url"))
+  expect_equal(info$pk[info$name %in% c("package", "seq")], c(1L, 2L))
+  dup <- make_vignettes_df()[1, ]
+  expect_error(RSQLite::dbWriteTable(con, "bioc_vignettes", dup, append = TRUE),
+               "UNIQUE")
+})
+
+test_that("export_catalog without vignettes_df creates an empty bioc_vignettes table", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_true(RSQLite::dbExistsTable(con, "bioc_vignettes"))
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT COUNT(*) AS n FROM bioc_vignettes")$n, 0L)
 })

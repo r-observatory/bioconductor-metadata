@@ -71,13 +71,16 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   releases_df          <- bioc_releases_from_dates(dates, r_vers)
   releases_fingerprint <- paste0(releases_df$version, ":", releases_df$r_version, collapse = ",")
 
-  # 2. Fetch VIEWS metadata for every category
-  views_parts <- lapply(names(VIEWS_URLS), function(cat) {
-    parse_views(io$fetch_views(cat), cat)
+  # 2. Fetch VIEWS metadata for every category, keeping the text for the vignette rows
+  views_texts <- setNames(lapply(names(VIEWS_URLS), function(cat) io$fetch_views(cat)),
+                          names(VIEWS_URLS))
+  views_parts <- lapply(names(views_texts), function(cat) {
+    parse_views(views_texts[[cat]], cat)
   })
   views_df <- do.call(rbind, views_parts)
   rownames(views_df) <- NULL
   views_names <- views_df$name
+  vignettes_df <- build_bioc_vignettes(views_texts, current_release)
 
   # Fingerprint of the current VIEWS state: sorted "name:version" pairs joined
   # by commas. Dependency-free and stable; used for change detection below.
@@ -144,8 +147,22 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   }
 
   # 4. Determine which packages to (re)crawl
-  if (force_full || !has_prev) {
+  migrate_authors <- has_prev && authors_need_migration(prev$authors)
+  if (migrate_authors) {
+    message("Prior bioc_authors lacks ror_id or comment; crawling every repository once")
+  }
+  if (force_full || !has_prev || migrate_authors) {
     crawl_set <- io$list_repos()
+    # A short listing would publish the new columns with most packages unread,
+    # and no later run would crawl them again.
+    if (migrate_authors) {
+      cover <- views_code_coverage(crawl_set, views_df)
+      if (cover < BIOC_MIGRATION_LISTING_FLOOR) {
+        stop(sprintf(paste("Repository listing holds %.1f%% of current software and",
+                           "workflows packages; not starting the one-time author crawl"),
+                     100 * cover))
+      }
+    }
   } else {
     new_in_views       <- setdiff(views_names, prev_pkgs$name)
     prev_current       <- prev_pkgs$name[prev_pkgs$in_current == 1L]
@@ -163,17 +180,31 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     } else {
       character(0L)
     }
-    crawl_set <- union(union(new_in_views, removed_from_views), null_first)
+    # A new version can carry a new Authors@R, so its DESCRIPTION is read again.
+    version_bumped <- version_bumped_packages(prev_pkgs, views_df)
+    if (length(version_bumped) > 0L) {
+      message("Re-reading DESCRIPTION for ", length(version_bumped),
+              " packages whose VIEWS version changed")
+    }
+    crawl_set <- union(union(union(new_in_views, removed_from_views), null_first),
+                       version_bumped)
   }
 
   # 5. Crawl each package in the set (per-package failures are caught and skipped)
   lineage_list <- list()
+  desc_read    <- character(0)  # packages whose DESCRIPTION was fetched this run
   authors_rows <- list()
   desc_meta    <- list()  # DESCRIPTION-derived metadata for packages absent from views
+  crawl_start  <- Sys.time()
 
   for (pkg in crawl_set) {
     tryCatch({
       br <- io$ls_remote(pkg)
+      # ls_remote returns no branches when git fails, so a known package keeps
+      # its prior row instead of NA lineage and devel's authors.
+      if (length(br) == 0L && has_prev && pkg %in% prev_pkgs$name) {
+        stop("empty branch listing; keeping the prior catalog row")
+      }
       L  <- package_lineage(br, current_release, dates)
       lineage_list[[pkg]] <- L
 
@@ -187,6 +218,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       }
 
       desc_text <- io$fetch_description(pkg, branch)
+      desc_read <- c(desc_read, pkg)
       m <- tryCatch(read.dcf(textConnection(desc_text)), error = function(e) NULL)
 
       # Extract Authors@R and parse to author rows
@@ -211,6 +243,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       message("Skipping ", pkg, ": ", conditionMessage(e))
     })
   }
+  # The full crawl must stay inside the job's 300-minute timeout.
+  message(sprintf("Crawled %d packages in %.1f min; DESCRIPTION read for %d",
+                  length(crawl_set),
+                  as.numeric(difftime(Sys.time(), crawl_start, units = "mins")),
+                  length(desc_read)))
 
   # 6. Assemble packages_df ---------------------------------------------------
 
@@ -271,6 +308,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       in_current         = 1L,
       in_devel           = as.integer(isTRUE(L$in_devel)),
       updated_at         = iso(Sys.time()),
+      has_news           = row$has_news,
+      views_has_readme   = row$views_has_readme,
       stringsAsFactors   = FALSE
     )
   }
@@ -305,6 +344,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(isTRUE(L$in_devel)),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     } else {
@@ -332,6 +373,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(isTRUE(L$in_devel)),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -368,6 +411,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(pr$in_devel),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -399,6 +444,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(pr$in_devel),
         updated_at         = pr$updated_at,
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -414,6 +461,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     first_release = character(0), first_release_date = character(0),
     last_release = character(0), last_release_date = character(0),
     in_current = integer(0), in_devel = integer(0), updated_at = character(0),
+    has_news = integer(0), views_has_readme = integer(0),
     stringsAsFactors = FALSE
   )
   packages_df <- if (length(packages_rows) > 0L) {
@@ -424,11 +472,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     empty_pkgs
   }
 
-  empty_auths <- data.frame(
-    package = character(0), given = character(0), family = character(0),
-    email = character(0), role = character(0), orcid = character(0),
-    stringsAsFactors = FALSE
-  )
+  empty_auths <- empty_bioc_authors()
   authors_df <- if (length(authors_rows) > 0L) {
     out_df <- do.call(rbind, authors_rows)
     rownames(out_df) <- NULL
@@ -437,19 +481,13 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     empty_auths
   }
 
-  # Carry forward authors for packages that are in the final catalog but were
-  # NOT re-crawled this run. Key off names(lineage_list) (built in the crawl
-  # loop) so that a re-crawled package whose Authors@R yielded zero rows is
-  # still treated as authoritative -- no stale rows come back from prev for it.
+  # Carry forward authors for packages in the final catalog whose DESCRIPTION
+  # was not read this run. A package whose DESCRIPTION was read but yielded no
+  # Authors@R rows is authoritative; one whose fetch failed keeps its prior rows.
   if (has_prev && !is.null(prev$authors) && nrow(prev$authors) > 0L) {
-    recrawled  <- names(lineage_list)
-    keep       <- setdiff(packages_df$name, recrawled)
-    carry      <- prev$authors[prev$authors$package %in% keep, , drop = FALSE]
-    if (nrow(carry) > 0L) {
-      carry    <- carry[, c("package", "given", "family", "email", "role", "orcid"),
-                        drop = FALSE]
-      authors_df <- rbind(authors_df, carry)
-    }
+    carry      <- carry_forward_authors(prev$authors,
+                                        setdiff(packages_df$name, desc_read))
+    if (nrow(carry) > 0L) authors_df <- rbind(authors_df, carry)
   }
 
   # 7. Export catalog and manifest
@@ -470,7 +508,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   }
   n_names <- nrow(names_all_df)
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
-                 names_all_df = names_all_df)
+                 names_all_df = names_all_df, vignettes_df = vignettes_df)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -498,7 +536,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
-    (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint
+    (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint ||
+    !identical(as.integer(prev$manifest$source$schema %||% NA_integer_), BIOC_METADATA_SCHEMA)
 
   manifest <- list(
     release         = paste0("v", format(Sys.time(), "%Y%m%d-%H%M%S", tz = "UTC")),
@@ -507,6 +546,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_packages      = nrow(packages_df),
     n_current       = sum(packages_df$in_current == 1L),
     n_authors       = nrow(authors_df),
+    n_vignettes     = nrow(vignettes_df),
     n_names         = n_names,
     names_gate_ok   = names_gate_ok,
     changed              = manifest_changed,
@@ -515,7 +555,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
       biocviews_fingerprint = biocviews_fingerprint,
-      n_view_edges          = nrow(view_edges_df)
+      n_view_edges          = nrow(view_edges_df),
+      schema                = BIOC_METADATA_SCHEMA
     )
   )
   # Attach the integrity/completeness core as TOP-LEVEL manifest fields
@@ -551,6 +592,14 @@ default_io <- function() {
         c("api", "--paginate", sprintf("orgs/%s/repos?per_page=100", BIOC_ORG),
           "--jq", ".[].name"),
         stdout = TRUE, stderr = FALSE))
+      # gh prints a failed page's error body to stdout, so a failed exit means
+      # a partial listing that can also hold that body as a name.
+      status <- attr(out, "status")
+      if (!is.null(status) && status != 0L) {
+        stop(sprintf(
+          "Repository listing failed (gh exit %s); not crawling a partial listing",
+          status))
+      }
       sort(out[nzchar(trimws(out))])
     },
 

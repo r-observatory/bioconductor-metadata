@@ -5,6 +5,12 @@ VIEWS_URLS <- c(
   experiment = "https://bioconductor.org/packages/release/data/experiment/VIEWS",
   workflows  = "https://bioconductor.org/packages/release/workflows/VIEWS")
 CONFIG_YAML_URL <- "https://bioconductor.org/config.yaml"
+# Repository path of each VIEWS category in bioconductor.org package URLs.
+BIOC_REPO_PATHS <- c(
+  software   = "bioc",
+  annotation = "data/annotation",
+  experiment = "data/experiment",
+  workflows  = "workflows")
 
 # Backoff between attempts at a bioconductor.org fetch, in seconds; one more
 # attempt is made than there are waits. The previous 3 tries at 3s and 6s covered
@@ -39,6 +45,18 @@ BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pk
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION
 PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
 
+# Published schema version; a change forces the next run to publish.
+# 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
+BIOC_METADATA_SCHEMA <- 2L
+
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
 BIOC_LIVE_FLOOR <- 1500L
+
+# Published bioc_authors columns, in schema order.
+BIOC_AUTHOR_COLS <- c("package", "given", "family", "email", "role", "orcid",
+                      "ror_id", "comment")
+
+# Share of current software and workflows packages the repository listing must
+# hold before the one-time author crawl starts (2,443 of 2,446 on 2026-09-26).
+BIOC_MIGRATION_LISTING_FLOOR <- 0.98

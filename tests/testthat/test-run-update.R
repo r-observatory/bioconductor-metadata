@@ -35,6 +35,11 @@ FIXTURE_VIEWS_SOFTWARE <- paste(
   "License: MIT",
   "biocViews: Software, Infrastructure",
   "git_url: https://git.bioconductor.org/packages/PkgSoft",
+  "vignettes: vignettes/PkgSoft/inst/doc/intro.html,",
+  "        vignettes/PkgSoft/inst/doc/advanced.pdf",
+  "vignetteTitles: Getting started,, briefly, Advanced use",
+  "hasREADME: FALSE",
+  "hasNEWS: TRUE",
   "", sep = "\n")
 
 # annotation VIEWS: PkgAnnot
@@ -142,6 +147,7 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
         authors  = prev_auths %||% data.frame(
           package = character(0), given = character(0), family = character(0),
           email   = character(0), role  = character(0), orcid  = character(0),
+          ror_id  = character(0), comment = character(0),
           stringsAsFactors = FALSE),
         view_edges = prev_view_edges %||% data.frame(
           release = character(0), parent = character(0), child = character(0),
@@ -244,13 +250,14 @@ test_that("run_update incremental only crawls new and removed packages", {
   tmp  <- withr::local_tempdir()
   out  <- file.path(tmp, "out")
 
-  # Simulate a prior catalog that knows PkgSoft and PkgAnnot as current.
+  # Simulate a prior catalog that knows PkgSoft and PkgAnnot as current, at the
+  # versions VIEWS lists, so no version bump is re-crawled either.
   # PkgOld was already removed (in_current=0) from a previous run.
   prev_pkgs <- data.frame(
     name               = c("PkgSoft", "PkgAnnot", "PkgOld"),
     name_lower         = c("pkgsoft", "pkgannot", "pkgold"),
     category           = c("software", "annotation", "software"),
-    version            = c("1.1.0", "1.9.0", "0.9.0"),
+    version            = c("1.2.0", "2.0.0", "0.9.0"),
     title              = c("Old Soft", "Old Annot", "Old Old"),
     description        = c("d", "d", "d"),
     maintainer         = c("Alice Smith", "Bob Jones", "Carol White"),
@@ -542,6 +549,8 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
     email   = c("alice@example.com", "bob@example.com"),
     role    = c("aut, cre", "aut, cre"),
     orcid   = c(NA_character_, NA_character_),
+    ror_id  = c(NA_character_, "02nr0ka47"),
+    comment = c("University X", NA_character_),
     stringsAsFactors = FALSE
   )
 
@@ -565,6 +574,8 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
               label = "PkgSoft author Smith present")
   expect_true("Jones" %in% auths$family,
               label = "PkgAnnot author Jones present")
+  expect_equal(auths$comment[auths$family == "Smith"], "University X")
+  expect_equal(auths$ror_id[auths$family == "Jones"], "02nr0ka47")
 })
 
 # ---------------------------------------------------------------------------
@@ -611,7 +622,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
   prev_manifest <- list(source = list(
     views_fingerprint     = .FIXTURE_FP,
     releases_fingerprint  = .FIXTURE_RELEASES_FP,
-    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    schema                = BIOC_METADATA_SCHEMA
   ))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
@@ -747,7 +759,8 @@ test_that("manifest$changed is TRUE when prior manifest lacks releases_fingerpri
     stringsAsFactors   = FALSE
   )
   # Old manifest has views_fingerprint but NO releases_fingerprint
-  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP,
+                                       schema = BIOC_METADATA_SCHEMA))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
   res <- run_update(io, out, force_full = FALSE)
@@ -1000,7 +1013,8 @@ test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerpri
   # Prior manifest has views + releases fingerprints but NO biocviews_fingerprint.
   prev_manifest <- list(source = list(
     views_fingerprint    = .FIXTURE_FP,
-    releases_fingerprint = .FIXTURE_RELEASES_FP
+    releases_fingerprint = .FIXTURE_RELEASES_FP,
+    schema               = BIOC_METADATA_SCHEMA
   ))
 
   io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
@@ -1010,4 +1024,398 @@ test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerpri
               label = "changed=TRUE when prior manifest predates biocviews_fingerprint")
   expect_true(nzchar(res$manifest$source$biocviews_fingerprint),
               label = "biocviews_fingerprint written to new manifest")
+})
+
+# ---------------------------------------------------------------------------
+# VIEWS NEWS and README flags
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes VIEWS flags for current packages and NA for packages outside VIEWS", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  run_update(make_stub_io(), out, force_full = TRUE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con,
+    "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+
+  expect_identical(pkgs$has_news[pkgs$name == "PkgSoft"], 1L)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgSoft"], 0L)
+  # PkgAnnot's VIEWS record has neither field
+  expect_identical(pkgs$has_news[pkgs$name == "PkgAnnot"], NA_integer_)
+  # PkgOld is not in the current VIEWS
+  expect_identical(pkgs$has_news[pkgs$name == "PkgOld"], NA_integer_)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgOld"], NA_integer_)
+})
+
+test_that("run_update never carries VIEWS flags forward from the prior catalog", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$has_news <- c(0L, 1L, 1L)
+  prev$views_has_readme <- c(1L, 1L, 1L)
+  run_update(make_stub_io(prev_pkgs = prev), out, force_full = FALSE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con,
+    "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+
+  expect_identical(pkgs$has_news[pkgs$name == "PkgSoft"], 1L)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgSoft"], 0L)
+  expect_identical(pkgs$has_news[pkgs$name %in% c("PkgAnnot", "PkgOld")],
+                   c(NA_integer_, NA_integer_))
+  expect_identical(pkgs$views_has_readme[pkgs$name %in% c("PkgAnnot", "PkgOld")],
+                   c(NA_integer_, NA_integer_))
+})
+
+# ---------------------------------------------------------------------------
+# bioc_vignettes from the current VIEWS
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes bioc_vignettes for the current release and counts them in the manifest", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  res <- run_update(make_stub_io(), out, force_full = TRUE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  v <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_vignettes ORDER BY package, seq")
+
+  expect_equal(nrow(v), 2L)
+  expect_equal(v$package, c("PkgSoft", "PkgSoft"))
+  expect_equal(v$release, c("3.23", "3.23"))
+  expect_equal(v$version, c("1.2.0", "1.2.0"))
+  expect_equal(v$title, c("Getting started, briefly", "Advanced use"))
+  expect_equal(v$url[1],
+               "https://bioconductor.org/packages/3.23/bioc/vignettes/PkgSoft/inst/doc/intro.html")
+  expect_equal(res$manifest$n_vignettes, 2L)
+  expect_equal(res$manifest$tables$bioc_vignettes, 2L)
+})
+
+test_that("a package listed twice in one VIEWS file is written once instead of stopping the run", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software   = paste(FIXTURE_VIEWS_SOFTWARE, FIXTURE_VIEWS_SOFTWARE, sep = "\n"),
+      annotation = FIXTURE_VIEWS_ANNOTATION,
+      "")
+  }
+
+  expect_message(run_update(io, out, force_full = TRUE), "PkgSoft more than once")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  v <- RSQLite::dbGetQuery(con, "SELECT package, seq FROM bioc_vignettes ORDER BY seq")
+  expect_equal(v$package, c("PkgSoft", "PkgSoft"))
+  expect_equal(v$seq, 1:2)
+})
+
+# ---------------------------------------------------------------------------
+# Author refresh: one full crawl for the new columns, then version bumps
+# ---------------------------------------------------------------------------
+
+.prev_auths_six_cols <- data.frame(
+  package = c("PkgSoft", "PkgAnnot"),
+  given   = c("Alice", "Bob"),
+  family  = c("Smith", "Jones"),
+  email   = c("alice@example.com", "bob@example.com"),
+  role    = c("aut, cre", "aut, cre"),
+  orcid   = c(NA_character_, NA_character_),
+  stringsAsFactors = FALSE
+)
+
+test_that("a prior bioc_authors without ror_id and comment triggers one full crawl", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  crawled <- character(0L)
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_auths = .prev_auths_six_cols)
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) { crawled <<- c(crawled, pkg); orig_ls(pkg) }
+
+  msgs <- capture_messages(run_update(io, out, force_full = FALSE))
+  expect_true(any(grepl("lacks ror_id or comment", msgs)))
+  expect_true(any(grepl("Crawled 3 packages in [0-9.]+ min; DESCRIPTION read for 3", msgs)))
+
+  expect_setequal(crawled, c("PkgSoft", "PkgAnnot", "PkgOld"))
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_authors)")
+  expect_equal(info$name, BIOC_AUTHOR_COLS)
+})
+
+test_that("a failed DESCRIPTION read during the full crawl keeps that package's prior authors", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_auths = .prev_auths_six_cols)
+  orig_desc <- io$fetch_description
+  io$fetch_description <- function(pkg, branch) {
+    if (pkg == "PkgAnnot") stop("simulated 504")
+    orig_desc(pkg, branch)
+  }
+
+  suppressMessages(run_update(io, out, force_full = FALSE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors ORDER BY package")
+  annot <- auths[auths$package == "PkgAnnot", ]
+  expect_equal(nrow(annot), 1L)
+  expect_equal(annot$family, "Jones")
+  expect_identical(annot$ror_id, NA_character_)
+  expect_identical(annot$comment, NA_character_)
+})
+
+test_that("a VIEWS version bump re-reads that software package only, not a data package", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$version <- c("1.1.0", "1.9.0", "0.9.0")  # VIEWS lists 1.2.0 and 2.0.0
+  prev_auths <- data.frame(
+    package = c("PkgSoft", "PkgAnnot"), given = c("Old", "Bob"),
+    family = c("Name", "Jones"), email = NA_character_, role = "aut, cre",
+    orcid = NA_character_, ror_id = NA_character_, comment = NA_character_,
+    stringsAsFactors = FALSE)
+
+  crawled <- character(0L)
+  io <- make_stub_io(prev_pkgs = prev, prev_auths = prev_auths)
+  orig_desc <- io$fetch_description
+  io$fetch_description <- function(pkg, branch) {
+    crawled <<- c(crawled, pkg)
+    orig_desc(pkg, branch)
+  }
+
+  expect_message(run_update(io, out, force_full = FALSE), "VIEWS version changed")
+
+  expect_equal(crawled, "PkgSoft")
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  auths <- RSQLite::dbGetQuery(con, "SELECT package, given, family FROM bioc_authors")
+  expect_equal(auths$family[auths$package == "PkgSoft"], "Smith")
+  expect_equal(auths$family[auths$package == "PkgAnnot"], "Jones")
+})
+
+test_that("a failed DESCRIPTION read on a version bump keeps the prior authors", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$version <- c("1.1.0", "2.0.0", "0.9.0")
+  prev_auths <- data.frame(
+    package = "PkgSoft", given = "Old", family = "Name", email = NA_character_,
+    role = "aut, cre", orcid = NA_character_, ror_id = NA_character_,
+    comment = "Kept", stringsAsFactors = FALSE)
+
+  io <- make_stub_io(prev_pkgs = prev, prev_auths = prev_auths)
+  io$fetch_description <- function(pkg, branch) stop("simulated 504")
+
+  suppressMessages(run_update(io, out, force_full = FALSE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors WHERE package = 'PkgSoft'")
+  expect_equal(auths$family, "Name")
+  expect_equal(auths$comment, "Kept")
+})
+
+test_that("version_bumped_packages ignores data packages, new packages and equal versions", {
+  prev <- data.frame(name = c("S", "W", "A", "E", "Same"),
+                     version = c("1.0", "1.0", "1.0", "1.0", "2.0"),
+                     stringsAsFactors = FALSE)
+  views <- data.frame(name = c("S", "W", "A", "E", "Same", "New"),
+                      category = c("software", "workflows", "annotation",
+                                   "experiment", "software", "software"),
+                      version = c("1.1", "1.1", "1.1", "1.1", "2.0", "0.1"),
+                      stringsAsFactors = FALSE)
+  expect_equal(version_bumped_packages(prev, views), c("S", "W"))
+  expect_equal(version_bumped_packages(NULL, views), character(0))
+})
+
+test_that("authors_need_migration is TRUE only when ror_id or comment is missing", {
+  expect_true(authors_need_migration(.prev_auths_six_cols))
+  expect_true(authors_need_migration(.prev_auths_six_cols[0, ]))
+  expect_true(authors_need_migration(NULL))
+  expect_false(authors_need_migration(empty_bioc_authors()))
+})
+
+test_that("a short repository listing stops the one-time author crawl before anything is written", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_auths = .prev_auths_six_cols)
+  # PkgSoft is missing, as when gh api --paginate fails after a few pages
+  io$list_repos <- function() c("PkgAnnot", "PkgOld")
+
+  expect_error(suppressMessages(run_update(io, out, force_full = FALSE)),
+               "Repository listing holds 0.0% of current software and workflows packages")
+  expect_false(file.exists(file.path(out, "bioconductor-metadata.db")))
+  expect_false(file.exists(file.path(out, "manifest.json")))
+})
+
+test_that("views_code_coverage counts only current software and workflows packages", {
+  views <- data.frame(name = c("S1", "S2", "W1", "A1"),
+                      category = c("software", "software", "workflows", "annotation"),
+                      stringsAsFactors = FALSE)
+  expect_equal(views_code_coverage(c("S1", "W1", "A1", "extra"), views), 2 / 3)
+  expect_equal(views_code_coverage(character(0), views), 0)
+  expect_equal(views_code_coverage(character(0), views[4, ]), 1)
+})
+
+test_that("a version bump whose DESCRIPTION has no Authors@R drops that package's prior rows", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$version <- c("1.1.0", "2.0.0", "0.9.0")
+  prev_auths <- data.frame(
+    package = c("PkgSoft", "PkgAnnot"), given = c("Old", "Bob"),
+    family = c("Name", "Jones"), email = NA_character_, role = "aut, cre",
+    orcid = NA_character_, ror_id = NA_character_, comment = NA_character_,
+    stringsAsFactors = FALSE)
+
+  io <- make_stub_io(prev_pkgs = prev, prev_auths = prev_auths)
+  io$fetch_description <- function(pkg, branch) {
+    paste("Package: PkgSoft", "Version: 1.2.0", "Author: Alice Smith",
+          "Maintainer: Alice Smith <alice@example.com>", "", sep = "\n")
+  }
+
+  suppressMessages(run_update(io, out, force_full = FALSE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  auths <- RSQLite::dbGetQuery(con, "SELECT package, family FROM bioc_authors")
+  expect_false("PkgSoft" %in% auths$package)
+  expect_equal(auths$family[auths$package == "PkgAnnot"], "Jones")
+})
+
+test_that("a version bump whose branch listing fails keeps the prior authors and lineage", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$version <- c("1.1.0", "2.0.0", "0.9.0")
+  prev_auths <- data.frame(
+    package = "PkgSoft", given = "Old", family = "Name", email = NA_character_,
+    role = "aut, cre", orcid = NA_character_, ror_id = NA_character_,
+    comment = "Kept", stringsAsFactors = FALSE)
+
+  io <- make_stub_io(prev_pkgs = prev, prev_auths = prev_auths)
+  # default_io's ls_remote returns no branches when git fails; it never throws
+  io$ls_remote <- function(pkg) character(0L)
+  fetched <- character(0L)
+  io$fetch_description <- function(pkg, branch) {
+    fetched <<- c(fetched, pkg)
+    FIXTURE_DESC[[pkg]] %||% ""
+  }
+
+  msgs <- capture_messages(run_update(io, out, force_full = FALSE))
+  expect_true(any(grepl(
+    "Skipping PkgSoft: empty branch listing; keeping the prior catalog row", msgs,
+    fixed = TRUE)))
+  expect_equal(fetched, character(0L))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors WHERE package = 'PkgSoft'")
+  expect_equal(auths$family, "Name")
+  expect_equal(auths$comment, "Kept")
+  soft <- RSQLite::dbGetQuery(con,
+    "SELECT version, first_release, last_release, in_current FROM bioc_packages WHERE name = 'PkgSoft'")
+  expect_equal(soft$version, "1.2.0")
+  expect_equal(soft$first_release, "3.22")
+  expect_equal(soft$last_release, "3.23")
+  expect_equal(soft$in_current, 1L)
+})
+
+test_that("a new package with an empty branch listing still enters the catalog with NA lineage", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs)
+  io$fetch_views <- function(cat) {
+    if (cat == "software") return(paste(
+      FIXTURE_VIEWS_SOFTWARE,
+      "Package: PkgNew",
+      "Version: 0.1.0",
+      "Title: The New Package",
+      "Description: Newly added.",
+      "Maintainer: Dan Green <dan@example.com>",
+      "License: MIT",
+      "biocViews: Software",
+      "", sep = "\n"))
+    switch(cat, annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) if (pkg == "PkgNew") character(0L) else orig_ls(pkg)
+  orig_desc <- io$fetch_description
+  io$fetch_description <- function(pkg, branch) {
+    if (pkg == "PkgNew") return(paste(
+      "Package: PkgNew", "Version: 0.1.0",
+      'Authors@R: person("Dan", "Green", role = c("aut", "cre"))',
+      "", sep = "\n"))
+    orig_desc(pkg, branch)
+  }
+
+  msgs <- capture_messages(run_update(io, out, force_full = FALSE))
+  expect_false(any(grepl("Skipping PkgNew", msgs, fixed = TRUE)))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  new <- RSQLite::dbGetQuery(con,
+    "SELECT first_release, last_release, in_current FROM bioc_packages WHERE name = 'PkgNew'")
+  expect_equal(nrow(new), 1L)
+  expect_identical(new$first_release, NA_character_)
+  expect_identical(new$last_release, NA_character_)
+  expect_equal(new$in_current, 1L)
+})
+
+# ---------------------------------------------------------------------------
+# Schema version in the manifest
+# ---------------------------------------------------------------------------
+
+test_that("manifest$changed is TRUE on a schema bump with unchanged VIEWS", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  crawled <- character(0L)
+  prev_manifest <- list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    schema                = 1L
+  ))
+  io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) { crawled <<- c(crawled, pkg); orig_ls(pkg) }
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_equal(crawled, character(0L), label = "nothing re-crawled")
+  expect_true(res$manifest$changed)
+  expect_equal(res$manifest$source$schema, BIOC_METADATA_SCHEMA)
+  from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
+  expect_equal(from_disk$source$schema, 2L)
+})
+
+test_that("manifest$changed is TRUE when the prior manifest has no schema", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev_manifest <- list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23
+  ))
+  io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+  expect_true(res$manifest$changed)
 })

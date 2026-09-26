@@ -43,14 +43,25 @@ bioc_releases_from_dates <- function(dates, r_versions = NULL) {
   )
 }
 
+#' Map a VIEWS TRUE/FALSE flag to 1L/0L. A missing field or any other value is NA.
+views_flag <- function(x) {
+  x <- toupper(trimws(as.character(x)))
+  out <- rep(NA_integer_, length(x))
+  out[x %in% "TRUE"]  <- 1L
+  out[x %in% "FALSE"] <- 0L
+  out
+}
+
 #' Parse a Bioconductor VIEWS file (DCF text) into a catalog data.frame.
-#' Returns a stable 14-column data.frame (zero rows when input is empty or invalid).
+#' Returns a stable 16-column data.frame (zero rows when input is empty or invalid).
 parse_views <- function(views_text, category) {
   cols <- c("name","name_lower","category","version","title","description",
             "maintainer","maintainer_email","license","depends","imports",
-            "suggests","biocviews","git_url")
+            "suggests","biocviews","git_url","has_news","views_has_readme")
   empty <- setNames(data.frame(matrix(character(0), ncol = length(cols)),
                                stringsAsFactors = FALSE), cols)
+  empty$has_news <- integer(0)
+  empty$views_has_readme <- integer(0)
   if (!nzchar(trimws(views_text))) return(empty)
   m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
   if (is.null(m) || nrow(m) == 0) return(empty)
@@ -65,16 +76,169 @@ parse_views <- function(views_text, category) {
     maintainer = name, maintainer_email = email, license = g("License"),
     depends = g("Depends"), imports = g("Imports"), suggests = g("Suggests"),
     biocviews = g("biocViews"), git_url = g("git_url"),
+    has_news = views_flag(g("hasNEWS")), views_has_readme = views_flag(g("hasREADME")),
     stringsAsFactors = FALSE)
+}
+
+#' Zero-row bioc_vignettes frame with the published column types.
+empty_bioc_vignettes <- function() {
+  data.frame(package = character(0), release = character(0),
+             category = character(0), version = character(0),
+             seq = integer(0), file = character(0), title = character(0),
+             output = character(0), url = character(0),
+             stringsAsFactors = FALSE)
+}
+
+#' Split a VIEWS vignetteTitles value into titles. VIEWS writes a comma inside
+#' a title doubled, so only a single comma followed by whitespace separates.
+split_vignette_titles <- function(x) {
+  if (length(x) == 0L || is.na(x) || !nzchar(trimws(x))) return(character(0))
+  p <- strsplit(x, "(?<!,),(?!,)[[:space:]]+", perl = TRUE)[[1]]
+  p <- gsub(",,", ",", p, fixed = TRUE)
+  p <- gsub("[[:space:]]+", " ", trimws(p))
+  sub('^"(.*)"$', "\\1", p)
+}
+
+#' One row per vignette file listed in a category's VIEWS text, for the given
+#' release. Titles pair with files by position; when the counts differ every
+#' title of that package is NA.
+parse_views_vignettes <- function(views_text, category, release) {
+  empty <- empty_bioc_vignettes()
+  if (length(views_text) == 0L || is.na(views_text) || !nzchar(trimws(views_text))) return(empty)
+  m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
+  if (is.null(m) || nrow(m) == 0L || !("vignettes" %in% colnames(m))) return(empty)
+  g <- function(field) if (field %in% colnames(m)) as.character(m[, field]) else rep(NA_character_, nrow(m))
+  pkgs <- g("Package"); vers <- g("Version"); vigs <- g("vignettes"); tits <- g("vignetteTitles")
+  base <- paste0("https://bioconductor.org/packages/", release, "/",
+                 BIOC_REPO_PATHS[[category]], "/")
+  # A repeated record would break the (package, seq) key and stop the whole run.
+  again <- duplicated(pkgs) & !is.na(pkgs)
+  if (any(again)) {
+    message("VIEWS for ", category, " lists ", paste(unique(pkgs[again]), collapse = ", "),
+            " more than once; keeping the first record")
+  }
+  rows <- lapply(seq_len(nrow(m)), function(i) {
+    if (again[i] || is.na(pkgs[i]) || is.na(vigs[i]) || !nzchar(trimws(vigs[i]))) return(NULL)
+    files <- trimws(strsplit(vigs[i], ",[[:space:]]+")[[1]])
+    files <- files[nzchar(files)]
+    if (length(files) == 0L) return(NULL)
+    titles <- split_vignette_titles(tits[i])
+    if (length(titles) != length(files)) titles <- rep(NA_character_, length(files))
+    ext <- tolower(tools::file_ext(files))
+    data.frame(package = pkgs[i], release = release, category = category,
+               version = vers[i], seq = seq_along(files), file = files,
+               title = titles, output = ifelse(nzchar(ext), ext, NA_character_),
+               url = paste0(base, files), stringsAsFactors = FALSE)
+  })
+  rows <- Filter(Negate(is.null), rows)
+  if (length(rows) == 0L) return(empty)
+  out <- do.call(rbind, rows)
+  rownames(out) <- NULL
+  out
+}
+
+#' bioc_vignettes rows over every category of views_texts (a list named by
+#' category, in VIEWS_URLS order). A package listed under two categories keeps
+#' the rows of the first, and the repeat is logged.
+build_bioc_vignettes <- function(views_texts, release) {
+  out  <- empty_bioc_vignettes()
+  seen <- character(0)
+  for (cat in names(views_texts)) {
+    v   <- parse_views_vignettes(views_texts[[cat]], cat, release)
+    dup <- unique(v$package[v$package %in% seen])
+    if (length(dup) > 0L) {
+      message("Vignettes of ", paste(dup, collapse = ", "), " also listed under ",
+              cat, "; keeping the earlier category")
+      v <- v[!(v$package %in% dup), , drop = FALSE]
+    }
+    seen <- c(seen, unique(v$package))
+    out  <- rbind(out, v)
+  }
+  rownames(out) <- NULL
+  out
+}
+
+#' Zero-row bioc_authors frame in the published column order.
+empty_bioc_authors <- function() {
+  setNames(data.frame(matrix(character(0), ncol = length(BIOC_AUTHOR_COLS)),
+                      stringsAsFactors = FALSE), BIOC_AUTHOR_COLS)
+}
+
+# An ORCID iD not glued to further digits, and a ROR id as it follows ror.org/.
+ORCID_ID_PATTERN <- "(?<![0-9])[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X](?![0-9X])"
+ROR_ID_PATTERN   <- "0[a-hj-km-np-tv-z0-9]{6}[0-9]{2}"
+
+# ISO 7064 MOD 11-2, the check ORCID defines, so a mistyped iD never moves.
+orcid_checksum_ok <- function(id) {
+  vapply(id, function(one) {
+    if (is.na(one)) return(FALSE)
+    digits <- gsub("-", "", one, fixed = TRUE)
+    if (!grepl("^[0-9]{15}[0-9X]$", digits)) return(FALSE)
+    total <- 0
+    for (d in as.integer(strsplit(substr(digits, 1, 15), "")[[1]])) total <- (total + d) * 2
+    r <- (12 - total %% 11) %% 11
+    identical(if (r == 10) "X" else as.character(r), substr(digits, 16, 16))
+  }, logical(1), USE.NAMES = FALSE)
+}
+
+# One line per comment; a blank comment is stored as NULL, never as "".
+collapse_comment_whitespace <- function(x) {
+  x <- trimws(gsub("[[:space:]]+", " ", x, perl = TRUE))
+  x[!is.na(x) & !nzchar(x)] <- NA_character_
+  x
+}
+
+# Never truncates: the viewer reads review links from the full text. A comment
+# empties only when a moved identifier and its label were all it held.
+normalize_author_comments <- function(comment, orcid, ror_id) {
+  comment <- collapse_comment_whitespace(as.character(comment))
+  orcid   <- as.character(orcid)
+  ror_id  <- as.character(ror_id)
+  absent  <- function(v) is.na(v) || !nzchar(v)
+  orcid_hits <- regmatches(comment, gregexpr(ORCID_ID_PATTERN, comment, perl = TRUE))
+  ror_hits   <- regmatches(comment, gregexpr(
+    paste0("(?<![a-z0-9-])ror\\.org/", ROR_ID_PATTERN, "(?![a-z0-9])"), comment, perl = TRUE))
+  n_orcid <- 0L
+  n_ror   <- 0L
+  for (i in which(!is.na(comment))) {
+    rest  <- comment[i]
+    moved <- FALSE
+    # The same iD written twice is still one iD.
+    id <- unique(orcid_hits[[i]])
+    if (absent(orcid[i]) && length(id) == 1L && orcid_checksum_ok(id)) {
+      orcid[i] <- id
+      n_orcid  <- n_orcid + 1L
+      moved    <- TRUE
+      rest <- gsub(paste0("(?i)(orcid(\\s*id)?\\s*[:=]?\\s*)?[\"'<]?((https?://)?(www\\.)?orcid\\.org/)?",
+                          id, "[\"'>]?"), "", rest, perl = TRUE)
+    }
+    id <- unique(sub("^ror\\.org/", "", ror_hits[[i]]))
+    if (absent(ror_id[i]) && length(id) == 1L) {
+      ror_id[i] <- id
+      n_ror     <- n_ror + 1L
+      moved     <- TRUE
+      rest <- gsub(paste0("(?i)(ror(\\s*id)?\\s*[:=]?\\s*)?[\"'<]?(https?://)?(www\\.)?ror\\.org/",
+                          id, "[\"'>]?"), "", rest, perl = TRUE)
+    }
+    if (moved && grepl("^[[:punct:][:space:]]*$", rest)) comment[i] <- NA_character_
+  }
+  list(comment = comment, orcid = orcid, ror_id = ror_id,
+       n_orcid = n_orcid, n_ror = n_ror)
+}
+
+# The cleaning cran-metadata's sanitize_df gives every author field: control
+# characters other than tab, LF and CR removed, then UTF-8 forced.
+sanitize_comment_text <- function(x) {
+  x <- gsub("[\\x{00}-\\x{08}\\x{0b}\\x{0c}\\x{0e}-\\x{1f}]", "", x, perl = TRUE)
+  iconv(x, to = "UTF-8", sub = "")
 }
 
 #' Parse an Authors@R field (R code) into a data.frame of author rows.
 #' Evaluates the expression in a restricted environment that exposes only
 #' `person` and `c`, limiting arbitrary-code risk from untrusted DESCRIPTION
-#' content. Returns an empty 6-column frame on any parse/eval failure.
+#' content. Returns an empty 8-column frame on any parse/eval failure.
 parse_authors_at_r <- function(authors_r_text, package) {
-  cols <- c("package","given","family","email","role","orcid")
-  empty <- setNames(data.frame(matrix(character(0), ncol = 6), stringsAsFactors = FALSE), cols)
+  empty <- empty_bioc_authors()
   if (is.na(authors_r_text) || !nzchar(trimws(authors_r_text))) return(empty)
   env <- new.env(parent = emptyenv())
   env$person <- utils::person
@@ -84,17 +248,82 @@ parse_authors_at_r <- function(authors_r_text, package) {
   rows <- lapply(seq_along(pp), function(i) {
     p <- pp[i]
     orc <- tryCatch(unname(p$comment[["ORCID"]]), error = function(e) NULL)
+    orc <- if (length(orc) && !is.na(orc[1]))
+      trimws(sub("^https?://orcid\\.org/", "", trimws(orc[1]))) else NA_character_
+    # Strip before the empty check, so a bare orcid.org/ prefix is NA, not "".
+    if (!is.na(orc) && !nzchar(orc)) orc <- NA_character_
+    ror <- tryCatch(unname(p$comment[["ROR"]]), error = function(e) NULL)
+    ror <- if (length(ror) && !is.na(ror[1])) sub("^https://ror\\.org/", "", trimws(ror[1])) else NA_character_
+    if (!is.na(ror) && !grepl(paste0("^", ROR_ID_PATTERN, "$"), ror)) ror <- NA_character_
+    # A bad comment must not cost the person row or its identifiers.
+    ids <- tryCatch({
+      cm   <- p$comment
+      nm   <- names(cm)
+      # Every part but ORCID and ROR, as tools::CRAN_authors_db() stores it.
+      free <- if (is.null(nm)) cm else cm[!(nm %in% c("ORCID", "ROR"))]
+      free <- free[!is.na(free) & nzchar(trimws(free))]
+      text <- if (length(free)) sanitize_comment_text(paste(free, collapse = ", ")) else NA_character_
+      normalize_author_comments(text, orc, ror)
+    }, error = function(e) {
+      message("Could not read an author comment in ", package, ": ", conditionMessage(e))
+      list(orcid = orc, ror_id = ror, comment = NA_character_)
+    })
     data.frame(
       package = package,
-      given  = paste(p$given,  collapse = " "),
-      family = paste(p$family, collapse = " "),
-      email  = if (length(p$email)) p$email[1] else NA_character_,
-      role   = if (length(p$role))  paste(p$role, collapse = ", ") else NA_character_,
-      orcid  = if (!is.null(orc) && nzchar(orc)) orc else NA_character_,
+      given   = paste(p$given,  collapse = " "),
+      family  = paste(p$family, collapse = " "),
+      email   = if (length(p$email)) p$email[1] else NA_character_,
+      role    = if (length(p$role))  paste(p$role, collapse = ", ") else NA_character_,
+      orcid   = ids$orcid,
+      ror_id  = ids$ror_id,
+      comment = ids$comment,
       stringsAsFactors = FALSE)
   })
   out <- do.call(rbind, rows)
   out[nzchar(out$given) | nzchar(out$family), , drop = FALSE]
+}
+
+#' Prior bioc_authors rows of the packages in keep, in the published column
+#' order. A column the prior catalog predates is filled with NA.
+carry_forward_authors <- function(prev_authors, keep) {
+  if (is.null(prev_authors) || nrow(prev_authors) == 0L) return(empty_bioc_authors())
+  carry <- prev_authors[prev_authors$package %in% keep, , drop = FALSE]
+  for (col in setdiff(BIOC_AUTHOR_COLS, names(carry))) {
+    carry[[col]] <- rep(NA_character_, nrow(carry))
+  }
+  carry <- carry[, BIOC_AUTHOR_COLS, drop = FALSE]
+  rownames(carry) <- NULL
+  carry
+}
+
+#' Share of current software and workflows packages present in a repository
+#' listing. 1 when VIEWS lists none, so an empty VIEWS never blocks here.
+views_code_coverage <- function(repos, views_df) {
+  code <- unique(views_df$name[views_df$category %in% c("software", "workflows")])
+  if (length(code) == 0L) return(1)
+  mean(code %in% repos)
+}
+
+#' TRUE when a prior bioc_authors frame predates ror_id or comment, so every
+#' repository is crawled once to fill them.
+authors_need_migration <- function(prev_authors) {
+  !all(c("ror_id", "comment") %in% names(prev_authors))
+}
+
+#' Current software and workflows packages whose VIEWS version differs from the
+#' prior catalog's, so their DESCRIPTION is read again. Data packages have no
+#' RELEASE branches on github.com/bioc and are left out, as in the lineage
+#' backfill.
+version_bumped_packages <- function(prev_pkgs, views_df) {
+  if (is.null(prev_pkgs) || nrow(prev_pkgs) == 0L || nrow(views_df) == 0L) {
+    return(character(0))
+  }
+  code     <- views_df[views_df$category %in% c("software", "workflows"), , drop = FALSE]
+  prev_ver <- prev_pkgs$version[match(code$name, prev_pkgs$name)]
+  known    <- code$name %in% prev_pkgs$name
+  differs  <- (is.na(prev_ver) != is.na(code$version)) |
+    (!is.na(prev_ver) & !is.na(code$version) & prev_ver != code$version)
+  unique(code$name[known & differs])
 }
 
 #' Derive a package's Bioconductor release lineage from its git branch names.
@@ -157,29 +386,35 @@ parse_biocviews_dot <- function(dot_text) {
 
 #' Export the assembled catalog to a fresh SQLite database.
 #'
-#' Creates (or replaces) the file at `path` with four tables:
-#'   bioc_packages    -- one row per package (21 columns)
-#'   bioc_authors     -- one row per author credit (6 columns)
+#' Creates (or replaces) the file at `path` with these tables:
+#'   bioc_packages    -- one row per package (23 columns)
+#'   bioc_authors     -- one row per author credit (8 columns)
 #'   bioc_releases    -- ordered release list (version, released, seq)
 #'   bioc_view_edges  -- biocViews DAG edges (release, parent, child)
+#'   bioc_vignettes   -- one row per current-release vignette file
 #' and six indexes for common lookup patterns.
 #'
 #' @param path          File path for the output .db file.
-#' @param packages_df   data.frame with exactly the 21 bioc_packages columns in
+#' @param packages_df   data.frame with the 23 bioc_packages columns in
 #'   schema order (name, name_lower, category, version, title, description,
 #'   maintainer, maintainer_email, license, depends, imports, suggests,
 #'   biocviews, git_url, first_release, first_release_date, last_release,
-#'   last_release_date, in_current, in_devel, updated_at).
-#' @param authors_df    data.frame with 6 bioc_authors columns in schema order
-#'   (package, given, family, email, role, orcid).
+#'   last_release_date, in_current, in_devel, updated_at, has_news,
+#'   views_has_readme).
+#' @param authors_df    data.frame with the 8 bioc_authors columns in schema
+#'   order (BIOC_AUTHOR_COLS: package, given, family, email, role, orcid,
+#'   ror_id, comment).
 #' @param releases_df   data.frame with 4 bioc_releases columns (version, released,
 #'   seq, r_version) as returned by bioc_releases_from_dates(). NULL or 0-row
 #'   creates the empty table only.
 #' @param view_edges_df data.frame with 3 bioc_view_edges columns (release,
 #'   parent, child) as produced by parse_biocviews_dot(). NULL or 0-row creates
 #'   the empty table only.
+#' @param vignettes_df  data.frame with the 9 bioc_vignettes columns as returned
+#'   by build_bioc_vignettes(). NULL or 0-row creates the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
-                           view_edges_df = NULL, names_all_df = NULL) {
+                           view_edges_df = NULL, names_all_df = NULL,
+                           vignettes_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -206,7 +441,9 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       last_release_date TEXT,
       in_current INTEGER NOT NULL DEFAULT 0,
       in_devel INTEGER NOT NULL DEFAULT 0,
-      updated_at TEXT
+      updated_at TEXT,
+      has_news INTEGER,
+      views_has_readme INTEGER
     )
   ")
 
@@ -217,7 +454,9 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       family TEXT,
       email TEXT,
       role TEXT,
-      orcid TEXT
+      orcid TEXT,
+      ror_id TEXT,
+      comment TEXT
     )
   ")
 
@@ -260,6 +499,24 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
 
   if (!is.null(view_edges_df) && nrow(view_edges_df) > 0L) {
     RSQLite::dbWriteTable(con, "bioc_view_edges", view_edges_df, append = TRUE)
+  }
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_vignettes (
+      package  TEXT NOT NULL,
+      release  TEXT NOT NULL,
+      category TEXT NOT NULL,
+      version  TEXT,
+      seq      INTEGER NOT NULL,
+      file     TEXT NOT NULL,
+      title    TEXT,
+      output   TEXT,
+      url      TEXT NOT NULL,
+      PRIMARY KEY (package, seq)
+    )
+  ")
+  if (!is.null(vignettes_df) && nrow(vignettes_df) > 0L) {
+    RSQLite::dbWriteTable(con, "bioc_vignettes", vignettes_df, append = TRUE)
   }
 
   if (!is.null(names_all_df)) {
