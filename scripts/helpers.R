@@ -43,14 +43,25 @@ bioc_releases_from_dates <- function(dates, r_versions = NULL) {
   )
 }
 
+#' Map a VIEWS TRUE/FALSE flag to 1L/0L. A missing field or any other value is NA.
+views_flag <- function(x) {
+  x <- toupper(trimws(as.character(x)))
+  out <- rep(NA_integer_, length(x))
+  out[x %in% "TRUE"]  <- 1L
+  out[x %in% "FALSE"] <- 0L
+  out
+}
+
 #' Parse a Bioconductor VIEWS file (DCF text) into a catalog data.frame.
-#' Returns a stable 14-column data.frame (zero rows when input is empty or invalid).
+#' Returns a stable 16-column data.frame (zero rows when input is empty or invalid).
 parse_views <- function(views_text, category) {
   cols <- c("name","name_lower","category","version","title","description",
             "maintainer","maintainer_email","license","depends","imports",
-            "suggests","biocviews","git_url")
+            "suggests","biocviews","git_url","has_news","views_has_readme")
   empty <- setNames(data.frame(matrix(character(0), ncol = length(cols)),
                                stringsAsFactors = FALSE), cols)
+  empty$has_news <- integer(0)
+  empty$views_has_readme <- integer(0)
   if (!nzchar(trimws(views_text))) return(empty)
   m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
   if (is.null(m) || nrow(m) == 0) return(empty)
@@ -65,6 +76,7 @@ parse_views <- function(views_text, category) {
     maintainer = name, maintainer_email = email, license = g("License"),
     depends = g("Depends"), imports = g("Imports"), suggests = g("Suggests"),
     biocviews = g("biocViews"), git_url = g("git_url"),
+    has_news = views_flag(g("hasNEWS")), views_has_readme = views_flag(g("hasREADME")),
     stringsAsFactors = FALSE)
 }
 
@@ -158,18 +170,19 @@ parse_biocviews_dot <- function(dot_text) {
 #' Export the assembled catalog to a fresh SQLite database.
 #'
 #' Creates (or replaces) the file at `path` with four tables:
-#'   bioc_packages    -- one row per package (21 columns)
+#'   bioc_packages    -- one row per package (23 columns)
 #'   bioc_authors     -- one row per author credit (6 columns)
 #'   bioc_releases    -- ordered release list (version, released, seq)
 #'   bioc_view_edges  -- biocViews DAG edges (release, parent, child)
 #' and six indexes for common lookup patterns.
 #'
 #' @param path          File path for the output .db file.
-#' @param packages_df   data.frame with exactly the 21 bioc_packages columns in
+#' @param packages_df   data.frame with the 23 bioc_packages columns in
 #'   schema order (name, name_lower, category, version, title, description,
 #'   maintainer, maintainer_email, license, depends, imports, suggests,
 #'   biocviews, git_url, first_release, first_release_date, last_release,
-#'   last_release_date, in_current, in_devel, updated_at).
+#'   last_release_date, in_current, in_devel, updated_at, has_news,
+#'   views_has_readme).
 #' @param authors_df    data.frame with 6 bioc_authors columns in schema order
 #'   (package, given, family, email, role, orcid).
 #' @param releases_df   data.frame with 4 bioc_releases columns (version, released,
@@ -206,7 +219,9 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       last_release_date TEXT,
       in_current INTEGER NOT NULL DEFAULT 0,
       in_devel INTEGER NOT NULL DEFAULT 0,
-      updated_at TEXT
+      updated_at TEXT,
+      has_news INTEGER,
+      views_has_readme INTEGER
     )
   ")
 

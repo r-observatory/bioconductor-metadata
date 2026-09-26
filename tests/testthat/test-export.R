@@ -69,6 +69,27 @@ test_that("export_catalog writes bioc_packages with correct row count and values
   expect_equal(alpha$in_devel, 1L)
 })
 
+test_that("export_catalog stores has_news and views_has_readme as INTEGER after updated_at", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  pkgs <- make_packages_df()
+  pkgs$has_news <- c(1L, NA_integer_)
+  pkgs$views_has_readme <- c(0L, 1L)
+  export_catalog(tmp, pkgs, make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
+  expect_equal(tail(info$name, 3), c("updated_at", "has_news", "views_has_readme"))
+  expect_equal(info$type[info$name %in% c("has_news", "views_has_readme")],
+               c("INTEGER", "INTEGER"))
+  rows <- RSQLite::dbGetQuery(con, "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+  expect_identical(rows$has_news, c(1L, NA_integer_))
+  expect_identical(rows$views_has_readme, c(0L, 1L))
+})
+
 test_that("export_catalog writes bioc_authors with correct row count and orcid", {
   tmp <- tempfile(fileext = ".db")
   on.exit(unlink(tmp), add = TRUE)

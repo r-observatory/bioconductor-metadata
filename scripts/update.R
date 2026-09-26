@@ -271,6 +271,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       in_current         = 1L,
       in_devel           = as.integer(isTRUE(L$in_devel)),
       updated_at         = iso(Sys.time()),
+      has_news           = row$has_news,
+      views_has_readme   = row$views_has_readme,
       stringsAsFactors   = FALSE
     )
   }
@@ -305,6 +307,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(isTRUE(L$in_devel)),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     } else {
@@ -332,6 +336,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(isTRUE(L$in_devel)),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -368,6 +374,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(pr$in_devel),
         updated_at         = iso(Sys.time()),
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -399,6 +407,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
         in_current         = 0L,
         in_devel           = as.integer(pr$in_devel),
         updated_at         = pr$updated_at,
+        has_news           = NA_integer_,
+        views_has_readme   = NA_integer_,
         stringsAsFactors   = FALSE
       )
     }
@@ -414,6 +424,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     first_release = character(0), first_release_date = character(0),
     last_release = character(0), last_release_date = character(0),
     in_current = integer(0), in_devel = integer(0), updated_at = character(0),
+    has_news = integer(0), views_has_readme = integer(0),
     stringsAsFactors = FALSE
   )
   packages_df <- if (length(packages_rows) > 0L) {

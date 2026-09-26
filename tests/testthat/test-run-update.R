@@ -35,6 +35,8 @@ FIXTURE_VIEWS_SOFTWARE <- paste(
   "License: MIT",
   "biocViews: Software, Infrastructure",
   "git_url: https://git.bioconductor.org/packages/PkgSoft",
+  "hasREADME: FALSE",
+  "hasNEWS: TRUE",
   "", sep = "\n")
 
 # annotation VIEWS: PkgAnnot
@@ -1010,4 +1012,48 @@ test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerpri
               label = "changed=TRUE when prior manifest predates biocviews_fingerprint")
   expect_true(nzchar(res$manifest$source$biocviews_fingerprint),
               label = "biocviews_fingerprint written to new manifest")
+})
+
+# ---------------------------------------------------------------------------
+# VIEWS NEWS and README flags
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes VIEWS flags for current packages and NA for packages outside VIEWS", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  run_update(make_stub_io(), out, force_full = TRUE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con,
+    "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+
+  expect_identical(pkgs$has_news[pkgs$name == "PkgSoft"], 1L)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgSoft"], 0L)
+  # PkgAnnot's VIEWS record has neither field
+  expect_identical(pkgs$has_news[pkgs$name == "PkgAnnot"], NA_integer_)
+  # PkgOld is not in the current VIEWS
+  expect_identical(pkgs$has_news[pkgs$name == "PkgOld"], NA_integer_)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgOld"], NA_integer_)
+})
+
+test_that("run_update never carries VIEWS flags forward from the prior catalog", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev <- .bv_prev_pkgs
+  prev$has_news <- c(0L, 1L, 1L)
+  prev$views_has_readme <- c(1L, 1L, 1L)
+  run_update(make_stub_io(prev_pkgs = prev), out, force_full = FALSE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con,
+    "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
+
+  expect_identical(pkgs$has_news[pkgs$name == "PkgSoft"], 1L)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgSoft"], 0L)
+  expect_identical(pkgs$has_news[pkgs$name == "PkgOld"], NA_integer_)
+  expect_identical(pkgs$views_has_readme[pkgs$name == "PkgOld"], NA_integer_)
 })

@@ -30,5 +30,24 @@ test_that("parse_views handles empty input", {
   expect_equal(nrow(out), 0)
   expect_equal(names(out), c("name","name_lower","category","version","title",
     "description","maintainer","maintainer_email","license","depends",
-    "imports","suggests","biocviews","git_url"))
+    "imports","suggests","biocviews","git_url","has_news","views_has_readme"))
+  expect_type(out$has_news, "integer")
+  expect_type(out$views_has_readme, "integer")
+})
+
+read_views_fixture <- function(name) {
+  paste(readLines(test_path("fixtures", name), warn = FALSE), collapse = "\n")
+}
+
+test_that("parse_views reads hasNEWS and hasREADME as 1, 0 or NA", {
+  out <- parse_views(read_views_fixture("views-software.dcf"), "software")
+  flags <- setNames(out$has_news, out$name)
+  readme <- setNames(out$views_has_readme, out$name)
+  expect_identical(unname(flags[c("ADAM", "ABarray", "cummeRbund")]), c(1L, 0L, NA_integer_))
+  expect_identical(unname(readme[c("AIMS", "ADAM", "cummeRbund")]), c(1L, 0L, NA_integer_))
+})
+
+test_that("views_flag maps only TRUE and FALSE", {
+  expect_identical(views_flag(c("TRUE", "FALSE", " true ", NA, "", "yes")),
+                   c(1L, 0L, 1L, NA_integer_, NA_integer_, NA_integer_))
 })

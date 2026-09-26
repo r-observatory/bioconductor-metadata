@@ -1,0 +1,11 @@
+Package: AHEnsDbs
+Version: 1.7.0
+Title: EnsDbs for AnnotationHub
+Maintainer: Johannes Rainer <johannes.rainer@eurac.edu>
+License: Artistic-2.0
+biocViews: DataImport, Sequencing, Coverage, AnnotationHubSoftware
+git_url: https://git.bioconductor.org/packages/AHEnsDbs
+vignettes: vignettes/AHEnsDbs/inst/doc/creating-EnsDbs.html
+vignetteTitles: Provide EnsDb databases for AnnotationHub
+hasREADME: FALSE
+hasNEWS: FALSE
