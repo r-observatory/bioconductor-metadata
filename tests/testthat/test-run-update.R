@@ -622,7 +622,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
   prev_manifest <- list(source = list(
     views_fingerprint     = .FIXTURE_FP,
     releases_fingerprint  = .FIXTURE_RELEASES_FP,
-    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    schema                = BIOC_METADATA_SCHEMA
   ))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
@@ -1374,4 +1375,45 @@ test_that("a new package with an empty branch listing still enters the catalog w
   expect_identical(new$first_release, NA_character_)
   expect_identical(new$last_release, NA_character_)
   expect_equal(new$in_current, 1L)
+})
+
+# ---------------------------------------------------------------------------
+# Schema version in the manifest
+# ---------------------------------------------------------------------------
+
+test_that("manifest$changed is TRUE on a schema bump with unchanged VIEWS", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  crawled <- character(0L)
+  prev_manifest <- list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    schema                = 1L
+  ))
+  io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) { crawled <<- c(crawled, pkg); orig_ls(pkg) }
+  res <- run_update(io, out, force_full = FALSE)
+
+  expect_equal(crawled, character(0L), label = "nothing re-crawled")
+  expect_true(res$manifest$changed)
+  expect_equal(res$manifest$source$schema, BIOC_METADATA_SCHEMA)
+  from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
+  expect_equal(from_disk$source$schema, 2L)
+})
+
+test_that("manifest$changed is TRUE when the prior manifest has no schema", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  prev_manifest <- list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23
+  ))
+  io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
+  res <- run_update(io, out, force_full = FALSE)
+  expect_true(res$manifest$changed)
 })

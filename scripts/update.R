@@ -536,7 +536,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
-    (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint
+    (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint ||
+    !identical(as.integer(prev$manifest$source$schema %||% NA_integer_), BIOC_METADATA_SCHEMA)
 
   manifest <- list(
     release         = paste0("v", format(Sys.time(), "%Y%m%d-%H%M%S", tz = "UTC")),
@@ -554,7 +555,8 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
       biocviews_fingerprint = biocviews_fingerprint,
-      n_view_edges          = nrow(view_edges_df)
+      n_view_edges          = nrow(view_edges_df),
+      schema                = BIOC_METADATA_SCHEMA
     )
   )
   # Attach the integrity/completeness core as TOP-LEVEL manifest fields

@@ -45,6 +45,10 @@ BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pk
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION
 PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
 
+# Published schema version; a change forces the next run to publish.
+# 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
+BIOC_METADATA_SCHEMA <- 2L
+
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
 BIOC_LIVE_FLOOR <- 1500L
