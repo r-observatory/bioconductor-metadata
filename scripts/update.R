@@ -590,6 +590,14 @@ default_io <- function() {
         c("api", "--paginate", sprintf("orgs/%s/repos?per_page=100", BIOC_ORG),
           "--jq", ".[].name"),
         stdout = TRUE, stderr = FALSE))
+      # gh prints a failed page's error body to stdout, so a failed exit means
+      # a partial listing that can also hold that body as a name.
+      status <- attr(out, "status")
+      if (!is.null(status) && status != 0L) {
+        stop(sprintf(
+          "Repository listing failed (gh exit %s); not crawling a partial listing",
+          status))
+      }
       sort(out[nzchar(trimws(out))])
     },
 

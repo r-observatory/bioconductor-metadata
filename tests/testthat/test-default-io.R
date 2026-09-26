@@ -43,6 +43,36 @@ test_that("default_io fetch_description accepts 'pkg' and 'branch' arguments", {
 })
 
 # ---------------------------------------------------------------------------
+# list_repos against a fake gh on PATH
+# ---------------------------------------------------------------------------
+
+local_fake_gh <- function(lines, env = parent.frame()) {
+  dir <- withr::local_tempdir(.local_envir = env)
+  gh  <- file.path(dir, "gh")
+  writeLines(c("#!/bin/sh", lines), gh)
+  Sys.chmod(gh, "0755")
+  withr::local_path(dir, action = "prefix", .local_envir = env)
+  invisible(gh)
+}
+
+test_that("default_io list_repos stops when gh fails after printing some names", {
+  # gh prints a failed page's error body to stdout even under --jq
+  local_fake_gh(c(
+    "echo PkgB",
+    "echo PkgA",
+    "echo '{\"message\":\"Server Error\",\"status\":\"500\"}'",
+    "exit 1"))
+  expect_error(default_io()$list_repos(),
+               "Repository listing failed (gh exit 1); not crawling a partial listing",
+               fixed = TRUE)
+})
+
+test_that("default_io list_repos returns the sorted names when gh succeeds", {
+  local_fake_gh(c("echo PkgB", "echo PkgA", "echo", "exit 0"))
+  expect_equal(default_io()$list_repos(), c("PkgA", "PkgB"))
+})
+
+# ---------------------------------------------------------------------------
 # Config constant sanity checks (offline)
 # ---------------------------------------------------------------------------
 
