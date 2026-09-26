@@ -759,7 +759,8 @@ test_that("manifest$changed is TRUE when prior manifest lacks releases_fingerpri
     stringsAsFactors   = FALSE
   )
   # Old manifest has views_fingerprint but NO releases_fingerprint
-  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP))
+  prev_manifest <- list(source = list(views_fingerprint = .FIXTURE_FP,
+                                       schema = BIOC_METADATA_SCHEMA))
 
   io  <- make_stub_io(prev_pkgs = prev_pkgs, prev_manifest = prev_manifest)
   res <- run_update(io, out, force_full = FALSE)
@@ -1012,7 +1013,8 @@ test_that("biocviews: changed=TRUE when prior manifest lacks biocviews_fingerpri
   # Prior manifest has views + releases fingerprints but NO biocviews_fingerprint.
   prev_manifest <- list(source = list(
     views_fingerprint    = .FIXTURE_FP,
-    releases_fingerprint = .FIXTURE_RELEASES_FP
+    releases_fingerprint = .FIXTURE_RELEASES_FP,
+    schema               = BIOC_METADATA_SCHEMA
   ))
 
   io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
