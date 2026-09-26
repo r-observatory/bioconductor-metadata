@@ -166,3 +166,27 @@ test_that("carry_forward_authors keeps ror_id and comment a prior catalog holds"
   expect_equal(out$comment, "University X")
   expect_equal(nrow(carry_forward_authors(prior, keep = character(0))), 0L)
 })
+
+test_that("named comment parts other than ORCID and ROR are kept, as on CRAN", {
+  out <- one_person('c(ORCID = "0000-0002-1825-0097", affiliation = "University X", "Lab Y")')
+  expect_equal(out$orcid, "0000-0002-1825-0097")
+  expect_equal(out$comment, "University X, Lab Y")
+
+  out <- one_person('c("rspr, uspr", GitHub = "cwhidden")')
+  expect_equal(out$comment, "rspr, uspr, cwhidden")
+
+  out <- one_person('c(ROR = "02nr0ka47", affiliation = "University X")')
+  expect_equal(out$ror_id, "02nr0ka47")
+  expect_equal(out$comment, "University X")
+})
+
+test_that("an iD under a misspelled ORCID key moves to orcid", {
+  for (key in c("ORCHID", "ORICD")) {
+    out <- one_person(sprintf('c(%s = "0000-0002-1825-0097")', key))
+    expect_equal(out$orcid, "0000-0002-1825-0097")
+    expect_identical(out$comment, NA_character_)
+  }
+  out <- one_person('c(ORCHID = "0000-0002-1825-0097", affiliation = "University X")')
+  expect_equal(out$orcid, "0000-0002-1825-0097")
+  expect_equal(out$comment, "0000-0002-1825-0097, University X")
+})

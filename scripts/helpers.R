@@ -259,7 +259,8 @@ parse_authors_at_r <- function(authors_r_text, package) {
     ids <- tryCatch({
       cm   <- p$comment
       nm   <- names(cm)
-      free <- if (is.null(nm)) cm else cm[is.na(nm) | !nzchar(nm)]
+      # Every part but ORCID and ROR, as tools::CRAN_authors_db() stores it.
+      free <- if (is.null(nm)) cm else cm[!(nm %in% c("ORCID", "ROR"))]
       free <- free[!is.na(free) & nzchar(trimws(free))]
       text <- if (length(free)) sanitize_comment_text(paste(free, collapse = ", ")) else NA_character_
       normalize_author_comments(text, orc, ror)
