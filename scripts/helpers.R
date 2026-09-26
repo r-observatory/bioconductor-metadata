@@ -158,13 +158,87 @@ build_bioc_vignettes <- function(views_texts, release) {
   out
 }
 
+#' Zero-row bioc_authors frame in the published column order.
+empty_bioc_authors <- function() {
+  setNames(data.frame(matrix(character(0), ncol = length(BIOC_AUTHOR_COLS)),
+                      stringsAsFactors = FALSE), BIOC_AUTHOR_COLS)
+}
+
+# An ORCID iD not glued to further digits, and a ROR id as it follows ror.org/.
+ORCID_ID_PATTERN <- "(?<![0-9])[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X](?![0-9X])"
+ROR_ID_PATTERN   <- "0[a-hj-km-np-tv-z0-9]{6}[0-9]{2}"
+
+# ISO 7064 MOD 11-2, the check ORCID defines, so a mistyped iD never moves.
+orcid_checksum_ok <- function(id) {
+  vapply(id, function(one) {
+    if (is.na(one)) return(FALSE)
+    digits <- gsub("-", "", one, fixed = TRUE)
+    if (!grepl("^[0-9]{15}[0-9X]$", digits)) return(FALSE)
+    total <- 0
+    for (d in as.integer(strsplit(substr(digits, 1, 15), "")[[1]])) total <- (total + d) * 2
+    r <- (12 - total %% 11) %% 11
+    identical(if (r == 10) "X" else as.character(r), substr(digits, 16, 16))
+  }, logical(1), USE.NAMES = FALSE)
+}
+
+# One line per comment; a blank comment is stored as NULL, never as "".
+collapse_comment_whitespace <- function(x) {
+  x <- trimws(gsub("[[:space:]]+", " ", x, perl = TRUE))
+  x[!is.na(x) & !nzchar(x)] <- NA_character_
+  x
+}
+
+# Never truncates: the viewer reads review links from the full text. A comment
+# empties only when a moved identifier and its label were all it held.
+normalize_author_comments <- function(comment, orcid, ror_id) {
+  comment <- collapse_comment_whitespace(as.character(comment))
+  orcid   <- as.character(orcid)
+  ror_id  <- as.character(ror_id)
+  absent  <- function(v) is.na(v) || !nzchar(v)
+  orcid_hits <- regmatches(comment, gregexpr(ORCID_ID_PATTERN, comment, perl = TRUE))
+  ror_hits   <- regmatches(comment, gregexpr(
+    paste0("(?<![a-z0-9-])ror\\.org/", ROR_ID_PATTERN, "(?![a-z0-9])"), comment, perl = TRUE))
+  n_orcid <- 0L
+  n_ror   <- 0L
+  for (i in which(!is.na(comment))) {
+    rest  <- comment[i]
+    moved <- FALSE
+    # The same iD written twice is still one iD.
+    id <- unique(orcid_hits[[i]])
+    if (absent(orcid[i]) && length(id) == 1L && orcid_checksum_ok(id)) {
+      orcid[i] <- id
+      n_orcid  <- n_orcid + 1L
+      moved    <- TRUE
+      rest <- gsub(paste0("(?i)(orcid(\\s*id)?\\s*[:=]?\\s*)?[\"'<]?((https?://)?(www\\.)?orcid\\.org/)?",
+                          id, "[\"'>]?"), "", rest, perl = TRUE)
+    }
+    id <- unique(sub("^ror\\.org/", "", ror_hits[[i]]))
+    if (absent(ror_id[i]) && length(id) == 1L) {
+      ror_id[i] <- id
+      n_ror     <- n_ror + 1L
+      moved     <- TRUE
+      rest <- gsub(paste0("(?i)(ror(\\s*id)?\\s*[:=]?\\s*)?[\"'<]?(https?://)?(www\\.)?ror\\.org/",
+                          id, "[\"'>]?"), "", rest, perl = TRUE)
+    }
+    if (moved && grepl("^[[:punct:][:space:]]*$", rest)) comment[i] <- NA_character_
+  }
+  list(comment = comment, orcid = orcid, ror_id = ror_id,
+       n_orcid = n_orcid, n_ror = n_ror)
+}
+
+# The cleaning cran-metadata's sanitize_df gives every author field: control
+# characters other than tab, LF and CR removed, then UTF-8 forced.
+sanitize_comment_text <- function(x) {
+  x <- gsub("[\\x{00}-\\x{08}\\x{0b}\\x{0c}\\x{0e}-\\x{1f}]", "", x, perl = TRUE)
+  iconv(x, to = "UTF-8", sub = "")
+}
+
 #' Parse an Authors@R field (R code) into a data.frame of author rows.
 #' Evaluates the expression in a restricted environment that exposes only
 #' `person` and `c`, limiting arbitrary-code risk from untrusted DESCRIPTION
-#' content. Returns an empty 6-column frame on any parse/eval failure.
+#' content. Returns an empty 8-column frame on any parse/eval failure.
 parse_authors_at_r <- function(authors_r_text, package) {
-  cols <- c("package","given","family","email","role","orcid")
-  empty <- setNames(data.frame(matrix(character(0), ncol = 6), stringsAsFactors = FALSE), cols)
+  empty <- empty_bioc_authors()
   if (is.na(authors_r_text) || !nzchar(trimws(authors_r_text))) return(empty)
   env <- new.env(parent = emptyenv())
   env$person <- utils::person
@@ -174,17 +248,49 @@ parse_authors_at_r <- function(authors_r_text, package) {
   rows <- lapply(seq_along(pp), function(i) {
     p <- pp[i]
     orc <- tryCatch(unname(p$comment[["ORCID"]]), error = function(e) NULL)
+    orc <- if (length(orc) && !is.na(orc[1]) && nzchar(trimws(orc[1])))
+      sub("^https?://orcid\\.org/", "", trimws(orc[1])) else NA_character_
+    ror <- tryCatch(unname(p$comment[["ROR"]]), error = function(e) NULL)
+    ror <- if (length(ror) && !is.na(ror[1])) sub("^https://ror\\.org/", "", trimws(ror[1])) else NA_character_
+    if (!is.na(ror) && !grepl(paste0("^", ROR_ID_PATTERN, "$"), ror)) ror <- NA_character_
+    # A bad comment must not cost the person row or its identifiers.
+    ids <- tryCatch({
+      cm   <- p$comment
+      nm   <- names(cm)
+      free <- if (is.null(nm)) cm else cm[is.na(nm) | !nzchar(nm)]
+      free <- free[!is.na(free) & nzchar(trimws(free))]
+      text <- if (length(free)) sanitize_comment_text(paste(free, collapse = ", ")) else NA_character_
+      normalize_author_comments(text, orc, ror)
+    }, error = function(e) {
+      message("Could not read an author comment in ", package, ": ", conditionMessage(e))
+      list(orcid = orc, ror_id = ror, comment = NA_character_)
+    })
     data.frame(
       package = package,
-      given  = paste(p$given,  collapse = " "),
-      family = paste(p$family, collapse = " "),
-      email  = if (length(p$email)) p$email[1] else NA_character_,
-      role   = if (length(p$role))  paste(p$role, collapse = ", ") else NA_character_,
-      orcid  = if (!is.null(orc) && nzchar(orc)) orc else NA_character_,
+      given   = paste(p$given,  collapse = " "),
+      family  = paste(p$family, collapse = " "),
+      email   = if (length(p$email)) p$email[1] else NA_character_,
+      role    = if (length(p$role))  paste(p$role, collapse = ", ") else NA_character_,
+      orcid   = ids$orcid,
+      ror_id  = ids$ror_id,
+      comment = ids$comment,
       stringsAsFactors = FALSE)
   })
   out <- do.call(rbind, rows)
   out[nzchar(out$given) | nzchar(out$family), , drop = FALSE]
+}
+
+#' Prior bioc_authors rows of the packages in keep, in the published column
+#' order. A column the prior catalog predates is filled with NA.
+carry_forward_authors <- function(prev_authors, keep) {
+  if (is.null(prev_authors) || nrow(prev_authors) == 0L) return(empty_bioc_authors())
+  carry <- prev_authors[prev_authors$package %in% keep, , drop = FALSE]
+  for (col in setdiff(BIOC_AUTHOR_COLS, names(carry))) {
+    carry[[col]] <- rep(NA_character_, nrow(carry))
+  }
+  carry <- carry[, BIOC_AUTHOR_COLS, drop = FALSE]
+  rownames(carry) <- NULL
+  carry
 }
 
 #' Derive a package's Bioconductor release lineage from its git branch names.
@@ -249,7 +355,7 @@ parse_biocviews_dot <- function(dot_text) {
 #'
 #' Creates (or replaces) the file at `path` with these tables:
 #'   bioc_packages    -- one row per package (23 columns)
-#'   bioc_authors     -- one row per author credit (6 columns)
+#'   bioc_authors     -- one row per author credit (8 columns)
 #'   bioc_releases    -- ordered release list (version, released, seq)
 #'   bioc_view_edges  -- biocViews DAG edges (release, parent, child)
 #'   bioc_vignettes   -- one row per current-release vignette file
@@ -262,8 +368,9 @@ parse_biocviews_dot <- function(dot_text) {
 #'   biocviews, git_url, first_release, first_release_date, last_release,
 #'   last_release_date, in_current, in_devel, updated_at, has_news,
 #'   views_has_readme).
-#' @param authors_df    data.frame with 6 bioc_authors columns in schema order
-#'   (package, given, family, email, role, orcid).
+#' @param authors_df    data.frame with the 8 bioc_authors columns in schema
+#'   order (BIOC_AUTHOR_COLS: package, given, family, email, role, orcid,
+#'   ror_id, comment).
 #' @param releases_df   data.frame with 4 bioc_releases columns (version, released,
 #'   seq, r_version) as returned by bioc_releases_from_dates(). NULL or 0-row
 #'   creates the empty table only.
@@ -314,7 +421,9 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       family TEXT,
       email TEXT,
       role TEXT,
-      orcid TEXT
+      orcid TEXT,
+      ror_id TEXT,
+      comment TEXT
     )
   ")
 

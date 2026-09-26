@@ -105,6 +105,25 @@ test_that("export_catalog writes bioc_authors with correct row count and orcid",
   expect_equal(alpha_aut$orcid, "0000-0001-2345-6789")
 })
 
+test_that("export_catalog writes ror_id and comment after orcid in bioc_authors", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  auths <- make_authors_df()
+  auths$ror_id  <- c(NA_character_, "02nr0ka47", NA_character_)
+  auths$comment <- c("University X", NA_character_, NA_character_)
+  export_catalog(tmp, make_packages_df(), auths)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_authors)")
+  expect_equal(info$name, BIOC_AUTHOR_COLS)
+  rows <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors ORDER BY given")
+  expect_equal(rows$comment[rows$given == "Alice"], "University X")
+  expect_equal(rows$ror_id[rows$given == "Carol"], "02nr0ka47")
+})
+
 test_that("export_catalog creates all required indexes including bioc_releases", {
   tmp <- tempfile(fileext = ".db")
   on.exit(unlink(tmp), add = TRUE)

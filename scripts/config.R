@@ -48,3 +48,7 @@ PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
 BIOC_LIVE_FLOOR <- 1500L
+
+# Published bioc_authors columns, in schema order.
+BIOC_AUTHOR_COLS <- c("package", "given", "family", "email", "role", "orcid",
+                      "ror_id", "comment")

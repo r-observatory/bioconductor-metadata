@@ -438,11 +438,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     empty_pkgs
   }
 
-  empty_auths <- data.frame(
-    package = character(0), given = character(0), family = character(0),
-    email = character(0), role = character(0), orcid = character(0),
-    stringsAsFactors = FALSE
-  )
+  empty_auths <- empty_bioc_authors()
   authors_df <- if (length(authors_rows) > 0L) {
     out_df <- do.call(rbind, authors_rows)
     rownames(out_df) <- NULL
@@ -457,13 +453,9 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   # still treated as authoritative -- no stale rows come back from prev for it.
   if (has_prev && !is.null(prev$authors) && nrow(prev$authors) > 0L) {
     recrawled  <- names(lineage_list)
-    keep       <- setdiff(packages_df$name, recrawled)
-    carry      <- prev$authors[prev$authors$package %in% keep, , drop = FALSE]
-    if (nrow(carry) > 0L) {
-      carry    <- carry[, c("package", "given", "family", "email", "role", "orcid"),
-                        drop = FALSE]
-      authors_df <- rbind(authors_df, carry)
-    }
+    carry      <- carry_forward_authors(prev$authors,
+                                        setdiff(packages_df$name, recrawled))
+    if (nrow(carry) > 0L) authors_df <- rbind(authors_df, carry)
   }
 
   # 7. Export catalog and manifest
