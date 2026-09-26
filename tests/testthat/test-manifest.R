@@ -78,7 +78,8 @@ test_that("db_integrity_core reports filename, bytes, sha256, tables, complete",
     bioc_names_all  = 2L,
     bioc_packages   = 2L,
     bioc_releases   = 0L,
-    bioc_view_edges = 0L
+    bioc_view_edges = 0L,
+    bioc_vignettes  = 0L
   ))
   expect_true(core$complete)
 })

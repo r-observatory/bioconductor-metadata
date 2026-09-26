@@ -5,6 +5,12 @@ VIEWS_URLS <- c(
   experiment = "https://bioconductor.org/packages/release/data/experiment/VIEWS",
   workflows  = "https://bioconductor.org/packages/release/workflows/VIEWS")
 CONFIG_YAML_URL <- "https://bioconductor.org/config.yaml"
+# Repository path of each VIEWS category in bioconductor.org package URLs.
+BIOC_REPO_PATHS <- c(
+  software   = "bioc",
+  annotation = "data/annotation",
+  experiment = "data/experiment",
+  workflows  = "workflows")
 
 # Backoff between attempts at a bioconductor.org fetch, in seconds; one more
 # attempt is made than there are waits. The previous 3 tries at 3s and 6s covered

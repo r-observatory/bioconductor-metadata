@@ -80,6 +80,84 @@ parse_views <- function(views_text, category) {
     stringsAsFactors = FALSE)
 }
 
+#' Zero-row bioc_vignettes frame with the published column types.
+empty_bioc_vignettes <- function() {
+  data.frame(package = character(0), release = character(0),
+             category = character(0), version = character(0),
+             seq = integer(0), file = character(0), title = character(0),
+             output = character(0), url = character(0),
+             stringsAsFactors = FALSE)
+}
+
+#' Split a VIEWS vignetteTitles value into titles. VIEWS writes a comma inside
+#' a title doubled, so only a single comma followed by whitespace separates.
+split_vignette_titles <- function(x) {
+  if (length(x) == 0L || is.na(x) || !nzchar(trimws(x))) return(character(0))
+  p <- strsplit(x, "(?<!,),(?!,)[[:space:]]+", perl = TRUE)[[1]]
+  p <- gsub(",,", ",", p, fixed = TRUE)
+  p <- gsub("[[:space:]]+", " ", trimws(p))
+  sub('^"(.*)"$', "\\1", p)
+}
+
+#' One row per vignette file listed in a category's VIEWS text, for the given
+#' release. Titles pair with files by position; when the counts differ every
+#' title of that package is NA.
+parse_views_vignettes <- function(views_text, category, release) {
+  empty <- empty_bioc_vignettes()
+  if (length(views_text) == 0L || is.na(views_text) || !nzchar(trimws(views_text))) return(empty)
+  m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
+  if (is.null(m) || nrow(m) == 0L || !("vignettes" %in% colnames(m))) return(empty)
+  g <- function(field) if (field %in% colnames(m)) as.character(m[, field]) else rep(NA_character_, nrow(m))
+  pkgs <- g("Package"); vers <- g("Version"); vigs <- g("vignettes"); tits <- g("vignetteTitles")
+  base <- paste0("https://bioconductor.org/packages/", release, "/",
+                 BIOC_REPO_PATHS[[category]], "/")
+  # A repeated record would break the (package, seq) key and stop the whole run.
+  again <- duplicated(pkgs) & !is.na(pkgs)
+  if (any(again)) {
+    message("VIEWS for ", category, " lists ", paste(unique(pkgs[again]), collapse = ", "),
+            " more than once; keeping the first record")
+  }
+  rows <- lapply(seq_len(nrow(m)), function(i) {
+    if (again[i] || is.na(pkgs[i]) || is.na(vigs[i]) || !nzchar(trimws(vigs[i]))) return(NULL)
+    files <- trimws(strsplit(vigs[i], ",[[:space:]]+")[[1]])
+    files <- files[nzchar(files)]
+    if (length(files) == 0L) return(NULL)
+    titles <- split_vignette_titles(tits[i])
+    if (length(titles) != length(files)) titles <- rep(NA_character_, length(files))
+    ext <- tolower(tools::file_ext(files))
+    data.frame(package = pkgs[i], release = release, category = category,
+               version = vers[i], seq = seq_along(files), file = files,
+               title = titles, output = ifelse(nzchar(ext), ext, NA_character_),
+               url = paste0(base, files), stringsAsFactors = FALSE)
+  })
+  rows <- Filter(Negate(is.null), rows)
+  if (length(rows) == 0L) return(empty)
+  out <- do.call(rbind, rows)
+  rownames(out) <- NULL
+  out
+}
+
+#' bioc_vignettes rows over every category of views_texts (a list named by
+#' category, in VIEWS_URLS order). A package listed under two categories keeps
+#' the rows of the first, and the repeat is logged.
+build_bioc_vignettes <- function(views_texts, release) {
+  out  <- empty_bioc_vignettes()
+  seen <- character(0)
+  for (cat in names(views_texts)) {
+    v   <- parse_views_vignettes(views_texts[[cat]], cat, release)
+    dup <- unique(v$package[v$package %in% seen])
+    if (length(dup) > 0L) {
+      message("Vignettes of ", paste(dup, collapse = ", "), " also listed under ",
+              cat, "; keeping the earlier category")
+      v <- v[!(v$package %in% dup), , drop = FALSE]
+    }
+    seen <- c(seen, unique(v$package))
+    out  <- rbind(out, v)
+  }
+  rownames(out) <- NULL
+  out
+}
+
 #' Parse an Authors@R field (R code) into a data.frame of author rows.
 #' Evaluates the expression in a restricted environment that exposes only
 #' `person` and `c`, limiting arbitrary-code risk from untrusted DESCRIPTION
@@ -169,11 +247,12 @@ parse_biocviews_dot <- function(dot_text) {
 
 #' Export the assembled catalog to a fresh SQLite database.
 #'
-#' Creates (or replaces) the file at `path` with four tables:
+#' Creates (or replaces) the file at `path` with these tables:
 #'   bioc_packages    -- one row per package (23 columns)
 #'   bioc_authors     -- one row per author credit (6 columns)
 #'   bioc_releases    -- ordered release list (version, released, seq)
 #'   bioc_view_edges  -- biocViews DAG edges (release, parent, child)
+#'   bioc_vignettes   -- one row per current-release vignette file
 #' and six indexes for common lookup patterns.
 #'
 #' @param path          File path for the output .db file.
@@ -191,8 +270,11 @@ parse_biocviews_dot <- function(dot_text) {
 #' @param view_edges_df data.frame with 3 bioc_view_edges columns (release,
 #'   parent, child) as produced by parse_biocviews_dot(). NULL or 0-row creates
 #'   the empty table only.
+#' @param vignettes_df  data.frame with the 9 bioc_vignettes columns as returned
+#'   by build_bioc_vignettes(). NULL or 0-row creates the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
-                           view_edges_df = NULL, names_all_df = NULL) {
+                           view_edges_df = NULL, names_all_df = NULL,
+                           vignettes_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -275,6 +357,24 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
 
   if (!is.null(view_edges_df) && nrow(view_edges_df) > 0L) {
     RSQLite::dbWriteTable(con, "bioc_view_edges", view_edges_df, append = TRUE)
+  }
+
+  RSQLite::dbExecute(con, "
+    CREATE TABLE bioc_vignettes (
+      package  TEXT NOT NULL,
+      release  TEXT NOT NULL,
+      category TEXT NOT NULL,
+      version  TEXT,
+      seq      INTEGER NOT NULL,
+      file     TEXT NOT NULL,
+      title    TEXT,
+      output   TEXT,
+      url      TEXT NOT NULL,
+      PRIMARY KEY (package, seq)
+    )
+  ")
+  if (!is.null(vignettes_df) && nrow(vignettes_df) > 0L) {
+    RSQLite::dbWriteTable(con, "bioc_vignettes", vignettes_df, append = TRUE)
   }
 
   if (!is.null(names_all_df)) {

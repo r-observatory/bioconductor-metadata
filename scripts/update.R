@@ -71,13 +71,16 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   releases_df          <- bioc_releases_from_dates(dates, r_vers)
   releases_fingerprint <- paste0(releases_df$version, ":", releases_df$r_version, collapse = ",")
 
-  # 2. Fetch VIEWS metadata for every category
-  views_parts <- lapply(names(VIEWS_URLS), function(cat) {
-    parse_views(io$fetch_views(cat), cat)
+  # 2. Fetch VIEWS metadata for every category, keeping the text for the vignette rows
+  views_texts <- setNames(lapply(names(VIEWS_URLS), function(cat) io$fetch_views(cat)),
+                          names(VIEWS_URLS))
+  views_parts <- lapply(names(views_texts), function(cat) {
+    parse_views(views_texts[[cat]], cat)
   })
   views_df <- do.call(rbind, views_parts)
   rownames(views_df) <- NULL
   views_names <- views_df$name
+  vignettes_df <- build_bioc_vignettes(views_texts, current_release)
 
   # Fingerprint of the current VIEWS state: sorted "name:version" pairs joined
   # by commas. Dependency-free and stable; used for change detection below.
@@ -481,7 +484,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   }
   n_names <- nrow(names_all_df)
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
-                 names_all_df = names_all_df)
+                 names_all_df = names_all_df, vignettes_df = vignettes_df)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -518,6 +521,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_packages      = nrow(packages_df),
     n_current       = sum(packages_df$in_current == 1L),
     n_authors       = nrow(authors_df),
+    n_vignettes     = nrow(vignettes_df),
     n_names         = n_names,
     names_gate_ok   = names_gate_ok,
     changed              = manifest_changed,

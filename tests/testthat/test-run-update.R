@@ -35,6 +35,9 @@ FIXTURE_VIEWS_SOFTWARE <- paste(
   "License: MIT",
   "biocViews: Software, Infrastructure",
   "git_url: https://git.bioconductor.org/packages/PkgSoft",
+  "vignettes: vignettes/PkgSoft/inst/doc/intro.html,",
+  "        vignettes/PkgSoft/inst/doc/advanced.pdf",
+  "vignetteTitles: Getting started,, briefly, Advanced use",
   "hasREADME: FALSE",
   "hasNEWS: TRUE",
   "", sep = "\n")
@@ -1058,4 +1061,50 @@ test_that("run_update never carries VIEWS flags forward from the prior catalog",
                    c(NA_integer_, NA_integer_))
   expect_identical(pkgs$views_has_readme[pkgs$name %in% c("PkgAnnot", "PkgOld")],
                    c(NA_integer_, NA_integer_))
+})
+
+# ---------------------------------------------------------------------------
+# bioc_vignettes from the current VIEWS
+# ---------------------------------------------------------------------------
+
+test_that("run_update writes bioc_vignettes for the current release and counts them in the manifest", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  res <- run_update(make_stub_io(), out, force_full = TRUE)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  v <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_vignettes ORDER BY package, seq")
+
+  expect_equal(nrow(v), 2L)
+  expect_equal(v$package, c("PkgSoft", "PkgSoft"))
+  expect_equal(v$release, c("3.23", "3.23"))
+  expect_equal(v$version, c("1.2.0", "1.2.0"))
+  expect_equal(v$title, c("Getting started, briefly", "Advanced use"))
+  expect_equal(v$url[1],
+               "https://bioconductor.org/packages/3.23/bioc/vignettes/PkgSoft/inst/doc/intro.html")
+  expect_equal(res$manifest$n_vignettes, 2L)
+  expect_equal(res$manifest$tables$bioc_vignettes, 2L)
+})
+
+test_that("a package listed twice in one VIEWS file is written once instead of stopping the run", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software   = paste(FIXTURE_VIEWS_SOFTWARE, FIXTURE_VIEWS_SOFTWARE, sep = "\n"),
+      annotation = FIXTURE_VIEWS_ANNOTATION,
+      "")
+  }
+
+  expect_message(run_update(io, out, force_full = TRUE), "PkgSoft more than once")
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  v <- RSQLite::dbGetQuery(con, "SELECT package, seq FROM bioc_vignettes ORDER BY seq")
+  expect_equal(v$package, c("PkgSoft", "PkgSoft"))
+  expect_equal(v$seq, 1:2)
 })
