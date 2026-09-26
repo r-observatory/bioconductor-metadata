@@ -147,8 +147,22 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   }
 
   # 4. Determine which packages to (re)crawl
-  if (force_full || !has_prev) {
+  migrate_authors <- has_prev && authors_need_migration(prev$authors)
+  if (migrate_authors) {
+    message("Prior bioc_authors lacks ror_id or comment; crawling every repository once")
+  }
+  if (force_full || !has_prev || migrate_authors) {
     crawl_set <- io$list_repos()
+    # A short listing would publish the new columns with most packages unread,
+    # and no later run would crawl them again.
+    if (migrate_authors) {
+      cover <- views_code_coverage(crawl_set, views_df)
+      if (cover < BIOC_MIGRATION_LISTING_FLOOR) {
+        stop(sprintf(paste("Repository listing holds %.1f%% of current software and",
+                           "workflows packages; not starting the one-time author crawl"),
+                     100 * cover))
+      }
+    }
   } else {
     new_in_views       <- setdiff(views_names, prev_pkgs$name)
     prev_current       <- prev_pkgs$name[prev_pkgs$in_current == 1L]
@@ -166,13 +180,22 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     } else {
       character(0L)
     }
-    crawl_set <- union(union(new_in_views, removed_from_views), null_first)
+    # A new version can carry a new Authors@R, so its DESCRIPTION is read again.
+    version_bumped <- version_bumped_packages(prev_pkgs, views_df)
+    if (length(version_bumped) > 0L) {
+      message("Re-reading DESCRIPTION for ", length(version_bumped),
+              " packages whose VIEWS version changed")
+    }
+    crawl_set <- union(union(union(new_in_views, removed_from_views), null_first),
+                       version_bumped)
   }
 
   # 5. Crawl each package in the set (per-package failures are caught and skipped)
   lineage_list <- list()
+  desc_read    <- character(0)  # packages whose DESCRIPTION was fetched this run
   authors_rows <- list()
   desc_meta    <- list()  # DESCRIPTION-derived metadata for packages absent from views
+  crawl_start  <- Sys.time()
 
   for (pkg in crawl_set) {
     tryCatch({
@@ -190,6 +213,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       }
 
       desc_text <- io$fetch_description(pkg, branch)
+      desc_read <- c(desc_read, pkg)
       m <- tryCatch(read.dcf(textConnection(desc_text)), error = function(e) NULL)
 
       # Extract Authors@R and parse to author rows
@@ -214,6 +238,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
       message("Skipping ", pkg, ": ", conditionMessage(e))
     })
   }
+  # The full crawl must stay inside the job's 300-minute timeout.
+  message(sprintf("Crawled %d packages in %.1f min; DESCRIPTION read for %d",
+                  length(crawl_set),
+                  as.numeric(difftime(Sys.time(), crawl_start, units = "mins")),
+                  length(desc_read)))
 
   # 6. Assemble packages_df ---------------------------------------------------
 
@@ -447,14 +476,12 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     empty_auths
   }
 
-  # Carry forward authors for packages that are in the final catalog but were
-  # NOT re-crawled this run. Key off names(lineage_list) (built in the crawl
-  # loop) so that a re-crawled package whose Authors@R yielded zero rows is
-  # still treated as authoritative -- no stale rows come back from prev for it.
+  # Carry forward authors for packages in the final catalog whose DESCRIPTION
+  # was not read this run. A package whose DESCRIPTION was read but yielded no
+  # Authors@R rows is authoritative; one whose fetch failed keeps its prior rows.
   if (has_prev && !is.null(prev$authors) && nrow(prev$authors) > 0L) {
-    recrawled  <- names(lineage_list)
     carry      <- carry_forward_authors(prev$authors,
-                                        setdiff(packages_df$name, recrawled))
+                                        setdiff(packages_df$name, desc_read))
     if (nrow(carry) > 0L) authors_df <- rbind(authors_df, carry)
   }
 

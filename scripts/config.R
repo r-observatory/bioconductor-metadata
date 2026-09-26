@@ -52,3 +52,7 @@ BIOC_LIVE_FLOOR <- 1500L
 # Published bioc_authors columns, in schema order.
 BIOC_AUTHOR_COLS <- c("package", "given", "family", "email", "role", "orcid",
                       "ror_id", "comment")
+
+# Share of current software and workflows packages the repository listing must
+# hold before the one-time author crawl starts (2,443 of 2,446 on 2026-09-26).
+BIOC_MIGRATION_LISTING_FLOOR <- 0.98

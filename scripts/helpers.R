@@ -296,6 +296,36 @@ carry_forward_authors <- function(prev_authors, keep) {
   carry
 }
 
+#' Share of current software and workflows packages present in a repository
+#' listing. 1 when VIEWS lists none, so an empty VIEWS never blocks here.
+views_code_coverage <- function(repos, views_df) {
+  code <- unique(views_df$name[views_df$category %in% c("software", "workflows")])
+  if (length(code) == 0L) return(1)
+  mean(code %in% repos)
+}
+
+#' TRUE when a prior bioc_authors frame predates ror_id or comment, so every
+#' repository is crawled once to fill them.
+authors_need_migration <- function(prev_authors) {
+  !all(c("ror_id", "comment") %in% names(prev_authors))
+}
+
+#' Current software and workflows packages whose VIEWS version differs from the
+#' prior catalog's, so their DESCRIPTION is read again. Data packages have no
+#' RELEASE branches on github.com/bioc and are left out, as in the lineage
+#' backfill.
+version_bumped_packages <- function(prev_pkgs, views_df) {
+  if (is.null(prev_pkgs) || nrow(prev_pkgs) == 0L || nrow(views_df) == 0L) {
+    return(character(0))
+  }
+  code     <- views_df[views_df$category %in% c("software", "workflows"), , drop = FALSE]
+  prev_ver <- prev_pkgs$version[match(code$name, prev_pkgs$name)]
+  known    <- code$name %in% prev_pkgs$name
+  differs  <- (is.na(prev_ver) != is.na(code$version)) |
+    (!is.na(prev_ver) & !is.na(code$version) & prev_ver != code$version)
+  unique(code$name[known & differs])
+}
+
 #' Derive a package's Bioconductor release lineage from its git branch names.
 #' Returns a named list with first_release, first_release_date, last_release,
 #' last_release_date, in_current, and in_devel.
