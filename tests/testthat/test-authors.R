@@ -43,8 +43,13 @@ test_that("parse_authors_at_r joins the unnamed comment parts with a comma", {
 test_that("parse_authors_at_r stores an ORCID URL as the bare iD", {
   out <- one_person('c(ORCID = "http://orcid.org/0000-0003-3199-3722")')
   expect_equal(out$orcid, "0000-0003-3199-3722")
-  out <- one_person('c(ORCID = "https://orcid.org/0000-0002-1825-0097")')
-  expect_equal(out$orcid, "0000-0002-1825-0097")
+  # person() only warns on a bare prefix, which must not reach orcid as "".
+  out <- suppressWarnings(parse_authors_at_r(paste0(
+    'c(person("Ada", "Lovelace", role = "aut", ',
+    'comment = c(ORCID = "https://orcid.org/0000-0002-1825-0097")), ',
+    'person("Bo", "Byron", role = "aut", comment = c(ORCID = "https://orcid.org/")))'),
+    "pkgA"))
+  expect_identical(out$orcid, c("0000-0002-1825-0097", NA_character_))
 })
 
 test_that("an ORCID iD with a valid check digit moves from the free comment", {

@@ -248,8 +248,10 @@ parse_authors_at_r <- function(authors_r_text, package) {
   rows <- lapply(seq_along(pp), function(i) {
     p <- pp[i]
     orc <- tryCatch(unname(p$comment[["ORCID"]]), error = function(e) NULL)
-    orc <- if (length(orc) && !is.na(orc[1]) && nzchar(trimws(orc[1])))
-      sub("^https?://orcid\\.org/", "", trimws(orc[1])) else NA_character_
+    orc <- if (length(orc) && !is.na(orc[1]))
+      trimws(sub("^https?://orcid\\.org/", "", trimws(orc[1]))) else NA_character_
+    # Strip before the empty check, so a bare orcid.org/ prefix is NA, not "".
+    if (!is.na(orc) && !nzchar(orc)) orc <- NA_character_
     ror <- tryCatch(unname(p$comment[["ROR"]]), error = function(e) NULL)
     ror <- if (length(ror) && !is.na(ror[1])) sub("^https://ror\\.org/", "", trimws(ror[1])) else NA_character_
     if (!is.na(ror) && !grepl(paste0("^", ROR_ID_PATTERN, "$"), ror)) ror <- NA_character_
