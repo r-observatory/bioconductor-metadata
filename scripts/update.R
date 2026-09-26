@@ -200,6 +200,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   for (pkg in crawl_set) {
     tryCatch({
       br <- io$ls_remote(pkg)
+      # ls_remote returns no branches when git fails, so a known package keeps
+      # its prior row instead of NA lineage and devel's authors.
+      if (length(br) == 0L && has_prev && pkg %in% prev_pkgs$name) {
+        stop("empty branch listing; keeping the prior catalog row")
+      }
       L  <- package_lineage(br, current_release, dates)
       lineage_list[[pkg]] <- L
 

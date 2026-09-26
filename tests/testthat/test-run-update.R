@@ -1307,9 +1307,19 @@ test_that("a version bump whose branch listing fails keeps the prior authors and
     comment = "Kept", stringsAsFactors = FALSE)
 
   io <- make_stub_io(prev_pkgs = prev, prev_auths = prev_auths)
-  io$ls_remote <- function(pkg) stop("simulated 502")
+  # default_io's ls_remote returns no branches when git fails; it never throws
+  io$ls_remote <- function(pkg) character(0L)
+  fetched <- character(0L)
+  io$fetch_description <- function(pkg, branch) {
+    fetched <<- c(fetched, pkg)
+    FIXTURE_DESC[[pkg]] %||% ""
+  }
 
-  suppressMessages(run_update(io, out, force_full = FALSE))
+  msgs <- capture_messages(run_update(io, out, force_full = FALSE))
+  expect_true(any(grepl(
+    "Skipping PkgSoft: empty branch listing; keeping the prior catalog row", msgs,
+    fixed = TRUE)))
+  expect_equal(fetched, character(0L))
 
   con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -1317,8 +1327,51 @@ test_that("a version bump whose branch listing fails keeps the prior authors and
   expect_equal(auths$family, "Name")
   expect_equal(auths$comment, "Kept")
   soft <- RSQLite::dbGetQuery(con,
-    "SELECT version, first_release, in_current FROM bioc_packages WHERE name = 'PkgSoft'")
+    "SELECT version, first_release, last_release, in_current FROM bioc_packages WHERE name = 'PkgSoft'")
   expect_equal(soft$version, "1.2.0")
   expect_equal(soft$first_release, "3.22")
+  expect_equal(soft$last_release, "3.23")
   expect_equal(soft$in_current, 1L)
+})
+
+test_that("a new package with an empty branch listing still enters the catalog with NA lineage", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs)
+  io$fetch_views <- function(cat) {
+    if (cat == "software") return(paste(
+      FIXTURE_VIEWS_SOFTWARE,
+      "Package: PkgNew",
+      "Version: 0.1.0",
+      "Title: The New Package",
+      "Description: Newly added.",
+      "Maintainer: Dan Green <dan@example.com>",
+      "License: MIT",
+      "biocViews: Software",
+      "", sep = "\n"))
+    switch(cat, annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  orig_ls <- io$ls_remote
+  io$ls_remote <- function(pkg) if (pkg == "PkgNew") character(0L) else orig_ls(pkg)
+  orig_desc <- io$fetch_description
+  io$fetch_description <- function(pkg, branch) {
+    if (pkg == "PkgNew") return(paste(
+      "Package: PkgNew", "Version: 0.1.0",
+      'Authors@R: person("Dan", "Green", role = c("aut", "cre"))',
+      "", sep = "\n"))
+    orig_desc(pkg, branch)
+  }
+
+  msgs <- capture_messages(run_update(io, out, force_full = FALSE))
+  expect_false(any(grepl("Skipping PkgNew", msgs, fixed = TRUE)))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  new <- RSQLite::dbGetQuery(con,
+    "SELECT first_release, last_release, in_current FROM bioc_packages WHERE name = 'PkgNew'")
+  expect_equal(nrow(new), 1L)
+  expect_identical(new$first_release, NA_character_)
+  expect_identical(new$last_release, NA_character_)
+  expect_equal(new$in_current, 1L)
 })
