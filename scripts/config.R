@@ -76,3 +76,6 @@ BUILD_FILES       <- c(status      = "BUILD_STATUS_DB.txt",
 
 # A report listing under this share of the previous report's packages is skipped.
 BUILD_HEALTH_FLOOR <- 0.5
+
+# Consecutive reports a node may be missing before its open rows close.
+BUILD_NODE_GONE_AFTER <- 7L

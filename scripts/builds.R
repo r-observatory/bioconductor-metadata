@@ -112,3 +112,149 @@ build_report_verdict <- function(reports, bioc_version, repo, report_at,
   if (n_packages == 0L) return("skipped_floor")
   "applied"
 }
+
+#' Zero-row bioc_build_status_history frame, in schema order.
+empty_build_history <- function() {
+  data.frame(package = character(0), bioc_version = character(0), repo = character(0),
+             node = character(0), stage = character(0), episode_seq = integer(0),
+             status = character(0), detail = character(0),
+             first_version = character(0), last_version = character(0),
+             first_seen = character(0), last_seen = character(0),
+             first_seen_exact = integer(0), ended_on = character(0),
+             end_reason = character(0), stringsAsFactors = FALSE)
+}
+
+#' NA-safe elementwise equality: two NAs are equal.
+na_eq <- function(a, b) (is.na(a) & is.na(b)) | (!is.na(a) & !is.na(b) & a == b)
+
+build_key <- function(d) paste(d$package, d$node, d$stage, sep = "\r")
+
+#' For each node, how many reports in a row lack it, counting this one and the
+#' applied reports of the same BioC version and repo before it, and the
+#' report_at of the earliest of them.
+node_absence <- function(reports, bioc_version, repo, report_at, nodes_now, nodes) {
+  prior <- reports[reports$bioc_version == bioc_version & reports$repo == repo &
+                     reports$outcome == "applied" & reports$report_at < report_at, ,
+                   drop = FALSE]
+  prior <- prior[order(prior$report_at, decreasing = TRUE), , drop = FALSE]
+  listed <- strsplit(prior$nodes, ",", fixed = TRUE)
+  absent <- integer(length(nodes)); since <- character(length(nodes))
+  for (i in seq_along(nodes)) {
+    if (nodes[i] %in% nodes_now) { absent[i] <- 0L; since[i] <- NA_character_; next }
+    n <- 1L; s <- report_at
+    for (j in seq_along(listed)) {
+      if (nodes[i] %in% listed[[j]]) break
+      n <- n + 1L; s <- prior$report_at[j]
+    }
+    absent[i] <- n; since[i] <- s
+  }
+  data.frame(node = nodes, absent = absent, since = since, stringsAsFactors = FALSE)
+}
+
+#' Apply one report to the episode history. An open row whose status and reason
+#' still hold is extended; a different result closes it 'changed' and opens the
+#' next episode; a line gone from a report whose node is present closes it
+#' 'gone'. NA is no result and leaves the open row alone, as does a missing
+#' node until `gone_after` reports in a row lack it. Propagation rows are only
+#' touched when the propagation file was read.
+#'   report: list(bioc_version, repo, report_at, versions, propagation_read)
+#'   reports: bioc_build_reports rows before this report
+#'   exact: first_seen_exact for the episodes opened here
+apply_build_report <- function(history, lines, report, reports, exact,
+                               gone_after = BUILD_NODE_GONE_AFTER) {
+  bv <- report$bioc_version; rp <- report$repo; at <- report$report_at
+  versions <- report$versions
+  ver_of <- function(pkg) {
+    v <- unname(versions[pkg])
+    if (length(v) != length(pkg)) v <- rep(NA_character_, length(pkg))
+    v
+  }
+  lines <- lines[!duplicated(build_key(lines)), , drop = FALSE]
+  if (!isTRUE(report$propagation_read)) {
+    lines <- lines[lines$stage != "propagate", , drop = FALSE]
+  }
+  counts <- c(new = 0L, extended = 0L, closed = 0L)
+
+  scope <- is.na(history$ended_on) & history$bioc_version == bv & history$repo == rp
+  if (!isTRUE(report$propagation_read)) scope <- scope & history$stage != "propagate"
+  idx <- which(scope)
+  m <- match(build_key(history[idx, , drop = FALSE]), build_key(lines))
+  st <- lines$status[m]; dt <- lines$detail[m]
+  has <- !is.na(m) & st != "NA"
+  same <- has & na_eq(history$status[idx], st) & na_eq(history$detail[idx], dt)
+
+  ext <- idx[same]
+  history$last_seen[ext] <- at
+  v <- ver_of(history$package[ext])
+  history$last_version[ext] <- ifelse(is.na(v), history$last_version[ext], v)
+
+  ch <- idx[has & !same]
+  history$ended_on[ch] <- at
+  history$end_reason[ch] <- "changed"
+
+  status_nodes <- unique(lines$node[lines$stage != "propagate"])
+  unmatched <- idx[is.na(m)]
+  node_here <- history$stage[unmatched] == "propagate" |
+    history$node[unmatched] %in% status_nodes
+  gone <- unmatched[node_here]
+  history$ended_on[gone] <- at
+  history$end_reason[gone] <- "gone"
+
+  away <- unmatched[!node_here]
+  closed_away <- integer(0)
+  if (length(away) > 0L) {
+    ab <- node_absence(reports, bv, rp, at, status_nodes, unique(history$node[away]))
+    k <- match(history$node[away], ab$node)
+    shut <- ab$absent[k] >= gone_after
+    closed_away <- away[shut]
+    history$ended_on[closed_away] <- ab$since[k][shut]
+    history$end_reason[closed_away] <- "gone"
+  }
+
+  open_now <- history[is.na(history$ended_on) & history$bioc_version == bv &
+                        history$repo == rp, , drop = FALSE]
+  results <- lines[lines$status != "NA", , drop = FALSE]
+  to_open <- results[!(build_key(results) %in% build_key(open_now)), , drop = FALSE]
+  if (nrow(to_open) > 0L) {
+    scoped <- history[history$bioc_version == bv & history$repo == rp, , drop = FALSE]
+    top <- if (nrow(scoped) > 0L) tapply(scoped$episode_seq, build_key(scoped), max) else integer(0)
+    prev_seq <- unname(top[build_key(to_open)])
+    if (length(prev_seq) != nrow(to_open)) prev_seq <- rep(NA_integer_, nrow(to_open))
+    prev_seq[is.na(prev_seq)] <- 0L
+    v <- ver_of(to_open$package)
+    history <- rbind(history, data.frame(
+      package = to_open$package, bioc_version = bv, repo = rp,
+      node = to_open$node, stage = to_open$stage,
+      episode_seq = as.integer(prev_seq) + 1L,
+      status = to_open$status, detail = to_open$detail,
+      first_version = v, last_version = v, first_seen = at, last_seen = at,
+      first_seen_exact = as.integer(exact), ended_on = NA_character_,
+      end_reason = NA_character_, stringsAsFactors = FALSE))
+  }
+  counts[["new"]] <- nrow(to_open)
+  counts[["extended"]] <- length(ext)
+  counts[["closed"]] <- length(ch) + length(gone) + length(closed_away)
+  list(history = history, counts = counts)
+}
+
+#' Close with 'retired' the open rows of a BioC version older than every
+#' version its repo's aliases serve now. served is data.frame(repo,
+#' bioc_version); a repo absent from it is left alone. Comparing against the
+#' oldest served version keeps a version in the middle open while the release
+#' and devel aliases move one at a time at the rollover.
+retire_build_versions <- function(history, served, now) {
+  if (nrow(served) == 0L || nrow(history) == 0L) {
+    return(list(history = history, closed = 0L))
+  }
+  num <- function(v) {
+    u <- unique(v)
+    setNames(vapply(u, release_to_numeric, numeric(1)), u)[v]
+  }
+  oldest <- tapply(num(served$bioc_version), served$repo, min)
+  floor_of <- unname(oldest[history$repo])
+  idx <- which(is.na(history$ended_on) & !is.na(floor_of) &
+                 num(history$bioc_version) < floor_of)
+  history$ended_on[idx] <- now
+  history$end_reason[idx] <- "retired"
+  list(history = history, closed = length(idx))
+}
