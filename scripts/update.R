@@ -77,8 +77,10 @@ with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
 
 run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_FLOOR) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
-  # Upstream files are this run's only; nothing from an earlier run is archived.
-  unlink(file.path(out_dir, c("upstream", "archive-message.txt")), recursive = TRUE)
+  # A run that stops early leaves no status file for the workflow to trust, and
+  # upstream files are this run's only.
+  unlink(file.path(out_dir, c("status.json", "upstream", "archive-message.txt")),
+         recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
   config_text     <- io$config_yaml()
@@ -643,7 +645,18 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
     writeLines(archive_message(archive, run_at), file.path(out_dir, "archive-message.txt"))
   }
 
-  list(changed = manifest_changed, manifest = manifest, archive_files = archive_files)
+  # 9. The status file, last, once the db and manifest are closed. The workflow
+  # publishes and archives only when it says catalog_ok.
+  status <- list(
+    catalog_ok    = isTRUE(names_gate_ok),
+    builds_ok     = isTRUE(builds$ok),
+    changed       = manifest_changed,
+    streams       = builds$summary,
+    archive_files = I(archive_files))
+  write_manifest(file.path(out_dir, "status.json"), status)
+
+  list(changed = manifest_changed, manifest = manifest, archive_files = archive_files,
+       status = status)
 }
 
 # Upstream files for the archive branch: the release VIEWS of each category
@@ -986,10 +999,16 @@ default_io <- function(sleep = Sys.sleep, http = http_get) {
 # Entry point when run as a standalone script
 # ---------------------------------------------------------------------------
 
-if (sys.nframe() == 0L) {
-  args    <- commandArgs(trailingOnly = TRUE)
+# Exit status for the workflow: 0 when the catalog was built, even if a build
+# report stream failed (the status file says so), 1 when it was not.
+main <- function(args = commandArgs(trailingOnly = TRUE), io = default_io(),
+                 live_floor = BIOC_LIVE_FLOOR) {
   out_dir <- if (length(args) >= 1L) args[1L] else "out"
   force_full <- "--bootstrap" %in% args
-  dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
-  run_update(default_io(), out_dir, force_full)
+  res <- run_update(io, out_dir, force_full, live_floor = live_floor)
+  if (isTRUE(res$status$catalog_ok)) 0L else 1L
+}
+
+if (sys.nframe() == 0L) {
+  quit(save = "no", status = main())
 }

@@ -90,6 +90,7 @@ jobs:
       - name: Run unit tests
         run: Rscript tests/testthat.R
       - name: Build catalog
+        id: build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -99,11 +100,19 @@ jobs:
           else
             Rscript scripts/update.R out/
           fi
+      # Runs even when Build catalog exits non-zero, and publishes only when the
+      # status file says the catalog itself was built.
       - name: Publish to the "current" release
+        id: publish
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          if [ "$(jq -r '.catalog_ok' out/status.json 2>/dev/null)" != "true" ]; then
+            echo "The catalog was not built this run; nothing to publish."
+            exit 0
+          fi
           CHANGED=$(jq -r '.changed' out/manifest.json)
           if ! gh release view current >/dev/null 2>&1; then
             git tag -f current
@@ -118,11 +127,43 @@ jobs:
       # Commits the raw VIEWS and build report files to the orphan
       # upstream-archive branch when any byte changed.
       - name: Archive upstream files
+        id: archive
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          if [ "$(jq -r '.catalog_ok' out/status.json 2>/dev/null)" != "true" ]; then
+            echo "The catalog was not built this run; nothing to archive."
+            exit 0
+          fi
           bash scripts/archive-upstream.sh out "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+      # Turns the run red when any part failed, so the 11:00 catch-up, which
+      # counts only successful runs, reads the reports again while they are
+      # still the LATEST ones.
+      - name: Fail the run when any part failed
+        if: ${{ !cancelled() }}
+        env:
+          BUILD: ${{ steps.build.outcome }}
+          PUBLISH: ${{ steps.publish.outcome }}
+          ARCHIVE: ${{ steps.archive.outcome }}
+        run: |
+          set -euo pipefail
+          if [ ! -f out/status.json ]; then
+            echo "No status file: the catalog build did not finish." >&2
+            exit 1
+          fi
+          for step in "build=$BUILD" "publish=$PUBLISH" "archive=$ARCHIVE"; do
+            if [ "${step#*=}" != "success" ]; then
+              echo "Step ${step%%=*} ended ${step#*=}." >&2
+              exit 1
+            fi
+          done
+          if [ "$(jq -r '.builds_ok' out/status.json)" != "true" ]; then
+            echo "A build report was not read; the catch-up run reads them again." >&2
+            jq -c '.streams[] | select(.outcome != "applied" and .outcome != "unchanged")' out/status.json >&2
+            exit 1
+          fi
 
   keepalive:
     # GitHub disables a public repository's scheduled workflows after 60 days

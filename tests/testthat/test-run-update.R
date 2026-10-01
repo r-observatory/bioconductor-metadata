@@ -1864,3 +1864,64 @@ test_that("views_sha256 ignores the attributes fetch_views adds", {
   expect_false(views_sha256(list(software = "Package: b", annotation = "")) ==
                  views_sha256(plain))
 })
+
+
+# ---------------------------------------------------------------------------
+# Status file and exit status
+# ---------------------------------------------------------------------------
+
+read_status <- function(out) jsonlite::read_json(file.path(out, "status.json"))
+
+test_that("a failed build stream still writes catalog_ok true, builds_ok false, and exits 0", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["devel/workflows/BUILD_STATUS_DB.txt"]] <- NULL
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = files), live_floor = 1L))
+  expect_identical(code, 0L)
+  st <- read_status(out)
+  expect_true(st$catalog_ok)
+  expect_false(st$builds_ok)
+  wf <- Filter(function(x) x$branch == "devel" && x$repo == "workflows", st$streams)[[1]]
+  expect_equal(wf$outcome, "fetch_failed")
+  expect_true("3.23/views/software/VIEWS" %in% unlist(st$archive_files))
+})
+
+test_that("every stream read gives builds_ok true and exit 0", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = all_build_files()),
+                                live_floor = 1L))
+  expect_identical(code, 0L)
+  expect_true(read_status(out)$builds_ok)
+})
+
+test_that("a failed names gate writes catalog_ok false and exits 1", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = all_build_files())))
+  expect_identical(code, 1L)
+  expect_false(read_status(out)$catalog_ok)
+})
+
+test_that("a failed VIEWS fetch leaves no status file, even a stale one", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(out)
+  writeLines('{"catalog_ok": true, "builds_ok": true}', file.path(out, "status.json"))
+  io <- make_stub_io(build_files = all_build_files())
+  io$fetch_views <- function(cat) stop("HTTP 504 for VIEWS")
+  expect_error(main(out, io = io, live_floor = 1L), "HTTP 504")
+  expect_false(file.exists(file.path(out, "status.json")))
+})
+
+test_that("an unreadable prior catalog leaves no status file", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(out)
+  writeLines('{"catalog_ok": true, "builds_ok": true}', file.path(out, "status.json"))
+  io <- make_stub_io(build_files = all_build_files())
+  io$prev_catalog <- function() stop("Prior bioconductor-metadata.db download failed")
+  expect_error(main(out, io = io, live_floor = 1L), "download failed")
+  expect_false(file.exists(file.path(out, "status.json")))
+})
