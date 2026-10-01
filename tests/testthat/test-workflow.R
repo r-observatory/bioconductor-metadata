@@ -63,6 +63,16 @@ test_that("Publish and Archive act only on a status file saying catalog_ok", {
   }
 })
 
+test_that("Publish hands the files to the publish script and never clobbers an asset", {
+  step <- step_named(wf_steps(), PUBLISH_STEP)
+  expect_match(step$run, "Rscript scripts/publish.R out", fixed = TRUE)
+  expect_lt(regexpr(".catalog_ok", step$run, fixed = TRUE),
+            regexpr("scripts/publish.R", step$run, fixed = TRUE))
+  expect_false(grepl("gh release upload", step$run, fixed = TRUE))
+  expect_false(grepl("--clobber", step$run, fixed = TRUE))
+  expect_equal(step$env$GH_REPO, "${{ github.repository }}")
+})
+
 test_that("the final check reads status.json and fails on builds_ok false", {
   run <- step_named(wf_steps(), FINAL_STEP)$run
   expect_match(run, "out/status.json", fixed = TRUE)

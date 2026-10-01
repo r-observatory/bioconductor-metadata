@@ -101,12 +101,14 @@ jobs:
             Rscript scripts/update.R out/
           fi
       # Runs even when Build catalog exits non-zero, and publishes only when the
-      # status file says the catalog itself was built.
+      # status file says the catalog itself was built. scripts/publish.R uploads
+      # each file under a temporary name and renames it over the old asset.
       - name: Publish to the "current" release
         id: publish
         if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
           if [ "$(jq -r '.catalog_ok' out/status.json 2>/dev/null)" != "true" ]; then
@@ -121,8 +123,7 @@ jobs:
             CHANGED=true
           fi
           if [ "$CHANGED" = "true" ]; then
-            gh release upload current out/bioconductor-metadata.db --clobber
-            gh release upload current out/manifest.json --clobber
+            Rscript scripts/publish.R out
           fi
       # Commits the raw VIEWS and build report files to the orphan
       # upstream-archive branch when any byte changed.

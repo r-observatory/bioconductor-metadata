@@ -21,6 +21,8 @@ The raw release VIEWS files and the build status and propagation files are commi
 
 The run stops when the `current` release exists but its manifest or database cannot be downloaded or read, or the database holds fewer packages than its manifest counts, so the history is never restarted by accident. The `bootstrap` input of the update workflow is the way past an unreadable prior: it crawls every repository and starts the catalog and its history over.
 
+A run that publishes replaces the database and the manifest on the `current` release one at a time: the file is uploaded under a temporary name, the upload's size and SHA-256 are checked against the local file, the old asset is deleted and the upload is renamed. A run that stops between the delete and the rename leaves the upload on the release and prints the `gh api` command that renames it.
+
 ## Feedback
 
 Found a bug, a wrong number, or a missing package? Report it at [r-observatory/feedback](https://github.com/r-observatory/feedback/issues/new/choose). All feedback about R Observatory, the site, the data, and the pipelines, is tracked in one place.
