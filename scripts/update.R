@@ -639,7 +639,7 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
   views_cats <- views_cats[vapply(views_cats, function(cat) {
     nzchar(trimws(as.character(views_texts[[cat]])))
   }, logical(1))]
-  archive <- upstream_files(views_texts, views_times, views_cats, current_release, builds)
+  archive <- upstream_files(views_texts, views_cats, current_release, builds)
   archive_files <- write_upstream_files(file.path(out_dir, "upstream"), archive)
   if (length(archive_files) > 0L) {
     writeLines(archive_message(archive, run_at), file.path(out_dir, "archive-message.txt"))
@@ -661,12 +661,13 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
 
 # Files for the archive branch. Only the newest applied report is listed, read
 # again or not, so a stale copy never lands and a failed push heals next run.
-upstream_files <- function(views_texts, views_times, views_cats, bioc_version, builds) {
+# last_modified is the header as fetched, NA when the file came without one.
+upstream_files <- function(views_texts, views_cats, bioc_version, builds) {
   files <- lapply(views_cats, function(cat) {
     v <- views_texts[[cat]]
     list(path = file.path(bioc_version, "views", cat, "VIEWS"),
          text = attr(v, "raw") %||% paste0(as.character(v), "\n"),
-         last_modified = views_times[[cat]])
+         last_modified = attr(v, "last_modified") %||% NA_character_)
   })
   applied <- builds$reports[builds$reports$outcome == "applied", , drop = FALSE]
   for (s in builds$streams) {
@@ -675,11 +676,12 @@ upstream_files <- function(views_texts, views_times, views_cats, bioc_version, b
     if (length(mine) == 0L || s$report_at != max(mine)) next
     dir <- file.path(s$bioc_version, "builds", s$repo)
     files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["status"]]),
-                                        text = s$status_body, last_modified = s$published_at)
+                                        text = s$status_body,
+                                        last_modified = s$status_last_modified)
     if (isTRUE(s$propagation_read)) {
       files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["propagation"]]),
                                           text = s$propagation_body,
-                                          last_modified = s$propagation_published_at)
+                                          last_modified = s$propagation_last_modified)
     }
   }
   files
@@ -753,7 +755,10 @@ read_build_stream <- function(io, branch, repo, fallback_version, now) {
        versions = idx$versions,
        lines = if (is.null(prop)) lines else rbind(lines, prop$lines),
        propagation_read = !is.null(prop),
-       propagation_published_at = if (is.null(prop)) NA_character_ else pr$last_modified %||% now,
+       status_last_modified = st$last_modified %||% NA_character_,
+       propagation_last_modified = if (is.null(prop)) NA_character_ else {
+         pr$last_modified %||% NA_character_
+       },
        status_body = st$body,
        propagation_body = if (is.null(prop)) NULL else pr$body)
 }

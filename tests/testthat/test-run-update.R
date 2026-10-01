@@ -2005,6 +2005,40 @@ test_that("VIEWS and the newest applied reports are written under upstream/", {
                "3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)", fixed = TRUE)
 })
 
+test_that("the archive message leaves out the published time of a file that has none", {
+  files <- list(list(path = "3.23/views/software/VIEWS", last_modified = "2026-09-29T18:14:30Z"),
+                list(path = "3.23/builds/bioc/BUILD_STATUS_DB.txt", last_modified = NA_character_),
+                list(path = "3.23/builds/bioc/PROPAGATION_STATUS_DB.txt", last_modified = NULL),
+                list(path = "3.23/views/workflows/VIEWS", last_modified = ""))
+  expect_equal(strsplit(archive_message(files, "2026-10-01T06:20:00Z"), "\n")[[1]],
+               c("Bioconductor files as read at 2026-10-01T06:20:00Z", "",
+                 "3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)",
+                 "3.23/builds/bioc/BUILD_STATUS_DB.txt",
+                 "3.23/builds/bioc/PROPAGATION_STATUS_DB.txt",
+                 "3.23/views/workflows/VIEWS"))
+})
+
+test_that("a file fetched without a Last-Modified is archived without a published time", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["release/bioc/BUILD_STATUS_DB.txt"]]$last_modified <- NA_character_
+  files[["devel/bioc/PROPAGATION_STATUS_DB.txt"]]$last_modified <- NA_character_
+  io <- make_stub_io(build_files = files)
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = structure(FIXTURE_VIEWS_SOFTWARE, last_modified = "2026-09-29T18:14:30Z"),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+  msg <- readLines(file.path(out, "archive-message.txt"))
+  expect_true("3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)" %in% msg)
+  expect_true("3.23/views/annotation/VIEWS" %in% msg)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% msg)
+  expect_true("3.23/builds/bioc/PROPAGATION_STATUS_DB.txt (published 2026-09-29T16:35:46Z)" %in% msg)
+  expect_true("3.24/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% msg)
+})
+
 test_that("a report read again stays in the archive list and a stale copy does not", {
   tmp <- withr::local_tempdir()
   out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two"); out3 <- file.path(tmp, "three")

@@ -915,11 +915,12 @@ write_upstream_files <- function(root, files) {
   paths
 }
 
-#' Commit message for the archive branch: when the files were read and when
-#' upstream last changed each one.
+#' Commit message for the archive branch: when the files were read and, for
+#' each one that came with a Last-Modified, when upstream last changed it.
 archive_message <- function(files, read_at) {
   lines <- vapply(files, function(f) {
-    sprintf("%s (published %s)", f$path, f$last_modified %||% "unknown")
+    at <- f$last_modified %||% ""
+    if (nzchar(at)) sprintf("%s (published %s)", f$path, at) else f$path
   }, character(1))
   paste(c(sprintf("Bioconductor files as read at %s", read_at), "", lines), collapse = "\n")
 }
