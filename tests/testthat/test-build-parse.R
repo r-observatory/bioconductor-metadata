@@ -104,6 +104,17 @@ test_that("parse_report_index degrades to NA when the markup changes", {
   expect_identical(parse_report_index(NULL)$bioc_version, NA_character_)
 })
 
+test_that("parse_report_index gives its empty result for a page it cannot read", {
+  # One byte that is not valid UTF-8, marked the way http_get marks a body.
+  bad <- rawToChar(c(charToRaw(read_index_fixture()), as.raw(0xe9)))
+  Encoding(bad) <- "UTF-8"
+  idx <- parse_report_index(bad)
+  expect_identical(idx$bioc_version, NA_character_)
+  expect_identical(idx$generated_at, NA_character_)
+  expect_identical(idx$snapshot_at, NA_character_)
+  expect_length(idx$versions, 0L)
+})
+
 test_that("local_time_to_utc applies the offset's sign", {
   expect_equal(local_time_to_utc("2026-09-28 13:40", "-0400"), "2026-09-28T17:40:00Z")
   expect_equal(local_time_to_utc("2026-11-02 13:40", "-0500"), "2026-11-02T18:40:00Z")

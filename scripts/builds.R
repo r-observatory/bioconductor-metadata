@@ -45,13 +45,16 @@ local_time_to_utc <- function(stamp, offset) {
 }
 
 #' The report's index.html: BioC version, generated and snapshot times in UTC,
-#' and the version built for each package. Anything that does not parse is NA
-#' (or no versions), never an error.
+#' and built versions. A page that cannot be read gives NA and no versions.
 parse_report_index <- function(html) {
-  out <- list(bioc_version = NA_character_, generated_at = NA_character_,
-              snapshot_at = NA_character_,
-              versions = setNames(character(0), character(0)))
-  if (is.null(html) || length(html) != 1L || is.na(html) || !nzchar(html)) return(out)
+  empty <- list(bioc_version = NA_character_, generated_at = NA_character_,
+                snapshot_at = NA_character_,
+                versions = setNames(character(0), character(0)))
+  if (is.null(html) || length(html) != 1L || is.na(html) || !nzchar(html)) return(empty)
+  tryCatch(read_report_index(html, empty), error = function(e) empty)
+}
+
+read_report_index <- function(html, out) {
   txt <- gsub("&nbsp;", " ", html, fixed = TRUE)
   first <- function(pattern, x) regmatches(x, regexec(pattern, x, ignore.case = TRUE))[[1L]]
   v <- first("<TITLE>[^<]*BioC ([0-9]+\\.[0-9]+)[^<]*</TITLE>", txt)

@@ -1607,6 +1607,98 @@ test_that("a propagation file that is there but unreadable fails its stream", {
   expect_false(any(h$bioc_version == "3.23" & h$repo == "bioc"))
 })
 
+# Text ending in one byte that is not valid UTF-8, marked the way http_get
+# marks a body.
+with_bad_byte <- function(text) {
+  b <- rawToChar(c(charToRaw(text), as.raw(0xe9)))
+  Encoding(b) <- "UTF-8"
+  b
+}
+
+test_that("an index page with an invalid byte never stops the catalog", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["release/bioc/index.html"]]$body <-
+    with_bad_byte(files[["release/bioc/index.html"]]$body)
+  io <- make_stub_io(build_files = files)
+  io$config_yaml <- function() {
+    paste0(FIXTURE_CONFIG_YAML, "release_version: \"3.23\"\ndevel_version: \"3.24\"\n")
+  }
+
+  res <- suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_true(file.exists(file.path(out, "status.json")))
+  # The page gives nothing, so config.yaml names the version and the status
+  # file's Last-Modified times the report.
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$bioc_version, "3.23")
+  expect_equal(rel$report_at, "2026-09-29T16:35:46Z")
+  expect_equal(stream_of(res, "devel", "bioc")$report_at, "2026-09-28T17:45:00Z")
+})
+
+test_that("an error while one stream is read fails that stream only", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  prior <- state_of(out1)
+  broken <- all_build_files(release_snapshot = "2026-09-29&nbsp;13:40")
+  # A body that is not text makes the parser throw instead of returning invalid.
+  broken[["release/bioc/BUILD_STATUS_DB.txt"]]$body <- 1L
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = broken, prev_state = prior),
+                                     out2, force_full = TRUE, live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_match(rel$reason, "non-character argument", fixed = TRUE)
+  expect_equal(stream_of(res, "devel", "bioc")$outcome, "unchanged")
+  h <- state_of(out2)$build_status
+  old <- prior$build_status
+  expect_equal(h[h$bioc_version == "3.23" & h$repo == "bioc", ],
+               old[old$bioc_version == "3.23" & old$repo == "bioc", ], ignore_attr = TRUE)
+})
+
+test_that("an index page that cannot be fetched fails its stream, and a missing one does not", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["release/bioc/index.html"]] <- list(status = 503L, body = "",
+                                             last_modified = NA_character_)
+  files[["devel/bioc/index.html"]] <- NULL
+  io <- make_stub_io(build_files = files)
+  io$config_yaml <- function() {
+    paste0(FIXTURE_CONFIG_YAML, "release_version: \"3.23\"\ndevel_version: \"3.24\"\n")
+  }
+  fetch <- io$fetch_build_file
+  io$fetch_build_file <- function(branch, repo, file) {
+    if (branch == "devel" && repo == "workflows" && file == "index.html") {
+      stop("Timeout was reached")
+    }
+    fetch(branch, repo, file)
+  }
+
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = TRUE,
+                                     live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "index page not read (HTTP 503)")
+  wf <- stream_of(res, "devel", "workflows")
+  expect_equal(wf$outcome, "fetch_failed")
+  expect_equal(wf$reason, "index page not read (HTTP error)")
+  # A 404 is a report without the page: it applies on config.yaml's version.
+  dev <- stream_of(res, "devel", "bioc")
+  expect_equal(dev$outcome, "applied")
+  expect_equal(dev$bioc_version, "3.24")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+})
+
 test_that("the release rollover retires the old version's open rows", {
   tmp <- withr::local_tempdir()
   out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
