@@ -1699,6 +1699,112 @@ test_that("an index page that cannot be fetched fails its stream, and a missing 
   expect_false(res$status$builds_ok)
 })
 
+# all_build_files() with `prop` as the release software propagation lines. The
+# status file's own Last-Modified makes it a new report though its lines match.
+with_release_propagation <- function(prop, snapshot = "2026-09-28&nbsp;13:40",
+                                     last_modified = "2026-09-29T16:35:46Z") {
+  files <- all_build_files(release_snapshot = snapshot)
+  files[["release/bioc/BUILD_STATUS_DB.txt"]]$last_modified <- last_modified
+  files[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <-
+    if (is.null(prop)) NULL else stub_file(paste(c(prop, ""), collapse = "\n"))
+  files
+}
+release_propagation_rows <- function(out) {
+  h <- state_of(out)$build_status
+  h[h$bioc_version == "3.23" & h$repo == "bioc" & h$stage == "propagate", ]
+}
+DAY2_SNAPSHOT <- "2026-09-29&nbsp;13:40"
+DAY2_MODIFIED <- "2026-09-30T16:35:46Z"
+
+test_that("an empty propagation file leaves the propagation rows open and fails the build check", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  day2 <- all_build_files(release_check = "PkgSoft#nebbiolo1#checksrc: OK",
+                          release_snapshot = DAY2_SNAPSHOT)
+  day2[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <- stub_file("")
+
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = day2, prev_state = state_of(out1)), out2,
+    force_full = TRUE, live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "skipped_floor")
+  expect_equal(rel$reason, "propagation file lists 0 packages against 1 with open rows")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+  p <- release_propagation_rows(out2)
+  expect_equal(nrow(p), 1L)
+  expect_true(is.na(p$ended_on))
+  expect_equal(p$last_seen, "2026-09-28T17:40:00Z")
+  # The status lines of the same report still apply.
+  h <- state_of(out2)$build_status
+  chk <- h[h$package == "PkgSoft" & h$bioc_version == "3.23" & h$stage == "checksrc", ]
+  expect_equal(chk$status, c("ERROR", "OK"))
+  # The file that was not trusted is not archived over the last good one.
+  archived <- unlist(res$archive_files)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% archived)
+  expect_false("3.23/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% archived)
+})
+
+test_that("a propagation file under half its open rows leaves them open, and half applies", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one")
+  four <- sprintf("Pkg%s#source#propagate: UNNEEDED, same version is already published",
+                  c("A", "B", "C", "D"))
+  suppressMessages(run_update(make_stub_io(build_files = with_release_propagation(four)),
+                              out1, force_full = TRUE))
+  prior <- state_of(out1)
+  day2 <- function(prop, out) {
+    files <- with_release_propagation(prop, DAY2_SNAPSHOT, DAY2_MODIFIED)
+    suppressMessages(run_update(make_stub_io(build_files = files, prev_state = prior),
+                                file.path(tmp, out), force_full = TRUE, live_floor = 1L))
+  }
+
+  res <- day2(four[1], "one-of-four")
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "skipped_floor")
+  expect_false(res$status$builds_ok)
+  p <- release_propagation_rows(file.path(tmp, "one-of-four"))
+  expect_equal(nrow(p), 4L)
+  expect_true(all(is.na(p$ended_on)))
+  expect_setequal(p$last_seen, "2026-09-28T17:40:00Z")
+
+  res <- day2(four[1:2], "two-of-four")
+  expect_equal(stream_of(res, "release", "bioc")$propagation, "read")
+  expect_true(res$status$builds_ok)
+  p <- release_propagation_rows(file.path(tmp, "two-of-four"))
+  expect_equal(p$end_reason[match(c("PkgA", "PkgB", "PkgC", "PkgD"), p$package)],
+               c(NA, NA, "gone", "gone"))
+})
+
+test_that("a first propagation file applies when no propagation rows are open", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  res1 <- suppressMessages(run_update(
+    make_stub_io(build_files = with_release_propagation(NULL)), out1, force_full = TRUE))
+  expect_equal(stream_of(res1, "release", "bioc")$propagation, "absent")
+  expect_equal(nrow(release_propagation_rows(out1)), 0L)
+
+  files <- with_release_propagation("PkgSoft#source#propagate: YES", DAY2_SNAPSHOT,
+                                    DAY2_MODIFIED)
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = files, prev_state = state_of(out1)), out2,
+    force_full = TRUE, live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "read")
+  expect_true(res$status$builds_ok)
+  p <- release_propagation_rows(out2)
+  expect_equal(p$status, "YES")
+  expect_equal(p$first_seen, "2026-09-29T17:40:00Z")
+  expect_true(is.na(p$ended_on))
+})
+
 test_that("the release rollover retires the old version's open rows", {
   tmp <- withr::local_tempdir()
   out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")

@@ -792,6 +792,16 @@ apply_build_stream <- function(io, branch, repo, fallback_version, now,
                                   s$status_sha256, s$published_at, s$n_packages)
   row$report_at <- s$report_at; row$lines <- s$n_lines; row$outcome <- verdict
   row$propagation <- if (s$propagation_read) "read" else "absent"
+  if (s$propagation_read) {
+    pf <- propagation_floor(history, s$lines, s$bioc_version, repo)
+    if (pf$under) {
+      # An empty or cut-short file would close every row it lacks as gone.
+      s$propagation_read <- FALSE
+      row$propagation <- "skipped_floor"
+      row$reason <- sprintf("propagation file lists %d packages against %d with open rows",
+                            pf$packages, pf$open)
+    }
+  }
   if (verdict == "applied") {
     # Censored unless an earlier report of this alias was applied.
     exact <- as.integer(any(prior_reports$branch == branch & prior_reports$repo == repo &
@@ -813,8 +823,8 @@ apply_build_stream <- function(io, branch, repo, fallback_version, now,
   list(stream = s, row = row, reports = reports, history = history)
 }
 
-# Reads and applies every branch and repo's report. ok is FALSE when a stream
-# failed or was skipped, so the catch-up reads them again while still LATEST.
+# Reads and applies every branch and repo's report. ok is FALSE when a stream or
+# its propagation file failed or was skipped, so the catch-up reads them again.
 read_build_state <- function(io, prev, branch_versions, now) {
   reports <- conform_frame(prev$build_reports, empty_build_reports())
   history <- conform_frame(prev$build_status, empty_build_history())
@@ -840,7 +850,9 @@ read_build_state <- function(io, prev, branch_versions, now) {
     summary[[length(summary) + 1L]] <- one$row
   }
   retired <- retire_build_versions(history, served_versions(streams, prior_reports), now)
-  ok <- all(vapply(summary, function(x) x$outcome %in% c("applied", "unchanged"), logical(1)))
+  ok <- all(vapply(summary, function(x) {
+    x$outcome %in% c("applied", "unchanged") && x$propagation != "skipped_floor"
+  }, logical(1)))
   list(reports = reports, history = retired$history, streams = streams,
        summary = summary, retired = retired$closed, ok = ok)
 }

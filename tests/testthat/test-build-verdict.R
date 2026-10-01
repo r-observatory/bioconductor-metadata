@@ -48,6 +48,56 @@ test_that("a report listing under half the last applied one's packages is skippe
   expect_equal(verdict(prior, T3, "new", T3, 50L), "applied")
 })
 
+propagation_lines <- function(pkgs, nodes = "source") {
+  keys <- expand.grid(pkg = pkgs, node = nodes, stringsAsFactors = FALSE)
+  parse_build_status_db(paste(sprintf("%s#%s#propagate: YES", keys$pkg, keys$node),
+                              collapse = "\n"))$lines
+}
+under_floor <- function(...) propagation_floor(...)$under
+open_propagation <- function(pkgs, nodes = "source") {
+  apply_build_report(empty_build_history(), propagation_lines(pkgs, nodes),
+                     list(bioc_version = "3.23", repo = "bioc", report_at = T1,
+                          versions = c(), propagation_read = TRUE),
+                     empty_build_reports(), exact = 0L)$history
+}
+
+test_that("a propagation file with no lines is under the floor", {
+  none <- propagation_lines(character(0))
+  expect_true(under_floor(open_propagation(c("a", "b")), none, "3.23", "bioc"))
+  expect_true(under_floor(empty_build_history(), none, "3.23", "bioc"))
+  # Status lines are not propagation lines.
+  status <- parse_build_status_db("a#n1#install: OK")$lines
+  expect_true(under_floor(empty_build_history(), status, "3.23", "bioc"))
+})
+
+test_that("a propagation file listing under half the packages with open rows is under the floor", {
+  h <- open_propagation(c("a", "b", "c", "d"))
+  expect_true(under_floor(h, propagation_lines("a"), "3.23", "bioc"))
+  expect_false(under_floor(h, propagation_lines(c("a", "b")), "3.23", "bioc"))
+  # The same line twice counts once.
+  twice <- propagation_floor(h, propagation_lines(c("a", "a")), "3.23", "bioc")
+  expect_equal(twice, list(packages = 1L, open = 4L, under = TRUE))
+})
+
+test_that("a platform dropped from the propagation file is not under the floor", {
+  # Four lines where twelve rows are open, yet every package is still listed.
+  pkgs <- c("a", "b", "c", "d")
+  h <- open_propagation(pkgs, c("source", "win.binary", "mac.binary.big-sur-x86_64"))
+  expect_equal(nrow(h), 12L)
+  expect_equal(propagation_floor(h, propagation_lines(pkgs), "3.23", "bioc"),
+               list(packages = 4L, open = 4L, under = FALSE))
+})
+
+test_that("a first propagation file, with no open propagation rows, is not under the floor", {
+  expect_false(under_floor(empty_build_history(), propagation_lines("a"), "3.23", "bioc"))
+  # Rows of another version or repo, and closed rows, are not a baseline.
+  h <- open_propagation(c("a", "b", "c", "d"))
+  expect_false(under_floor(h, propagation_lines("a"), "3.24", "bioc"))
+  expect_false(under_floor(h, propagation_lines("a"), "3.23", "workflows"))
+  h$ended_on <- T2; h$end_reason <- "gone"
+  expect_false(under_floor(h, propagation_lines("a"), "3.23", "bioc"))
+})
+
 test_that("another BioC version, or a skipped report, is not a baseline", {
   prior <- report_row(T2, "n1", n_packages = 100L)
   expect_equal(verdict(prior, T1, "new", T1, 1L, version = "3.24"), "applied")

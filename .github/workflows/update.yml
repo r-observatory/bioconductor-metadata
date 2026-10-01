@@ -160,7 +160,7 @@ jobs:
           done
           if [ "$(jq -r '.builds_ok' out/status.json)" != "true" ]; then
             echo "A build report was not read; the catch-up run reads them again." >&2
-            jq -c '.streams[] | select(.outcome != "applied" and .outcome != "unchanged")' out/status.json >&2
+            jq -c '.streams[] | select((.outcome != "applied" and .outcome != "unchanged") or .propagation == "skipped_floor")' out/status.json >&2
             exit 1
           fi
 

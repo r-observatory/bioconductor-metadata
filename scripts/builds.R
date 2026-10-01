@@ -111,6 +111,17 @@ build_report_verdict <- function(reports, bioc_version, repo, report_at,
   "applied"
 }
 
+#' Packages a propagation file lists against those with open propagation rows.
+#' Counting packages, not lines, lets a dropped platform close its rows as gone.
+propagation_floor <- function(history, lines, bioc_version, repo,
+                              floor = BUILD_HEALTH_FLOOR) {
+  n <- length(unique(lines$package[lines$stage == "propagate"]))
+  open <- length(unique(history$package[
+    is.na(history$ended_on) & history$bioc_version == bioc_version &
+      history$repo == repo & history$stage == "propagate"]))
+  list(packages = n, open = open, under = n == 0L || n < floor * open)
+}
+
 #' Zero-row bioc_build_status_history frame, in schema order.
 empty_build_history <- function() {
   data.frame(package = character(0), bioc_version = character(0), repo = character(0),
