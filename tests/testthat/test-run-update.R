@@ -1699,6 +1699,51 @@ test_that("an index page that cannot be fetched fails its stream, and a missing 
   expect_false(res$status$builds_ok)
 })
 
+test_that("a config.yaml that cannot be parsed gives no branch versions and says why", {
+  for (text in list("release_version: [unclosed", "just text", NA_character_,
+                    "release_version: ['3.22', '3.23']\n")) {
+    expect_message(v <- config_branch_versions(text),
+                   "config.yaml release and devel versions not read", fixed = TRUE)
+    expect_equal(v, c(release = NA_character_, devel = NA_character_))
+  }
+  expect_no_message(v <- config_branch_versions("release_version: \"3.23\"\n"))
+  expect_equal(v, c(release = "3.23", devel = NA_character_))
+})
+
+test_that("unparsed branch versions skip only the streams whose index page gives no version", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["devel/bioc/index.html"]] <- NULL
+  files[["devel/workflows/index.html"]] <- NULL
+  # The parser is stood in for, since release dates come from the same text.
+  real <- parse_branch_versions
+  withr::defer(assign("parse_branch_versions", real, envir = globalenv()))
+  assign("parse_branch_versions", function(yaml_text) stop("Parser error: bad yaml"),
+         envir = globalenv())
+
+  msgs <- character(0)
+  expect_no_warning(withCallingHandlers(
+    res <- run_update(make_stub_io(build_files = files), file.path(tmp, "out"),
+                      force_full = TRUE, live_floor = 1L),
+    message = function(m) {
+      msgs <<- c(msgs, conditionMessage(m))
+      invokeRestart("muffleMessage")
+    }))
+
+  expect_equal(sum(grepl("config.yaml release and devel versions not read: Parser error: bad yaml",
+                         msgs, fixed = TRUE)), 1L)
+  for (repo in c("bioc", "workflows")) {
+    dev <- stream_of(res, "devel", repo)
+    expect_equal(dev$outcome, "fetch_failed", label = repo)
+    expect_equal(dev$reason, "BioC version unknown", label = repo)
+  }
+  expect_true(any(grepl("Build report devel/bioc: BioC version unknown", msgs, fixed = TRUE)))
+  expect_equal(stream_of(res, "release", "bioc")$outcome, "applied")
+  expect_equal(stream_of(res, "devel", "data-experiment")$outcome, "applied")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+})
+
 # all_build_files() with `prop` as the release software propagation lines. The
 # status file's own Last-Modified makes it a new report though its lines match.
 with_release_propagation <- function(prop, snapshot = "2026-09-28&nbsp;13:40",

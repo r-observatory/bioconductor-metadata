@@ -124,7 +124,7 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
   # 3a. Build reports. A failed stream keeps its prior rows and never stops
   # the catalog.
   run_at <- iso(Sys.time())
-  builds <- read_build_state(io, prev, parse_branch_versions(config_text), run_at)
+  builds <- read_build_state(io, prev, config_branch_versions(config_text), run_at)
 
   # 3b. biocViews vocabulary per release
   empty_edges <- data.frame(
@@ -688,6 +688,21 @@ upstream_files <- function(views_texts, views_times, views_cats, bioc_version, b
 # ---------------------------------------------------------------------------
 # Build reports: read after VIEWS, never fatal to the catalog
 # ---------------------------------------------------------------------------
+
+# config.yaml's release and devel versions, NA for both when it cannot be
+# parsed, so only a report whose index page gives no version is skipped.
+config_branch_versions <- function(config_text) {
+  tryCatch({
+    v <- parse_branch_versions(config_text)
+    if (!identical(names(v), c("release", "devel"))) {
+      stop("release_version or devel_version is not a single value")
+    }
+    v
+  }, error = function(e) {
+    message("config.yaml release and devel versions not read: ", conditionMessage(e))
+    c(release = NA_character_, devel = NA_character_)
+  })
+}
 
 # One branch and repo's report, fetched and parsed, or ok = FALSE with a reason.
 # A 404 for the index or propagation file means the report has none.
