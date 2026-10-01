@@ -1,8 +1,6 @@
 #!/usr/bin/env Rscript
 # scripts/publish.R: puts this run's database and manifest on the `current`
-# release without a moment where the only copy of the database can be lost.
-# Needs helpers.R. Run from the repository root:
-#   GH_REPO=owner/repo Rscript scripts/publish.R out
+# release. Needs helpers.R. Run: GH_REPO=owner/repo Rscript scripts/publish.R out
 
 PUBLISH_TAG      <- "current"
 # The database goes first, so a manifest never describes a database not there.
@@ -63,10 +61,8 @@ await_assets <- function(gh, repo, rid, ok, attempts, pause) {
   list(ok = FALSE, assets = a)
 }
 
-#' Deal with uploads an earlier run left under a temporary name, before any
-#' write. Beside its final asset one is from a run that stopped before the
-#' delete, and is removed. Without the final asset it may be the only copy, so
-#' the run stops with the command that puts it in place.
+#' Before any write: removes an upload an earlier run left beside its final
+#' asset, and stops when one is on the release without its final asset.
 clear_leftover_uploads <- function(gh, repo, assets, finals) {
   for (final in finals) {
     temp <- publish_temp_name(final)
@@ -93,11 +89,8 @@ clear_leftover_uploads <- function(gh, repo, assets, finals) {
   invisible(TRUE)
 }
 
-#' Replace one asset: upload under the temporary name, check the upload's size
-#' and sha256 against the local file, delete the old asset by id, rename the
-#' upload, check again. After the delete the upload is never removed; a swap
-#' the release does not show as finished stops with the command that finishes it.
-#' @param file Local file, named with the temporary name.
+#' Replace one asset: upload file (already named with the temporary name), check
+#' its size and sha256, delete the old asset by id, rename the upload, check again.
 swap_asset <- function(gh, repo, rid, tag, file, final, attempts = 3L,
                        pause = function(n) Sys.sleep(20 * n)) {
   temp <- basename(file)

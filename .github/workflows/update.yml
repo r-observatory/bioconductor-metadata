@@ -100,9 +100,9 @@ jobs:
           else
             Rscript scripts/update.R out/
           fi
-      # Runs even when Build catalog exits non-zero, and publishes only when the
-      # status file says the catalog itself was built. scripts/publish.R uploads
-      # each file under a temporary name and renames it over the old asset.
+      # Runs even when Build catalog exits non-zero; publishes only when the status
+      # file says the catalog was built. scripts/publish.R uploads each file under a
+      # temporary name, checks it, deletes the old asset and renames the upload.
       - name: Publish to the "current" release
         id: publish
         if: ${{ !cancelled() }}
