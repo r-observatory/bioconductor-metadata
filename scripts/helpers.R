@@ -53,15 +53,17 @@ views_flag <- function(x) {
 }
 
 #' Parse a Bioconductor VIEWS file (DCF text) into a catalog data.frame.
-#' Returns a stable 16-column data.frame (zero rows when input is empty or invalid).
+#' Returns a stable 22-column data.frame (zero rows when input is empty or invalid).
 parse_views <- function(views_text, category) {
   cols <- c("name","name_lower","category","version","title","description",
             "maintainer","maintainer_email","license","depends","imports",
-            "suggests","biocviews","git_url","has_news","views_has_readme")
+            "suggests","biocviews","git_url","has_news","views_has_readme",
+            VIEWS_EXTRA_COLS)
   empty <- setNames(data.frame(matrix(character(0), ncol = length(cols)),
                                stringsAsFactors = FALSE), cols)
   empty$has_news <- integer(0)
   empty$views_has_readme <- integer(0)
+  empty$dependency_count <- integer(0)
   if (!nzchar(trimws(views_text))) return(empty)
   m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
   if (is.null(m) || nrow(m) == 0) return(empty)
@@ -77,7 +79,24 @@ parse_views <- function(views_text, category) {
     depends = g("Depends"), imports = g("Imports"), suggests = g("Suggests"),
     biocviews = g("biocViews"), git_url = g("git_url"),
     has_news = views_flag(g("hasNEWS")), views_has_readme = views_flag(g("hasREADME")),
+    package_status = g("PackageStatus"), date_publication = g("Date/Publication"),
+    linking_to = g("LinkingTo"), enhances = g("Enhances"),
+    dependency_count = suppressWarnings(as.integer(g("dependencyCount"))),
+    author_text = collapse_comment_whitespace(g("Author")),
     stringsAsFactors = FALSE)
+}
+
+#' Copy the VIEWS-only columns onto current packages; every other row gets NA,
+#' as has_news does.
+attach_views_extras <- function(packages_df, views_df) {
+  k <- match(packages_df$name, views_df$name)
+  live <- !is.na(k) & packages_df$in_current == 1L
+  for (col in VIEWS_EXTRA_COLS) {
+    v <- views_df[[col]][k]
+    v[!live] <- NA
+    packages_df[[col]] <- v
+  }
+  packages_df
 }
 
 #' Zero-row bioc_vignettes frame with the published column types.
@@ -444,7 +463,13 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       in_devel INTEGER NOT NULL DEFAULT 0,
       updated_at TEXT,
       has_news INTEGER,
-      views_has_readme INTEGER
+      views_has_readme INTEGER,
+      package_status TEXT,
+      date_publication TEXT,
+      linking_to TEXT,
+      enhances TEXT,
+      dependency_count INTEGER,
+      author_text TEXT
     )
   ")
 

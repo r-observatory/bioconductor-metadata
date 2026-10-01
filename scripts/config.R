@@ -79,3 +79,7 @@ BUILD_HEALTH_FLOOR <- 0.5
 
 # Consecutive reports a node may be missing before its open rows close.
 BUILD_NODE_GONE_AFTER <- 7L
+
+# VIEWS fields kept on bioc_packages after views_has_readme, in schema order.
+VIEWS_EXTRA_COLS <- c("package_status", "date_publication", "linking_to",
+                      "enhances", "dependency_count", "author_text")

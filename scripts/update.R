@@ -496,6 +496,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   } else {
     empty_pkgs
   }
+  packages_df <- attach_views_extras(packages_df, views_df)
 
   empty_auths <- empty_bioc_authors()
   authors_df <- if (length(authors_rows) > 0L) {

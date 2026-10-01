@@ -1624,3 +1624,33 @@ test_that("the release rollover retires the old version's open rows", {
   expect_true(all(is.na(h$ended_on[h$bioc_version == "3.25"])))
   expect_gt(res$manifest$builds_retired, 0L)
 })
+
+test_that("run_update writes the VIEWS columns for current packages and NA for removed ones", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = sub("hasNEWS: TRUE", paste("hasNEWS: TRUE", "PackageStatus: Deprecated",
+                                            "LinkingTo: Rhtslib", "dependencyCount: 4",
+                                            "Author: Alice Smith [aut, cre]", sep = "\n"),
+                     FIXTURE_VIEWS_SOFTWARE, fixed = TRUE),
+      annotation = FIXTURE_VIEWS_ANNOTATION,
+      "")
+  }
+  suppressMessages(run_update(io, out, force_full = TRUE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con, paste(
+    "SELECT name, package_status, linking_to, dependency_count, author_text",
+    "FROM bioc_packages ORDER BY name"))
+  soft <- pkgs[pkgs$name == "PkgSoft", ]
+  expect_equal(soft$package_status, "Deprecated")
+  expect_equal(soft$linking_to, "Rhtslib")
+  expect_identical(soft$dependency_count, 4L)
+  expect_equal(soft$author_text, "Alice Smith [aut, cre]")
+  old <- pkgs[pkgs$name == "PkgOld", ]
+  expect_identical(old$package_status, NA_character_)
+  expect_identical(old$dependency_count, NA_integer_)
+})

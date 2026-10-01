@@ -82,7 +82,8 @@ test_that("export_catalog stores has_news and views_has_readme as INTEGER after 
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
 
   info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
-  expect_equal(tail(info$name, 3), c("updated_at", "has_news", "views_has_readme"))
+  at <- match("updated_at", info$name)
+  expect_equal(info$name[at + 0:2], c("updated_at", "has_news", "views_has_readme"))
   expect_equal(info$type[info$name %in% c("has_news", "views_has_readme")],
                c("INTEGER", "INTEGER"))
   rows <- RSQLite::dbGetQuery(con, "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
@@ -398,4 +399,25 @@ test_that("export_catalog without build frames creates no build tables", {
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
   expect_false(RSQLite::dbExistsTable(con, "bioc_build_reports"))
   expect_false(RSQLite::dbExistsTable(con, "bioc_build_status_history"))
+})
+
+test_that("export_catalog writes the VIEWS columns after views_has_readme", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  pkgs <- make_packages_df()
+  pkgs$package_status <- c("Deprecated", NA_character_)
+  pkgs$dependency_count <- c(12L, NA_integer_)
+  export_catalog(tmp, pkgs, make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
+  expect_equal(tail(info$name, 7), c("views_has_readme", VIEWS_EXTRA_COLS))
+  expect_equal(info$type[info$name == "dependency_count"], "INTEGER")
+  rows <- RSQLite::dbGetQuery(con, paste("SELECT name, package_status, dependency_count,",
+                                         "linking_to FROM bioc_packages ORDER BY name"))
+  expect_equal(rows$package_status, c("Deprecated", NA))
+  expect_identical(rows$dependency_count, c(12L, NA_integer_))
+  expect_identical(rows$linking_to, c(NA_character_, NA_character_))
 })
