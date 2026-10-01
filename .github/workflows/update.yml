@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       bootstrap:
-        description: "Full cold crawl of all bioc repos (ignore the prior catalog). Slow; use once."
+        description: "Full crawl of all bioc repos. When the prior catalog cannot be downloaded or read, also start it and its history over. Slow; use once."
         type: boolean
         default: false
 

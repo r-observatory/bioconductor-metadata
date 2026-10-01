@@ -45,6 +45,11 @@ BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pk
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION
 PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
 
+# Tables holding state that cannot be rebuilt from upstream. A prior db must
+# carry every one its manifest lists, with at least the rows listed there.
+BIOC_STATE_TABLES <- c("bioc_build_reports", "bioc_build_status_history",
+                       "bioc_views_history")
+
 # Published schema version; a change forces the next run to publish.
 # 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
 BIOC_METADATA_SCHEMA <- 2L

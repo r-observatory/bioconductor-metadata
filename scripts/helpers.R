@@ -701,3 +701,32 @@ build_bioc_names_all <- function(packages_df) {
 bioc_names_size_ok <- function(n_live, floor = BIOC_LIVE_FLOOR) {
   is.finite(n_live) && n_live >= floor
 }
+
+# --- Prior catalog -------------------------------------------------------------
+
+#' Zero-row bioc_names_all frame.
+empty_bioc_names_all <- function() {
+  data.frame(name_lower = character(0), canonical_name = character(0),
+             identity_state = character(0), first_seen = character(0),
+             last_seen = character(0), stringsAsFactors = FALSE)
+}
+
+#' Stop when a prior db lacks a state table its manifest lists, or holds fewer
+#' rows of it than listed. counts maps each state table to its row count, NULL
+#' when the db has no such table.
+check_prior_state <- function(counts, manifest, tables = BIOC_STATE_TABLES) {
+  listed <- manifest$tables
+  for (tbl in intersect(tables, names(listed))) {
+    want <- as.numeric(listed[[tbl]])
+    have <- counts[[tbl]]
+    if (is.null(have)) {
+      stop(sprintf("Prior catalog lacks %s, which its manifest lists with %s rows",
+                   tbl, format(want)), call. = FALSE)
+    }
+    if (have < want) {
+      stop(sprintf("Prior catalog holds %s rows of %s; its manifest lists %s",
+                   format(have), tbl, format(want)), call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}

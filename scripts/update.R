@@ -89,8 +89,14 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     collapse = ","
   )
 
-  # 3. Prior catalog (empty list on cold start or force_full)
-  prev      <- io$prev_catalog()
+  # 3. Prior catalog. An unreadable prior stops the run so the catch-up tries
+  # again; --bootstrap is the owner's way past it and starts the history over.
+  prev <- tryCatch(io$prev_catalog(), error = function(e) {
+    if (!isTRUE(force_full)) stop(e)
+    message("Prior catalog unavailable (", conditionMessage(e),
+            "); --bootstrap starts from scratch")
+    list(manifest = list(), names_all = empty_bioc_names_all(), cold_start = TRUE)
+  })
   prev_pkgs <- prev$packages
   has_prev  <- !is.null(prev_pkgs) && nrow(prev_pkgs) > 0
 
@@ -549,6 +555,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_vignettes     = nrow(vignettes_df),
     n_names         = n_names,
     names_gate_ok   = names_gate_ok,
+    cold_start      = isTRUE(prev$cold_start),
     changed              = manifest_changed,
     n_releases           = nrow(releases_df),
     source               = list(
@@ -569,10 +576,100 @@ run_update <- function(io, out_dir, force_full = FALSE) {
 }
 
 # ---------------------------------------------------------------------------
+# Prior catalog: the published db holds state that cannot be rebuilt from
+# upstream, so every failure short of "no release yet" stops the run
+# ---------------------------------------------------------------------------
+
+# HTTP status of the `current` release: 200, 404, or NA when gh gave no answer.
+current_release_status <- function() {
+  out <- suppressWarnings(system2(
+    "gh", c("api", "-i", sprintf("repos/%s/releases/tags/current", PUBLISH_REPO)),
+    stdout = TRUE, stderr = FALSE))
+  first <- if (length(out) > 0L) out[[1L]] else ""
+  suppressWarnings(as.integer(sub("^HTTP/[0-9.]+ ([0-9]{3}).*$", "\\1", first)))
+}
+
+# Reads a downloaded catalog db. Any read error stops the run. A table the db
+# predates is NULL, and the state tables are checked against the manifest.
+read_catalog_db <- function(db_path, manifest = list()) {
+  # synchronous = NULL skips a PRAGMA that only warns on a damaged file; the
+  # first query below is what reports it.
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), db_path, synchronous = NULL)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  fail <- function(e) {
+    stop("Prior catalog cannot be read: ", conditionMessage(e), call. = FALSE)
+  }
+  present <- tryCatch(RSQLite::dbGetQuery(con, paste(
+    "SELECT name FROM sqlite_master",
+    "WHERE type = 'table' AND name NOT LIKE 'sqlite_%'"))$name, error = fail)
+  read <- function(tbl) {
+    if (!(tbl %in% present)) return(NULL)
+    tryCatch(RSQLite::dbGetQuery(con, sprintf('SELECT * FROM "%s"', tbl)), error = fail)
+  }
+  pkgs  <- read("bioc_packages")
+  auths <- read("bioc_authors")
+  if (is.null(pkgs) || is.null(auths)) {
+    stop("Prior catalog cannot be read: bioc_packages or bioc_authors is missing",
+         call. = FALSE)
+  }
+  state <- setNames(lapply(BIOC_STATE_TABLES, read), BIOC_STATE_TABLES)
+  check_prior_state(lapply(state, function(d) if (is.null(d)) NULL else nrow(d)),
+                    manifest)
+  list(packages = pkgs, authors = auths,
+       view_edges = read("bioc_view_edges") %||% data.frame(
+         release = character(0), parent = character(0), child = character(0),
+         stringsAsFactors = FALSE),
+       manifest = manifest,
+       names_all = read("bioc_names_all") %||% empty_bioc_names_all(),
+       build_reports = state[["bioc_build_reports"]],
+       build_status  = state[["bioc_build_status_history"]],
+       views_history = state[["bioc_views_history"]])
+}
+
+# The prior catalog from the `current` release. No release is a bootstrap; a
+# release whose manifest or db cannot be downloaded or read stops the run, so
+# the catch-up retries instead of publishing a cold start over the history.
+read_prev_catalog <- function(sleep = Sys.sleep) {
+  status <- with_retry({
+    s <- current_release_status()
+    if (!(s %in% c(200L, 404L))) {
+      stop(sprintf("Could not tell whether the current release exists (status %s)", s))
+    }
+    s
+  }, sleep = sleep)
+  if (identical(status, 404L)) {
+    message("No current release yet; starting from scratch")
+    return(list(manifest = list(), names_all = empty_bioc_names_all()))
+  }
+
+  tmp_dir <- tempfile()
+  dir.create(tmp_dir, showWarnings = FALSE)
+  on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
+  fetch <- function(asset) {
+    with_retry({
+      st <- suppressWarnings(system2(
+        "gh", c("release", "download", "current", "--repo", PUBLISH_REPO,
+                "--pattern", asset, "--dir", tmp_dir, "--clobber"),
+        stdout = FALSE, stderr = FALSE))
+      path <- file.path(tmp_dir, asset)
+      if (!identical(as.integer(st), 0L) || !file.exists(path)) {
+        stop(sprintf("Prior %s download failed (gh release download current)", asset))
+      }
+      path
+    }, sleep = sleep)
+  }
+  mf <- fetch("manifest.json")
+  manifest <- tryCatch(jsonlite::read_json(mf), error = function(e) {
+    stop("Prior manifest cannot be read: ", conditionMessage(e), call. = FALSE)
+  })
+  read_catalog_db(fetch("bioconductor-metadata.db"), manifest)
+}
+
+# ---------------------------------------------------------------------------
 # default_io: real network fetchers
 # ---------------------------------------------------------------------------
 
-default_io <- function() {
+default_io <- function(sleep = Sys.sleep) {
   list(
     config_yaml = function() {
       with_retry(
@@ -632,68 +729,7 @@ default_io <- function() {
       )
     },
 
-    prev_catalog = function() {
-      tmp_dir <- tempfile()
-      dir.create(tmp_dir, showWarnings = FALSE)
-      on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
-
-      # Download prior manifest for fingerprint comparison; non-fatal on absence.
-      suppressWarnings(system2(
-        "gh",
-        c("release", "download", "current",
-          "--repo", PUBLISH_REPO,
-          "--pattern", "manifest.json",
-          "--dir", tmp_dir, "--clobber"),
-        stdout = FALSE, stderr = FALSE))
-      prev_manifest <- tryCatch({
-        mf <- file.path(tmp_dir, "manifest.json")
-        if (file.exists(mf)) jsonlite::read_json(mf) else list()
-      }, error = function(e) list())
-
-      st <- suppressWarnings(system2(
-        "gh",
-        c("release", "download", "current",
-          "--repo", PUBLISH_REPO,
-          "--pattern", "bioconductor-metadata.db",
-          "--dir", tmp_dir, "--clobber"),
-        stdout = FALSE, stderr = FALSE))
-      db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
-      if (!identical(as.integer(st), 0L) || !file.exists(db_path)) {
-        return(list(manifest = prev_manifest, names_all = data.frame(name_lower = character(0), canonical_name = character(0),
-                     identity_state = character(0), first_seen = character(0),
-                     last_seen = character(0), stringsAsFactors = FALSE)))
-      }
-      con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
-      on.exit(RSQLite::dbDisconnect(con), add = TRUE)
-      pkgs  <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
-      auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors")
-      view_edges <- tryCatch({
-        if (RSQLite::dbExistsTable(con, "bioc_view_edges")) {
-          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
-        } else {
-          data.frame(release = character(0), parent = character(0),
-                     child = character(0), stringsAsFactors = FALSE)
-        }
-      }, error = function(e) {
-        data.frame(release = character(0), parent = character(0),
-                   child = character(0), stringsAsFactors = FALSE)
-      })
-      names_all <- tryCatch({
-        if (RSQLite::dbExistsTable(con, "bioc_names_all")) {
-          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
-        } else {
-          data.frame(name_lower = character(0), canonical_name = character(0),
-                     identity_state = character(0), first_seen = character(0),
-                     last_seen = character(0), stringsAsFactors = FALSE)
-        }
-      }, error = function(e) {
-        data.frame(name_lower = character(0), canonical_name = character(0),
-                   identity_state = character(0), first_seen = character(0),
-                   last_seen = character(0), stringsAsFactors = FALSE)
-      })
-      list(packages = pkgs, authors = auths, view_edges = view_edges,
-           manifest = prev_manifest, names_all = names_all)
-    }
+    prev_catalog = function() read_prev_catalog(sleep = sleep)
   )
 }
 
