@@ -1727,3 +1727,62 @@ test_that("a category that parses to nothing keeps its episodes open", {
   expect_true(is.na(annot$ended_on))
   expect_false("annotation" %in% unlist(res$manifest$views_history$applied))
 })
+
+# ---------------------------------------------------------------------------
+# Upstream files for the archive branch
+# ---------------------------------------------------------------------------
+
+test_that("VIEWS and the newest applied reports are written under upstream/", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  io <- make_stub_io(build_files = all_build_files())
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = structure(FIXTURE_VIEWS_SOFTWARE, last_modified = "2026-09-29T18:14:30Z",
+                           raw = paste0(FIXTURE_VIEWS_SOFTWARE, "\n")),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  res <- suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+  files <- res$archive_files
+  expect_true("3.23/views/software/VIEWS" %in% files)
+  expect_false("3.23/views/experiment/VIEWS" %in% files)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% files)
+  expect_true("3.24/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% files)
+  expect_false("3.23/builds/workflows/PROPAGATION_STATUS_DB.txt" %in% files)
+  expect_equal(readLines(file.path(out, "upstream/3.23/views/software/VIEWS"))[1],
+               "Package: PkgSoft")
+  expect_match(paste(readLines(file.path(out, "archive-message.txt")), collapse = "\n"),
+               "3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)", fixed = TRUE)
+})
+
+test_that("a report read again stays in the archive list and a stale copy does not", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two"); out3 <- file.path(tmp, "three")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE, live_floor = 1L))
+  first <- state_of(out1)
+
+  # The same reports again: unchanged, yet still archived, so a push that
+  # failed after the first run is made good by the next one.
+  again <- suppressMessages(run_update(
+    make_stub_io(build_files = all_build_files(), prev_state = first), out2,
+    force_full = TRUE, live_floor = 1L))
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% again$archive_files)
+
+  # An older copy of the release report must never replace the newer file.
+  stale <- suppressMessages(run_update(
+    make_stub_io(build_files = all_build_files(release_snapshot = "2026-09-27&nbsp;13:40"),
+                 prev_state = first), out3, force_full = TRUE, live_floor = 1L))
+  expect_false("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% stale$archive_files)
+  expect_true("3.24/builds/bioc/BUILD_STATUS_DB.txt" %in% stale$archive_files)
+  expect_false(file.exists(file.path(out3, "upstream/3.23/builds/bioc/BUILD_STATUS_DB.txt")))
+})
+
+test_that("a run clears the upstream files an earlier run left in the same out dir", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(file.path(out, "upstream", "3.22"), recursive = TRUE)
+  writeLines("old", file.path(out, "upstream", "3.22", "VIEWS"))
+  suppressMessages(run_update(make_stub_io(), out, force_full = TRUE))
+  expect_false(file.exists(file.path(out, "upstream", "3.22", "VIEWS")))
+})

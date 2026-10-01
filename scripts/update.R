@@ -77,6 +77,8 @@ with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
 
 run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_FLOOR) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+  # Upstream files are this run's only; nothing from an earlier run is archived.
+  unlink(file.path(out_dir, c("upstream", "archive-message.txt")), recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
   config_text     <- io$config_yaml()
@@ -622,7 +624,47 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
   manifest <- c(manifest, db_core)
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
-  list(changed = manifest_changed, manifest = manifest)
+  # 8. Upstream files for the archive branch.
+  views_cats <- setdiff(views_apply, views_hist$skipped)
+  views_cats <- views_cats[vapply(views_cats, function(cat) {
+    nzchar(trimws(as.character(views_texts[[cat]])))
+  }, logical(1))]
+  archive <- upstream_files(views_texts, views_times, views_cats, current_release, builds)
+  archive_files <- write_upstream_files(file.path(out_dir, "upstream"), archive)
+  if (length(archive_files) > 0L) {
+    writeLines(archive_message(archive, run_at), file.path(out_dir, "archive-message.txt"))
+  }
+
+  list(changed = manifest_changed, manifest = manifest, archive_files = archive_files)
+}
+
+# Upstream files for the archive branch: the release VIEWS of each category
+# given, and the status and propagation files of each report that is the newest
+# applied one of its BioC version and repo. An older copy of a report is left
+# out, so a stale file never replaces a newer one on the branch; the newest one
+# read again is kept, so the catch-up makes good a failed archive push.
+upstream_files <- function(views_texts, views_times, views_cats, bioc_version, builds) {
+  files <- lapply(views_cats, function(cat) {
+    v <- views_texts[[cat]]
+    list(path = file.path(bioc_version, "views", cat, "VIEWS"),
+         text = attr(v, "raw") %||% paste0(as.character(v), "\n"),
+         last_modified = views_times[[cat]])
+  })
+  applied <- builds$reports[builds$reports$outcome == "applied", , drop = FALSE]
+  for (s in builds$streams) {
+    if (!isTRUE(s$ok)) next
+    mine <- applied$report_at[applied$bioc_version == s$bioc_version & applied$repo == s$repo]
+    if (length(mine) == 0L || s$report_at != max(mine)) next
+    dir <- file.path(s$bioc_version, "builds", s$repo)
+    files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["status"]]),
+                                        text = s$status_body, last_modified = s$published_at)
+    if (isTRUE(s$propagation_read)) {
+      files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["propagation"]]),
+                                          text = s$propagation_body,
+                                          last_modified = s$propagation_published_at)
+    }
+  }
+  files
 }
 
 # ---------------------------------------------------------------------------
@@ -868,7 +910,7 @@ default_io <- function(sleep = Sys.sleep, http = http_get) {
         if (!identical(r$status, 200L)) {
           stop(sprintf("HTTP %s for %s", r$status, VIEWS_URLS[[cat]]))
         }
-        structure(views_body_text(r$body), last_modified = r$last_modified)
+        structure(views_body_text(r$body), last_modified = r$last_modified, raw = r$body)
       }, sleep = sleep)
     },
 

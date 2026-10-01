@@ -115,6 +115,14 @@ jobs:
             gh release upload current out/bioconductor-metadata.db --clobber
             gh release upload current out/manifest.json --clobber
           fi
+      # Commits the raw VIEWS and build report files to the orphan
+      # upstream-archive branch when any byte changed.
+      - name: Archive upstream files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          bash scripts/archive-upstream.sh out "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
   keepalive:
     # GitHub disables a public repository's scheduled workflows after 60 days

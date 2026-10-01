@@ -880,3 +880,27 @@ conform_frame <- function(df, template) {
   }
   out
 }
+
+# --- Upstream archive ----------------------------------------------------------
+
+#' Write upstream files (lists of path, text, last_modified) under root and
+#' return their paths relative to it.
+write_upstream_files <- function(root, files) {
+  paths <- character(0)
+  for (f in files) {
+    dest <- file.path(root, f$path)
+    dir.create(dirname(dest), showWarnings = FALSE, recursive = TRUE)
+    writeBin(charToRaw(enc2utf8(f$text)), dest)
+    paths <- c(paths, f$path)
+  }
+  paths
+}
+
+#' Commit message for the archive branch: when the files were read and when
+#' upstream last changed each one.
+archive_message <- function(files, read_at) {
+  lines <- vapply(files, function(f) {
+    sprintf("%s (published %s)", f$path, f$last_modified %||% "unknown")
+  }, character(1))
+  paste(c(sprintf("Bioconductor files as read at %s", read_at), "", lines), collapse = "\n")
+}
