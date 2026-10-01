@@ -1,8 +1,8 @@
 # scripts/views_history.R: VIEWS field values kept as episodes, timed by each
 # VIEWS file's Last-Modified.
 
-# Fields kept as episodes; every binary field is matched by VIEWS_BINARY_FIELD_RE
-# so a renamed macOS platform arrives as a new field.
+# Fields kept as episodes: these three, and source.ver, win.binary.ver and any
+# mac.binary*.ver, so a renamed macOS platform arrives as a new field.
 VIEWS_HISTORY_FIELDS  <- c("Version", "Date/Publication", "PackageStatus")
 VIEWS_BINARY_FIELD_RE <- "^(source|win\\.binary|mac\\.binary.*)\\.ver$"
 

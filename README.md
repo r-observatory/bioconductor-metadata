@@ -13,7 +13,7 @@ Bioconductor keeps only the latest build report of each build and overwrites VIE
 
 - `bioc_build_reports`: one row per report read, keyed by BioC version, repository and report time (the report's snapshot time, else the status file's Last-Modified), with `outcome` `applied` or `skipped_floor`.
 - `bioc_build_status_history`: one episode per package, node and stage while its status holds, with the propagation status (stage `propagate`) and the reason given with a NO. A status of NA means the node had no result that day and is never stored; a node missing from seven reports in a row closes its rows as `gone`, and a BioC version no longer served closes as `retired`.
-- `bioc_views_history`: one episode per package and VIEWS field (Version, Date/Publication, PackageStatus and every binary `*.ver` field), timed by each VIEWS file's Last-Modified.
+- `bioc_views_history`: one episode per package and VIEWS field (Version, Date/Publication, PackageStatus, `source.ver`, `win.binary.ver` and every `mac.binary*.ver` field), timed by each VIEWS file's Last-Modified.
 
 `first_seen_exact = 0` marks an episode that was already open in the first report or VIEWS file read, so its real start is earlier. `bioc_packages` also carries `package_status`, `date_publication`, `linking_to`, `enhances`, `dependency_count` and `author_text` from VIEWS.
 

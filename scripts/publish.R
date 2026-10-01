@@ -3,7 +3,7 @@
 # release. Needs helpers.R. Run: GH_REPO=owner/repo Rscript scripts/publish.R out
 
 PUBLISH_TAG      <- "current"
-# The database goes first, so a manifest never describes a database not there.
+# The database goes first, so the new manifest is never on the release before its database.
 PUBLISH_FILES    <- c("bioconductor-metadata.db", "manifest.json")
 PUBLISH_ASSET_JQ <- ".[] | [.id, .name, .size, .state, .digest] | @tsv"
 

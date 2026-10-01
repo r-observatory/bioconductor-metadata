@@ -23,7 +23,7 @@ L1 <- c(software = "2026-09-28T18:14:30Z", annotation = "2026-09-20T10:00:00Z")
 L2 <- c(software = "2026-09-29T18:14:30Z", annotation = "2026-09-20T10:00:00Z")
 L3 <- c(software = "2026-09-30T18:14:30Z", annotation = "2026-09-20T10:00:00Z")
 
-test_that("views_state_rows keeps Version, Date/Publication, PackageStatus and every binary field", {
+test_that("views_state_rows keeps Version, Date/Publication, PackageStatus and the source, Windows and macOS .ver fields", {
   s <- views_state_rows(read_views_fixture("views-software-3.23-fields.dcf"), "software")
   expect_setequal(unique(s$field), c("Version", "Date/Publication", "PackageStatus",
                                      "source.ver", "win.binary.ver",
