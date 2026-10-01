@@ -30,9 +30,12 @@ test_that("parse_views handles empty input", {
   expect_equal(nrow(out), 0)
   expect_equal(names(out), c("name","name_lower","category","version","title",
     "description","maintainer","maintainer_email","license","depends",
-    "imports","suggests","biocviews","git_url","has_news","views_has_readme"))
+    "imports","suggests","biocviews","git_url","has_news","views_has_readme",
+    "package_status","date_publication","linking_to","enhances",
+    "dependency_count","author_text"))
   expect_type(out$has_news, "integer")
   expect_type(out$views_has_readme, "integer")
+  expect_type(out$dependency_count, "integer")
 })
 
 read_views_fixture <- function(name) {
@@ -126,4 +129,31 @@ test_that("build_bioc_vignettes keeps the first category of a package listed twi
   expect_equal(nrow(v), 1L)
   expect_equal(v$category, "software")
   expect_match(v$url, "/3.23/bioc/vignettes/AHEnsDbs/", fixed = TRUE)
+})
+
+test_that("parse_views keeps PackageStatus, Date/Publication, LinkingTo, Enhances, dependencyCount and Author", {
+  out <- parse_views(read_views_fixture("views-software-3.23-fields.dcf"), "software")
+  row <- function(p) out[out$name == p, ]
+  expect_equal(row("BiocParallel")$linking_to, "BH (>= 1.87.0), cpp11")
+  expect_equal(row("BiocParallel")$enhances, "Rmpi")
+  expect_identical(row("BiocParallel")$dependency_count, 12L)
+  expect_equal(row("cummeRbund")$package_status, "Deprecated")
+  expect_equal(row("DMRScan")$package_status, "Active")
+  expect_identical(row("ballgown")$package_status, NA_character_)
+  expect_equal(row("ballgown")$date_publication, "2025-11-04")
+  expect_identical(row("cummeRbund")$dependency_count, NA_integer_)
+  expect_equal(row("ballgown")$author_text,
+               paste("Jack Fu [aut], Alyssa C. Frazee [aut, cre], Leonardo Collado-Torres [aut],",
+                     "Andrew E. Jaffe [aut], Jeffrey T. Leek [aut, ths]"))
+})
+
+test_that("attach_views_extras fills current packages only", {
+  views <- parse_views(read_views_fixture("views-software-3.23-fields.dcf"), "software")
+  pkgs <- data.frame(name = c("Rhtslib", "cummeRbund", "Gone"), in_current = c(1L, 0L, 0L),
+                     stringsAsFactors = FALSE)
+  out <- attach_views_extras(pkgs, views)
+  expect_equal(names(out), c("name", "in_current", VIEWS_EXTRA_COLS))
+  expect_identical(out$dependency_count, c(1L, NA_integer_, NA_integer_))
+  expect_identical(out$package_status, c(NA_character_, NA_character_, NA_character_))
+  expect_equal(out$date_publication[1], "2026-04-28")
 })

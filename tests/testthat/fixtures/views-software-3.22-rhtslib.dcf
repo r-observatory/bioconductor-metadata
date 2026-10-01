@@ -1,0 +1,48 @@
+Package: Rhtslib
+Version: 3.6.0
+Imports: tools
+Suggests: knitr, rmarkdown, BiocStyle
+License: LGPL (>= 2)
+MD5sum: e832528219ddfe8adb8c0f0ac4ba29bc
+NeedsCompilation: yes
+Title: HTSlib high-throughput sequencing library as an R package
+Description: This package provides version 1.18 of the 'HTSlib' C
+        library for high-throughput sequence analysis. The package is
+        primarily useful to developers of other R packages who wish to
+        make use of HTSlib. Motivation and instructions for use of this
+        package are in the vignette, vignette(package="Rhtslib",
+        "Rhtslib").
+biocViews: DataImport, Sequencing
+Author: Nathaniel Hayden [led, aut], Martin Morgan [aut], Hervé Pagès
+        [aut, cre], Tomas Kalibera [ctb], Jeroen Ooms [ctb]
+Maintainer: Hervé Pagès <hpages.on.github@gmail.com>
+URL: https://bioconductor.org/packages/Rhtslib, http://www.htslib.org/
+SystemRequirements: libbz2 & liblzma & libcurl (with header files), GNU
+        make
+VignetteBuilder: knitr
+BugReports: https://github.com/Bioconductor/Rhtslib/issues
+git_url: https://git.bioconductor.org/packages/Rhtslib
+git_branch: RELEASE_3_22
+git_last_commit: c4b7268
+git_last_commit_date: 2025-10-29
+Date/Publication: 2025-10-29
+source.ver: src/contrib/Rhtslib_3.6.0.tar.gz
+win.binary.ver: bin/windows/contrib/4.5/Rhtslib_3.6.0.zip
+mac.binary.big-sur-x86_64.ver:
+        bin/macosx/big-sur-x86_64/contrib/4.5/Rhtslib_3.6.0.tgz
+mac.binary.big-sur-arm64.ver:
+        bin/macosx/big-sur-arm64/contrib/4.5/Rhtslib_3.6.0.tgz
+vignettes: vignettes/Rhtslib/inst/doc/Rhtslib.html
+vignetteTitles: Motivation and use of Rhtslib
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles: vignettes/Rhtslib/inst/doc/Rhtslib.R
+importsMe: deepSNV, diffHic, maftools, mitoClone2, scPipe, stPipe
+linksToMe: bamsignals, csaw, deepSNV, DiffBind, diffHic, epialleleR,
+        FLAMES, h5vc, iscream, maftools, methylKit, mitoClone2, podkat,
+        QuasR, raer, Rfastp, Rsamtools, scPipe, ShortRead, stPipe,
+        VariantAnnotation, jackalope
+dependencyCount: 1
+

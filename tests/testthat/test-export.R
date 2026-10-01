@@ -82,7 +82,8 @@ test_that("export_catalog stores has_news and views_has_readme as INTEGER after 
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
 
   info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
-  expect_equal(tail(info$name, 3), c("updated_at", "has_news", "views_has_readme"))
+  at <- match("updated_at", info$name)
+  expect_equal(info$name[at + 0:2], c("updated_at", "has_news", "views_has_readme"))
   expect_equal(info$type[info$name %in% c("has_news", "views_has_readme")],
                c("INTEGER", "INTEGER"))
   rows <- RSQLite::dbGetQuery(con, "SELECT name, has_news, views_has_readme FROM bioc_packages ORDER BY name")
@@ -351,4 +352,95 @@ test_that("export_catalog without vignettes_df creates an empty bioc_vignettes t
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
   expect_true(RSQLite::dbExistsTable(con, "bioc_vignettes"))
   expect_equal(RSQLite::dbGetQuery(con, "SELECT COUNT(*) AS n FROM bioc_vignettes")$n, 0L)
+})
+
+test_that("export_catalog writes the build tables with their open-row indexes and checks", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  reports <- data.frame(
+    bioc_version = "3.23", repo = "bioc", report_at = "2026-09-28T17:40:00Z",
+    branch = "release", snapshot_at = "2026-09-28T17:40:00Z", generated_at = NA_character_,
+    published_at = "2026-09-29T16:35:46Z", status_sha256 = "abc", n_packages = 2417L,
+    n_lines = 14499L, n_na = 520L, nodes = "nebbiolo1,kunpeng2",
+    read_at = "2026-09-30T12:20:00Z", outcome = "applied", stringsAsFactors = FALSE)
+  status <- data.frame(
+    package = "a4", bioc_version = "3.23", repo = "bioc", node = "nebbiolo1",
+    stage = "checksrc", episode_seq = 1L, status = "OK", detail = NA_character_,
+    first_version = "1.60.0", last_version = "1.60.0",
+    first_seen = "2026-09-28T17:40:00Z", last_seen = "2026-09-28T17:40:00Z",
+    first_seen_exact = 0L, ended_on = NA_character_, end_reason = NA_character_,
+    stringsAsFactors = FALSE)
+  export_catalog(tmp, make_packages_df(), make_authors_df(),
+                 build_reports_df = reports, build_status_df = status)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT n_na FROM bioc_build_reports")$n_na, 520L)
+  idx <- RSQLite::dbGetQuery(con, paste(
+    "SELECT name, sql FROM sqlite_master",
+    "WHERE type = 'index' AND tbl_name = 'bioc_build_status_history' AND sql IS NOT NULL"))
+  expect_setequal(idx$name, c("ux_bioc_build_open", "idx_bioc_build_open_status"))
+  expect_match(idx$sql[idx$name == "ux_bioc_build_open"], "WHERE ended_on IS NULL", fixed = TRUE)
+  # A second open row for the same package, node and stage is refused.
+  expect_error(RSQLite::dbExecute(con, paste(
+    "INSERT INTO bioc_build_status_history VALUES ('a4', '3.23', 'bioc', 'nebbiolo1',",
+    "'checksrc', 2, 'ERROR', NULL, NULL, NULL, '2026-09-29T17:40:00Z',",
+    "'2026-09-29T17:40:00Z', 1, NULL, NULL)")), "UNIQUE")
+  # An end without its reason is refused.
+  expect_error(RSQLite::dbExecute(con, paste(
+    "UPDATE bioc_build_status_history SET ended_on = '2026-09-29T17:40:00Z'")), "CHECK")
+})
+
+test_that("export_catalog without build frames creates no build tables", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_false(RSQLite::dbExistsTable(con, "bioc_build_reports"))
+  expect_false(RSQLite::dbExistsTable(con, "bioc_build_status_history"))
+})
+
+test_that("export_catalog writes the VIEWS columns after views_has_readme", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+
+  pkgs <- make_packages_df()
+  pkgs$package_status <- c("Deprecated", NA_character_)
+  pkgs$dependency_count <- c(12L, NA_integer_)
+  export_catalog(tmp, pkgs, make_authors_df())
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_packages)")
+  expect_equal(tail(info$name, 7), c("views_has_readme", VIEWS_EXTRA_COLS))
+  expect_equal(info$type[info$name == "dependency_count"], "INTEGER")
+  rows <- RSQLite::dbGetQuery(con, paste("SELECT name, package_status, dependency_count,",
+                                         "linking_to FROM bioc_packages ORDER BY name"))
+  expect_equal(rows$package_status, c("Deprecated", NA))
+  expect_identical(rows$dependency_count, c(12L, NA_integer_))
+  expect_identical(rows$linking_to, c(NA_character_, NA_character_))
+})
+
+test_that("export_catalog writes bioc_views_history with its open-row index", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  views <- data.frame(
+    package = "cummeRbund", field = "PackageStatus", episode_seq = 1L, value = "Deprecated",
+    bioc_version = "3.23", category = "software", first_seen = "2026-09-29T18:14:30Z",
+    last_seen = "2026-09-29T18:14:30Z", first_seen_exact = 0L, ended_on = NA_character_,
+    stringsAsFactors = FALSE)
+  export_catalog(tmp, make_packages_df(), make_authors_df(), views_history_df = views)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT value FROM bioc_views_history")$value,
+               "Deprecated")
+  sql <- RSQLite::dbGetQuery(con,
+    "SELECT sql FROM sqlite_master WHERE name = 'ux_bioc_views_open'")$sql
+  expect_match(sql, "WHERE ended_on IS NULL", fixed = TRUE)
+  expect_error(RSQLite::dbExecute(con, paste(
+    "INSERT INTO bioc_views_history VALUES ('cummeRbund', 'PackageStatus', 2, 'Active',",
+    "'3.23', 'software', '2026-09-30T18:14:30Z', '2026-09-30T18:14:30Z', 1, NULL)")),
+    "UNIQUE")
 })

@@ -109,7 +109,8 @@ FIXTURE_BRANCHES <- list(
 # ---------------------------------------------------------------------------
 
 make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list(),
-                         prev_view_edges = NULL, prev_names_all = NULL) {
+                         prev_view_edges = NULL, prev_names_all = NULL,
+                         build_files = list(), prev_state = list()) {
   all_repos <- c("PkgSoft", "PkgAnnot", "PkgOld")
 
   list(
@@ -140,9 +141,16 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
         NULL)
     },
 
+    # build_files is keyed "branch/repo/file"; anything else is a 404.
+    fetch_build_file = function(branch, repo, file) {
+      f <- build_files[[paste(branch, repo, file, sep = "/")]]
+      if (is.null(f)) list(status = 404L, body = "", last_modified = NA_character_) else f
+    },
+
+    # prev_state carries the episode tables of an earlier run (see state_of).
     prev_catalog = function() {
-      if (is.null(prev_pkgs)) return(list(manifest = prev_manifest))
-      list(
+      if (is.null(prev_pkgs)) return(c(list(manifest = prev_manifest), prev_state))
+      c(list(
         packages = prev_pkgs,
         authors  = prev_auths %||% data.frame(
           package = character(0), given = character(0), family = character(0),
@@ -157,7 +165,7 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
           name_lower = character(0), canonical_name = character(0),
           identity_state = character(0), first_seen = character(0),
           last_seen = character(0), stringsAsFactors = FALSE)
-      )
+      ), prev_state)
     }
   )
 }
@@ -590,6 +598,11 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
 # each with their R version from r_ver_for_bioc_ver).
 .FIXTURE_RELEASES_FP <- "3.22:4.5,3.23:4.6"
 
+# The publish-gate fingerprint of the stub's four VIEWS texts.
+.FIXTURE_VIEWS_SHA <- views_sha256(list(software = FIXTURE_VIEWS_SOFTWARE,
+                                        annotation = FIXTURE_VIEWS_ANNOTATION,
+                                        experiment = "", workflows = ""))
+
 test_that("manifest$changed is FALSE on steady-state incremental run", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")
@@ -623,6 +636,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
     views_fingerprint     = .FIXTURE_FP,
     releases_fingerprint  = .FIXTURE_RELEASES_FP,
     biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    views_sha256          = .FIXTURE_VIEWS_SHA,
+    builds_fingerprint    = "",
     schema                = BIOC_METADATA_SCHEMA
   ))
 
@@ -1403,7 +1418,7 @@ test_that("manifest$changed is TRUE on a schema bump with unchanged VIEWS", {
   expect_true(res$manifest$changed)
   expect_equal(res$manifest$source$schema, BIOC_METADATA_SCHEMA)
   from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
-  expect_equal(from_disk$source$schema, 2L)
+  expect_equal(from_disk$source$schema, 3L)
 })
 
 test_that("manifest$changed is TRUE when the prior manifest has no schema", {
@@ -1418,4 +1433,772 @@ test_that("manifest$changed is TRUE when the prior manifest has no schema", {
   io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
   res <- run_update(io, out, force_full = FALSE)
   expect_true(res$manifest$changed)
+})
+
+# ---------------------------------------------------------------------------
+# Build reports
+# ---------------------------------------------------------------------------
+
+stub_file <- function(body, last_modified = "2026-09-29T16:35:46Z") {
+  list(status = 200L, body = body, last_modified = last_modified)
+}
+
+# One stream's files: status lines, an index page naming the BioC version, the
+# snapshot time (local, -0400) and the built versions, and optionally a
+# propagation file.
+stub_report <- function(version, snapshot, lines, prop = NULL,
+                        versions = c(PkgSoft = "1.2.0")) {
+  pkgs <- paste(sprintf('<B><A href="%s/">%s</A>&nbsp;%s</B>', names(versions),
+                        names(versions), versions), collapse = "\n")
+  index <- paste0(
+    "<TITLE>Multiple platform build/check report for BioC ", version, "</TITLE>\n",
+    "This page was generated on 2026-09-29 11:33 -0400 (Tue, 29 Sep 2026).\n",
+    "<TD>Approx.&nbsp;Package&nbsp;Snapshot&nbsp;Date/Time&nbsp;(<SPAN>git&nbsp;pull</SPAN>):",
+    "&nbsp;<SPAN>", snapshot, "&nbsp;-0400</SPAN></TD>\n", pkgs, "\n")
+  out <- list(BUILD_STATUS_DB.txt = stub_file(paste(c(lines, ""), collapse = "\n")),
+              index.html = stub_file(index))
+  if (!is.null(prop)) {
+    out$PROPAGATION_STATUS_DB.txt <- stub_file(paste(c(prop, ""), collapse = "\n"))
+  }
+  out
+}
+
+# All six streams, readable; software carries a propagation file, the data and
+# workflows reports have none. release_check is PkgSoft's release check line.
+all_build_files <- function(release_check = "PkgSoft#nebbiolo1#checksrc: ERROR",
+                            release_snapshot = "2026-09-28&nbsp;13:40") {
+  files <- list()
+  add <- function(branch, repo, rep) {
+    for (f in names(rep)) files[[paste(branch, repo, f, sep = "/")]] <<- rep[[f]]
+  }
+  prop <- "PkgSoft#source#propagate: UNNEEDED, same version is already published"
+  add("release", "bioc", stub_report("3.23", release_snapshot,
+                                     c("PkgSoft#nebbiolo1#install: OK", release_check),
+                                     prop = prop))
+  add("devel", "bioc", stub_report("3.24", "2026-09-28&nbsp;13:45",
+                                   "PkgSoft#nebbiolo2#install: OK", prop = prop,
+                                   versions = c(PkgSoft = "1.3.0")))
+  for (b in c("release", "devel")) for (r in c("data-experiment", "workflows")) {
+    add(b, r, stub_report(if (b == "release") "3.23" else "3.24", "2026-09-29&nbsp;07:00",
+                          "PkgExp#nebbiolo1#install: OK", versions = c(PkgExp = "1.0.0")))
+  }
+  files
+}
+
+# The episode tables a run wrote, in the shape prev_catalog returns them.
+state_of <- function(out) {
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con))
+  opt <- function(t) {
+    if (RSQLite::dbExistsTable(con, t)) RSQLite::dbGetQuery(con, sprintf("SELECT * FROM %s", t)) else NULL
+  }
+  list(build_reports = opt("bioc_build_reports"),
+       build_status = opt("bioc_build_status_history"),
+       views_history = opt("bioc_views_history"))
+}
+
+stream_of <- function(res, branch, repo) {
+  Filter(function(x) x$branch == branch && x$repo == repo, res$manifest$builds)[[1]]
+}
+
+test_that("run_update writes the build tables with censored first episodes", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = all_build_files()),
+                                     out, force_full = TRUE))
+
+  st <- state_of(out)
+  expect_equal(nrow(st$build_reports), 6L)
+  expect_setequal(st$build_reports$outcome, "applied")
+  rel <- st$build_reports[st$build_reports$branch == "release" & st$build_reports$repo == "bioc", ]
+  expect_equal(rel$bioc_version, "3.23")
+  expect_equal(rel$report_at, "2026-09-28T17:40:00Z")
+  expect_equal(rel$published_at, "2026-09-29T16:35:46Z")
+  expect_equal(rel$nodes, "nebbiolo1")
+
+  h <- st$build_status
+  soft <- h[h$package == "PkgSoft" & h$bioc_version == "3.23", ]
+  expect_setequal(soft$stage, c("install", "checksrc", "propagate"))
+  expect_equal(soft$status[soft$stage == "checksrc"], "ERROR")
+  expect_true(all(soft$first_seen_exact == 0L))
+  expect_true(all(soft$first_version == "1.2.0"))
+  expect_equal(h$first_version[h$package == "PkgSoft" & h$bioc_version == "3.24" &
+                                 h$stage == "install"], "1.3.0")
+
+  expect_true(res$manifest$builds_ok)
+  expect_length(res$manifest$builds, 6L)
+  expect_equal(stream_of(res, "release", "workflows")$propagation, "absent")
+  expect_equal(res$manifest$tables$bioc_build_status_history, nrow(h))
+})
+
+test_that("the same reports read twice change nothing", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  files <- all_build_files()
+  suppressMessages(run_update(make_stub_io(build_files = files), out1, force_full = TRUE))
+  first <- state_of(out1)
+
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = files, prev_state = first), out2, force_full = TRUE))
+  second <- state_of(out2)
+
+  expect_equal(second$build_reports, first$build_reports)
+  expect_equal(second$build_status, first$build_status)
+  expect_setequal(vapply(res$manifest$builds, `[[`, "", "outcome"), "unchanged")
+  expect_true(res$manifest$builds_ok)
+})
+
+test_that("a status flip in a newer report closes one episode and opens the next", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  newer <- all_build_files(release_check = "PkgSoft#nebbiolo1#checksrc: OK",
+                           release_snapshot = "2026-09-29&nbsp;13:40")
+  suppressMessages(run_update(make_stub_io(build_files = newer, prev_state = state_of(out1)),
+                              out2, force_full = TRUE))
+  h <- state_of(out2)$build_status
+  chk <- h[h$package == "PkgSoft" & h$bioc_version == "3.23" & h$stage == "checksrc", ]
+  expect_equal(chk$status, c("ERROR", "OK"))
+  expect_equal(chk$end_reason, c("changed", NA))
+  expect_equal(chk$ended_on[1], "2026-09-29T17:40:00Z")
+  expect_equal(chk$first_seen_exact, c(0L, 1L))
+})
+
+test_that("a failed build stream keeps its prior rows and never stops the catalog", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  prior <- state_of(out1)
+  broken <- all_build_files(release_snapshot = "2026-09-29&nbsp;13:40")
+  broken[["release/bioc/BUILD_STATUS_DB.txt"]] <-
+    stub_file("<html><body>502 Bad Gateway</body></html>")
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = broken, prev_state = prior),
+                                     out2, force_full = TRUE))
+
+  expect_false(res$manifest$builds_ok)
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "status file failed validation")
+  h <- state_of(out2)$build_status
+  old <- prior$build_status
+  keep <- h$bioc_version == "3.23" & h$repo == "bioc"
+  expect_equal(h[keep, ], old[old$bioc_version == "3.23" & old$repo == "bioc", ],
+               ignore_attr = TRUE)
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out2, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT COUNT(*) AS n FROM bioc_packages")$n, 3L)
+})
+
+test_that("a propagation file that is there but unreadable fails its stream", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <- stub_file("<html>Gateway Timeout</html>")
+  res <- suppressMessages(run_update(make_stub_io(build_files = files),
+                                     file.path(tmp, "out"), force_full = TRUE))
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "propagation file not read")
+  expect_false(res$manifest$builds_ok)
+  h <- state_of(file.path(tmp, "out"))$build_status
+  expect_false(any(h$bioc_version == "3.23" & h$repo == "bioc"))
+})
+
+# Text ending in one byte that is not valid UTF-8, marked the way http_get
+# marks a body.
+with_bad_byte <- function(text) {
+  b <- rawToChar(c(charToRaw(text), as.raw(0xe9)))
+  Encoding(b) <- "UTF-8"
+  b
+}
+
+test_that("an index page with an invalid byte never stops the catalog", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["release/bioc/index.html"]]$body <-
+    with_bad_byte(files[["release/bioc/index.html"]]$body)
+  io <- make_stub_io(build_files = files)
+  io$config_yaml <- function() {
+    paste0(FIXTURE_CONFIG_YAML, "release_version: \"3.23\"\ndevel_version: \"3.24\"\n")
+  }
+
+  res <- suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_true(file.exists(file.path(out, "status.json")))
+  # The page gives nothing, so config.yaml names the version and the status
+  # file's Last-Modified times the report.
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$bioc_version, "3.23")
+  expect_equal(rel$report_at, "2026-09-29T16:35:46Z")
+  expect_equal(stream_of(res, "devel", "bioc")$report_at, "2026-09-28T17:45:00Z")
+})
+
+test_that("an error while one stream is read fails that stream only", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  prior <- state_of(out1)
+  broken <- all_build_files(release_snapshot = "2026-09-29&nbsp;13:40")
+  # A body that is not text makes the parser throw instead of returning invalid.
+  broken[["release/bioc/BUILD_STATUS_DB.txt"]]$body <- 1L
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = broken, prev_state = prior),
+                                     out2, force_full = TRUE, live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_match(rel$reason, "non-character argument", fixed = TRUE)
+  expect_equal(stream_of(res, "devel", "bioc")$outcome, "unchanged")
+  h <- state_of(out2)$build_status
+  old <- prior$build_status
+  expect_equal(h[h$bioc_version == "3.23" & h$repo == "bioc", ],
+               old[old$bioc_version == "3.23" & old$repo == "bioc", ], ignore_attr = TRUE)
+})
+
+test_that("an index page that cannot be fetched fails its stream, and a missing one does not", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["release/bioc/index.html"]] <- list(status = 503L, body = "",
+                                             last_modified = NA_character_)
+  files[["devel/bioc/index.html"]] <- NULL
+  io <- make_stub_io(build_files = files)
+  io$config_yaml <- function() {
+    paste0(FIXTURE_CONFIG_YAML, "release_version: \"3.23\"\ndevel_version: \"3.24\"\n")
+  }
+  fetch <- io$fetch_build_file
+  io$fetch_build_file <- function(branch, repo, file) {
+    if (branch == "devel" && repo == "workflows" && file == "index.html") {
+      stop("Timeout was reached")
+    }
+    fetch(branch, repo, file)
+  }
+
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = TRUE,
+                                     live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "index page not read (HTTP 503)")
+  wf <- stream_of(res, "devel", "workflows")
+  expect_equal(wf$outcome, "fetch_failed")
+  expect_equal(wf$reason, "index page not read (HTTP error)")
+  # A 404 is a report without the page: it applies on config.yaml's version.
+  dev <- stream_of(res, "devel", "bioc")
+  expect_equal(dev$outcome, "applied")
+  expect_equal(dev$bioc_version, "3.24")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+})
+
+test_that("a config.yaml that cannot be parsed gives no branch versions and says why", {
+  for (text in list("release_version: [unclosed", "just text", NA_character_,
+                    "release_version: ['3.22', '3.23']\n")) {
+    expect_message(v <- config_branch_versions(text),
+                   "config.yaml release and devel versions not read", fixed = TRUE)
+    expect_equal(v, c(release = NA_character_, devel = NA_character_))
+  }
+  expect_no_message(v <- config_branch_versions("release_version: \"3.23\"\n"))
+  expect_equal(v, c(release = "3.23", devel = NA_character_))
+})
+
+test_that("unparsed branch versions skip only the streams whose index page gives no version", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["devel/bioc/index.html"]] <- NULL
+  files[["devel/workflows/index.html"]] <- NULL
+  # The parser is stood in for, since release dates come from the same text.
+  real <- parse_branch_versions
+  withr::defer(assign("parse_branch_versions", real, envir = globalenv()))
+  assign("parse_branch_versions", function(yaml_text) stop("Parser error: bad yaml"),
+         envir = globalenv())
+
+  msgs <- character(0)
+  expect_no_warning(withCallingHandlers(
+    res <- run_update(make_stub_io(build_files = files), file.path(tmp, "out"),
+                      force_full = TRUE, live_floor = 1L),
+    message = function(m) {
+      msgs <<- c(msgs, conditionMessage(m))
+      invokeRestart("muffleMessage")
+    }))
+
+  expect_equal(sum(grepl("config.yaml release and devel versions not read: Parser error: bad yaml",
+                         msgs, fixed = TRUE)), 1L)
+  for (repo in c("bioc", "workflows")) {
+    dev <- stream_of(res, "devel", repo)
+    expect_equal(dev$outcome, "fetch_failed", label = repo)
+    expect_equal(dev$reason, "BioC version unknown", label = repo)
+  }
+  expect_true(any(grepl("Build report devel/bioc: BioC version unknown", msgs, fixed = TRUE)))
+  expect_equal(stream_of(res, "release", "bioc")$outcome, "applied")
+  expect_equal(stream_of(res, "devel", "data-experiment")$outcome, "applied")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+})
+
+# all_build_files() with `prop` as the release software propagation lines. The
+# status file's own Last-Modified makes it a new report though its lines match.
+with_release_propagation <- function(prop, snapshot = "2026-09-28&nbsp;13:40",
+                                     last_modified = "2026-09-29T16:35:46Z") {
+  files <- all_build_files(release_snapshot = snapshot)
+  files[["release/bioc/BUILD_STATUS_DB.txt"]]$last_modified <- last_modified
+  files[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <-
+    if (is.null(prop)) NULL else stub_file(paste(c(prop, ""), collapse = "\n"))
+  files
+}
+release_propagation_rows <- function(out) {
+  h <- state_of(out)$build_status
+  h[h$bioc_version == "3.23" & h$repo == "bioc" & h$stage == "propagate", ]
+}
+DAY2_SNAPSHOT <- "2026-09-29&nbsp;13:40"
+DAY2_MODIFIED <- "2026-09-30T16:35:46Z"
+
+test_that("an empty propagation file leaves the propagation rows open and fails the build check", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  day2 <- all_build_files(release_check = "PkgSoft#nebbiolo1#checksrc: OK",
+                          release_snapshot = DAY2_SNAPSHOT)
+  day2[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <- stub_file("")
+
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = day2, prev_state = state_of(out1)), out2,
+    force_full = TRUE, live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "skipped_floor")
+  expect_equal(rel$reason, "propagation file lists 0 packages against 1 with open rows")
+  expect_true(res$status$catalog_ok)
+  expect_false(res$status$builds_ok)
+  p <- release_propagation_rows(out2)
+  expect_equal(nrow(p), 1L)
+  expect_true(is.na(p$ended_on))
+  expect_equal(p$last_seen, "2026-09-28T17:40:00Z")
+  # The status lines of the same report still apply.
+  h <- state_of(out2)$build_status
+  chk <- h[h$package == "PkgSoft" & h$bioc_version == "3.23" & h$stage == "checksrc", ]
+  expect_equal(chk$status, c("ERROR", "OK"))
+  # The file that was not trusted is not archived over the last good one.
+  archived <- unlist(res$archive_files)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% archived)
+  expect_false("3.23/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% archived)
+})
+
+test_that("a propagation file under half its open rows leaves them open, and half applies", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one")
+  four <- sprintf("Pkg%s#source#propagate: UNNEEDED, same version is already published",
+                  c("A", "B", "C", "D"))
+  suppressMessages(run_update(make_stub_io(build_files = with_release_propagation(four)),
+                              out1, force_full = TRUE))
+  prior <- state_of(out1)
+  day2 <- function(prop, out) {
+    files <- with_release_propagation(prop, DAY2_SNAPSHOT, DAY2_MODIFIED)
+    suppressMessages(run_update(make_stub_io(build_files = files, prev_state = prior),
+                                file.path(tmp, out), force_full = TRUE, live_floor = 1L))
+  }
+
+  res <- day2(four[1], "one-of-four")
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "skipped_floor")
+  expect_false(res$status$builds_ok)
+  p <- release_propagation_rows(file.path(tmp, "one-of-four"))
+  expect_equal(nrow(p), 4L)
+  expect_true(all(is.na(p$ended_on)))
+  expect_setequal(p$last_seen, "2026-09-28T17:40:00Z")
+
+  res <- day2(four[1:2], "two-of-four")
+  expect_equal(stream_of(res, "release", "bioc")$propagation, "read")
+  expect_true(res$status$builds_ok)
+  p <- release_propagation_rows(file.path(tmp, "two-of-four"))
+  expect_equal(p$end_reason[match(c("PkgA", "PkgB", "PkgC", "PkgD"), p$package)],
+               c(NA, NA, "gone", "gone"))
+})
+
+test_that("a first propagation file applies when no propagation rows are open", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  res1 <- suppressMessages(run_update(
+    make_stub_io(build_files = with_release_propagation(NULL)), out1, force_full = TRUE))
+  expect_equal(stream_of(res1, "release", "bioc")$propagation, "absent")
+  expect_equal(nrow(release_propagation_rows(out1)), 0L)
+
+  files <- with_release_propagation("PkgSoft#source#propagate: YES", DAY2_SNAPSHOT,
+                                    DAY2_MODIFIED)
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = files, prev_state = state_of(out1)), out2,
+    force_full = TRUE, live_floor = 1L))
+
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "applied")
+  expect_equal(rel$propagation, "read")
+  expect_true(res$status$builds_ok)
+  p <- release_propagation_rows(out2)
+  expect_equal(p$status, "YES")
+  expect_equal(p$first_seen, "2026-09-29T17:40:00Z")
+  expect_true(is.na(p$ended_on))
+})
+
+test_that("the release rollover retires the old version's open rows", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  rolled <- list()
+  add <- function(branch, repo, rep) {
+    for (f in names(rep)) rolled[[paste(branch, repo, f, sep = "/")]] <<- rep[[f]]
+  }
+  for (r in BUILD_REPOS) {
+    add("release", r, stub_report("3.24", "2026-10-29&nbsp;13:40", "PkgSoft#nebbiolo2#install: OK",
+                                  prop = "PkgSoft#source#propagate: YES"))
+    add("devel", r, stub_report("3.25", "2026-10-29&nbsp;13:45", "PkgSoft#nebbiolo1#install: OK",
+                                prop = "PkgSoft#source#propagate: YES"))
+  }
+  res <- suppressMessages(run_update(make_stub_io(build_files = rolled, prev_state = state_of(out1)),
+                                     out2, force_full = TRUE))
+  h <- state_of(out2)$build_status
+  old <- h[h$bioc_version == "3.23", ]
+  expect_true(nrow(old) > 0L)
+  expect_setequal(old$end_reason, "retired")
+  expect_true(all(is.na(h$ended_on[h$bioc_version == "3.25"])))
+  expect_gt(res$manifest$builds_retired, 0L)
+})
+
+test_that("run_update writes the VIEWS columns for current packages and NA for removed ones", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = sub("hasNEWS: TRUE", paste("hasNEWS: TRUE", "PackageStatus: Deprecated",
+                                            "LinkingTo: Rhtslib", "dependencyCount: 4",
+                                            "Author: Alice Smith [aut, cre]", sep = "\n"),
+                     FIXTURE_VIEWS_SOFTWARE, fixed = TRUE),
+      annotation = FIXTURE_VIEWS_ANNOTATION,
+      "")
+  }
+  suppressMessages(run_update(io, out, force_full = TRUE))
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  pkgs <- RSQLite::dbGetQuery(con, paste(
+    "SELECT name, package_status, linking_to, dependency_count, author_text",
+    "FROM bioc_packages ORDER BY name"))
+  soft <- pkgs[pkgs$name == "PkgSoft", ]
+  expect_equal(soft$package_status, "Deprecated")
+  expect_equal(soft$linking_to, "Rhtslib")
+  expect_identical(soft$dependency_count, 4L)
+  expect_equal(soft$author_text, "Alice Smith [aut, cre]")
+  old <- pkgs[pkgs$name == "PkgOld", ]
+  expect_identical(old$package_status, NA_character_)
+  expect_identical(old$dependency_count, NA_integer_)
+})
+
+# ---------------------------------------------------------------------------
+# VIEWS history
+# ---------------------------------------------------------------------------
+
+with_last_modified <- function(text, at) structure(text, last_modified = at)
+
+test_that("run_update keeps VIEWS values as episodes timed by each file's Last-Modified", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = with_last_modified(FIXTURE_VIEWS_SOFTWARE, "2026-09-29T18:14:30Z"),
+      annotation = with_last_modified(FIXTURE_VIEWS_ANNOTATION, "2026-09-20T10:00:00Z"),
+      "")
+  }
+  res1 <- suppressMessages(run_update(io, out1, force_full = TRUE, live_floor = 1L))
+  h1 <- state_of(out1)$views_history
+  v <- h1[h1$package == "PkgSoft" & h1$field == "Version", ]
+  expect_equal(v$value, "1.2.0")
+  expect_equal(v$first_seen, "2026-09-29T18:14:30Z")
+  expect_equal(v$first_seen_exact, 0L)
+  expect_equal(v$bioc_version, "3.23")
+  expect_equal(h1$first_seen[h1$package == "PkgAnnot"], "2026-09-20T10:00:00Z")
+  expect_equal(res1$manifest$views_history$new, 2L)
+
+  io2 <- make_stub_io(prev_state = state_of(out1))
+  io2$fetch_views <- function(cat) {
+    switch(cat,
+      software = with_last_modified(
+        sub("hasNEWS: TRUE", "hasNEWS: TRUE\nPackageStatus: Deprecated",
+            FIXTURE_VIEWS_SOFTWARE, fixed = TRUE), "2026-09-30T18:14:30Z"),
+      annotation = with_last_modified(FIXTURE_VIEWS_ANNOTATION, "2026-09-20T10:00:00Z"),
+      "")
+  }
+  suppressMessages(run_update(io2, out2, force_full = TRUE, live_floor = 1L))
+  h2 <- state_of(out2)$views_history
+  dep <- h2[h2$package == "PkgSoft" & h2$field == "PackageStatus", ]
+  expect_equal(dep$value, "Deprecated")
+  expect_equal(dep$first_seen, "2026-09-30T18:14:30Z")
+  expect_equal(dep$first_seen_exact, 1L)
+  expect_equal(h2$last_seen[h2$package == "PkgSoft" & h2$field == "Version"],
+               "2026-09-30T18:14:30Z")
+})
+
+test_that("a failed names gate leaves the VIEWS history as it was", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(), out1, force_full = TRUE, live_floor = 1L))
+  prior <- state_of(out1)$views_history
+  io <- make_stub_io(prev_state = state_of(out1))
+  io$fetch_views <- function(cat) if (cat == "annotation") FIXTURE_VIEWS_ANNOTATION else ""
+  res <- suppressMessages(run_update(io, out2, force_full = TRUE))
+  expect_false(res$manifest$names_gate_ok)
+  after <- state_of(out2)$views_history
+  expect_equal(after[order(after$package, after$field), ], prior[order(prior$package, prior$field), ],
+               ignore_attr = TRUE)
+})
+
+test_that("a category that parses to nothing keeps its episodes open", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(), out1, force_full = TRUE, live_floor = 1L))
+  io <- make_stub_io(prev_state = state_of(out1))
+  io$fetch_views <- function(cat) if (cat == "software") FIXTURE_VIEWS_SOFTWARE else ""
+  res <- suppressMessages(run_update(io, out2, force_full = TRUE, live_floor = 1L))
+  annot <- state_of(out2)$views_history
+  annot <- annot[annot$package == "PkgAnnot", ]
+  expect_equal(nrow(annot), 1L)
+  expect_true(is.na(annot$ended_on))
+  expect_false("annotation" %in% unlist(res$manifest$views_history$applied))
+})
+
+# ---------------------------------------------------------------------------
+# Upstream files for the archive branch
+# ---------------------------------------------------------------------------
+
+test_that("VIEWS and the newest applied reports are written under upstream/", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  io <- make_stub_io(build_files = all_build_files())
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = structure(FIXTURE_VIEWS_SOFTWARE, last_modified = "2026-09-29T18:14:30Z",
+                           raw = paste0(FIXTURE_VIEWS_SOFTWARE, "\n")),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  res <- suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+  files <- res$archive_files
+  expect_true("3.23/views/software/VIEWS" %in% files)
+  expect_false("3.23/views/experiment/VIEWS" %in% files)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% files)
+  expect_true("3.24/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% files)
+  expect_false("3.23/builds/workflows/PROPAGATION_STATUS_DB.txt" %in% files)
+  expect_equal(readLines(file.path(out, "upstream/3.23/views/software/VIEWS"))[1],
+               "Package: PkgSoft")
+  expect_match(paste(readLines(file.path(out, "archive-message.txt")), collapse = "\n"),
+               "3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)", fixed = TRUE)
+})
+
+test_that("the archive message leaves out the published time of a file that has none", {
+  files <- list(list(path = "3.23/views/software/VIEWS", last_modified = "2026-09-29T18:14:30Z"),
+                list(path = "3.23/builds/bioc/BUILD_STATUS_DB.txt", last_modified = NA_character_),
+                list(path = "3.23/builds/bioc/PROPAGATION_STATUS_DB.txt", last_modified = NULL),
+                list(path = "3.23/views/workflows/VIEWS", last_modified = ""))
+  expect_equal(strsplit(archive_message(files, "2026-10-01T06:20:00Z"), "\n")[[1]],
+               c("Bioconductor files as read at 2026-10-01T06:20:00Z", "",
+                 "3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)",
+                 "3.23/builds/bioc/BUILD_STATUS_DB.txt",
+                 "3.23/builds/bioc/PROPAGATION_STATUS_DB.txt",
+                 "3.23/views/workflows/VIEWS"))
+})
+
+test_that("a file fetched without a Last-Modified is archived without a published time", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["release/bioc/BUILD_STATUS_DB.txt"]]$last_modified <- NA_character_
+  files[["devel/bioc/PROPAGATION_STATUS_DB.txt"]]$last_modified <- NA_character_
+  io <- make_stub_io(build_files = files)
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = structure(FIXTURE_VIEWS_SOFTWARE, last_modified = "2026-09-29T18:14:30Z"),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  suppressMessages(run_update(io, out, force_full = TRUE, live_floor = 1L))
+  msg <- readLines(file.path(out, "archive-message.txt"))
+  expect_true("3.23/views/software/VIEWS (published 2026-09-29T18:14:30Z)" %in% msg)
+  expect_true("3.23/views/annotation/VIEWS" %in% msg)
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% msg)
+  expect_true("3.23/builds/bioc/PROPAGATION_STATUS_DB.txt (published 2026-09-29T16:35:46Z)" %in% msg)
+  expect_true("3.24/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% msg)
+})
+
+test_that("a report read again stays in the archive list and a stale copy does not", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two"); out3 <- file.path(tmp, "three")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE, live_floor = 1L))
+  first <- state_of(out1)
+
+  # The same reports again: unchanged, yet still archived, so a push that
+  # failed after the first run is made good by the next one.
+  again <- suppressMessages(run_update(
+    make_stub_io(build_files = all_build_files(), prev_state = first), out2,
+    force_full = TRUE, live_floor = 1L))
+  expect_true("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% again$archive_files)
+
+  # An older copy of the release report must never replace the newer file.
+  stale <- suppressMessages(run_update(
+    make_stub_io(build_files = all_build_files(release_snapshot = "2026-09-27&nbsp;13:40"),
+                 prev_state = first), out3, force_full = TRUE, live_floor = 1L))
+  expect_false("3.23/builds/bioc/BUILD_STATUS_DB.txt" %in% stale$archive_files)
+  expect_true("3.24/builds/bioc/BUILD_STATUS_DB.txt" %in% stale$archive_files)
+  expect_false(file.exists(file.path(out3, "upstream/3.23/builds/bioc/BUILD_STATUS_DB.txt")))
+})
+
+test_that("a run clears the upstream files an earlier run left in the same out dir", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(file.path(out, "upstream", "3.22"), recursive = TRUE)
+  writeLines("old", file.path(out, "upstream", "3.22", "VIEWS"))
+  suppressMessages(run_update(make_stub_io(), out, force_full = TRUE))
+  expect_false(file.exists(file.path(out, "upstream", "3.22", "VIEWS")))
+})
+
+# ---------------------------------------------------------------------------
+# Publish gate
+# ---------------------------------------------------------------------------
+
+.steady_manifest <- function() {
+  list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    views_sha256          = .FIXTURE_VIEWS_SHA,
+    builds_fingerprint    = "",
+    schema                = BIOC_METADATA_SCHEMA))
+}
+
+test_that("a PackageStatus flip with no version change republishes", {
+  tmp <- withr::local_tempdir()
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest())
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = sub("hasNEWS: TRUE", "hasNEWS: TRUE\nPackageStatus: Deprecated",
+                     FIXTURE_VIEWS_SOFTWARE, fixed = TRUE),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = FALSE))
+  expect_true(res$manifest$changed)
+  expect_equal(res$manifest$source$views_fingerprint, .FIXTURE_FP)
+})
+
+test_that("a newly applied build report republishes", {
+  tmp <- withr::local_tempdir()
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest(),
+                     build_files = all_build_files())
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = FALSE))
+  expect_true(res$manifest$changed)
+  expect_match(res$manifest$source$builds_fingerprint, "3.23:bioc:2026-09-28T17:40:00Z", fixed = TRUE)
+})
+
+test_that("the same VIEWS and reports again leave the gate closed", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  first <- suppressMessages(run_update(
+    make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest(),
+                 build_files = all_build_files()), out1, force_full = FALSE))
+  res <- suppressMessages(run_update(
+    make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = list(source = first$manifest$source),
+                 build_files = all_build_files(), prev_state = state_of(out1)),
+    out2, force_full = FALSE))
+  expect_false(res$manifest$changed)
+})
+
+test_that("builds_fingerprint keeps the newest applied report per version and repo", {
+  r <- data.frame(bioc_version = c("3.23", "3.23", "3.24", "3.23"),
+                  repo = c("bioc", "bioc", "bioc", "workflows"),
+                  report_at = c("2026-09-27T17:40:00Z", "2026-09-28T17:40:00Z",
+                                "2026-09-28T17:45:00Z", "2026-09-29T16:45:00Z"),
+                  outcome = c("applied", "applied", "skipped_floor", "applied"),
+                  stringsAsFactors = FALSE)
+  expect_equal(builds_fingerprint(r),
+               "3.23:bioc:2026-09-28T17:40:00Z,3.23:workflows:2026-09-29T16:45:00Z")
+  expect_equal(builds_fingerprint(r[0, ]), "")
+})
+
+test_that("views_sha256 ignores the attributes fetch_views adds", {
+  plain <- list(software = "Package: a", annotation = "")
+  marked <- list(software = structure("Package: a", last_modified = "x", raw = "Package: a\n"),
+                 annotation = "")
+  expect_equal(views_sha256(marked), views_sha256(plain))
+  expect_false(views_sha256(list(software = "Package: b", annotation = "")) ==
+                 views_sha256(plain))
+})
+
+
+# ---------------------------------------------------------------------------
+# Status file and exit status
+# ---------------------------------------------------------------------------
+
+read_status <- function(out) jsonlite::read_json(file.path(out, "status.json"))
+
+test_that("a failed build stream still writes catalog_ok true, builds_ok false, and exits 0", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  files <- all_build_files()
+  files[["devel/workflows/BUILD_STATUS_DB.txt"]] <- NULL
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = files), live_floor = 1L))
+  expect_identical(code, 0L)
+  st <- read_status(out)
+  expect_true(st$catalog_ok)
+  expect_false(st$builds_ok)
+  wf <- Filter(function(x) x$branch == "devel" && x$repo == "workflows", st$streams)[[1]]
+  expect_equal(wf$outcome, "fetch_failed")
+  expect_true("3.23/views/software/VIEWS" %in% unlist(st$archive_files))
+})
+
+test_that("every stream read gives builds_ok true and exit 0", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = all_build_files()),
+                                live_floor = 1L))
+  expect_identical(code, 0L)
+  expect_true(read_status(out)$builds_ok)
+})
+
+test_that("a failed names gate writes catalog_ok false and exits 1", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  code <- suppressMessages(main(out, io = make_stub_io(build_files = all_build_files())))
+  expect_identical(code, 1L)
+  expect_false(read_status(out)$catalog_ok)
+})
+
+test_that("a failed VIEWS fetch leaves no status file, even a stale one", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(out)
+  writeLines('{"catalog_ok": true, "builds_ok": true}', file.path(out, "status.json"))
+  io <- make_stub_io(build_files = all_build_files())
+  io$fetch_views <- function(cat) stop("HTTP 504 for VIEWS")
+  expect_error(main(out, io = io, live_floor = 1L), "HTTP 504")
+  expect_false(file.exists(file.path(out, "status.json")))
+})
+
+test_that("an unreadable prior catalog leaves no status file", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  dir.create(out)
+  writeLines('{"catalog_ok": true, "builds_ok": true}', file.path(out, "status.json"))
+  io <- make_stub_io(build_files = all_build_files())
+  io$prev_catalog <- function() stop("Prior bioconductor-metadata.db download failed")
+  expect_error(main(out, io = io, live_floor = 1L), "download failed")
+  expect_false(file.exists(file.path(out, "status.json")))
 })

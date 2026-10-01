@@ -53,15 +53,17 @@ views_flag <- function(x) {
 }
 
 #' Parse a Bioconductor VIEWS file (DCF text) into a catalog data.frame.
-#' Returns a stable 16-column data.frame (zero rows when input is empty or invalid).
+#' Returns a stable 22-column data.frame (zero rows when input is empty or invalid).
 parse_views <- function(views_text, category) {
   cols <- c("name","name_lower","category","version","title","description",
             "maintainer","maintainer_email","license","depends","imports",
-            "suggests","biocviews","git_url","has_news","views_has_readme")
+            "suggests","biocviews","git_url","has_news","views_has_readme",
+            VIEWS_EXTRA_COLS)
   empty <- setNames(data.frame(matrix(character(0), ncol = length(cols)),
                                stringsAsFactors = FALSE), cols)
   empty$has_news <- integer(0)
   empty$views_has_readme <- integer(0)
+  empty$dependency_count <- integer(0)
   if (!nzchar(trimws(views_text))) return(empty)
   m <- tryCatch(read.dcf(textConnection(views_text)), error = function(e) NULL)
   if (is.null(m) || nrow(m) == 0) return(empty)
@@ -77,7 +79,24 @@ parse_views <- function(views_text, category) {
     depends = g("Depends"), imports = g("Imports"), suggests = g("Suggests"),
     biocviews = g("biocViews"), git_url = g("git_url"),
     has_news = views_flag(g("hasNEWS")), views_has_readme = views_flag(g("hasREADME")),
+    package_status = g("PackageStatus"), date_publication = g("Date/Publication"),
+    linking_to = g("LinkingTo"), enhances = g("Enhances"),
+    dependency_count = suppressWarnings(as.integer(g("dependencyCount"))),
+    author_text = collapse_comment_whitespace(g("Author")),
     stringsAsFactors = FALSE)
+}
+
+#' Copy the VIEWS-only columns onto current packages; every other row gets NA,
+#' as has_news does.
+attach_views_extras <- function(packages_df, views_df) {
+  k <- match(packages_df$name, views_df$name)
+  live <- !is.na(k) & packages_df$in_current == 1L
+  for (col in VIEWS_EXTRA_COLS) {
+    v <- views_df[[col]][k]
+    v[!live] <- NA
+    packages_df[[col]] <- v
+  }
+  packages_df
 }
 
 #' Zero-row bioc_vignettes frame with the published column types.
@@ -414,7 +433,8 @@ parse_biocviews_dot <- function(dot_text) {
 #'   by build_bioc_vignettes(). NULL or 0-row creates the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
                            view_edges_df = NULL, names_all_df = NULL,
-                           vignettes_df = NULL) {
+                           vignettes_df = NULL, build_reports_df = NULL,
+                           build_status_df = NULL, views_history_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -443,7 +463,13 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       in_devel INTEGER NOT NULL DEFAULT 0,
       updated_at TEXT,
       has_news INTEGER,
-      views_has_readme INTEGER
+      views_has_readme INTEGER,
+      package_status TEXT,
+      date_publication TEXT,
+      linking_to TEXT,
+      enhances TEXT,
+      dependency_count INTEGER,
+      author_text TEXT
     )
   ")
 
@@ -532,6 +558,88 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       RSQLite::dbWriteTable(con, "bioc_names_all",
         names_all_df[, c("name_lower", "canonical_name", "identity_state",
                          "first_seen", "last_seen"), drop = FALSE], append = TRUE)
+    }
+  }
+
+  if (!is.null(build_reports_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_build_reports (
+        bioc_version  TEXT NOT NULL,
+        repo          TEXT NOT NULL,
+        report_at     TEXT NOT NULL,
+        branch        TEXT NOT NULL,
+        snapshot_at   TEXT,
+        generated_at  TEXT,
+        published_at  TEXT NOT NULL,
+        status_sha256 TEXT NOT NULL,
+        n_packages    INTEGER NOT NULL,
+        n_lines       INTEGER NOT NULL,
+        n_na          INTEGER NOT NULL,
+        nodes         TEXT NOT NULL,
+        read_at       TEXT NOT NULL,
+        outcome       TEXT NOT NULL,
+        PRIMARY KEY (bioc_version, repo, report_at)
+      )")
+    if (nrow(build_reports_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_build_reports", build_reports_df, append = TRUE)
+    }
+  }
+
+  if (!is.null(build_status_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_build_status_history (
+        package          TEXT NOT NULL,
+        bioc_version     TEXT NOT NULL,
+        repo             TEXT NOT NULL,
+        node             TEXT NOT NULL,
+        stage            TEXT NOT NULL,
+        episode_seq      INTEGER NOT NULL,
+        status           TEXT NOT NULL,
+        detail           TEXT,
+        first_version    TEXT,
+        last_version     TEXT,
+        first_seen       TEXT NOT NULL,
+        last_seen        TEXT NOT NULL,
+        first_seen_exact INTEGER NOT NULL,
+        ended_on         TEXT,
+        end_reason       TEXT,
+        PRIMARY KEY (package, bioc_version, repo, node, stage, episode_seq),
+        CHECK ((ended_on IS NULL) = (end_reason IS NULL)),
+        CHECK (last_seen >= first_seen)
+      )")
+    RSQLite::dbExecute(con, "
+      CREATE UNIQUE INDEX ux_bioc_build_open
+        ON bioc_build_status_history(package, bioc_version, repo, node, stage)
+        WHERE ended_on IS NULL")
+    RSQLite::dbExecute(con, "
+      CREATE INDEX idx_bioc_build_open_status
+        ON bioc_build_status_history(status) WHERE ended_on IS NULL")
+    if (nrow(build_status_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_build_status_history", build_status_df, append = TRUE)
+    }
+  }
+
+  if (!is.null(views_history_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_views_history (
+        package          TEXT NOT NULL,
+        field            TEXT NOT NULL,
+        episode_seq      INTEGER NOT NULL,
+        value            TEXT NOT NULL,
+        bioc_version     TEXT NOT NULL,
+        category         TEXT NOT NULL,
+        first_seen       TEXT NOT NULL,
+        last_seen        TEXT NOT NULL,
+        first_seen_exact INTEGER NOT NULL,
+        ended_on         TEXT,
+        PRIMARY KEY (package, field, episode_seq),
+        CHECK (last_seen >= first_seen)
+      )")
+    RSQLite::dbExecute(con, "
+      CREATE UNIQUE INDEX ux_bioc_views_open
+        ON bioc_views_history(package, field) WHERE ended_on IS NULL")
+    if (nrow(views_history_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_views_history", views_history_df, append = TRUE)
     }
   }
 
@@ -700,4 +808,127 @@ build_bioc_names_all <- function(packages_df) {
 #' floor, signalling the caller to reuse the prior bioc_names_all.
 bioc_names_size_ok <- function(n_live, floor = BIOC_LIVE_FLOOR) {
   is.finite(n_live) && n_live >= floor
+}
+
+# --- Prior catalog -------------------------------------------------------------
+
+#' Zero-row bioc_names_all frame.
+empty_bioc_names_all <- function() {
+  data.frame(name_lower = character(0), canonical_name = character(0),
+             identity_state = character(0), first_seen = character(0),
+             last_seen = character(0), stringsAsFactors = FALSE)
+}
+
+#' Stop when a prior db lacks a state table its manifest lists, or holds fewer
+#' rows of it than listed. counts maps each state table to its row count, NULL
+#' when the db has no such table.
+check_prior_state <- function(counts, manifest, tables = BIOC_STATE_TABLES) {
+  listed <- manifest$tables
+  for (tbl in intersect(tables, names(listed))) {
+    want <- as.numeric(listed[[tbl]])
+    have <- counts[[tbl]]
+    if (is.null(have)) {
+      stop(sprintf("Prior catalog lacks %s, which its manifest lists with %s rows",
+                   tbl, format(want)), call. = FALSE)
+    }
+    if (have < want) {
+      stop(sprintf("Prior catalog holds %s rows of %s; its manifest lists %s",
+                   format(have), tbl, format(want)), call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' Stop when a prior db holds fewer bioc_packages rows than its manifest's
+#' n_packages, or none while the manifest gives no count. Without this an
+#' emptied table would read as no prior and restart the catalog.
+check_prior_packages <- function(have, manifest) {
+  want <- suppressWarnings(as.numeric(manifest$n_packages %||% NA))
+  if (is.na(want)) {
+    if (have == 0L) {
+      stop("Prior catalog holds no bioc_packages rows and its manifest gives no n_packages",
+           call. = FALSE)
+    }
+    return(invisible(TRUE))
+  }
+  if (have < want) {
+    stop(sprintf("Prior catalog holds %s rows of bioc_packages; its manifest gives n_packages %s",
+                 format(have), format(want)), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+# --- HTTP ----------------------------------------------------------------------
+
+#' Last-Modified ("Tue, 29 Sep 2026 16:35:46 GMT") as UTC ISO-8601, NA when
+#' absent or not in that form. Parsed by hand so the locale cannot matter.
+http_date_to_iso <- function(x) {
+  if (is.null(x) || length(x) == 0L || is.na(x[[1L]])) return(NA_character_)
+  s <- trimws(x[[1L]])
+  m <- regmatches(s, regexec(
+    "^[A-Za-z]{3}, ([0-9]{2}) ([A-Za-z]{3}) ([0-9]{4}) ([0-9]{2}:[0-9]{2}:[0-9]{2}) GMT$", s))[[1L]]
+  if (length(m) != 5L) return(NA_character_)
+  mon <- match(m[3], month.abb)
+  if (is.na(mon)) return(NA_character_)
+  sprintf("%s-%02d-%sT%sZ", m[4], mon, m[2], m[5])
+}
+
+#' A response body as readLines() plus paste(collapse = "\n") would give it.
+views_body_text <- function(body) {
+  sub("\n$", "", gsub("\r\n", "\n", body, fixed = TRUE))
+}
+
+# --- Build state ---------------------------------------------------------------
+
+#' Lowercase hex SHA-256 of a string's UTF-8 bytes.
+text_sha256 <- function(x) {
+  f <- tempfile()
+  on.exit(unlink(f), add = TRUE)
+  writeBin(charToRaw(enc2utf8(paste(x, collapse = "\n"))), f)
+  file_sha256(f)
+}
+
+#' A prior table read back from SQLite, in the template's columns, order and
+#' types. NULL gives the zero-row template.
+conform_frame <- function(df, template) {
+  if (is.null(df)) return(template)
+  out <- template[rep(NA_integer_, nrow(df)), , drop = FALSE]
+  rownames(out) <- NULL
+  for (col in intersect(names(template), names(df))) {
+    out[[col]] <- if (is.integer(template[[col]])) as.integer(df[[col]]) else as.character(df[[col]])
+  }
+  out
+}
+
+# --- Upstream archive ----------------------------------------------------------
+
+#' Write upstream files (lists of path, text, last_modified) under root and
+#' return their paths relative to it.
+write_upstream_files <- function(root, files) {
+  paths <- character(0)
+  for (f in files) {
+    dest <- file.path(root, f$path)
+    dir.create(dirname(dest), showWarnings = FALSE, recursive = TRUE)
+    writeBin(charToRaw(enc2utf8(f$text)), dest)
+    paths <- c(paths, f$path)
+  }
+  paths
+}
+
+#' Commit message for the archive branch: when the files were read and, for
+#' each one that came with a Last-Modified, when upstream last changed it.
+archive_message <- function(files, read_at) {
+  lines <- vapply(files, function(f) {
+    at <- f$last_modified %||% ""
+    if (nzchar(at)) sprintf("%s (published %s)", f$path, at) else f$path
+  }, character(1))
+  paste(c(sprintf("Bioconductor files as read at %s", read_at), "", lines), collapse = "\n")
+}
+
+#' Publish-gate fingerprint of the VIEWS texts, in category order.
+views_sha256 <- function(texts) {
+  body <- vapply(names(texts), function(cat) {
+    paste0("## ", cat, "\n", as.character(texts[[cat]] %||% ""))
+  }, character(1))
+  text_sha256(paste(body, collapse = "\n"))
 }

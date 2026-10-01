@@ -45,9 +45,15 @@ BIOC_GIT_BASE   <- "https://github.com/bioc"          # git ls-remote <base>/<pk
 BIOC_RAW_BASE   <- "https://raw.githubusercontent.com/bioc" # <base>/<pkg>/<branch>/DESCRIPTION
 PUBLISH_REPO    <- "r-observatory/bioconductor-metadata"
 
+# Tables holding state that cannot be rebuilt from upstream. A prior db must
+# carry every one its manifest lists, with at least the rows listed there.
+BIOC_STATE_TABLES <- c("bioc_build_reports", "bioc_build_status_history",
+                       "bioc_views_history")
+
 # Published schema version; a change forces the next run to publish.
 # 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
-BIOC_METADATA_SCHEMA <- 2L
+# 3: bioc_packages VIEWS fields, bioc_build_reports, bioc_build_status_history, bioc_views_history.
+BIOC_METADATA_SCHEMA <- 3L
 
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
@@ -60,3 +66,21 @@ BIOC_AUTHOR_COLS <- c("package", "given", "family", "email", "role", "orcid",
 # Share of current software and workflows packages the repository listing must
 # hold before the one-time author crawl starts (2,443 of 2,446 on 2026-09-26).
 BIOC_MIGRATION_LISTING_FLOOR <- 0.98
+
+# Build reports, read at checkResults/<branch>/<repo>-LATEST/<file>.
+BUILD_REPORT_BASE <- "https://bioconductor.org/checkResults"
+BUILD_BRANCHES    <- c("release", "devel")
+BUILD_REPOS       <- c("bioc", "data-experiment", "workflows")
+BUILD_FILES       <- c(status      = "BUILD_STATUS_DB.txt",
+                       index       = "index.html",
+                       propagation = "PROPAGATION_STATUS_DB.txt")
+
+# A report listing under this share of the previous report's packages is skipped.
+BUILD_HEALTH_FLOOR <- 0.5
+
+# Consecutive reports a node may be missing before its open rows close.
+BUILD_NODE_GONE_AFTER <- 7L
+
+# VIEWS fields kept on bioc_packages after views_has_readme, in schema order.
+VIEWS_EXTRA_COLS <- c("package_status", "date_publication", "linking_to",
+                      "enhances", "dependency_count", "author_text")

@@ -1,4 +1,6 @@
 library(testthat)
 source("scripts/config.R")
 source("scripts/helpers.R")
+source("scripts/builds.R")
+source("scripts/views_history.R")
 test_dir("tests/testthat", stop_on_failure = TRUE)

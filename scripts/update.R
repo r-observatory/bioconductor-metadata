@@ -30,8 +30,25 @@ if (!exists("parse_views", mode = "function")) {
   source(file.path(.script_dir, "config.R"))
   source(file.path(.script_dir, "helpers.R"))
 }
+if (!exists("parse_build_status_db", mode = "function")) {
+  source(file.path(.script_dir, "builds.R"))
+}
+if (!exists("views_state_rows", mode = "function")) {
+  source(file.path(.script_dir, "views_history.R"))
+}
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+
+# GET a URL: status, body as UTF-8 text, and Last-Modified in UTC.
+http_get <- function(url) {
+  res <- curl::curl_fetch_memory(
+    url, handle = curl::new_handle(followlocation = TRUE, timeout = 600))
+  hdr <- curl::parse_headers_list(res$headers)
+  body <- rawToChar(res$content)
+  Encoding(body) <- "UTF-8"
+  list(status = as.integer(res$status_code), body = body,
+       last_modified = http_date_to_iso(hdr[["last-modified"]]))
+}
 
 with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
                        rand = function() stats::runif(1, 1, 1.25)) {
@@ -58,8 +75,12 @@ with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
 # run_update
 # ---------------------------------------------------------------------------
 
-run_update <- function(io, out_dir, force_full = FALSE) {
+run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_FLOOR) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+  # A run that stops early leaves no status file for the workflow to trust, and
+  # upstream files are this run's only.
+  unlink(file.path(out_dir, c("status.json", "upstream", "archive-message.txt")),
+         recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
   config_text     <- io$config_yaml()
@@ -89,10 +110,21 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     collapse = ","
   )
 
-  # 3. Prior catalog (empty list on cold start or force_full)
-  prev      <- io$prev_catalog()
+  # 3. Prior catalog. An unreadable prior stops the run so the catch-up tries
+  # again; --bootstrap is the owner's way past it and starts the history over.
+  prev <- tryCatch(io$prev_catalog(), error = function(e) {
+    if (!isTRUE(force_full)) stop(e)
+    message("Prior catalog unavailable (", conditionMessage(e),
+            "); --bootstrap starts from scratch")
+    list(manifest = list(), names_all = empty_bioc_names_all(), cold_start = TRUE)
+  })
   prev_pkgs <- prev$packages
   has_prev  <- !is.null(prev_pkgs) && nrow(prev_pkgs) > 0
+
+  # 3a. Build reports. A failed stream keeps its prior rows and never stops
+  # the catalog.
+  run_at <- iso(Sys.time())
+  builds <- read_build_state(io, prev, config_branch_versions(config_text), run_at)
 
   # 3b. biocViews vocabulary per release
   empty_edges <- data.frame(
@@ -471,6 +503,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   } else {
     empty_pkgs
   }
+  packages_df <- attach_views_extras(packages_df, views_df)
 
   empty_auths <- empty_bioc_authors()
   authors_df <- if (length(authors_rows) > 0L) {
@@ -494,7 +527,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
 
   n_live_bioc   <- sum(packages_df$in_current == 1L)
-  names_gate_ok <- bioc_names_size_ok(n_live_bioc)
+  names_gate_ok <- bioc_names_size_ok(n_live_bioc, floor = live_floor)
   names_all_df  <- if (names_gate_ok) {
     build_bioc_names_all(packages_df)
   } else if (!is.null(prev$names_all) && nrow(prev$names_all) > 0L) {
@@ -507,8 +540,27 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     build_bioc_names_all(packages_df)
   }
   n_names <- nrow(names_all_df)
+
+  # 7a. VIEWS state episodes. A failed names gate skips them all; a category
+  # that parses to nothing while the history holds it is a failed read.
+  views_times <- vapply(names(views_texts), function(cat) {
+    attr(views_texts[[cat]], "last_modified") %||% run_at
+  }, character(1))
+  views_prior <- conform_frame(prev$views_history, empty_views_history())
+  views_now <- do.call(rbind, lapply(names(views_texts), function(cat) {
+    views_state_rows(views_texts[[cat]], cat)
+  }))
+  views_apply <- if (isTRUE(names_gate_ok)) names(views_texts) else character(0)
+  views_apply <- setdiff(views_apply, setdiff(unique(views_prior$category),
+                                              unique(views_now$category)))
+  views_hist <- apply_views_state(views_prior, views_now, views_times, views_apply,
+                                  current_release)
+
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
-                 names_all_df = names_all_df, vignettes_df = vignettes_df)
+                 names_all_df = names_all_df, vignettes_df = vignettes_df,
+                 build_reports_df = builds$reports,
+                 build_status_df = builds$history,
+                 views_history_df = views_hist$history)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -533,7 +585,13 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   db_complete <- isTRUE(names_gate_ok) && lineage_remaining == 0L
   db_core <- db_integrity_core(db_path, complete = db_complete)
 
+  # The VIEWS bytes and the applied reports catch a Deprecated flip, a new
+  # binary or a new build result, none of which moves a version.
+  views_sha <- views_sha256(views_texts)
+  builds_fp <- builds_fingerprint(builds$reports)
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
+    (prev$manifest$source$views_sha256          %||% "") != views_sha ||
+    (prev$manifest$source$builds_fingerprint    %||% "") != builds_fp ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
     (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint ||
@@ -549,12 +607,23 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     n_vignettes     = nrow(vignettes_df),
     n_names         = n_names,
     names_gate_ok   = names_gate_ok,
+    cold_start      = isTRUE(prev$cold_start),
     changed              = manifest_changed,
     n_releases           = nrow(releases_df),
+    builds_ok            = builds$ok,
+    builds               = builds$summary,
+    builds_retired       = builds$retired,
+    views_history        = list(new = views_hist$counts[["new"]],
+                                extended = views_hist$counts[["extended"]],
+                                closed = views_hist$counts[["closed"]],
+                                applied = I(setdiff(views_apply, views_hist$skipped)),
+                                skipped_stale = I(views_hist$skipped)),
     source               = list(
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
       biocviews_fingerprint = biocviews_fingerprint,
+      views_sha256          = views_sha,
+      builds_fingerprint    = builds_fp,
       n_view_edges          = nrow(view_edges_df),
       schema                = BIOC_METADATA_SCHEMA
     )
@@ -565,14 +634,345 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   manifest <- c(manifest, db_core)
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
-  list(changed = manifest_changed, manifest = manifest)
+  # 8. Upstream files for the archive branch.
+  views_cats <- setdiff(views_apply, views_hist$skipped)
+  views_cats <- views_cats[vapply(views_cats, function(cat) {
+    nzchar(trimws(as.character(views_texts[[cat]])))
+  }, logical(1))]
+  archive <- upstream_files(views_texts, views_cats, current_release, builds)
+  archive_files <- write_upstream_files(file.path(out_dir, "upstream"), archive)
+  if (length(archive_files) > 0L) {
+    writeLines(archive_message(archive, run_at), file.path(out_dir, "archive-message.txt"))
+  }
+
+  # 9. The status file, last, once the db and manifest are closed. The workflow
+  # publishes and archives only when it says catalog_ok.
+  status <- list(
+    catalog_ok    = isTRUE(names_gate_ok),
+    builds_ok     = isTRUE(builds$ok),
+    changed       = manifest_changed,
+    streams       = builds$summary,
+    archive_files = I(archive_files))
+  write_manifest(file.path(out_dir, "status.json"), status)
+
+  list(changed = manifest_changed, manifest = manifest, archive_files = archive_files,
+       status = status)
+}
+
+# Files for the archive branch. Only the newest applied report is listed, read
+# again or not, so a stale copy never lands and a failed push heals next run.
+# last_modified is the header as fetched, NA when the file came without one.
+upstream_files <- function(views_texts, views_cats, bioc_version, builds) {
+  files <- lapply(views_cats, function(cat) {
+    v <- views_texts[[cat]]
+    list(path = file.path(bioc_version, "views", cat, "VIEWS"),
+         text = attr(v, "raw") %||% paste0(as.character(v), "\n"),
+         last_modified = attr(v, "last_modified") %||% NA_character_)
+  })
+  applied <- builds$reports[builds$reports$outcome == "applied", , drop = FALSE]
+  for (s in builds$streams) {
+    if (!isTRUE(s$ok)) next
+    mine <- applied$report_at[applied$bioc_version == s$bioc_version & applied$repo == s$repo]
+    if (length(mine) == 0L || s$report_at != max(mine)) next
+    dir <- file.path(s$bioc_version, "builds", s$repo)
+    files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["status"]]),
+                                        text = s$status_body,
+                                        last_modified = s$status_last_modified)
+    if (isTRUE(s$propagation_read)) {
+      files[[length(files) + 1L]] <- list(path = file.path(dir, BUILD_FILES[["propagation"]]),
+                                          text = s$propagation_body,
+                                          last_modified = s$propagation_last_modified)
+    }
+  }
+  files
+}
+
+# ---------------------------------------------------------------------------
+# Build reports: read after VIEWS, never fatal to the catalog
+# ---------------------------------------------------------------------------
+
+# config.yaml's release and devel versions, NA for both when it cannot be
+# parsed, so only a report whose index page gives no version is skipped.
+config_branch_versions <- function(config_text) {
+  tryCatch({
+    v <- parse_branch_versions(config_text)
+    if (!identical(names(v), c("release", "devel"))) {
+      stop("release_version or devel_version is not a single value")
+    }
+    v
+  }, error = function(e) {
+    message("config.yaml release and devel versions not read: ", conditionMessage(e))
+    c(release = NA_character_, devel = NA_character_)
+  })
+}
+
+# One branch and repo's report, fetched and parsed, or ok = FALSE with a reason.
+# A 404 for the index or propagation file means the report has none.
+read_build_stream <- function(io, branch, repo, fallback_version, now) {
+  base <- list(branch = branch, repo = repo, ok = FALSE, bioc_version = NA_character_)
+  fail <- function(reason) c(base, reason = reason)
+  get <- function(file) tryCatch(io$fetch_build_file(branch, repo, file), error = function(e) {
+    message(sprintf("Build report %s/%s %s: %s", branch, repo, file, conditionMessage(e)))
+    NULL
+  })
+  st <- get(BUILD_FILES[["status"]])
+  if (is.null(st) || !identical(st$status, 200L)) {
+    return(fail(sprintf("status file not read (HTTP %s)", st$status %||% "error")))
+  }
+  parsed <- parse_build_status_db(st$body)
+  if (!parsed$valid) return(fail("status file failed validation"))
+
+  ix <- get(BUILD_FILES[["index"]])
+  if (is.null(ix) || !(ix$status %in% c(200L, 404L))) {
+    return(fail(sprintf("index page not read (HTTP %s)", ix$status %||% "error")))
+  }
+  idx <- parse_report_index(if (identical(ix$status, 200L)) ix$body else NULL)
+  if (is.na(idx$bioc_version)) {
+    message(sprintf("Build report %s/%s: index.html gave no BioC version; using config.yaml",
+                    branch, repo))
+  }
+  bioc_version <- idx$bioc_version %||% fallback_version
+  if (is.na(bioc_version)) return(fail("BioC version unknown"))
+
+  pr <- get(BUILD_FILES[["propagation"]])
+  prop <- NULL
+  if (!is.null(pr) && identical(pr$status, 404L)) {
+    message(sprintf("Build report %s/%s: no propagation file", branch, repo))
+  } else {
+    if (!is.null(pr) && identical(pr$status, 200L)) prop <- parse_build_status_db(pr$body)
+    if (is.null(prop) || !prop$valid) return(fail("propagation file not read"))
+  }
+
+  lines <- parsed$lines
+  published_at <- st$last_modified %||% now
+  list(branch = branch, repo = repo, ok = TRUE, bioc_version = bioc_version,
+       report_at = idx$snapshot_at %||% published_at,
+       snapshot_at = idx$snapshot_at, generated_at = idx$generated_at,
+       published_at = published_at, status_sha256 = text_sha256(st$body),
+       n_packages = length(unique(lines$package)), n_lines = nrow(lines),
+       n_na = sum(lines$status == "NA"),
+       nodes = paste(unique(lines$node), collapse = ","),
+       versions = idx$versions,
+       lines = if (is.null(prop)) lines else rbind(lines, prop$lines),
+       propagation_read = !is.null(prop),
+       status_last_modified = st$last_modified %||% NA_character_,
+       propagation_last_modified = if (is.null(prop)) NA_character_ else {
+         pr$last_modified %||% NA_character_
+       },
+       status_body = st$body,
+       propagation_body = if (is.null(prop)) NULL else pr$body)
+}
+
+# One bioc_build_reports row for a stream.
+build_report_row <- function(s, now, outcome) {
+  data.frame(bioc_version = s$bioc_version, repo = s$repo, report_at = s$report_at,
+             branch = s$branch, snapshot_at = s$snapshot_at,
+             generated_at = s$generated_at, published_at = s$published_at,
+             status_sha256 = s$status_sha256, n_packages = as.integer(s$n_packages),
+             n_lines = as.integer(s$n_lines), n_na = as.integer(s$n_na),
+             nodes = s$nodes, read_at = now, outcome = outcome,
+             stringsAsFactors = FALSE)
+}
+
+# Versions each repo's aliases serve: this run's reads, or for a failed read the
+# version that branch served last time. A repo with neither is left out.
+served_versions <- function(streams, reports) {
+  rows <- lapply(streams, function(s) {
+    v <- s$bioc_version
+    if (is.na(v)) {
+      p <- reports[reports$branch == s$branch & reports$repo == s$repo, , drop = FALSE]
+      if (nrow(p) == 0L) return(NULL)
+      v <- p$bioc_version[order(p$read_at, decreasing = TRUE)[1L]]
+    }
+    data.frame(repo = s$repo, bioc_version = v, stringsAsFactors = FALSE)
+  })
+  out <- do.call(rbind, c(list(data.frame(repo = character(0), bioc_version = character(0),
+                                          stringsAsFactors = FALSE)), rows))
+  unique(out)
+}
+
+# A stream's summary row as it stands until its report is read.
+build_stream_row <- function(branch, repo, bioc_version = NA_character_) {
+  list(branch = branch, repo = repo, bioc_version = bioc_version,
+       report_at = NA_character_, lines = 0L, outcome = "fetch_failed",
+       propagation = "not_read", new = 0L, extended = 0L, closed = 0L)
+}
+
+# One stream read and applied to the tables so far. Returns the stream, its
+# summary row and the tables after it; a failed read returns them unchanged.
+apply_build_stream <- function(io, branch, repo, fallback_version, now,
+                               reports, history, prior_reports) {
+  s <- read_build_stream(io, branch, repo, fallback_version, now)
+  row <- build_stream_row(branch, repo, s$bioc_version)
+  if (!isTRUE(s$ok)) {
+    row$reason <- s$reason
+    return(list(stream = s, row = row, reports = reports, history = history))
+  }
+  verdict <- build_report_verdict(reports, s$bioc_version, repo, s$report_at,
+                                  s$status_sha256, s$published_at, s$n_packages)
+  row$report_at <- s$report_at; row$lines <- s$n_lines; row$outcome <- verdict
+  row$propagation <- if (s$propagation_read) "read" else "absent"
+  if (s$propagation_read) {
+    pf <- propagation_floor(history, s$lines, s$bioc_version, repo)
+    if (pf$under) {
+      # An empty or cut-short file would close every row it lacks as gone.
+      s$propagation_read <- FALSE
+      row$propagation <- "skipped_floor"
+      row$reason <- sprintf("propagation file lists %d packages against %d with open rows",
+                            pf$packages, pf$open)
+    }
+  }
+  if (verdict == "applied") {
+    # Censored unless an earlier report of this alias was applied.
+    exact <- as.integer(any(prior_reports$branch == branch & prior_reports$repo == repo &
+                              prior_reports$outcome == "applied"))
+    r <- apply_build_report(history, s$lines,
+                            list(bioc_version = s$bioc_version, repo = repo,
+                                 report_at = s$report_at, versions = s$versions,
+                                 propagation_read = s$propagation_read),
+                            reports, exact)
+    history <- r$history
+    row$new <- r$counts[["new"]]; row$extended <- r$counts[["extended"]]
+    row$closed <- r$counts[["closed"]]
+  }
+  if (verdict != "unchanged") {
+    keep <- !(reports$bioc_version == s$bioc_version & reports$repo == repo &
+                reports$report_at == s$report_at)
+    reports <- rbind(reports[keep, , drop = FALSE], build_report_row(s, now, verdict))
+  }
+  list(stream = s, row = row, reports = reports, history = history)
+}
+
+# Reads and applies every branch and repo's report. ok is FALSE when a stream or
+# its propagation file failed or was skipped, so the catch-up reads them again.
+read_build_state <- function(io, prev, branch_versions, now) {
+  reports <- conform_frame(prev$build_reports, empty_build_reports())
+  history <- conform_frame(prev$build_status, empty_build_history())
+  prior_reports <- reports
+  streams <- list(); summary <- list()
+  for (branch in BUILD_BRANCHES) for (repo in BUILD_REPOS) {
+    # Any error fails this stream only and leaves the tables as they were.
+    one <- tryCatch(
+      apply_build_stream(io, branch, repo, branch_versions[[branch]], now,
+                         reports, history, prior_reports),
+      error = function(e) {
+        reason <- conditionMessage(e)
+        list(stream = list(branch = branch, repo = repo, ok = FALSE,
+                           bioc_version = NA_character_, reason = reason),
+             row = c(build_stream_row(branch, repo), reason = reason),
+             reports = reports, history = history)
+      })
+    if (!is.null(one$row$reason)) {
+      message(sprintf("Build report %s/%s: %s", branch, repo, one$row$reason))
+    }
+    reports <- one$reports; history <- one$history
+    streams[[length(streams) + 1L]] <- one$stream
+    summary[[length(summary) + 1L]] <- one$row
+  }
+  retired <- retire_build_versions(history, served_versions(streams, prior_reports), now)
+  ok <- all(vapply(summary, function(x) {
+    x$outcome %in% c("applied", "unchanged") && x$propagation != "skipped_floor"
+  }, logical(1)))
+  list(reports = reports, history = retired$history, streams = streams,
+       summary = summary, retired = retired$closed, ok = ok)
+}
+
+# ---------------------------------------------------------------------------
+# Prior catalog: anything short of "no release yet" stops the run
+# ---------------------------------------------------------------------------
+
+# HTTP status of the `current` release: 200, 404, or NA when gh gave no answer.
+current_release_status <- function() {
+  out <- suppressWarnings(system2(
+    "gh", c("api", "-i", sprintf("repos/%s/releases/tags/current", PUBLISH_REPO)),
+    stdout = TRUE, stderr = FALSE))
+  first <- if (length(out) > 0L) out[[1L]] else ""
+  suppressWarnings(as.integer(sub("^HTTP/[0-9.]+ ([0-9]{3}).*$", "\\1", first)))
+}
+
+# Reads a downloaded catalog db. Any read error stops the run. A table the db
+# predates is NULL, and the package and state tables are checked against the
+# manifest.
+read_catalog_db <- function(db_path, manifest = list()) {
+  # synchronous = NULL skips a PRAGMA that only warns on a damaged file; the
+  # first query below is what reports it.
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), db_path, synchronous = NULL)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  fail <- function(e) {
+    stop("Prior catalog cannot be read: ", conditionMessage(e), call. = FALSE)
+  }
+  present <- tryCatch(RSQLite::dbGetQuery(con, paste(
+    "SELECT name FROM sqlite_master",
+    "WHERE type = 'table' AND name NOT LIKE 'sqlite_%'"))$name, error = fail)
+  read <- function(tbl) {
+    if (!(tbl %in% present)) return(NULL)
+    tryCatch(RSQLite::dbGetQuery(con, sprintf('SELECT * FROM "%s"', tbl)), error = fail)
+  }
+  pkgs  <- read("bioc_packages")
+  auths <- read("bioc_authors")
+  if (is.null(pkgs) || is.null(auths)) {
+    stop("Prior catalog cannot be read: bioc_packages or bioc_authors is missing",
+         call. = FALSE)
+  }
+  check_prior_packages(nrow(pkgs), manifest)
+  state <- setNames(lapply(BIOC_STATE_TABLES, read), BIOC_STATE_TABLES)
+  check_prior_state(lapply(state, function(d) if (is.null(d)) NULL else nrow(d)),
+                    manifest)
+  list(packages = pkgs, authors = auths,
+       view_edges = read("bioc_view_edges") %||% data.frame(
+         release = character(0), parent = character(0), child = character(0),
+         stringsAsFactors = FALSE),
+       manifest = manifest,
+       names_all = read("bioc_names_all") %||% empty_bioc_names_all(),
+       build_reports = state[["bioc_build_reports"]],
+       build_status  = state[["bioc_build_status_history"]],
+       views_history = state[["bioc_views_history"]])
+}
+
+# The prior catalog from the `current` release. No release is a bootstrap; a
+# release whose manifest or db cannot be downloaded or read stops the run, so
+# the catch-up retries instead of publishing a cold start over the history.
+read_prev_catalog <- function(sleep = Sys.sleep) {
+  status <- with_retry({
+    s <- current_release_status()
+    if (!(s %in% c(200L, 404L))) {
+      stop(sprintf("Could not tell whether the current release exists (status %s)", s))
+    }
+    s
+  }, sleep = sleep)
+  if (identical(status, 404L)) {
+    message("No current release yet; starting from scratch")
+    return(list(manifest = list(), names_all = empty_bioc_names_all()))
+  }
+
+  tmp_dir <- tempfile()
+  dir.create(tmp_dir, showWarnings = FALSE)
+  on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
+  fetch <- function(asset) {
+    with_retry({
+      st <- suppressWarnings(system2(
+        "gh", c("release", "download", "current", "--repo", PUBLISH_REPO,
+                "--pattern", asset, "--dir", tmp_dir, "--clobber"),
+        stdout = FALSE, stderr = FALSE))
+      path <- file.path(tmp_dir, asset)
+      if (!identical(as.integer(st), 0L) || !file.exists(path)) {
+        stop(sprintf("Prior %s download failed (gh release download current)", asset))
+      }
+      path
+    }, sleep = sleep)
+  }
+  mf <- fetch("manifest.json")
+  manifest <- tryCatch(jsonlite::read_json(mf), error = function(e) {
+    stop("Prior manifest cannot be read: ", conditionMessage(e), call. = FALSE)
+  })
+  read_catalog_db(fetch("bioconductor-metadata.db"), manifest)
 }
 
 # ---------------------------------------------------------------------------
 # default_io: real network fetchers
 # ---------------------------------------------------------------------------
 
-default_io <- function() {
+default_io <- function(sleep = Sys.sleep, http = http_get) {
   list(
     config_yaml = function() {
       with_retry(
@@ -580,10 +980,25 @@ default_io <- function() {
       )
     },
 
+    # The VIEWS text, with the file's Last-Modified as an attribute.
     fetch_views = function(cat) {
-      with_retry(
-        paste(readLines(url(VIEWS_URLS[[cat]]), warn = FALSE), collapse = "\n")
-      )
+      with_retry({
+        r <- http(VIEWS_URLS[[cat]])
+        if (!identical(r$status, 200L)) {
+          stop(sprintf("HTTP %s for %s", r$status, VIEWS_URLS[[cat]]))
+        }
+        structure(views_body_text(r$body), last_modified = r$last_modified, raw = r$body)
+      }, sleep = sleep)
+    },
+
+    # One build report file. A 404 comes back as a result; 5xx and 429 retry.
+    fetch_build_file = function(branch, repo, file) {
+      u <- build_file_url(branch, repo, file)
+      with_retry({
+        r <- http(u)
+        if (r$status >= 500L || r$status == 429L) stop(sprintf("HTTP %s for %s", r$status, u))
+        r
+      }, waits = ITEM_RETRY_WAITS_S, sleep = sleep)
     },
 
     list_repos = function() {
@@ -632,68 +1047,7 @@ default_io <- function() {
       )
     },
 
-    prev_catalog = function() {
-      tmp_dir <- tempfile()
-      dir.create(tmp_dir, showWarnings = FALSE)
-      on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
-
-      # Download prior manifest for fingerprint comparison; non-fatal on absence.
-      suppressWarnings(system2(
-        "gh",
-        c("release", "download", "current",
-          "--repo", PUBLISH_REPO,
-          "--pattern", "manifest.json",
-          "--dir", tmp_dir, "--clobber"),
-        stdout = FALSE, stderr = FALSE))
-      prev_manifest <- tryCatch({
-        mf <- file.path(tmp_dir, "manifest.json")
-        if (file.exists(mf)) jsonlite::read_json(mf) else list()
-      }, error = function(e) list())
-
-      st <- suppressWarnings(system2(
-        "gh",
-        c("release", "download", "current",
-          "--repo", PUBLISH_REPO,
-          "--pattern", "bioconductor-metadata.db",
-          "--dir", tmp_dir, "--clobber"),
-        stdout = FALSE, stderr = FALSE))
-      db_path <- file.path(tmp_dir, "bioconductor-metadata.db")
-      if (!identical(as.integer(st), 0L) || !file.exists(db_path)) {
-        return(list(manifest = prev_manifest, names_all = data.frame(name_lower = character(0), canonical_name = character(0),
-                     identity_state = character(0), first_seen = character(0),
-                     last_seen = character(0), stringsAsFactors = FALSE)))
-      }
-      con  <- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
-      on.exit(RSQLite::dbDisconnect(con), add = TRUE)
-      pkgs  <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_packages")
-      auths <- RSQLite::dbGetQuery(con, "SELECT * FROM bioc_authors")
-      view_edges <- tryCatch({
-        if (RSQLite::dbExistsTable(con, "bioc_view_edges")) {
-          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_view_edges")
-        } else {
-          data.frame(release = character(0), parent = character(0),
-                     child = character(0), stringsAsFactors = FALSE)
-        }
-      }, error = function(e) {
-        data.frame(release = character(0), parent = character(0),
-                   child = character(0), stringsAsFactors = FALSE)
-      })
-      names_all <- tryCatch({
-        if (RSQLite::dbExistsTable(con, "bioc_names_all")) {
-          RSQLite::dbGetQuery(con, "SELECT * FROM bioc_names_all")
-        } else {
-          data.frame(name_lower = character(0), canonical_name = character(0),
-                     identity_state = character(0), first_seen = character(0),
-                     last_seen = character(0), stringsAsFactors = FALSE)
-        }
-      }, error = function(e) {
-        data.frame(name_lower = character(0), canonical_name = character(0),
-                   identity_state = character(0), first_seen = character(0),
-                   last_seen = character(0), stringsAsFactors = FALSE)
-      })
-      list(packages = pkgs, authors = auths, view_edges = view_edges,
-           manifest = prev_manifest, names_all = names_all)
-    }
+    prev_catalog = function() read_prev_catalog(sleep = sleep)
   )
 }
 
@@ -701,10 +1055,16 @@ default_io <- function() {
 # Entry point when run as a standalone script
 # ---------------------------------------------------------------------------
 
-if (sys.nframe() == 0L) {
-  args    <- commandArgs(trailingOnly = TRUE)
+# Exit status for the workflow: 0 when the catalog was built, even if a build
+# report stream failed (the status file says so), 1 when it was not.
+main <- function(args = commandArgs(trailingOnly = TRUE), io = default_io(),
+                 live_floor = BIOC_LIVE_FLOOR) {
   out_dir <- if (length(args) >= 1L) args[1L] else "out"
   force_full <- "--bootstrap" %in% args
-  dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
-  run_update(default_io(), out_dir, force_full)
+  res <- run_update(io, out_dir, force_full, live_floor = live_floor)
+  if (isTRUE(res$status$catalog_ok)) 0L else 1L
+}
+
+if (sys.nframe() == 0L) {
+  quit(save = "no", status = main())
 }
