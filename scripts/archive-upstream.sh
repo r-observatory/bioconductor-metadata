@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Commits OUT_DIR/upstream/ to the orphan upstream-archive branch of REMOTE
-# when any byte changed, with OUT_DIR/archive-message.txt as the message.
-# Files already on the branch and absent this run are kept.
-# usage: archive-upstream.sh OUT_DIR REMOTE
+# Commits OUT_DIR/upstream/ to REMOTE's orphan upstream-archive branch when a
+# byte changed. usage: archive-upstream.sh OUT_DIR REMOTE
 set -euo pipefail
 out="$1"
 remote="$2"

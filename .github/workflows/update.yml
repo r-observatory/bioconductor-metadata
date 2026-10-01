@@ -138,9 +138,8 @@ jobs:
             exit 0
           fi
           bash scripts/archive-upstream.sh out "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-      # Turns the run red when any part failed, so the 11:00 catch-up, which
-      # counts only successful runs, reads the reports again while they are
-      # still the LATEST ones.
+      # Turns the run red when any part failed, so the 11:00 catch-up reads the
+      # reports again while they are still the LATEST ones.
       - name: Fail the run when any part failed
         if: ${{ !cancelled() }}
         env:

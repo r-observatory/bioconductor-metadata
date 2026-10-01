@@ -659,11 +659,8 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
        status = status)
 }
 
-# Upstream files for the archive branch: the release VIEWS of each category
-# given, and the status and propagation files of each report that is the newest
-# applied one of its BioC version and repo. An older copy of a report is left
-# out, so a stale file never replaces a newer one on the branch; the newest one
-# read again is kept, so the catch-up makes good a failed archive push.
+# Files for the archive branch. Only the newest applied report is listed, read
+# again or not, so a stale copy never lands and a failed push heals next run.
 upstream_files <- function(views_texts, views_times, views_cats, bioc_version, builds) {
   files <- lapply(views_cats, function(cat) {
     v <- views_texts[[cat]]
@@ -692,10 +689,8 @@ upstream_files <- function(views_texts, views_times, views_cats, bioc_version, b
 # Build reports: read after VIEWS, never fatal to the catalog
 # ---------------------------------------------------------------------------
 
-# Fetches and parses one branch and repo's report. ok = FALSE with a reason
-# when the status file, or a propagation file that is there, cannot be read,
-# or the BioC version is unknown. The index page is optional, and a 404 for
-# the propagation file means the report has none.
+# One branch and repo's report, fetched and parsed, or ok = FALSE with a reason.
+# The index page is optional, and a 404 for the propagation file means none.
 read_build_stream <- function(io, branch, repo, fallback_version, now) {
   base <- list(branch = branch, repo = repo, ok = FALSE, bioc_version = NA_character_)
   fail <- function(reason) c(base, reason = reason)
@@ -823,8 +818,7 @@ read_build_state <- function(io, prev, branch_versions, now) {
 }
 
 # ---------------------------------------------------------------------------
-# Prior catalog: the published db holds state that cannot be rebuilt from
-# upstream, so every failure short of "no release yet" stops the run
+# Prior catalog: anything short of "no release yet" stops the run
 # ---------------------------------------------------------------------------
 
 # HTTP status of the `current` release: 200, 404, or NA when gh gave no answer.

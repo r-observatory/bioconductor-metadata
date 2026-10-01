@@ -11,10 +11,8 @@ empty_build_lines <- function() {
              status = character(0), detail = character(0), stringsAsFactors = FALSE)
 }
 
-#' Parse BUILD_STATUS_DB.txt or PROPAGATION_STATUS_DB.txt. Every non-blank line
-#' must read `pkg#node#stage: STATUS`, or the file is invalid (a 200 carrying an
-#' error page). NA is kept as the string "NA"; detail keeps the reason given
-#' with a propagation NO.
+#' Parse a status or propagation file. One line that is not
+#' `pkg#node#stage: STATUS` makes it invalid, since a 200 can carry an error page.
 parse_build_status_db <- function(text) {
   empty <- empty_build_lines()
   if (is.null(text) || length(text) != 1L || is.na(text)) {
@@ -92,11 +90,8 @@ empty_build_reports <- function() {
              read_at = character(0), outcome = character(0), stringsAsFactors = FALSE)
 }
 
-#' What to do with a report: 'unchanged' when it is not newer than the last
-#' applied report of its BioC version and repo, or is that same file read again
-#' (same bytes, same Last-Modified); 'skipped_floor' when it lists no packages or
-#' under the floor's share of that report's; else 'applied'. A newer report with
-#' the same bytes is applied, so its rows extend to the newer time.
+#' 'unchanged', 'skipped_floor' or 'applied' for one report. A newer report is
+#' judged by its time, not its bytes, so an identical one still extends its rows.
 build_report_verdict <- function(reports, bioc_version, repo, report_at,
                                  status_sha256, published_at, n_packages,
                                  floor = BUILD_HEALTH_FLOOR) {
@@ -151,15 +146,8 @@ node_absence <- function(reports, bioc_version, repo, report_at, nodes_now, node
   data.frame(node = nodes, absent = absent, since = since, stringsAsFactors = FALSE)
 }
 
-#' Apply one report to the episode history. An open row whose status and reason
-#' still hold is extended; a different result closes it 'changed' and opens the
-#' next episode; a line gone from a report whose node is present closes it
-#' 'gone'. NA is no result and leaves the open row alone, as does a missing
-#' node until `gone_after` reports in a row lack it. Propagation rows are only
-#' touched when the propagation file was read.
-#'   report: list(bioc_version, repo, report_at, versions, propagation_read)
-#'   reports: bioc_build_reports rows before this report
-#'   exact: first_seen_exact for the episodes opened here
+#' Apply one report to the episode history. NA and a missing node are no
+#' result, so they leave an open row alone instead of closing it.
 apply_build_report <- function(history, lines, report, reports, exact,
                                gone_after = BUILD_NODE_GONE_AFTER) {
   bv <- report$bioc_version; rp <- report$repo; at <- report$report_at
@@ -237,11 +225,8 @@ apply_build_report <- function(history, lines, report, reports, exact,
   list(history = history, counts = counts)
 }
 
-#' Close with 'retired' the open rows of a BioC version older than every
-#' version its repo's aliases serve now. served is data.frame(repo,
-#' bioc_version); a repo absent from it is left alone. Comparing against the
-#' oldest served version keeps a version in the middle open while the release
-#' and devel aliases move one at a time at the rollover.
+#' Close 'retired' the open rows of a BioC version older than every one served.
+#' Comparing with the oldest served keeps the middle version open at the rollover.
 retire_build_versions <- function(history, served, now) {
   if (nrow(served) == 0L || nrow(history) == 0L) {
     return(list(history = history, closed = 0L))

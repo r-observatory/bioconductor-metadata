@@ -38,15 +38,8 @@ views_state_rows <- function(views_text, category) {
   out
 }
 
-#' Apply the current VIEWS state to the episode history, per category.
-#'   current  views_state_rows() over every category, first category first
-#'   times    named Last-Modified per category (UTC ISO)
-#'   apply    categories to diff; the rest carry forward untouched
-#' An open row whose value and BioC version still hold is extended; a change
-#' closes it and opens the next episode; a field gone from its package closes
-#' it. A category whose file is older than its newest stored row is skipped as
-#' a stale copy. Episodes opened in a category the history has never held are
-#' marked first_seen_exact = 0.
+#' Apply the current VIEWS state to the episode history, one category at a time.
+#' A file older than a category's open rows is a stale copy and is skipped.
 apply_views_state <- function(history, current, times, apply, bioc_version) {
   key <- function(d) paste(d$package, d$field, sep = "\r")
   counts <- c(new = 0L, extended = 0L, closed = 0L)
