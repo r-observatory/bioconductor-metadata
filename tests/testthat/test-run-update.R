@@ -109,7 +109,8 @@ FIXTURE_BRANCHES <- list(
 # ---------------------------------------------------------------------------
 
 make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = list(),
-                         prev_view_edges = NULL, prev_names_all = NULL) {
+                         prev_view_edges = NULL, prev_names_all = NULL,
+                         build_files = list(), prev_state = list()) {
   all_repos <- c("PkgSoft", "PkgAnnot", "PkgOld")
 
   list(
@@ -140,9 +141,16 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
         NULL)
     },
 
+    # build_files is keyed "branch/repo/file"; anything else is a 404.
+    fetch_build_file = function(branch, repo, file) {
+      f <- build_files[[paste(branch, repo, file, sep = "/")]]
+      if (is.null(f)) list(status = 404L, body = "", last_modified = NA_character_) else f
+    },
+
+    # prev_state carries the episode tables of an earlier run (see state_of).
     prev_catalog = function() {
-      if (is.null(prev_pkgs)) return(list(manifest = prev_manifest))
-      list(
+      if (is.null(prev_pkgs)) return(c(list(manifest = prev_manifest), prev_state))
+      c(list(
         packages = prev_pkgs,
         authors  = prev_auths %||% data.frame(
           package = character(0), given = character(0), family = character(0),
@@ -157,7 +165,7 @@ make_stub_io <- function(prev_pkgs = NULL, prev_auths = NULL, prev_manifest = li
           name_lower = character(0), canonical_name = character(0),
           identity_state = character(0), first_seen = character(0),
           last_seen = character(0), stringsAsFactors = FALSE)
-      )
+      ), prev_state)
     }
   )
 }
@@ -1418,4 +1426,201 @@ test_that("manifest$changed is TRUE when the prior manifest has no schema", {
   io  <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest)
   res <- run_update(io, out, force_full = FALSE)
   expect_true(res$manifest$changed)
+})
+
+# ---------------------------------------------------------------------------
+# Build reports
+# ---------------------------------------------------------------------------
+
+stub_file <- function(body, last_modified = "2026-09-29T16:35:46Z") {
+  list(status = 200L, body = body, last_modified = last_modified)
+}
+
+# One stream's files: status lines, an index page naming the BioC version, the
+# snapshot time (local, -0400) and the built versions, and optionally a
+# propagation file.
+stub_report <- function(version, snapshot, lines, prop = NULL,
+                        versions = c(PkgSoft = "1.2.0")) {
+  pkgs <- paste(sprintf('<B><A href="%s/">%s</A>&nbsp;%s</B>', names(versions),
+                        names(versions), versions), collapse = "\n")
+  index <- paste0(
+    "<TITLE>Multiple platform build/check report for BioC ", version, "</TITLE>\n",
+    "This page was generated on 2026-09-29 11:33 -0400 (Tue, 29 Sep 2026).\n",
+    "<TD>Approx.&nbsp;Package&nbsp;Snapshot&nbsp;Date/Time&nbsp;(<SPAN>git&nbsp;pull</SPAN>):",
+    "&nbsp;<SPAN>", snapshot, "&nbsp;-0400</SPAN></TD>\n", pkgs, "\n")
+  out <- list(BUILD_STATUS_DB.txt = stub_file(paste(c(lines, ""), collapse = "\n")),
+              index.html = stub_file(index))
+  if (!is.null(prop)) {
+    out$PROPAGATION_STATUS_DB.txt <- stub_file(paste(c(prop, ""), collapse = "\n"))
+  }
+  out
+}
+
+# All six streams, readable; software carries a propagation file, the data and
+# workflows reports have none. release_check is PkgSoft's release check line.
+all_build_files <- function(release_check = "PkgSoft#nebbiolo1#checksrc: ERROR",
+                            release_snapshot = "2026-09-28&nbsp;13:40") {
+  files <- list()
+  add <- function(branch, repo, rep) {
+    for (f in names(rep)) files[[paste(branch, repo, f, sep = "/")]] <<- rep[[f]]
+  }
+  prop <- "PkgSoft#source#propagate: UNNEEDED, same version is already published"
+  add("release", "bioc", stub_report("3.23", release_snapshot,
+                                     c("PkgSoft#nebbiolo1#install: OK", release_check),
+                                     prop = prop))
+  add("devel", "bioc", stub_report("3.24", "2026-09-28&nbsp;13:45",
+                                   "PkgSoft#nebbiolo2#install: OK", prop = prop,
+                                   versions = c(PkgSoft = "1.3.0")))
+  for (b in c("release", "devel")) for (r in c("data-experiment", "workflows")) {
+    add(b, r, stub_report(if (b == "release") "3.23" else "3.24", "2026-09-29&nbsp;07:00",
+                          "PkgExp#nebbiolo1#install: OK", versions = c(PkgExp = "1.0.0")))
+  }
+  files
+}
+
+# The episode tables a run wrote, in the shape prev_catalog returns them.
+state_of <- function(out) {
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con))
+  opt <- function(t) {
+    if (RSQLite::dbExistsTable(con, t)) RSQLite::dbGetQuery(con, sprintf("SELECT * FROM %s", t)) else NULL
+  }
+  list(build_reports = opt("bioc_build_reports"),
+       build_status = opt("bioc_build_status_history"),
+       views_history = opt("bioc_views_history"))
+}
+
+stream_of <- function(res, branch, repo) {
+  Filter(function(x) x$branch == branch && x$repo == repo, res$manifest$builds)[[1]]
+}
+
+test_that("run_update writes the build tables with censored first episodes", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = all_build_files()),
+                                     out, force_full = TRUE))
+
+  st <- state_of(out)
+  expect_equal(nrow(st$build_reports), 6L)
+  expect_setequal(st$build_reports$outcome, "applied")
+  rel <- st$build_reports[st$build_reports$branch == "release" & st$build_reports$repo == "bioc", ]
+  expect_equal(rel$bioc_version, "3.23")
+  expect_equal(rel$report_at, "2026-09-28T17:40:00Z")
+  expect_equal(rel$published_at, "2026-09-29T16:35:46Z")
+  expect_equal(rel$nodes, "nebbiolo1")
+
+  h <- st$build_status
+  soft <- h[h$package == "PkgSoft" & h$bioc_version == "3.23", ]
+  expect_setequal(soft$stage, c("install", "checksrc", "propagate"))
+  expect_equal(soft$status[soft$stage == "checksrc"], "ERROR")
+  expect_true(all(soft$first_seen_exact == 0L))
+  expect_true(all(soft$first_version == "1.2.0"))
+  expect_equal(h$first_version[h$package == "PkgSoft" & h$bioc_version == "3.24" &
+                                 h$stage == "install"], "1.3.0")
+
+  expect_true(res$manifest$builds_ok)
+  expect_length(res$manifest$builds, 6L)
+  expect_equal(stream_of(res, "release", "workflows")$propagation, "absent")
+  expect_equal(res$manifest$tables$bioc_build_status_history, nrow(h))
+})
+
+test_that("the same reports read twice change nothing", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  files <- all_build_files()
+  suppressMessages(run_update(make_stub_io(build_files = files), out1, force_full = TRUE))
+  first <- state_of(out1)
+
+  res <- suppressMessages(run_update(
+    make_stub_io(build_files = files, prev_state = first), out2, force_full = TRUE))
+  second <- state_of(out2)
+
+  expect_equal(second$build_reports, first$build_reports)
+  expect_equal(second$build_status, first$build_status)
+  expect_setequal(vapply(res$manifest$builds, `[[`, "", "outcome"), "unchanged")
+  expect_true(res$manifest$builds_ok)
+})
+
+test_that("a status flip in a newer report closes one episode and opens the next", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  newer <- all_build_files(release_check = "PkgSoft#nebbiolo1#checksrc: OK",
+                           release_snapshot = "2026-09-29&nbsp;13:40")
+  suppressMessages(run_update(make_stub_io(build_files = newer, prev_state = state_of(out1)),
+                              out2, force_full = TRUE))
+  h <- state_of(out2)$build_status
+  chk <- h[h$package == "PkgSoft" & h$bioc_version == "3.23" & h$stage == "checksrc", ]
+  expect_equal(chk$status, c("ERROR", "OK"))
+  expect_equal(chk$end_reason, c("changed", NA))
+  expect_equal(chk$ended_on[1], "2026-09-29T17:40:00Z")
+  expect_equal(chk$first_seen_exact, c(0L, 1L))
+})
+
+test_that("a failed build stream keeps its prior rows and never stops the catalog", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  prior <- state_of(out1)
+  broken <- all_build_files(release_snapshot = "2026-09-29&nbsp;13:40")
+  broken[["release/bioc/BUILD_STATUS_DB.txt"]] <-
+    stub_file("<html><body>502 Bad Gateway</body></html>")
+
+  res <- suppressMessages(run_update(make_stub_io(build_files = broken, prev_state = prior),
+                                     out2, force_full = TRUE))
+
+  expect_false(res$manifest$builds_ok)
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "status file failed validation")
+  h <- state_of(out2)$build_status
+  old <- prior$build_status
+  keep <- h$bioc_version == "3.23" & h$repo == "bioc"
+  expect_equal(h[keep, ], old[old$bioc_version == "3.23" & old$repo == "bioc", ],
+               ignore_attr = TRUE)
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out2, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT COUNT(*) AS n FROM bioc_packages")$n, 3L)
+})
+
+test_that("a propagation file that is there but unreadable fails its stream", {
+  tmp <- withr::local_tempdir()
+  files <- all_build_files()
+  files[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <- stub_file("<html>Gateway Timeout</html>")
+  res <- suppressMessages(run_update(make_stub_io(build_files = files),
+                                     file.path(tmp, "out"), force_full = TRUE))
+  rel <- stream_of(res, "release", "bioc")
+  expect_equal(rel$outcome, "fetch_failed")
+  expect_equal(rel$reason, "propagation file not read")
+  expect_false(res$manifest$builds_ok)
+  h <- state_of(file.path(tmp, "out"))$build_status
+  expect_false(any(h$bioc_version == "3.23" & h$repo == "bioc"))
+})
+
+test_that("the release rollover retires the old version's open rows", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  rolled <- list()
+  add <- function(branch, repo, rep) {
+    for (f in names(rep)) rolled[[paste(branch, repo, f, sep = "/")]] <<- rep[[f]]
+  }
+  for (r in BUILD_REPOS) {
+    add("release", r, stub_report("3.24", "2026-10-29&nbsp;13:40", "PkgSoft#nebbiolo2#install: OK",
+                                  prop = "PkgSoft#source#propagate: YES"))
+    add("devel", r, stub_report("3.25", "2026-10-29&nbsp;13:45", "PkgSoft#nebbiolo1#install: OK",
+                                prop = "PkgSoft#source#propagate: YES"))
+  }
+  res <- suppressMessages(run_update(make_stub_io(build_files = rolled, prev_state = state_of(out1)),
+                                     out2, force_full = TRUE))
+  h <- state_of(out2)$build_status
+  old <- h[h$bioc_version == "3.23", ]
+  expect_true(nrow(old) > 0L)
+  expect_setequal(old$end_reason, "retired")
+  expect_true(all(is.na(h$ended_on[h$bioc_version == "3.25"])))
+  expect_gt(res$manifest$builds_retired, 0L)
 })

@@ -114,6 +114,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   prev_pkgs <- prev$packages
   has_prev  <- !is.null(prev_pkgs) && nrow(prev_pkgs) > 0
 
+  # 3a. Build reports. A failed stream keeps its prior rows and never stops
+  # the catalog.
+  run_at <- iso(Sys.time())
+  builds <- read_build_state(io, prev, parse_branch_versions(config_text), run_at)
+
   # 3b. biocViews vocabulary per release
   empty_edges <- data.frame(
     release = character(0), parent = character(0), child = character(0),
@@ -528,7 +533,9 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   }
   n_names <- nrow(names_all_df)
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
-                 names_all_df = names_all_df, vignettes_df = vignettes_df)
+                 names_all_df = names_all_df, vignettes_df = vignettes_df,
+                 build_reports_df = builds$reports,
+                 build_status_df = builds$history)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -572,6 +579,9 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     cold_start      = isTRUE(prev$cold_start),
     changed              = manifest_changed,
     n_releases           = nrow(releases_df),
+    builds_ok            = builds$ok,
+    builds               = builds$summary,
+    builds_retired       = builds$retired,
     source               = list(
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
@@ -587,6 +597,140 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   write_manifest(file.path(out_dir, "manifest.json"), manifest)
 
   list(changed = manifest_changed, manifest = manifest)
+}
+
+# ---------------------------------------------------------------------------
+# Build reports: read after VIEWS, never fatal to the catalog
+# ---------------------------------------------------------------------------
+
+# Fetches and parses one branch and repo's report. ok = FALSE with a reason
+# when the status file, or a propagation file that is there, cannot be read,
+# or the BioC version is unknown. The index page is optional, and a 404 for
+# the propagation file means the report has none.
+read_build_stream <- function(io, branch, repo, fallback_version, now) {
+  base <- list(branch = branch, repo = repo, ok = FALSE, bioc_version = NA_character_)
+  fail <- function(reason) c(base, reason = reason)
+  get <- function(file) tryCatch(io$fetch_build_file(branch, repo, file), error = function(e) {
+    message(sprintf("Build report %s/%s %s: %s", branch, repo, file, conditionMessage(e)))
+    NULL
+  })
+  st <- get(BUILD_FILES[["status"]])
+  if (is.null(st) || !identical(st$status, 200L)) {
+    return(fail(sprintf("status file not read (HTTP %s)", st$status %||% "error")))
+  }
+  parsed <- parse_build_status_db(st$body)
+  if (!parsed$valid) return(fail("status file failed validation"))
+
+  ix <- get(BUILD_FILES[["index"]])
+  idx <- parse_report_index(if (!is.null(ix) && identical(ix$status, 200L)) ix$body else NULL)
+  if (is.na(idx$bioc_version)) {
+    message(sprintf("Build report %s/%s: index.html gave no BioC version; using config.yaml",
+                    branch, repo))
+  }
+  bioc_version <- idx$bioc_version %||% fallback_version
+  if (is.na(bioc_version)) return(fail("BioC version unknown"))
+
+  pr <- get(BUILD_FILES[["propagation"]])
+  prop <- NULL
+  if (!is.null(pr) && identical(pr$status, 404L)) {
+    message(sprintf("Build report %s/%s: no propagation file", branch, repo))
+  } else {
+    if (!is.null(pr) && identical(pr$status, 200L)) prop <- parse_build_status_db(pr$body)
+    if (is.null(prop) || !prop$valid) return(fail("propagation file not read"))
+  }
+
+  lines <- parsed$lines
+  published_at <- st$last_modified %||% now
+  list(branch = branch, repo = repo, ok = TRUE, bioc_version = bioc_version,
+       report_at = idx$snapshot_at %||% published_at,
+       snapshot_at = idx$snapshot_at, generated_at = idx$generated_at,
+       published_at = published_at, status_sha256 = text_sha256(st$body),
+       n_packages = length(unique(lines$package)), n_lines = nrow(lines),
+       n_na = sum(lines$status == "NA"),
+       nodes = paste(unique(lines$node), collapse = ","),
+       versions = idx$versions,
+       lines = if (is.null(prop)) lines else rbind(lines, prop$lines),
+       propagation_read = !is.null(prop),
+       propagation_published_at = if (is.null(prop)) NA_character_ else pr$last_modified %||% now,
+       status_body = st$body,
+       propagation_body = if (is.null(prop)) NULL else pr$body)
+}
+
+# One bioc_build_reports row for a stream.
+build_report_row <- function(s, now, outcome) {
+  data.frame(bioc_version = s$bioc_version, repo = s$repo, report_at = s$report_at,
+             branch = s$branch, snapshot_at = s$snapshot_at,
+             generated_at = s$generated_at, published_at = s$published_at,
+             status_sha256 = s$status_sha256, n_packages = as.integer(s$n_packages),
+             n_lines = as.integer(s$n_lines), n_na = as.integer(s$n_na),
+             nodes = s$nodes, read_at = now, outcome = outcome,
+             stringsAsFactors = FALSE)
+}
+
+# Versions each repo's aliases serve: this run's reads, or for a failed read the
+# version that branch served last time. A repo with neither is left out.
+served_versions <- function(streams, reports) {
+  rows <- lapply(streams, function(s) {
+    v <- s$bioc_version
+    if (is.na(v)) {
+      p <- reports[reports$branch == s$branch & reports$repo == s$repo, , drop = FALSE]
+      if (nrow(p) == 0L) return(NULL)
+      v <- p$bioc_version[order(p$read_at, decreasing = TRUE)[1L]]
+    }
+    data.frame(repo = s$repo, bioc_version = v, stringsAsFactors = FALSE)
+  })
+  out <- do.call(rbind, c(list(data.frame(repo = character(0), bioc_version = character(0),
+                                          stringsAsFactors = FALSE)), rows))
+  unique(out)
+}
+
+# Reads every branch and repo's report and applies it to the prior episodes.
+# ok is FALSE when any stream failed or was skipped by the floor, so the
+# catch-up run reads the reports again while they are still the LATEST ones.
+read_build_state <- function(io, prev, branch_versions, now) {
+  reports <- conform_frame(prev$build_reports, empty_build_reports())
+  history <- conform_frame(prev$build_status, empty_build_history())
+  prior_reports <- reports
+  streams <- list(); summary <- list()
+  for (branch in BUILD_BRANCHES) for (repo in BUILD_REPOS) {
+    s <- read_build_stream(io, branch, repo, branch_versions[[branch]], now)
+    row <- list(branch = branch, repo = repo, bioc_version = s$bioc_version,
+                report_at = NA_character_, lines = 0L, outcome = "fetch_failed",
+                propagation = "not_read", new = 0L, extended = 0L, closed = 0L)
+    if (!isTRUE(s$ok)) {
+      message(sprintf("Build report %s/%s: %s", branch, repo, s$reason))
+      row$reason <- s$reason
+    } else {
+      verdict <- build_report_verdict(reports, s$bioc_version, repo, s$report_at,
+                                      s$status_sha256, s$published_at, s$n_packages)
+      row$report_at <- s$report_at; row$lines <- s$n_lines; row$outcome <- verdict
+      row$propagation <- if (s$propagation_read) "read" else "absent"
+      if (verdict == "applied") {
+        # Censored unless an earlier report of this alias was applied.
+        exact <- as.integer(any(prior_reports$branch == branch & prior_reports$repo == repo &
+                                  prior_reports$outcome == "applied"))
+        r <- apply_build_report(history, s$lines,
+                                list(bioc_version = s$bioc_version, repo = repo,
+                                     report_at = s$report_at, versions = s$versions,
+                                     propagation_read = s$propagation_read),
+                                reports, exact)
+        history <- r$history
+        row$new <- r$counts[["new"]]; row$extended <- r$counts[["extended"]]
+        row$closed <- r$counts[["closed"]]
+      }
+      if (verdict != "unchanged") {
+        keep <- !(reports$bioc_version == s$bioc_version & reports$repo == repo &
+                    reports$report_at == s$report_at)
+        reports <- rbind(reports[keep, , drop = FALSE], build_report_row(s, now, verdict))
+      }
+    }
+    streams[[length(streams) + 1L]] <- s
+    summary[[length(summary) + 1L]] <- row
+  }
+  retired <- retire_build_versions(history, served_versions(streams, prior_reports), now)
+  ok <- all(vapply(summary, function(x) x$outcome %in% c("applied", "unchanged"), logical(1)))
+  list(reports = reports, history = retired$history, streams = streams,
+       summary = summary, retired = retired$closed, ok = ok)
 }
 
 # ---------------------------------------------------------------------------

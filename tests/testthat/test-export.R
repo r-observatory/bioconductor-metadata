@@ -352,3 +352,50 @@ test_that("export_catalog without vignettes_df creates an empty bioc_vignettes t
   expect_true(RSQLite::dbExistsTable(con, "bioc_vignettes"))
   expect_equal(RSQLite::dbGetQuery(con, "SELECT COUNT(*) AS n FROM bioc_vignettes")$n, 0L)
 })
+
+test_that("export_catalog writes the build tables with their open-row indexes and checks", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  reports <- data.frame(
+    bioc_version = "3.23", repo = "bioc", report_at = "2026-09-28T17:40:00Z",
+    branch = "release", snapshot_at = "2026-09-28T17:40:00Z", generated_at = NA_character_,
+    published_at = "2026-09-29T16:35:46Z", status_sha256 = "abc", n_packages = 2417L,
+    n_lines = 14499L, n_na = 520L, nodes = "nebbiolo1,kunpeng2",
+    read_at = "2026-09-30T12:20:00Z", outcome = "applied", stringsAsFactors = FALSE)
+  status <- data.frame(
+    package = "a4", bioc_version = "3.23", repo = "bioc", node = "nebbiolo1",
+    stage = "checksrc", episode_seq = 1L, status = "OK", detail = NA_character_,
+    first_version = "1.60.0", last_version = "1.60.0",
+    first_seen = "2026-09-28T17:40:00Z", last_seen = "2026-09-28T17:40:00Z",
+    first_seen_exact = 0L, ended_on = NA_character_, end_reason = NA_character_,
+    stringsAsFactors = FALSE)
+  export_catalog(tmp, make_packages_df(), make_authors_df(),
+                 build_reports_df = reports, build_status_df = status)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT n_na FROM bioc_build_reports")$n_na, 520L)
+  idx <- RSQLite::dbGetQuery(con, paste(
+    "SELECT name, sql FROM sqlite_master",
+    "WHERE type = 'index' AND tbl_name = 'bioc_build_status_history' AND sql IS NOT NULL"))
+  expect_setequal(idx$name, c("ux_bioc_build_open", "idx_bioc_build_open_status"))
+  expect_match(idx$sql[idx$name == "ux_bioc_build_open"], "WHERE ended_on IS NULL", fixed = TRUE)
+  # A second open row for the same package, node and stage is refused.
+  expect_error(RSQLite::dbExecute(con, paste(
+    "INSERT INTO bioc_build_status_history VALUES ('a4', '3.23', 'bioc', 'nebbiolo1',",
+    "'checksrc', 2, 'ERROR', NULL, NULL, NULL, '2026-09-29T17:40:00Z',",
+    "'2026-09-29T17:40:00Z', 1, NULL, NULL)")), "UNIQUE")
+  # An end without its reason is refused.
+  expect_error(RSQLite::dbExecute(con, paste(
+    "UPDATE bioc_build_status_history SET ended_on = '2026-09-29T17:40:00Z'")), "CHECK")
+})
+
+test_that("export_catalog without build frames creates no build tables", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_false(RSQLite::dbExistsTable(con, "bioc_build_reports"))
+  expect_false(RSQLite::dbExistsTable(con, "bioc_build_status_history"))
+})

@@ -414,7 +414,8 @@ parse_biocviews_dot <- function(dot_text) {
 #'   by build_bioc_vignettes(). NULL or 0-row creates the empty table only.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
                            view_edges_df = NULL, names_all_df = NULL,
-                           vignettes_df = NULL) {
+                           vignettes_df = NULL, build_reports_df = NULL,
+                           build_status_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -532,6 +533,64 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
       RSQLite::dbWriteTable(con, "bioc_names_all",
         names_all_df[, c("name_lower", "canonical_name", "identity_state",
                          "first_seen", "last_seen"), drop = FALSE], append = TRUE)
+    }
+  }
+
+  if (!is.null(build_reports_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_build_reports (
+        bioc_version  TEXT NOT NULL,
+        repo          TEXT NOT NULL,
+        report_at     TEXT NOT NULL,
+        branch        TEXT NOT NULL,
+        snapshot_at   TEXT,
+        generated_at  TEXT,
+        published_at  TEXT NOT NULL,
+        status_sha256 TEXT NOT NULL,
+        n_packages    INTEGER NOT NULL,
+        n_lines       INTEGER NOT NULL,
+        n_na          INTEGER NOT NULL,
+        nodes         TEXT NOT NULL,
+        read_at       TEXT NOT NULL,
+        outcome       TEXT NOT NULL,
+        PRIMARY KEY (bioc_version, repo, report_at)
+      )")
+    if (nrow(build_reports_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_build_reports", build_reports_df, append = TRUE)
+    }
+  }
+
+  if (!is.null(build_status_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_build_status_history (
+        package          TEXT NOT NULL,
+        bioc_version     TEXT NOT NULL,
+        repo             TEXT NOT NULL,
+        node             TEXT NOT NULL,
+        stage            TEXT NOT NULL,
+        episode_seq      INTEGER NOT NULL,
+        status           TEXT NOT NULL,
+        detail           TEXT,
+        first_version    TEXT,
+        last_version     TEXT,
+        first_seen       TEXT NOT NULL,
+        last_seen        TEXT NOT NULL,
+        first_seen_exact INTEGER NOT NULL,
+        ended_on         TEXT,
+        end_reason       TEXT,
+        PRIMARY KEY (package, bioc_version, repo, node, stage, episode_seq),
+        CHECK ((ended_on IS NULL) = (end_reason IS NULL)),
+        CHECK (last_seen >= first_seen)
+      )")
+    RSQLite::dbExecute(con, "
+      CREATE UNIQUE INDEX ux_bioc_build_open
+        ON bioc_build_status_history(package, bioc_version, repo, node, stage)
+        WHERE ended_on IS NULL")
+    RSQLite::dbExecute(con, "
+      CREATE INDEX idx_bioc_build_open_status
+        ON bioc_build_status_history(status) WHERE ended_on IS NULL")
+    if (nrow(build_status_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_build_status_history", build_status_df, append = TRUE)
     }
   }
 
@@ -749,4 +808,26 @@ http_date_to_iso <- function(x) {
 #' A response body as readLines() plus paste(collapse = "\n") would give it.
 views_body_text <- function(body) {
   sub("\n$", "", gsub("\r\n", "\n", body, fixed = TRUE))
+}
+
+# --- Build state ---------------------------------------------------------------
+
+#' Lowercase hex SHA-256 of a string's UTF-8 bytes.
+text_sha256 <- function(x) {
+  f <- tempfile()
+  on.exit(unlink(f), add = TRUE)
+  writeBin(charToRaw(enc2utf8(paste(x, collapse = "\n"))), f)
+  file_sha256(f)
+}
+
+#' A prior table read back from SQLite, in the template's columns, order and
+#' types. NULL gives the zero-row template.
+conform_frame <- function(df, template) {
+  if (is.null(df)) return(template)
+  out <- template[rep(NA_integer_, nrow(df)), , drop = FALSE]
+  rownames(out) <- NULL
+  for (col in intersect(names(template), names(df))) {
+    out[[col]] <- if (is.integer(template[[col]])) as.integer(df[[col]]) else as.character(df[[col]])
+  }
+  out
 }
