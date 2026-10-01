@@ -81,3 +81,34 @@ parse_branch_versions <- function(yaml_text) {
   one <- function(x) if (is.null(x)) NA_character_ else as.character(x)
   c(release = one(y$release_version), devel = one(y$devel_version))
 }
+
+#' Zero-row bioc_build_reports frame, in schema order.
+empty_build_reports <- function() {
+  data.frame(bioc_version = character(0), repo = character(0), report_at = character(0),
+             branch = character(0), snapshot_at = character(0),
+             generated_at = character(0), published_at = character(0),
+             status_sha256 = character(0), n_packages = integer(0),
+             n_lines = integer(0), n_na = integer(0), nodes = character(0),
+             read_at = character(0), outcome = character(0), stringsAsFactors = FALSE)
+}
+
+#' What to do with a report: 'unchanged' when it is not newer than the last
+#' applied report of its BioC version and repo, or is that same file read again
+#' (same bytes, same Last-Modified); 'skipped_floor' when it lists no packages or
+#' under the floor's share of that report's; else 'applied'. A newer report with
+#' the same bytes is applied, so its rows extend to the newer time.
+build_report_verdict <- function(reports, bioc_version, repo, report_at,
+                                 status_sha256, published_at, n_packages,
+                                 floor = BUILD_HEALTH_FLOOR) {
+  prior <- reports[reports$bioc_version == bioc_version & reports$repo == repo &
+                     reports$outcome == "applied", , drop = FALSE]
+  if (nrow(prior) > 0L) {
+    last <- prior[order(prior$report_at, decreasing = TRUE)[1L], , drop = FALSE]
+    same_file <- identical(status_sha256, last$status_sha256) &&
+      identical(published_at, last$published_at)
+    if (report_at <= last$report_at || same_file) return("unchanged")
+    if (n_packages < floor * last$n_packages) return("skipped_floor")
+  }
+  if (n_packages == 0L) return("skipped_floor")
+  "applied"
+}

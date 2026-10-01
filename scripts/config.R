@@ -73,3 +73,6 @@ BUILD_REPOS       <- c("bioc", "data-experiment", "workflows")
 BUILD_FILES       <- c(status      = "BUILD_STATUS_DB.txt",
                        index       = "index.html",
                        propagation = "PROPAGATION_STATUS_DB.txt")
+
+# A report listing under this share of the previous report's packages is skipped.
+BUILD_HEALTH_FLOOR <- 0.5
