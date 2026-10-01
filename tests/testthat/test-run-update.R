@@ -1418,7 +1418,7 @@ test_that("manifest$changed is TRUE on a schema bump with unchanged VIEWS", {
   expect_true(res$manifest$changed)
   expect_equal(res$manifest$source$schema, BIOC_METADATA_SCHEMA)
   from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
-  expect_equal(from_disk$source$schema, 2L)
+  expect_equal(from_disk$source$schema, 3L)
 })
 
 test_that("manifest$changed is TRUE when the prior manifest has no schema", {

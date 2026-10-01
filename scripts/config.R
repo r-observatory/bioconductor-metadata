@@ -52,7 +52,8 @@ BIOC_STATE_TABLES <- c("bioc_build_reports", "bioc_build_status_history",
 
 # Published schema version; a change forces the next run to publish.
 # 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
-BIOC_METADATA_SCHEMA <- 2L
+# 3: bioc_packages VIEWS fields, bioc_build_reports, bioc_build_status_history, bioc_views_history.
+BIOC_METADATA_SCHEMA <- 3L
 
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
