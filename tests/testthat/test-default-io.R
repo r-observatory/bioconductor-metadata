@@ -17,7 +17,8 @@ if (!exists("default_io", mode = "function")) {
 test_that("default_io returns a list with all required io interface methods", {
   io       <- default_io()
   required <- c("config_yaml", "fetch_views", "list_repos",
-                "ls_remote", "fetch_description", "prev_catalog")
+                "ls_remote", "fetch_description", "prev_catalog",
+                "fetch_build_file")
   expect_type(io, "list")
   for (m in required) {
     expect_true(is.function(io[[m]]),

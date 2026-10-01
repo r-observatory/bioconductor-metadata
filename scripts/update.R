@@ -36,6 +36,17 @@ if (!exists("parse_build_status_db", mode = "function")) {
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
+# GET a URL: status, body as UTF-8 text, and Last-Modified in UTC.
+http_get <- function(url) {
+  res <- curl::curl_fetch_memory(
+    url, handle = curl::new_handle(followlocation = TRUE, timeout = 600))
+  hdr <- curl::parse_headers_list(res$headers)
+  body <- rawToChar(res$content)
+  Encoding(body) <- "UTF-8"
+  list(status = as.integer(res$status_code), body = body,
+       last_modified = http_date_to_iso(hdr[["last-modified"]]))
+}
+
 with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
                        rand = function() stats::runif(1, 1, 1.25)) {
   # a failed force() leaves the promise un-cached, so the loop re-evaluates expr.
@@ -672,7 +683,7 @@ read_prev_catalog <- function(sleep = Sys.sleep) {
 # default_io: real network fetchers
 # ---------------------------------------------------------------------------
 
-default_io <- function(sleep = Sys.sleep) {
+default_io <- function(sleep = Sys.sleep, http = http_get) {
   list(
     config_yaml = function() {
       with_retry(
@@ -680,10 +691,25 @@ default_io <- function(sleep = Sys.sleep) {
       )
     },
 
+    # The VIEWS text, with the file's Last-Modified as an attribute.
     fetch_views = function(cat) {
-      with_retry(
-        paste(readLines(url(VIEWS_URLS[[cat]]), warn = FALSE), collapse = "\n")
-      )
+      with_retry({
+        r <- http(VIEWS_URLS[[cat]])
+        if (!identical(r$status, 200L)) {
+          stop(sprintf("HTTP %s for %s", r$status, VIEWS_URLS[[cat]]))
+        }
+        structure(views_body_text(r$body), last_modified = r$last_modified)
+      }, sleep = sleep)
+    },
+
+    # One build report file. A 404 comes back as a result; 5xx and 429 retry.
+    fetch_build_file = function(branch, repo, file) {
+      u <- build_file_url(branch, repo, file)
+      with_retry({
+        r <- http(u)
+        if (r$status >= 500L || r$status == 429L) stop(sprintf("HTTP %s for %s", r$status, u))
+        r
+      }, waits = ITEM_RETRY_WAITS_S, sleep = sleep)
     },
 
     list_repos = function() {

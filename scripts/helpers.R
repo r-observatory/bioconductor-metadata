@@ -730,3 +730,23 @@ check_prior_state <- function(counts, manifest, tables = BIOC_STATE_TABLES) {
   }
   invisible(TRUE)
 }
+
+# --- HTTP ----------------------------------------------------------------------
+
+#' Last-Modified ("Tue, 29 Sep 2026 16:35:46 GMT") as UTC ISO-8601, NA when
+#' absent or not in that form. Parsed by hand so the locale cannot matter.
+http_date_to_iso <- function(x) {
+  if (is.null(x) || length(x) == 0L || is.na(x[[1L]])) return(NA_character_)
+  s <- trimws(x[[1L]])
+  m <- regmatches(s, regexec(
+    "^[A-Za-z]{3}, ([0-9]{2}) ([A-Za-z]{3}) ([0-9]{4}) ([0-9]{2}:[0-9]{2}:[0-9]{2}) GMT$", s))[[1L]]
+  if (length(m) != 5L) return(NA_character_)
+  mon <- match(m[3], month.abb)
+  if (is.na(mon)) return(NA_character_)
+  sprintf("%s-%02d-%sT%sZ", m[4], mon, m[2], m[5])
+}
+
+#' A response body as readLines() plus paste(collapse = "\n") would give it.
+views_body_text <- function(body) {
+  sub("\n$", "", gsub("\r\n", "\n", body, fixed = TRUE))
+}
