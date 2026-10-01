@@ -19,7 +19,7 @@ Bioconductor keeps only the latest build report of each build and overwrites VIE
 
 The raw release VIEWS files and the build status and propagation files are committed to the `upstream-archive` branch of this repository whenever their bytes change. They are the files bioconductor.org publishes, maintainer email addresses included.
 
-The run stops when the `current` release exists but its manifest or database cannot be downloaded or read, so the history is never restarted by accident. The `bootstrap` input of the update workflow is the way past an unreadable prior: it crawls every repository and starts the catalog and its history over.
+The run stops when the `current` release exists but its manifest or database cannot be downloaded or read, or the database holds fewer packages than its manifest counts, so the history is never restarted by accident. The `bootstrap` input of the update workflow is the way past an unreadable prior: it crawls every repository and starts the catalog and its history over.
 
 ## Feedback
 

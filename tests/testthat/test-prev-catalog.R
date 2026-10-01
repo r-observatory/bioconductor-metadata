@@ -41,8 +41,10 @@ local_fake_release <- function(status_line, src_dir, env = parent.frame()) {
 }
 
 # A catalog as schema 2 publishes it, with its manifest. extra_sql runs on the
-# db afterwards; tables is the manifest's table list.
-write_prior_catalog <- function(dir, tables = list(bioc_packages = 1L), extra_sql = character(0)) {
+# db afterwards; tables is the manifest's table list and n_packages its
+# n_packages, left out when NULL.
+write_prior_catalog <- function(dir, tables = list(bioc_packages = 1L), extra_sql = character(0),
+                                n_packages = NULL) {
   pkgs <- data.frame(
     name = "PkgSoft", name_lower = "pkgsoft", category = "software",
     version = "1.2.0", title = "t", description = "d", maintainer = "m",
@@ -58,8 +60,9 @@ write_prior_catalog <- function(dir, tables = list(bioc_packages = 1L), extra_sq
     for (sql in extra_sql) RSQLite::dbExecute(con, sql)
     RSQLite::dbDisconnect(con)
   }
-  jsonlite::write_json(list(source = list(schema = 2L), tables = tables),
-                       file.path(dir, "manifest.json"), auto_unbox = TRUE)
+  manifest <- list(source = list(schema = 2L), tables = tables)
+  if (!is.null(n_packages)) manifest$n_packages <- n_packages
+  jsonlite::write_json(manifest, file.path(dir, "manifest.json"), auto_unbox = TRUE)
 }
 
 no_sleep <- function(s) invisible(NULL)
@@ -153,6 +156,47 @@ test_that("a state table holding at least its listed rows is read", {
   local_fake_release("HTTP/2.0 200 OK", src)
   prev <- read_prev_catalog(sleep = no_sleep)
   expect_equal(prev$views_history$package, c("a", "b"))
+})
+
+test_that("a db with no package rows whose manifest counts packages stops the run", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, n_packages = 1L, extra_sql = "DELETE FROM bioc_packages")
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_error(read_prev_catalog(sleep = no_sleep),
+               "Prior catalog holds 0 rows of bioc_packages; its manifest gives n_packages 1",
+               fixed = TRUE)
+})
+
+test_that("a db with fewer package rows than its manifest's n_packages stops the run", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, n_packages = 4693L)
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_error(read_prev_catalog(sleep = no_sleep),
+               "Prior catalog holds 1 rows of bioc_packages; its manifest gives n_packages 4693",
+               fixed = TRUE)
+})
+
+test_that("a db with no package rows and a manifest without n_packages stops the run", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, extra_sql = "DELETE FROM bioc_packages")
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_error(read_prev_catalog(sleep = no_sleep),
+               "Prior catalog holds no bioc_packages rows and its manifest gives no n_packages",
+               fixed = TRUE)
+})
+
+test_that("a db holding the package rows its manifest counts is read", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, n_packages = 1L)
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_equal(read_prev_catalog(sleep = no_sleep)$packages$name, "PkgSoft")
+})
+
+test_that("an empty catalog whose manifest says n_packages 0 is read as no prior packages", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, n_packages = 0L, extra_sql = "DELETE FROM bioc_packages")
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_equal(nrow(read_prev_catalog(sleep = no_sleep)$packages), 0L)
 })
 
 test_that("run_update stops on an unreadable prior and writes nothing", {

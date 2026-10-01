@@ -839,6 +839,25 @@ check_prior_state <- function(counts, manifest, tables = BIOC_STATE_TABLES) {
   invisible(TRUE)
 }
 
+#' Stop when a prior db holds fewer bioc_packages rows than its manifest's
+#' n_packages, or none while the manifest gives no count. Without this an
+#' emptied table would read as no prior and restart the catalog.
+check_prior_packages <- function(have, manifest) {
+  want <- suppressWarnings(as.numeric(manifest$n_packages %||% NA))
+  if (is.na(want)) {
+    if (have == 0L) {
+      stop("Prior catalog holds no bioc_packages rows and its manifest gives no n_packages",
+           call. = FALSE)
+    }
+    return(invisible(TRUE))
+  }
+  if (have < want) {
+    stop(sprintf("Prior catalog holds %s rows of bioc_packages; its manifest gives n_packages %s",
+                 format(have), format(want)), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 # --- HTTP ----------------------------------------------------------------------
 
 #' Last-Modified ("Tue, 29 Sep 2026 16:35:46 GMT") as UTC ISO-8601, NA when

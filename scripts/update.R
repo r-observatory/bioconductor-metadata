@@ -871,7 +871,8 @@ current_release_status <- function() {
 }
 
 # Reads a downloaded catalog db. Any read error stops the run. A table the db
-# predates is NULL, and the state tables are checked against the manifest.
+# predates is NULL, and the package and state tables are checked against the
+# manifest.
 read_catalog_db <- function(db_path, manifest = list()) {
   # synchronous = NULL skips a PRAGMA that only warns on a damaged file; the
   # first query below is what reports it.
@@ -893,6 +894,7 @@ read_catalog_db <- function(db_path, manifest = list()) {
     stop("Prior catalog cannot be read: bioc_packages or bioc_authors is missing",
          call. = FALSE)
   }
+  check_prior_packages(nrow(pkgs), manifest)
   state <- setNames(lapply(BIOC_STATE_TABLES, read), BIOC_STATE_TABLES)
   check_prior_state(lapply(state, function(d) if (is.null(d)) NULL else nrow(d)),
                     manifest)
