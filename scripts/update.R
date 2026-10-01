@@ -30,6 +30,9 @@ if (!exists("parse_views", mode = "function")) {
   source(file.path(.script_dir, "config.R"))
   source(file.path(.script_dir, "helpers.R"))
 }
+if (!exists("parse_build_status_db", mode = "function")) {
+  source(file.path(.script_dir, "builds.R"))
+}
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 

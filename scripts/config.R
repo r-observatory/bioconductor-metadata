@@ -65,3 +65,11 @@ BIOC_AUTHOR_COLS <- c("package", "given", "family", "email", "role", "orcid",
 # Share of current software and workflows packages the repository listing must
 # hold before the one-time author crawl starts (2,443 of 2,446 on 2026-09-26).
 BIOC_MIGRATION_LISTING_FLOOR <- 0.98
+
+# Build reports, read at checkResults/<branch>/<repo>-LATEST/<file>.
+BUILD_REPORT_BASE <- "https://bioconductor.org/checkResults"
+BUILD_BRANCHES    <- c("release", "devel")
+BUILD_REPOS       <- c("bioc", "data-experiment", "workflows")
+BUILD_FILES       <- c(status      = "BUILD_STATUS_DB.txt",
+                       index       = "index.html",
+                       propagation = "PROPAGATION_STATUS_DB.txt")
