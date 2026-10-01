@@ -598,6 +598,11 @@ test_that("C1: bioc_authors carries forward for non-recrawled packages on increm
 # each with their R version from r_ver_for_bioc_ver).
 .FIXTURE_RELEASES_FP <- "3.22:4.5,3.23:4.6"
 
+# The publish-gate fingerprint of the stub's four VIEWS texts.
+.FIXTURE_VIEWS_SHA <- views_sha256(list(software = FIXTURE_VIEWS_SOFTWARE,
+                                        annotation = FIXTURE_VIEWS_ANNOTATION,
+                                        experiment = "", workflows = ""))
+
 test_that("manifest$changed is FALSE on steady-state incremental run", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")
@@ -631,6 +636,8 @@ test_that("manifest$changed is FALSE on steady-state incremental run", {
     views_fingerprint     = .FIXTURE_FP,
     releases_fingerprint  = .FIXTURE_RELEASES_FP,
     biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    views_sha256          = .FIXTURE_VIEWS_SHA,
+    builds_fingerprint    = "",
     schema                = BIOC_METADATA_SCHEMA
   ))
 
@@ -1785,4 +1792,75 @@ test_that("a run clears the upstream files an earlier run left in the same out d
   writeLines("old", file.path(out, "upstream", "3.22", "VIEWS"))
   suppressMessages(run_update(make_stub_io(), out, force_full = TRUE))
   expect_false(file.exists(file.path(out, "upstream", "3.22", "VIEWS")))
+})
+
+# ---------------------------------------------------------------------------
+# Publish gate
+# ---------------------------------------------------------------------------
+
+.steady_manifest <- function() {
+  list(source = list(
+    views_fingerprint     = .FIXTURE_FP,
+    releases_fingerprint  = .FIXTURE_RELEASES_FP,
+    biocviews_fingerprint = .FIXTURE_BIOCVIEWS_FP_3_23,
+    views_sha256          = .FIXTURE_VIEWS_SHA,
+    builds_fingerprint    = "",
+    schema                = BIOC_METADATA_SCHEMA))
+}
+
+test_that("a PackageStatus flip with no version change republishes", {
+  tmp <- withr::local_tempdir()
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest())
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = sub("hasNEWS: TRUE", "hasNEWS: TRUE\nPackageStatus: Deprecated",
+                     FIXTURE_VIEWS_SOFTWARE, fixed = TRUE),
+      annotation = FIXTURE_VIEWS_ANNOTATION, "")
+  }
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = FALSE))
+  expect_true(res$manifest$changed)
+  expect_equal(res$manifest$source$views_fingerprint, .FIXTURE_FP)
+})
+
+test_that("a newly applied build report republishes", {
+  tmp <- withr::local_tempdir()
+  io <- make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest(),
+                     build_files = all_build_files())
+  res <- suppressMessages(run_update(io, file.path(tmp, "out"), force_full = FALSE))
+  expect_true(res$manifest$changed)
+  expect_match(res$manifest$source$builds_fingerprint, "3.23:bioc:2026-09-28T17:40:00Z", fixed = TRUE)
+})
+
+test_that("the same VIEWS and reports again leave the gate closed", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  first <- suppressMessages(run_update(
+    make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = .steady_manifest(),
+                 build_files = all_build_files()), out1, force_full = FALSE))
+  res <- suppressMessages(run_update(
+    make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = list(source = first$manifest$source),
+                 build_files = all_build_files(), prev_state = state_of(out1)),
+    out2, force_full = FALSE))
+  expect_false(res$manifest$changed)
+})
+
+test_that("builds_fingerprint keeps the newest applied report per version and repo", {
+  r <- data.frame(bioc_version = c("3.23", "3.23", "3.24", "3.23"),
+                  repo = c("bioc", "bioc", "bioc", "workflows"),
+                  report_at = c("2026-09-27T17:40:00Z", "2026-09-28T17:40:00Z",
+                                "2026-09-28T17:45:00Z", "2026-09-29T16:45:00Z"),
+                  outcome = c("applied", "applied", "skipped_floor", "applied"),
+                  stringsAsFactors = FALSE)
+  expect_equal(builds_fingerprint(r),
+               "3.23:bioc:2026-09-28T17:40:00Z,3.23:workflows:2026-09-29T16:45:00Z")
+  expect_equal(builds_fingerprint(r[0, ]), "")
+})
+
+test_that("views_sha256 ignores the attributes fetch_views adds", {
+  plain <- list(software = "Package: a", annotation = "")
+  marked <- list(software = structure("Package: a", last_modified = "x", raw = "Package: a\n"),
+                 annotation = "")
+  expect_equal(views_sha256(marked), views_sha256(plain))
+  expect_false(views_sha256(list(software = "Package: b", annotation = "")) ==
+                 views_sha256(plain))
 })

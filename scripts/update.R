@@ -583,7 +583,13 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
   db_complete <- isTRUE(names_gate_ok) && lineage_remaining == 0L
   db_core <- db_integrity_core(db_path, complete = db_complete)
 
+  # The VIEWS bytes and the applied reports catch a Deprecated flip, a new
+  # binary or a new build result, none of which moves a version.
+  views_sha <- views_sha256(views_texts)
+  builds_fp <- builds_fingerprint(builds$reports)
   manifest_changed <- isTRUE(force_full) || length(crawl_set) > 0L ||
+    (prev$manifest$source$views_sha256          %||% "") != views_sha ||
+    (prev$manifest$source$builds_fingerprint    %||% "") != builds_fp ||
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
     (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint ||
@@ -614,6 +620,8 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
       biocviews_fingerprint = biocviews_fingerprint,
+      views_sha256          = views_sha,
+      builds_fingerprint    = builds_fp,
       n_view_edges          = nrow(view_edges_df),
       schema                = BIOC_METADATA_SCHEMA
     )

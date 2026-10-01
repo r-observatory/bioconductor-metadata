@@ -258,3 +258,13 @@ retire_build_versions <- function(history, served, now) {
   history$end_reason[idx] <- "retired"
   list(history = history, closed = length(idx))
 }
+
+#' Publish-gate fingerprint: the newest applied report of each BioC version and
+#' repo, sorted.
+builds_fingerprint <- function(reports) {
+  a <- reports[reports$outcome == "applied", , drop = FALSE]
+  if (nrow(a) == 0L) return("")
+  a <- a[order(a$report_at, decreasing = TRUE), , drop = FALSE]
+  a <- a[!duplicated(paste(a$bioc_version, a$repo)), , drop = FALSE]
+  paste(sort(paste(a$bioc_version, a$repo, a$report_at, sep = ":")), collapse = ",")
+}

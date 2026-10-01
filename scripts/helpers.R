@@ -904,3 +904,11 @@ archive_message <- function(files, read_at) {
   }, character(1))
   paste(c(sprintf("Bioconductor files as read at %s", read_at), "", lines), collapse = "\n")
 }
+
+#' Publish-gate fingerprint of the VIEWS texts, in category order.
+views_sha256 <- function(texts) {
+  body <- vapply(names(texts), function(cat) {
+    paste0("## ", cat, "\n", as.character(texts[[cat]] %||% ""))
+  }, character(1))
+  text_sha256(paste(body, collapse = "\n"))
+}
