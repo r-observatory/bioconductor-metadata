@@ -434,7 +434,7 @@ parse_biocviews_dot <- function(dot_text) {
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
                            view_edges_df = NULL, names_all_df = NULL,
                            vignettes_df = NULL, build_reports_df = NULL,
-                           build_status_df = NULL) {
+                           build_status_df = NULL, views_history_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -616,6 +616,30 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
         ON bioc_build_status_history(status) WHERE ended_on IS NULL")
     if (nrow(build_status_df) > 0L) {
       RSQLite::dbWriteTable(con, "bioc_build_status_history", build_status_df, append = TRUE)
+    }
+  }
+
+  if (!is.null(views_history_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_views_history (
+        package          TEXT NOT NULL,
+        field            TEXT NOT NULL,
+        episode_seq      INTEGER NOT NULL,
+        value            TEXT NOT NULL,
+        bioc_version     TEXT NOT NULL,
+        category         TEXT NOT NULL,
+        first_seen       TEXT NOT NULL,
+        last_seen        TEXT NOT NULL,
+        first_seen_exact INTEGER NOT NULL,
+        ended_on         TEXT,
+        PRIMARY KEY (package, field, episode_seq),
+        CHECK (last_seen >= first_seen)
+      )")
+    RSQLite::dbExecute(con, "
+      CREATE UNIQUE INDEX ux_bioc_views_open
+        ON bioc_views_history(package, field) WHERE ended_on IS NULL")
+    if (nrow(views_history_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_views_history", views_history_df, append = TRUE)
     }
   }
 

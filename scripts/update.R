@@ -33,6 +33,9 @@ if (!exists("parse_views", mode = "function")) {
 if (!exists("parse_build_status_db", mode = "function")) {
   source(file.path(.script_dir, "builds.R"))
 }
+if (!exists("views_state_rows", mode = "function")) {
+  source(file.path(.script_dir, "views_history.R"))
+}
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
@@ -72,7 +75,7 @@ with_retry <- function(expr, waits = RETRY_WAITS_S, sleep = Sys.sleep,
 # run_update
 # ---------------------------------------------------------------------------
 
-run_update <- function(io, out_dir, force_full = FALSE) {
+run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_FLOOR) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
   # 1. Release dates and current release (max by release_to_numeric)
@@ -520,7 +523,7 @@ run_update <- function(io, out_dir, force_full = FALSE) {
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
 
   n_live_bioc   <- sum(packages_df$in_current == 1L)
-  names_gate_ok <- bioc_names_size_ok(n_live_bioc)
+  names_gate_ok <- bioc_names_size_ok(n_live_bioc, floor = live_floor)
   names_all_df  <- if (names_gate_ok) {
     build_bioc_names_all(packages_df)
   } else if (!is.null(prev$names_all) && nrow(prev$names_all) > 0L) {
@@ -533,10 +536,27 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     build_bioc_names_all(packages_df)
   }
   n_names <- nrow(names_all_df)
+
+  # 7a. VIEWS state episodes. A failed names gate skips them all; a category
+  # that parses to nothing while the history holds it is a failed read.
+  views_times <- vapply(names(views_texts), function(cat) {
+    attr(views_texts[[cat]], "last_modified") %||% run_at
+  }, character(1))
+  views_prior <- conform_frame(prev$views_history, empty_views_history())
+  views_now <- do.call(rbind, lapply(names(views_texts), function(cat) {
+    views_state_rows(views_texts[[cat]], cat)
+  }))
+  views_apply <- if (isTRUE(names_gate_ok)) names(views_texts) else character(0)
+  views_apply <- setdiff(views_apply, setdiff(unique(views_prior$category),
+                                              unique(views_now$category)))
+  views_hist <- apply_views_state(views_prior, views_now, views_times, views_apply,
+                                  current_release)
+
   export_catalog(db_path, packages_df, authors_df, releases_df, view_edges_df,
                  names_all_df = names_all_df, vignettes_df = vignettes_df,
                  build_reports_df = builds$reports,
-                 build_status_df = builds$history)
+                 build_status_df = builds$history,
+                 views_history_df = views_hist$history)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -583,6 +603,11 @@ run_update <- function(io, out_dir, force_full = FALSE) {
     builds_ok            = builds$ok,
     builds               = builds$summary,
     builds_retired       = builds$retired,
+    views_history        = list(new = views_hist$counts[["new"]],
+                                extended = views_hist$counts[["extended"]],
+                                closed = views_hist$counts[["closed"]],
+                                applied = I(setdiff(views_apply, views_hist$skipped)),
+                                skipped_stale = I(views_hist$skipped)),
     source               = list(
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,

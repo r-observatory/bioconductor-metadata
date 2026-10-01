@@ -1654,3 +1654,76 @@ test_that("run_update writes the VIEWS columns for current packages and NA for r
   expect_identical(old$package_status, NA_character_)
   expect_identical(old$dependency_count, NA_integer_)
 })
+
+# ---------------------------------------------------------------------------
+# VIEWS history
+# ---------------------------------------------------------------------------
+
+with_last_modified <- function(text, at) structure(text, last_modified = at)
+
+test_that("run_update keeps VIEWS values as episodes timed by each file's Last-Modified", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  io <- make_stub_io()
+  io$fetch_views <- function(cat) {
+    switch(cat,
+      software = with_last_modified(FIXTURE_VIEWS_SOFTWARE, "2026-09-29T18:14:30Z"),
+      annotation = with_last_modified(FIXTURE_VIEWS_ANNOTATION, "2026-09-20T10:00:00Z"),
+      "")
+  }
+  res1 <- suppressMessages(run_update(io, out1, force_full = TRUE, live_floor = 1L))
+  h1 <- state_of(out1)$views_history
+  v <- h1[h1$package == "PkgSoft" & h1$field == "Version", ]
+  expect_equal(v$value, "1.2.0")
+  expect_equal(v$first_seen, "2026-09-29T18:14:30Z")
+  expect_equal(v$first_seen_exact, 0L)
+  expect_equal(v$bioc_version, "3.23")
+  expect_equal(h1$first_seen[h1$package == "PkgAnnot"], "2026-09-20T10:00:00Z")
+  expect_equal(res1$manifest$views_history$new, 2L)
+
+  io2 <- make_stub_io(prev_state = state_of(out1))
+  io2$fetch_views <- function(cat) {
+    switch(cat,
+      software = with_last_modified(
+        sub("hasNEWS: TRUE", "hasNEWS: TRUE\nPackageStatus: Deprecated",
+            FIXTURE_VIEWS_SOFTWARE, fixed = TRUE), "2026-09-30T18:14:30Z"),
+      annotation = with_last_modified(FIXTURE_VIEWS_ANNOTATION, "2026-09-20T10:00:00Z"),
+      "")
+  }
+  suppressMessages(run_update(io2, out2, force_full = TRUE, live_floor = 1L))
+  h2 <- state_of(out2)$views_history
+  dep <- h2[h2$package == "PkgSoft" & h2$field == "PackageStatus", ]
+  expect_equal(dep$value, "Deprecated")
+  expect_equal(dep$first_seen, "2026-09-30T18:14:30Z")
+  expect_equal(dep$first_seen_exact, 1L)
+  expect_equal(h2$last_seen[h2$package == "PkgSoft" & h2$field == "Version"],
+               "2026-09-30T18:14:30Z")
+})
+
+test_that("a failed names gate leaves the VIEWS history as it was", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(), out1, force_full = TRUE, live_floor = 1L))
+  prior <- state_of(out1)$views_history
+  io <- make_stub_io(prev_state = state_of(out1))
+  io$fetch_views <- function(cat) if (cat == "annotation") FIXTURE_VIEWS_ANNOTATION else ""
+  res <- suppressMessages(run_update(io, out2, force_full = TRUE))
+  expect_false(res$manifest$names_gate_ok)
+  after <- state_of(out2)$views_history
+  expect_equal(after[order(after$package, after$field), ], prior[order(prior$package, prior$field), ],
+               ignore_attr = TRUE)
+})
+
+test_that("a category that parses to nothing keeps its episodes open", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(make_stub_io(), out1, force_full = TRUE, live_floor = 1L))
+  io <- make_stub_io(prev_state = state_of(out1))
+  io$fetch_views <- function(cat) if (cat == "software") FIXTURE_VIEWS_SOFTWARE else ""
+  res <- suppressMessages(run_update(io, out2, force_full = TRUE, live_floor = 1L))
+  annot <- state_of(out2)$views_history
+  annot <- annot[annot$package == "PkgAnnot", ]
+  expect_equal(nrow(annot), 1L)
+  expect_true(is.na(annot$ended_on))
+  expect_false("annotation" %in% unlist(res$manifest$views_history$applied))
+})

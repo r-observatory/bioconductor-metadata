@@ -421,3 +421,26 @@ test_that("export_catalog writes the VIEWS columns after views_has_readme", {
   expect_identical(rows$dependency_count, c(12L, NA_integer_))
   expect_identical(rows$linking_to, c(NA_character_, NA_character_))
 })
+
+test_that("export_catalog writes bioc_views_history with its open-row index", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  views <- data.frame(
+    package = "cummeRbund", field = "PackageStatus", episode_seq = 1L, value = "Deprecated",
+    bioc_version = "3.23", category = "software", first_seen = "2026-09-29T18:14:30Z",
+    last_seen = "2026-09-29T18:14:30Z", first_seen_exact = 0L, ended_on = NA_character_,
+    stringsAsFactors = FALSE)
+  export_catalog(tmp, make_packages_df(), make_authors_df(), views_history_df = views)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_equal(RSQLite::dbGetQuery(con, "SELECT value FROM bioc_views_history")$value,
+               "Deprecated")
+  sql <- RSQLite::dbGetQuery(con,
+    "SELECT sql FROM sqlite_master WHERE name = 'ux_bioc_views_open'")$sql
+  expect_match(sql, "WHERE ended_on IS NULL", fixed = TRUE)
+  expect_error(RSQLite::dbExecute(con, paste(
+    "INSERT INTO bioc_views_history VALUES ('cummeRbund', 'PackageStatus', 2, 'Active',",
+    "'3.23', 'software', '2026-09-30T18:14:30Z', '2026-09-30T18:14:30Z', 1, NULL)")),
+    "UNIQUE")
+})
