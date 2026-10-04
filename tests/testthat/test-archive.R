@@ -23,9 +23,12 @@ stage <- function(a, files, message = "Bioconductor files as read at now") {
   }
   writeLines(message, file.path(a$out, "archive-message.txt"))
 }
-archive <- function(a) {
-  out <- suppressWarnings(system2("bash", c(archive_script(), a$out, a$remote),
-                                  stdout = TRUE, stderr = TRUE))
+# from: the directory the script is called in, with a$out relative to it.
+archive <- function(a, from = NULL) {
+  script <- archive_script()
+  run <- function() suppressWarnings(system2("bash", c(script, a$out, a$remote),
+                                             stdout = TRUE, stderr = TRUE))
+  out <- if (is.null(from)) run() else withr::with_dir(from, run())
   list(status = attr(out, "status") %||% 0L, output = out)
 }
 branch_log <- function(a) {
@@ -50,6 +53,17 @@ test_that("the first archive creates the branch as an orphan with the files at i
   expect_match(log, "^[0-9a-f]{40} \\|Bioconductor files as read at 2026-10-01T12:20:00Z$")
   expect_setequal(branch_files(a), c("3.23/views/software/VIEWS",
                                      "3.23/builds/bioc/BUILD_STATUS_DB.txt"))
+})
+
+test_that("an out dir given relative to the calling directory is archived", {
+  a <- local_archive()
+  stage(a, list("3.23/views/software/VIEWS" = "Package: a"),
+        message = "Bioconductor files as read at 2026-10-01T12:20:00Z")
+  from <- dirname(a$out)
+  a$out <- "out"
+  r <- archive(a, from = from)
+  expect_equal(r$status, 0L)
+  expect_match(branch_log(a), "\\|Bioconductor files as read at 2026-10-01T12:20:00Z$")
 })
 
 test_that("the same bytes again make no commit", {

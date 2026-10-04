@@ -12,6 +12,9 @@ if [ ! -d "$src" ] || [ -z "$(find "$src" -type f -print -quit)" ]; then
   exit 0
 fi
 
+# Absolute, because git -C reads a relative path from the clone.
+message="$(cd "$out" && pwd)/archive-message.txt"
+
 dir="$(mktemp -d)"
 trap 'rm -rf "$dir"' EXIT
 
@@ -36,6 +39,6 @@ fi
 
 git -C "$dir" -c user.name="github-actions[bot]" \
   -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-  -c commit.gpgsign=false commit -q -F "$out/archive-message.txt"
+  -c commit.gpgsign=false commit -q -F "$message"
 git -C "$dir" push -q origin "HEAD:refs/heads/$branch"
 git -C "$dir" log --oneline -1
