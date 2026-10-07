@@ -1,3 +1,4 @@
+annotation#source#propagate: UNNEEDED, same version is already published
 arrays#source#propagate: UNNEEDED, same version is already published
 BP4RNAseq#source#propagate: UNNEEDED, same version is already published
 CAGEWorkflow#source#propagate: UNNEEDED, same version is already published

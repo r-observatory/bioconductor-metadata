@@ -18,7 +18,6 @@ rnaseqDTU#source#propagate: UNNEEDED, same version is already published
 rnaseqGene#source#propagate: UNNEEDED, same version is already published
 RnaSeqGeneEdgeRQL#source#propagate: UNNEEDED, same version is already published
 savingBiocObjects#source#propagate: UNNEEDED, same version is already published
-seqpac#source#propagate: UNNEEDED, same version is already published
 sequencing#source#propagate: UNNEEDED, same version is already published
 simpleSingleCell#source#propagate: UNNEEDED, same version is already published
 variants#source#propagate: UNNEEDED, same version is already published

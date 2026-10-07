@@ -5782,7 +5782,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/atacInferCnv/inst/doc/atacInferCnv.R
-dependencyCount: 207
+dependencyCount: 208
 
 Package: ATACseqQC
 Version: 1.36.1
@@ -7383,7 +7383,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/BatChef/inst/doc/batch_correction.R
-dependencyCount: 310
+dependencyCount: 311
 
 Package: batchelor
 Version: 1.28.0
@@ -8379,7 +8379,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/benchdamic/inst/doc/intro.R
-dependencyCount: 377
+dependencyCount: 378
 
 Package: BERT
 Version: 1.8.0
@@ -12388,7 +12388,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/blase/inst/doc/assign-bulk-to-pseudotime.R,
         vignettes/blase/inst/doc/BLASE-for-annotating-scRNA-seq.R,
         vignettes/blase/inst/doc/BLASE-for-excluding-developmental-genes-from-bulk-RNA-seq.R
-dependencyCount: 189
+dependencyCount: 190
 
 Package: blima
 Version: 1.46.0
@@ -15244,7 +15244,7 @@ Rfiles: vignettes/CatsCradle/inst/doc/CatsCradle.R,
         vignettes/CatsCradle/inst/doc/CatsCradleQuickStart.R,
         vignettes/CatsCradle/inst/doc/CatsCradleSingleCellExperimentQuickStart.R,
         vignettes/CatsCradle/inst/doc/CatsCradleSpatial.R
-dependencyCount: 198
+dependencyCount: 199
 
 Package: CausalR
 Version: 1.44.0
@@ -15858,7 +15858,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CDI/inst/doc/CDI.R
-dependencyCount: 172
+dependencyCount: 173
 
 Package: celaref
 Version: 1.30.0
@@ -16155,7 +16155,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CelliD/inst/doc/BioconductorVignette.R
-dependencyCount: 189
+dependencyCount: 190
 
 Package: cellity
 Version: 1.40.0
@@ -16287,7 +16287,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CellMentor/inst/doc/CellMentor_vignette.R
-dependencyCount: 189
+dependencyCount: 190
 
 Package: cellmig
 Version: 1.2.0
@@ -19858,7 +19858,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles:
         vignettes/ClusterFoldSimilarity/inst/doc/ClusterFoldSimilarity.R
-dependencyCount: 172
+dependencyCount: 173
 
 Package: ClusterGVis
 Version: 1.0.0
@@ -19955,7 +19955,7 @@ Rfiles: vignettes/ClusterJudge/inst/doc/ClusterJudge-intro.R
 dependencyCount: 26
 
 Package: clusterProfiler
-Version: 4.20.0
+Version: 4.20.2
 Depends: R (>= 4.2.0)
 Imports: aisdk, AnnotationDbi, dplyr, enrichit (>= 0.1.1), enrichplot
         (>= 1.9.3), ggplot2, GO.db, GOSemSim (>= 2.27.2), gson (>=
@@ -19964,7 +19964,7 @@ Imports: aisdk, AnnotationDbi, dplyr, enrichit (>= 0.1.1), enrichplot
 Suggests: AnnotationHub, BiocManager, DOSE, ggtangle, readr,
         org.Hs.eg.db, quarto, testthat
 License: Artistic-2.0
-MD5sum: 355d463031123420dc2c291844c6616b
+MD5sum: bfa30340483188be282138b425dc488e
 NeedsCompilation: no
 Title: A Universal Enrichment Tool for Interpreting Omics Data
 Description: A universal tool for interpreting functional
@@ -19990,10 +19990,10 @@ VignetteBuilder: quarto
 BugReports: https://github.com/YuLab-SMU/clusterProfiler/issues
 git_url: https://git.bioconductor.org/packages/clusterProfiler
 git_branch: RELEASE_3_23
-git_last_commit: d67d9f6
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/clusterProfiler_4.20.0.tar.gz
+git_last_commit: 7f2cc56
+git_last_commit_date: 2026-10-01
+Date/Publication: 2026-10-05
+source.ver: src/contrib/clusterProfiler_4.20.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.0.tgz
@@ -23371,7 +23371,7 @@ Rfiles: vignettes/COTAN/inst/doc/Cleaning_GuidedTutorial.R,
         vignettes/COTAN/inst/doc/DiffExprAnalysis_GuidedTutorial.R,
         vignettes/COTAN/inst/doc/GenesClustering_GuidedTutorial.R,
         vignettes/COTAN/inst/doc/UniformClustering_GuidedTutorial.R
-dependencyCount: 228
+dependencyCount: 229
 
 Package: countsimQC
 Version: 1.30.0
@@ -24656,7 +24656,7 @@ Rfiles: vignettes/CSOA/inst/doc/Advanced-CSOA.R,
         vignettes/CSOA/inst/doc/CSOA.R,
         vignettes/CSOA/inst/doc/The-CSOA-algorithm.R
 importsMe: GSABenchmark
-dependencyCount: 190
+dependencyCount: 191
 
 Package: CSSQ
 Version: 1.24.0
@@ -25066,7 +25066,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CuratedAtlasQueryR/inst/doc/Introduction.R
-dependencyCount: 178
+dependencyCount: 179
 
 Package: customCMPdb
 Version: 1.22.0
@@ -27230,7 +27230,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/decontX/inst/doc/decontPro.R,
         vignettes/decontX/inst/doc/decontX.R
-dependencyCount: 232
+dependencyCount: 233
 
 Package: DeconvoBuddies
 Version: 1.4.0
@@ -30071,7 +30071,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/Dino/inst/doc/Dino.R
-dependencyCount: 185
+dependencyCount: 186
 
 Package: dinoR
 Version: 1.8.0
@@ -31626,7 +31626,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/DOtools/inst/doc/DOtools.R
-dependencyCount: 341
+dependencyCount: 342
 
 Package: DOTSeq
 Version: 1.0.0
@@ -37277,7 +37277,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/fedup/inst/doc/fedup_doubleTest.R,
         vignettes/fedup/inst/doc/fedup_mutliTest.R,
         vignettes/fedup/inst/doc/fedup_singleTest.R
-dependencyCount: 74
+dependencyCount: 73
 
 Package: FELLA
 Version: 1.32.0
@@ -41223,16 +41223,17 @@ Rfiles: vignettes/gemini/inst/doc/gemini-quickstart.R
 dependencyCount: 82
 
 Package: gemma.R
-Version: 3.8.0
+Version: 3.8.1
+Depends: R (>= 4.1.0)
 Imports: magrittr, glue, memoise, jsonlite, data.table, rlang,
         lubridate, utils, stringr, SummarizedExperiment, Biobase,
         tibble, tidyr, S4Vectors, httr, rappdirs, bit64, assertthat,
-        digest, R.utils, kableExtra, base64enc
+        digest, R.utils, kableExtra, base64enc, pheatmap, grDevices
 Suggests: testthat (>= 2.0.0), rmarkdown, knitr, dplyr, covr, ggplot2,
-        ggrepel, BiocStyle, microbenchmark, magick, purrr, pheatmap,
-        viridis, poolr, listviewer, shiny
+        ggrepel, BiocStyle, microbenchmark, magick, purrr, viridis,
+        poolr, listviewer, shiny
 License: Apache License (>= 2)
-MD5sum: 1ae5adc85ab9c37327d175a730f8dd17
+MD5sum: 9dd9ba6447ff7f62be5b2f70fb893f3a
 NeedsCompilation: no
 Title: A wrapper for Gemma's Restful API to access curated gene
         expression data and differential expression analyses
@@ -41261,10 +41262,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/PavlidisLab/gemma.R/issues
 git_url: https://git.bioconductor.org/packages/gemma.R
 git_branch: RELEASE_3_23
-git_last_commit: 3c5f4e6
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/gemma.R_3.8.0.tar.gz
+git_last_commit: a4b89c0
+git_last_commit_date: 2026-10-02
+Date/Publication: 2026-10-05
+source.ver: src/contrib/gemma.R_3.8.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/gemma.R_3.8.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/gemma.R_3.8.0.tgz
@@ -44927,7 +44928,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/ggsc/inst/doc/ggsc.R
 suggestsMe: SVP
-dependencyCount: 169
+dependencyCount: 170
 
 Package: ggseqalign
 Version: 1.6.0
@@ -47609,7 +47610,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/GSABenchmark/inst/doc/GSABenchmark.R
-dependencyCount: 316
+dependencyCount: 317
 
 Package: GSALightning
 Version: 1.40.0
@@ -48160,13 +48161,13 @@ Rfiles: vignettes/GSRI/inst/doc/gsri.R
 dependencyCount: 64
 
 Package: GSVA
-Version: 2.6.6
+Version: 2.6.10
 Depends: R (>= 4.0.0)
 Imports: methods, stats, utils, graphics, BiocGenerics, MatrixGenerics,
         S4Vectors, S4Arrays, HDF5Array, SparseArray, DelayedArray,
         IRanges, Biobase, SummarizedExperiment, GSEABase, Matrix (>=
         1.5-0), DelayedMatrixStats, BiocParallel, SingleCellExperiment,
-        BiocSingular, SpatialExperiment, sparseMatrixStats, cli, memuse
+        SpatialExperiment, sparseMatrixStats, cli, memuse
 LinkingTo: cli
 Suggests: RUnit, BiocStyle, knitr, rmarkdown, limma, RColorBrewer,
         org.Hs.eg.db, genefilter, edgeR, GSVAdata, sva, ExperimentHub,
@@ -48175,7 +48176,7 @@ Suggests: RUnit, BiocStyle, knitr, rmarkdown, limma, RColorBrewer,
         data.table, plotly, future, promises, shinybusy, shinyjs
 License: Artistic-2.0
 Archs: x64
-MD5sum: 76fd9cc784f0017b93eda9e2be57d227
+MD5sum: 9333cd2d825cf09a70cfb43cc784b04f
 NeedsCompilation: yes
 Title: Gene Set Variation Analysis for Microarray and RNA-Seq Data
 Description: Gene Set Variation Analysis (GSVA) is a non-parametric,
@@ -48202,10 +48203,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/rcastelo/GSVA/issues
 git_url: https://git.bioconductor.org/packages/GSVA
 git_branch: RELEASE_3_23
-git_last_commit: 359c674
-git_last_commit_date: 2026-08-04
-Date/Publication: 2026-08-04
-source.ver: src/contrib/GSVA_2.6.6.tar.gz
+git_last_commit: e1447e5
+git_last_commit_date: 2026-10-05
+Date/Publication: 2026-10-05
+source.ver: src/contrib/GSVA_2.6.10.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.6.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.6.tgz
@@ -53835,7 +53836,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/infercnv/inst/doc/inferCNV.R
 importsMe: atacInferCnv
 suggestsMe: SCpubr
-dependencyCount: 193
+dependencyCount: 194
 
 Package: infinityFlow
 Version: 1.22.0
@@ -64836,7 +64837,7 @@ Rfiles: vignettes/MetMashR/inst/doc/annotate_mixtures.R,
         vignettes/MetMashR/inst/doc/exploring_mtox.R,
         vignettes/MetMashR/inst/doc/Extending_MetMashR.R,
         vignettes/MetMashR/inst/doc/using_MetMashR.R
-dependencyCount: 68
+dependencyCount: 66
 
 Package: MetNet
 Version: 1.30.0
@@ -68504,7 +68505,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MOSim/inst/doc/MOSim.R,
         vignettes/MOSim/inst/doc/scMOSim.R
-dependencyCount: 196
+dependencyCount: 197
 
 Package: Motif2Site
 Version: 1.16.0
@@ -72717,7 +72718,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/NanoStringNCTools/inst/doc/Introduction.R
 dependsOnMe: GeomxTools, GeoMxWorkflows
 importsMe: GeoDiff
-dependencyCount: 79
+dependencyCount: 77
 
 Package: NanoTube
 Version: 1.18.0
@@ -78072,7 +78073,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/partCNV/inst/doc/partCNV_vignette.R
-dependencyCount: 189
+dependencyCount: 190
 
 Package: PAST
 Version: 1.28.0
@@ -80469,7 +80470,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/pipeComp/inst/doc/pipeComp_dea.R,
         vignettes/pipeComp/inst/doc/pipeComp_scRNA.R,
         vignettes/pipeComp/inst/doc/pipeComp.R
-dependencyCount: 209
+dependencyCount: 210
 
 Package: pipeFrame
 Version: 1.28.0
@@ -81850,7 +81851,7 @@ Rfiles: vignettes/POMA/inst/doc/POMA-normalization.R,
         vignettes/POMA/inst/doc/POMA-workflow.R
 importsMe: PRONE
 suggestsMe: fobitools
-dependencyCount: 237
+dependencyCount: 229
 
 Package: posDemux
 Version: 1.0.0
@@ -83215,7 +83216,7 @@ Rfiles: vignettes/PRONE/inst/doc/Differential_Expression.R,
         vignettes/PRONE/inst/doc/Preprocessing.R,
         vignettes/PRONE/inst/doc/PRONE.R,
         vignettes/PRONE/inst/doc/Spike_In_Data.R
-dependencyCount: 297
+dependencyCount: 289
 
 Package: PROPER
 Version: 1.44.0
@@ -86010,7 +86011,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RankMap/inst/doc/RankMap.R
-dependencyCount: 168
+dependencyCount: 169
 
 Package: RankProd
 Version: 3.38.0
@@ -88439,7 +88440,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RegionalST/inst/doc/RegionalST.R
-dependencyCount: 252
+dependencyCount: 253
 
 Package: regioneR
 Version: 1.44.0
@@ -93269,7 +93270,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RTNsurvival/inst/doc/RTNsurvival.R
-dependencyCount: 162
+dependencyCount: 147
 
 Package: RTopper
 Version: 1.58.0
@@ -95269,7 +95270,7 @@ Rfiles: vignettes/scAnnotatR/inst/doc/classifying-cells.R,
         vignettes/scAnnotatR/inst/doc/training-basic-model.R,
         vignettes/scAnnotatR/inst/doc/training-child-model.R
 suggestsMe: scAnnotatR.models
-dependencyCount: 211
+dependencyCount: 212
 
 Package: SCANVIS
 Version: 1.26.0
@@ -95433,7 +95434,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SCArray.sat/inst/doc/SCArray.sat.R
-dependencyCount: 180
+dependencyCount: 181
 
 Package: scater
 Version: 1.40.2
@@ -95607,7 +95608,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/scBFA/inst/doc/vignette.R
-dependencyCount: 199
+dependencyCount: 200
 
 Package: SCBN
 Version: 1.30.0
@@ -95699,7 +95700,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/scBubbletree/inst/doc/User_manual.R
-dependencyCount: 174
+dependencyCount: 175
 
 Package: scCB2
 Version: 1.22.0
@@ -95751,7 +95752,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scCB2/inst/doc/scCB2.R
-dependencyCount: 195
+dependencyCount: 196
 
 Package: scClassify
 Version: 1.24.0
@@ -95947,7 +95948,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scDataviz/inst/doc/scDataviz.R
-dependencyCount: 174
+dependencyCount: 175
 
 Package: scDblFinder
 Version: 1.26.7
@@ -96330,7 +96331,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scDotPlot/inst/doc/scDotPlot.R
-dependencyCount: 201
+dependencyCount: 202
 
 Package: scds
 Version: 2.0.0
@@ -96575,7 +96576,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scFeatures/inst/doc/scFeatures_overview.R
-dependencyCount: 236
+dependencyCount: 237
 
 Package: scGPS
 Version: 1.26.0
@@ -98368,7 +98369,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scRNAseqApp/inst/doc/scRNAseqApp.R
-dependencyCount: 238
+dependencyCount: 239
 
 Package: scruff
 Version: 1.30.0
@@ -98754,7 +98755,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scTreeViz/inst/doc/ExploreTreeViz.R
-dependencyCount: 238
+dependencyCount: 239
 
 Package: scTypeEval
 Version: 1.0.0
@@ -102039,7 +102040,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/singIST/inst/doc/singISTvignette.R
-dependencyCount: 282
+dependencyCount: 283
 
 Package: SingleCellAlleleExperiment
 Version: 1.8.0
@@ -102353,7 +102354,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/singleCellTK/inst/doc/singleCellTK.R
 suggestsMe: celda
-dependencyCount: 391
+dependencyCount: 392
 
 Package: SingleMoleculeFootprinting
 Version: 2.5.0
@@ -104116,7 +104117,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/Spaniel/inst/doc/spaniel-vignette-tenX-import.R
-dependencyCount: 207
+dependencyCount: 208
 
 Package: SpaNorm
 Version: 1.6.0
@@ -105165,7 +105166,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/speckle/inst/doc/speckle.R
-dependencyCount: 169
+dependencyCount: 170
 
 Package: specL
 Version: 1.46.0
@@ -106547,7 +106548,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SpNeigh/inst/doc/SpNeigh.R
-dependencyCount: 190
+dependencyCount: 191
 
 Package: SPONGE
 Version: 1.34.1
@@ -106702,7 +106703,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SpotClean/inst/doc/SpotClean.R
-dependencyCount: 187
+dependencyCount: 188
 
 Package: SPOTlight
 Version: 1.16.0
@@ -107927,7 +107928,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/stJoincount/inst/doc/stJoincount-vignette.R
-dependencyCount: 191
+dependencyCount: 192
 
 Package: stPipe
 Version: 1.2.0
@@ -107983,7 +107984,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/stPipe/inst/doc/stPipe-vignette.R
-dependencyCount: 252
+dependencyCount: 253
 
 Package: strandCheckR
 Version: 1.30.0
@@ -108032,13 +108033,13 @@ Rfiles: vignettes/strandCheckR/inst/doc/strandCheckR.R
 dependencyCount: 98
 
 Package: STRINGdb
-Version: 2.24.0
+Version: 2.24.1
 Depends: R (>= 2.14.0)
 Imports: png, sqldf, plyr, igraph, httr, methods, RColorBrewer, gplots,
         hash, plotrix
 Suggests: RUnit, BiocGenerics
 License: GPL-2
-MD5sum: 87476ae5f1fd80443014ec829ad7739b
+MD5sum: 7ada6998456d199ddacd36125649209a
 NeedsCompilation: no
 Title: STRINGdb - Protein-Protein Interaction Networks and Functional
         Enrichment Analysis
@@ -108050,10 +108051,10 @@ Author: Andrea Franceschini <andrea.franceschini@isb-sib.ch>
 Maintainer: Damian Szklarczyk <damian.szklarczyk@imls.uzh.ch>
 git_url: https://git.bioconductor.org/packages/STRINGdb
 git_branch: RELEASE_3_23
-git_last_commit: 1c4a249
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/STRINGdb_2.24.0.tar.gz
+git_last_commit: 5175a66
+git_last_commit_date: 2026-09-29
+Date/Publication: 2026-10-05
+source.ver: src/contrib/STRINGdb_2.24.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.1.tgz
@@ -108234,7 +108235,7 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/structToolbox/inst/doc/data_analysis_omics_using_the_structtoolbox.R
 suggestsMe: metabolomicsWorkbenchR, MetMashR
-dependencyCount: 70
+dependencyCount: 68
 
 Package: StructuralVariantAnnotation
 Version: 1.28.0
@@ -111789,7 +111790,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/tidyomics/inst/doc/loading-tidyomics.R
-dependencyCount: 205
+dependencyCount: 206
 
 Package: tidyprint
 Version: 1.0.0
@@ -117244,7 +117245,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/vmrseq/inst/doc/vmrseq-vignette.R
-dependencyCount: 191
+dependencyCount: 187
 
 Package: Voyager
 Version: 1.14.0

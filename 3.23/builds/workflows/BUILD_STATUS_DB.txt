@@ -1,5 +1,5 @@
 annotation#nebbiolo1#install: OK
-annotation#nebbiolo1#buildsrc: ERROR
+annotation#nebbiolo1#buildsrc: OK
 arrays#nebbiolo1#install: OK
 arrays#nebbiolo1#buildsrc: OK
 BP4RNAseq#nebbiolo1#install: OK

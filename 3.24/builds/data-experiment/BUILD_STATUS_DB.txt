@@ -995,8 +995,8 @@ RegParallel#nebbiolo2#install: OK
 RegParallel#nebbiolo2#buildsrc: ERROR
 RegParallel#nebbiolo2#checksrc: skipped
 RforProteomics#nebbiolo2#install: OK
-RforProteomics#nebbiolo2#buildsrc: TIMEOUT
-RforProteomics#nebbiolo2#checksrc: skipped
+RforProteomics#nebbiolo2#buildsrc: OK
+RforProteomics#nebbiolo2#checksrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#install: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#buildsrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#checksrc: OK
@@ -1086,7 +1086,7 @@ scMultiome#nebbiolo2#buildsrc: OK
 scMultiome#nebbiolo2#checksrc: OK
 scpdata#nebbiolo2#install: OK
 scpdata#nebbiolo2#buildsrc: OK
-scpdata#nebbiolo2#checksrc: OK
+scpdata#nebbiolo2#checksrc: ERROR
 scRNAseq#nebbiolo2#install: OK
 scRNAseq#nebbiolo2#buildsrc: OK
 scRNAseq#nebbiolo2#checksrc: OK
@@ -1127,8 +1127,8 @@ Single.mTEC.Transcriptomes#nebbiolo2#install: OK
 Single.mTEC.Transcriptomes#nebbiolo2#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo2#checksrc: OK
 SingleCellMultiModal#nebbiolo2#install: OK
-SingleCellMultiModal#nebbiolo2#buildsrc: ERROR
-SingleCellMultiModal#nebbiolo2#checksrc: skipped
+SingleCellMultiModal#nebbiolo2#buildsrc: OK
+SingleCellMultiModal#nebbiolo2#checksrc: OK
 SingleMoleculeFootprintingData#nebbiolo2#install: OK
 SingleMoleculeFootprintingData#nebbiolo2#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo2#checksrc: OK

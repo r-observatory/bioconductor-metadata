@@ -4058,7 +4058,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/EMTscoreData/inst/doc/EMTscoreData.R
-dependencyCount: 183
+dependencyCount: 184
 
 Package: eoPredData
 Version: 1.6.0
@@ -11292,7 +11292,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ReactomeGSA
-dependencyCount: 184
+dependencyCount: 185
 
 Package: RegParallel
 Version: 1.30.0

@@ -78,8 +78,8 @@ curatedAdipoChIP#source#propagate: UNNEEDED, same version is already published
 curatedAdipoRNA#source#propagate: UNNEEDED, same version is already published
 curatedBladderData#source#propagate: UNNEEDED, same version is already published
 curatedBreastData#source#propagate: UNNEEDED, same version is already published
-curatedCRCData#source#propagate: UNNEEDED, same version is already published
-curatedOvarianData#source#propagate: UNNEEDED, same version is already published
+curatedCRCData#source#propagate: YES
+curatedOvarianData#source#propagate: YES
 curatedPCaData#source#propagate: UNNEEDED, same version is already published
 curatedTBData#source#propagate: UNNEEDED, same version is already published
 curatedTCGAData#source#propagate: UNNEEDED, same version is already published
@@ -141,8 +141,8 @@ gageData#source#propagate: UNNEEDED, same version is already published
 gaschYHS#source#propagate: UNNEEDED, same version is already published
 gcspikelite#source#propagate: UNNEEDED, same version is already published
 gDNAinRNAseqData#source#propagate: UNNEEDED, same version is already published
-gDRtestData#source#propagate: UNNEEDED, same version is already published
-geneLenDataBase#source#propagate: YES
+gDRtestData#source#propagate: YES
+geneLenDataBase#source#propagate: UNNEEDED, same version is already published
 genomationData#source#propagate: UNNEEDED, same version is already published
 GenomicDistributionsData#source#propagate: UNNEEDED, same version is already published
 GeuvadisTranscriptExpr#source#propagate: UNNEEDED, same version is already published
@@ -265,7 +265,7 @@ muscData#source#propagate: UNNEEDED, same version is already published
 muSpaData#source#propagate: UNNEEDED, same version is already published
 MutSeqRData#source#propagate: UNNEEDED, same version is already published
 mvoutData#source#propagate: UNNEEDED, same version is already published
-NanoporeRNASeq#source#propagate: YES
+NanoporeRNASeq#source#propagate: UNNEEDED, same version is already published
 nanotubes#source#propagate: UNNEEDED, same version is already published
 NCIgraphData#source#propagate: UNNEEDED, same version is already published
 NestLink#source#propagate: UNNEEDED, same version is already published
@@ -317,6 +317,7 @@ raerdata#source#propagate: UNNEEDED, same version is already published
 rcellminerData#source#propagate: UNNEEDED, same version is already published
 RcisTarget.hg19.motifDBs.cisbpOnly.500bp#source#propagate: UNNEEDED, same version is already published
 ReactomeGSA.data#source#propagate: UNNEEDED, same version is already published
+RforProteomics#source#propagate: UNNEEDED, same version is already published
 rheumaticConditionWOLLBOLD#source#propagate: UNNEEDED, same version is already published
 RITANdata#source#propagate: UNNEEDED, same version is already published
 RMassBankData#source#propagate: UNNEEDED, same version is already published
@@ -336,8 +337,7 @@ scaeData#source#propagate: UNNEEDED, same version is already published
 scanMiRData#source#propagate: UNNEEDED, same version is already published
 scATAC.Explorer#source#propagate: UNNEEDED, same version is already published
 SCLCBam#source#propagate: UNNEEDED, same version is already published
-scMultiome#source#propagate: UNNEEDED, same version is already published
-scpdata#source#propagate: UNNEEDED, same version is already published
+scMultiome#source#propagate: YES
 scRNAseq#source#propagate: UNNEEDED, same version is already published
 scTHI.data#source#propagate: UNNEEDED, same version is already published
 seq2pathway.data#source#propagate: UNNEEDED, same version is already published
@@ -351,6 +351,7 @@ signatureSearchData#source#propagate: UNNEEDED, same version is already publishe
 SimBenchData#source#propagate: UNNEEDED, same version is already published
 simpIntLists#source#propagate: UNNEEDED, same version is already published
 Single.mTEC.Transcriptomes#source#propagate: UNNEEDED, same version is already published
+SingleCellMultiModal#source#propagate: UNNEEDED, same version is already published
 SingleMoleculeFootprintingData#source#propagate: UNNEEDED, same version is already published
 SNAData#source#propagate: UNNEEDED, same version is already published
 SNAGEEdata#source#propagate: UNNEEDED, same version is already published

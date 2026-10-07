@@ -45,7 +45,7 @@ RnaSeqGeneEdgeRQL#nebbiolo2#buildsrc: OK
 savingBiocObjects#nebbiolo2#install: OK
 savingBiocObjects#nebbiolo2#buildsrc: OK
 seqpac#nebbiolo2#install: OK
-seqpac#nebbiolo2#buildsrc: OK
+seqpac#nebbiolo2#buildsrc: ERROR
 sequencing#nebbiolo2#install: OK
 sequencing#nebbiolo2#buildsrc: OK
 simpleSingleCell#nebbiolo2#install: OK
