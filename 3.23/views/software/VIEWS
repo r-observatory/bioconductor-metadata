@@ -10391,8 +10391,8 @@ suggestsMe: alabaster.mae, beachmat, BiocNeighbors, cliqueMS,
         TFutils, TileDBArray, TrajectoryUtils, TSCAN, universalmotif,
         xcore, MethylAidData, Single.mTEC.Transcriptomes,
         TENxBrainData, TENxPBMCData, CAGEWorkflow, bioLeak, clustermq,
-        conos, easyEWAS, futurize, IOBR, pagoda2, phase1RMD, RaMS,
-        survBootOutliers, SVG, wrTopDownFrag
+        conos, easybio, easyEWAS, futurize, IOBR, pagoda2, phase1RMD,
+        RaMS, survBootOutliers, SVG, wrTopDownFrag
 dependencyCount: 12
 
 Package: BiocPkgDash
@@ -10630,9 +10630,9 @@ Rfiles: vignettes/BiocSingular/inst/doc/decomposition.R,
 dependsOnMe: OSCA.advanced, OSCA.basic, OSCA.multisample,
         OSCA.workflows
 importsMe: batchelor, BayesSpace, clusterExperiment, COTAN,
-        DelayedTensor, Dino, GSVA, miloR, MPAC, mumosa, NanoMethViz,
-        NewWave, omicsGMF, PCAtools, ReactomeGSA, SCArray, SCArray.sat,
-        scater, scDblFinder, scMerge, scran, scry, Seqtometry, SpaNorm,
+        DelayedTensor, Dino, miloR, MPAC, mumosa, NanoMethViz, NewWave,
+        omicsGMF, PCAtools, ReactomeGSA, SCArray, SCArray.sat, scater,
+        scDblFinder, scMerge, scran, scry, Seqtometry, SpaNorm,
         StabMap, velociraptor
 suggestsMe: alabaster.matrix, chihaya, ResidualMatrix, ScaledMatrix,
         spatialHeatmap, splatter, SuperCellCyto, Voyager, HCAData
@@ -13112,7 +13112,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/broadSeq/inst/doc/broadSeq.R
-dependencyCount: 240
+dependencyCount: 238
 
 Package: BrowserViz
 Version: 2.34.0
@@ -14932,7 +14932,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/carnation/inst/doc/carnation.R
-dependencyCount: 256
+dependencyCount: 254
 
 Package: CARNIVAL
 Version: 2.22.0
@@ -19994,11 +19994,11 @@ git_last_commit: 7f2cc56
 git_last_commit_date: 2026-10-01
 Date/Publication: 2026-10-05
 source.ver: src/contrib/clusterProfiler_4.20.2.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.0.zip
+win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.2.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.2.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/clusterProfiler_4.20.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/clusterProfiler_4.20.2.tgz
 vignettes: vignettes/clusterProfiler/inst/doc/clusterProfiler.html
 vignetteTitles: clusterProfiler.html
 hasREADME: FALSE
@@ -22458,7 +22458,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/consensusOV/inst/doc/consensusOV.R
 importsMe: signifinder
-dependencyCount: 161
+dependencyCount: 155
 
 Package: consensusSeekeR
 Version: 1.40.0
@@ -26944,7 +26944,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/debrowser/inst/doc/DEBrowser.R
-dependencyCount: 225
+dependencyCount: 223
 
 Package: decemedip
 Version: 1.0.0
@@ -27784,7 +27784,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/DegNorm/inst/doc/DegNorm.R
-dependencyCount: 162
+dependencyCount: 157
 
 Package: DEGraph
 Version: 1.64.0
@@ -30314,7 +30314,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/DiscoRhythm/inst/doc/disco_workflow_vignette.R
-dependencyCount: 156
+dependencyCount: 151
 
 Package: distinct
 Version: 1.24.2
@@ -33448,7 +33448,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/EGSEA/inst/doc/EGSEA.R
 dependsOnMe: EGSEA123
 suggestsMe: tidybulk, EGSEAdata
-dependencyCount: 198
+dependencyCount: 192
 
 Package: eiR
 Version: 1.52.0
@@ -39573,7 +39573,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/FRASER/inst/doc/FRASER.R
-dependencyCount: 190
+dependencyCount: 186
 
 Package: frenchFISH
 Version: 1.24.0
@@ -41266,11 +41266,11 @@ git_last_commit: a4b89c0
 git_last_commit_date: 2026-10-02
 Date/Publication: 2026-10-05
 source.ver: src/contrib/gemma.R_3.8.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/gemma.R_3.8.0.zip
+win.binary.ver: bin/windows/contrib/4.6/gemma.R_3.8.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/gemma.R_3.8.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/gemma.R_3.8.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/gemma.R_3.8.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/gemma.R_3.8.1.tgz
 vignettes: vignettes/gemma.R/inst/doc/gemma.R.html,
         vignettes/gemma.R/inst/doc/metadata.html,
         vignettes/gemma.R/inst/doc/metanalysis.html
@@ -41285,7 +41285,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/gemma.R/inst/doc/gemma.R.R,
         vignettes/gemma.R/inst/doc/metadata.R,
         vignettes/gemma.R/inst/doc/metanalysis.R
-dependencyCount: 90
+dependencyCount: 92
 
 Package: genArise
 Version: 1.88.0
@@ -47610,7 +47610,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/GSABenchmark/inst/doc/GSABenchmark.R
-dependencyCount: 317
+dependencyCount: 312
 
 Package: GSALightning
 Version: 1.40.0
@@ -47822,9 +47822,9 @@ importsMe: AUCell, BioCor, canceR, Category, categoryCompare, cosmosR,
         GSRI, GSVA, mastR, miRSM, mogsa, oppar, PanomiR, phenoTest,
         postNet, PROMISE, ReportingTools, scTGIF, signatureSearch,
         singIST, singleCellTK, singscore, slalom, sparrow, TFutils,
-        TMSig, vissE, zenith, msigdb, clustermole
+        TMSig, vissE, zenith, msigdb
 suggestsMe: BiocSet, epiregulon.extra, escape, gage, globaltest,
-        GOstats, GSAR, MAST, pathMED, phenoTest, BaseSet
+        GOstats, GSAR, MAST, pathMED, phenoTest, BaseSet, clustermole
 dependencyCount: 46
 
 Package: GSEABenchmarkeR
@@ -48207,11 +48207,11 @@ git_last_commit: e1447e5
 git_last_commit_date: 2026-10-05
 Date/Publication: 2026-10-05
 source.ver: src/contrib/GSVA_2.6.10.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.6.zip
+win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.10.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.6.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.10.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.6.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.10.tgz
 vignettes: vignettes/GSVA/inst/doc/GSVA_proteomics.html,
         vignettes/GSVA/inst/doc/GSVA_scRNAseq.html,
         vignettes/GSVA/inst/doc/GSVA_spRNAseq.html,
@@ -48229,11 +48229,11 @@ Rfiles: vignettes/GSVA/inst/doc/GSVA_proteomics.R,
 dependsOnMe: SMDIC
 importsMe: consensusOV, EGSEA, GSABenchmark, octad, oppar, pathMED,
         plaid, scFeatures, signifinder, singleCellTK,
-        TBSignatureProfiler, autoGO, clustermole, DRviaSPCN, GSEMA,
-        IOBR, psSubpathway, scMappR, SIGN, spatialGE
+        TBSignatureProfiler, autoGO, DRviaSPCN, GSEMA, IOBR,
+        psSubpathway, scMappR, SIGN, spatialGE
 suggestsMe: decoupleR, escape, MCbiclust, mitology, sparrow, SPONGE,
-        futurize, ReporterScore
-dependencyCount: 103
+        clustermole, futurize, ReporterScore
+dependencyCount: 97
 
 Package: gtrellis
 Version: 1.44.0
@@ -49055,7 +49055,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/HarmonizR/inst/doc/HarmonizR_Vignette.R
-dependencyCount: 107
+dependencyCount: 105
 
 Package: HDF5Array
 Version: 1.40.0
@@ -52332,7 +52332,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/ideal/inst/doc/ideal-usersguide.R
-dependencyCount: 237
+dependencyCount: 235
 
 Package: IdeoViz
 Version: 1.48.0
@@ -63672,7 +63672,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/metaseqR2/inst/doc/metaseqr2-annotation.R,
         vignettes/metaseqR2/inst/doc/metaseqr2-statistics.R
-dependencyCount: 240
+dependencyCount: 237
 
 Package: MetCirc
 Version: 1.42.0
@@ -64591,7 +64591,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/methylscaper/inst/doc/methylScaper.R
-dependencyCount: 101
+dependencyCount: 97
 
 Package: MethylSeekR
 Version: 1.52.0
@@ -68751,7 +68751,7 @@ hasINSTALL: TRUE
 hasLICENSE: FALSE
 Rfiles: vignettes/MotifPeeker/inst/doc/MotifPeeker.R,
         vignettes/MotifPeeker/inst/doc/troubleshooting.R
-dependencyCount: 185
+dependencyCount: 180
 
 Package: motifStack
 Version: 1.56.0
@@ -70093,7 +70093,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/mspms/inst/doc/mspms_vignette.R
-dependencyCount: 186
+dependencyCount: 184
 
 Package: MSPrep
 Version: 1.21.1
@@ -73469,7 +73469,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/NetSAM/inst/doc/NetSAM.R
-dependencyCount: 132
+dependencyCount: 128
 
 Package: netSmooth
 Version: 1.32.0
@@ -74829,7 +74829,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/octad/inst/doc/octad.R
-dependencyCount: 187
+dependencyCount: 181
 
 Package: odseq
 Version: 1.40.0
@@ -76545,7 +76545,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/oppar/inst/doc/oppar.R
-dependencyCount: 104
+dependencyCount: 98
 
 Package: optimalFlow
 Version: 1.24.0
@@ -77192,7 +77192,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/OUTRIDER/inst/doc/OUTRIDER.R
 importsMe: FRASER
-dependencyCount: 172
+dependencyCount: 168
 
 Package: OutSplice
 Version: 1.12.0
@@ -78298,7 +78298,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/pathMED/inst/doc/pathMED.R
-dependencyCount: 247
+dependencyCount: 242
 
 Package: PathNet
 Version: 1.52.0
@@ -78613,7 +78613,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/pcaExplorer/inst/doc/pcaExplorer.R,
         vignettes/pcaExplorer/inst/doc/upandrunning.R
-dependencyCount: 232
+dependencyCount: 230
 
 Package: pcaMethods
 Version: 2.4.0
@@ -80211,9 +80211,9 @@ importsMe: ADAPT, benchdamic, combi, dar, DspikeIn, FinfoMDS, MBECS,
         Rsearch, speedytax, structSSI, TaxaNorm, treeDA
 suggestsMe: ANCOMBC, CrcBiomeScreen, decontam, lefser, MeLSI, MGnifyR,
         mia, MicrobiotaProcess, MMUPHin, philr, HMP16SData, OMA,
-        corncob, demulticoder, FAVA, fido, file2meco, LorMe, metacoder,
-        MIDASim, parafac4microbiome, pctax, phyloregion, radEmu,
-        readyomics, SQMtools, strollur
+        corncob, demulticoder, FAVA, fido, file2meco, hilldiv3, LorMe,
+        metacoder, MIDASim, parafac4microbiome, pctax, phyloregion,
+        radEmu, readyomics, SQMtools, strollur
 dependencyCount: 66
 
 Package: piano
@@ -80715,7 +80715,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/plaid/inst/doc/compare-vignette.R,
         vignettes/plaid/inst/doc/plaid-vignette.R
-dependencyCount: 126
+dependencyCount: 120
 
 Package: planet
 Version: 1.20.0
@@ -80763,13 +80763,13 @@ suggestsMe: eoPredData
 dependencyCount: 19
 
 Package: planttfhunter
-Version: 1.12.0
+Version: 1.12.1
 Depends: R (>= 4.2.0)
 Imports: Biostrings, SummarizedExperiment, utils, methods
 Suggests: BiocStyle, covr, sessioninfo, knitr, rmarkdown, testthat (>=
         3.0.0)
 License: GPL-3
-MD5sum: d5a71a9e705083eb90c594d5e0772dd1
+MD5sum: 2a3aac05ee13cb145c2b723c87a8da4c
 NeedsCompilation: no
 Title: Identification and classification of plant transcription factors
 Description: planttfhunter is used to identify plant transcription
@@ -80794,10 +80794,10 @@ VignetteBuilder: knitr
 BugReports: https://support.bioconductor.org/t/planttfhunter
 git_url: https://git.bioconductor.org/packages/planttfhunter
 git_branch: RELEASE_3_23
-git_last_commit: 677b1c7
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/planttfhunter_1.12.0.tar.gz
+git_last_commit: e95e5e2
+git_last_commit_date: 2026-10-06
+Date/Publication: 2026-10-06
+source.ver: src/contrib/planttfhunter_1.12.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/planttfhunter_1.12.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/planttfhunter_1.12.0.tgz
@@ -81742,7 +81742,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/PolySTest/inst/doc/StatisticalTest.R
-dependencyCount: 137
+dependencyCount: 133
 
 Package: Polytect
 Version: 1.4.0
@@ -84364,7 +84364,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/qmtools/inst/doc/qmtools.R
-dependencyCount: 140
+dependencyCount: 135
 
 Package: qpcrNorm
 Version: 1.70.0
@@ -96576,7 +96576,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scFeatures/inst/doc/scFeatures_overview.R
-dependencyCount: 237
+dependencyCount: 232
 
 Package: scGPS
 Version: 1.26.0
@@ -98577,7 +98577,7 @@ Rfiles:
         vignettes/scTensor/inst/doc/scTensor_3_CCI_Simulation.R,
         vignettes/scTensor/inst/doc/scTensor_4_Reanalysis.R,
         vignettes/scTensor/inst/doc/scTensor.R
-dependencyCount: 234
+dependencyCount: 231
 
 Package: scTGIF
 Version: 1.26.0
@@ -99087,7 +99087,7 @@ Rfiles: vignettes/sechm/inst/doc/sechm.R
 dependsOnMe: SEtools
 importsMe: broadSeq
 suggestsMe: OMA
-dependencyCount: 74
+dependencyCount: 69
 
 Package: segmenter
 Version: 1.18.0
@@ -100300,7 +100300,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SEtools/inst/doc/SEtools.R
-dependencyCount: 121
+dependencyCount: 119
 
 Package: sevenbridges
 Version: 1.42.0
@@ -100463,7 +100463,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/sfi/inst/doc/workflow.R
-dependencyCount: 116
+dependencyCount: 77
 
 Package: SGSeq
 Version: 1.46.0
@@ -100774,7 +100774,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/shinyepico/inst/doc/shiny_epico.R
-dependencyCount: 211
+dependencyCount: 208
 
 Package: shinyMethyl
 Version: 1.48.0
@@ -101339,7 +101339,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/signifinder/inst/doc/signifinder.R
-dependencyCount: 253
+dependencyCount: 247
 
 Package: SigsPack
 Version: 1.26.0
@@ -102515,9 +102515,8 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/singscore/inst/doc/singscore.R
-importsMe: GSABenchmark, pathMED, TBSignatureProfiler, xCell2,
-        clustermole
-suggestsMe: mastR, vissE, msigdb
+importsMe: GSABenchmark, pathMED, TBSignatureProfiler, xCell2
+suggestsMe: mastR, vissE, msigdb, clustermole
 dependencyCount: 120
 
 Package: SiPSiC
@@ -106220,7 +106219,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/SpliceWiz/inst/doc/SW_Cookbook.R,
         vignettes/SpliceWiz/inst/doc/SW_QuickStart.R
-dependencyCount: 197
+dependencyCount: 193
 
 Package: SplicingFactory
 Version: 1.20.0
@@ -108619,7 +108618,7 @@ suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
         multiWGCNAdata, pRolocdata, RforProteomics, SBGNview.data,
         tissueTreg, CAGEWorkflow, biocohort, bioIOT, Canek, CimpleG,
         clustree, conos, CytoSimplex, dependentsimr, dyngen, file2meco,
-        ggmlR, ggpicrust2, lfc, lstar, methFuse, MiscMetabar,
+        ggmlR, ggpicrust2, hilldiv3, lfc, lstar, methFuse, MiscMetabar,
         parafac4microbiome, polyRAD, presto, R.ComDim, RaceID, radEmu,
         RGraphSpace, rliger, scFlex, scStability, seqgendiff, Seurat,
         Signac, singleCellHaystack, speakeasyR, splitGraph, SuperCell,
@@ -110542,7 +110541,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/TBSignatureProfiler/inst/doc/tbspVignetteT.R
 suggestsMe: LegATo
-dependencyCount: 183
+dependencyCount: 177
 
 Package: TCC
 Version: 1.52.0
@@ -114124,7 +114123,7 @@ dependsOnMe: ExperimentSubset, HoloFoodR, MGnifyR, mia, miaSim, miaViz,
 importsMe: anansi, benchdamic, CrcBiomeScreen, DspikeIn, iSEEtree,
         miaDash, miaTime, treeclimbR, mikropml
 suggestsMe: ANCOMBC, dar, LimROTS, maaslin3, philr, PLSDAbatch, LegATo,
-        file2meco, parafac4microbiome, radEmu
+        file2meco, hilldiv3, parafac4microbiome, radEmu
 dependencyCount: 67
 
 Package: TREG
@@ -116983,7 +116982,7 @@ Rfiles: vignettes/ViSEAGO/inst/doc/fgsea_alternative.R,
         vignettes/ViSEAGO/inst/doc/mouse_bioconductor.R,
         vignettes/ViSEAGO/inst/doc/SS_choice.R,
         vignettes/ViSEAGO/inst/doc/ViSEAGO.R
-dependencyCount: 173
+dependencyCount: 168
 
 Package: VisiumIO
 Version: 1.8.0
