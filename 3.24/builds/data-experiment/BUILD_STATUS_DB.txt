@@ -129,7 +129,7 @@ bsseqData#nebbiolo2#buildsrc: OK
 bsseqData#nebbiolo2#checksrc: WARNINGS
 bugphyzz#nebbiolo2#install: OK
 bugphyzz#nebbiolo2#buildsrc: OK
-bugphyzz#nebbiolo2#checksrc: OK
+bugphyzz#nebbiolo2#checksrc: ERROR
 cancerdata#nebbiolo2#install: OK
 cancerdata#nebbiolo2#buildsrc: OK
 cancerdata#nebbiolo2#checksrc: OK

@@ -40,7 +40,6 @@ breastCancerVDX#source#propagate: UNNEEDED, same version is already published
 brgedata#source#propagate: UNNEEDED, same version is already published
 bronchialIL13#source#propagate: UNNEEDED, same version is already published
 bsseqData#source#propagate: UNNEEDED, same version is already published
-bugphyzz#source#propagate: UNNEEDED, same version is already published
 cancerdata#source#propagate: UNNEEDED, same version is already published
 CardinalWorkflows#source#propagate: UNNEEDED, same version is already published
 ccdata#source#propagate: UNNEEDED, same version is already published
@@ -361,6 +360,7 @@ signatureSearchData#source#propagate: UNNEEDED, same version is already publishe
 SimBenchData#source#propagate: UNNEEDED, same version is already published
 simpIntLists#source#propagate: UNNEEDED, same version is already published
 Single.mTEC.Transcriptomes#source#propagate: UNNEEDED, same version is already published
+SingleCellMultiModal#source#propagate: UNNEEDED, same version is already published
 SingleMoleculeFootprintingData#source#propagate: UNNEEDED, same version is already published
 smokingMouse#source#propagate: UNNEEDED, same version is already published
 SNAData#source#propagate: UNNEEDED, same version is already published

@@ -39,7 +39,6 @@ breastCancerVDX#source#propagate: UNNEEDED, same version is already published
 brgedata#source#propagate: UNNEEDED, same version is already published
 bronchialIL13#source#propagate: UNNEEDED, same version is already published
 bsseqData#source#propagate: UNNEEDED, same version is already published
-bugphyzz#source#propagate: UNNEEDED, same version is already published
 cancerdata#source#propagate: UNNEEDED, same version is already published
 CardinalWorkflows#source#propagate: UNNEEDED, same version is already published
 ccdata#source#propagate: UNNEEDED, same version is already published
@@ -76,7 +75,7 @@ crisprScoreData#source#propagate: UNNEEDED, same version is already published
 curatedAdipoArray#source#propagate: UNNEEDED, same version is already published
 curatedAdipoChIP#source#propagate: UNNEEDED, same version is already published
 curatedAdipoRNA#source#propagate: UNNEEDED, same version is already published
-curatedBladderData#source#propagate: UNNEEDED, same version is already published
+curatedBladderData#source#propagate: YES
 curatedBreastData#source#propagate: UNNEEDED, same version is already published
 curatedCRCData#source#propagate: YES
 curatedOvarianData#source#propagate: YES
@@ -141,7 +140,7 @@ gageData#source#propagate: UNNEEDED, same version is already published
 gaschYHS#source#propagate: UNNEEDED, same version is already published
 gcspikelite#source#propagate: UNNEEDED, same version is already published
 gDNAinRNAseqData#source#propagate: UNNEEDED, same version is already published
-gDRtestData#source#propagate: YES
+gDRtestData#source#propagate: UNNEEDED, same version is already published
 geneLenDataBase#source#propagate: UNNEEDED, same version is already published
 genomationData#source#propagate: UNNEEDED, same version is already published
 GenomicDistributionsData#source#propagate: UNNEEDED, same version is already published
@@ -337,7 +336,7 @@ scaeData#source#propagate: UNNEEDED, same version is already published
 scanMiRData#source#propagate: UNNEEDED, same version is already published
 scATAC.Explorer#source#propagate: UNNEEDED, same version is already published
 SCLCBam#source#propagate: UNNEEDED, same version is already published
-scMultiome#source#propagate: YES
+scMultiome#source#propagate: UNNEEDED, same version is already published
 scRNAseq#source#propagate: UNNEEDED, same version is already published
 scTHI.data#source#propagate: UNNEEDED, same version is already published
 seq2pathway.data#source#propagate: UNNEEDED, same version is already published

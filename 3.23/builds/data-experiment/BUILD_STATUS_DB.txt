@@ -126,7 +126,7 @@ bsseqData#nebbiolo1#buildsrc: OK
 bsseqData#nebbiolo1#checksrc: WARNINGS
 bugphyzz#nebbiolo1#install: OK
 bugphyzz#nebbiolo1#buildsrc: OK
-bugphyzz#nebbiolo1#checksrc: OK
+bugphyzz#nebbiolo1#checksrc: ERROR
 cancerdata#nebbiolo1#install: OK
 cancerdata#nebbiolo1#buildsrc: OK
 cancerdata#nebbiolo1#checksrc: OK
@@ -1119,7 +1119,7 @@ Single.mTEC.Transcriptomes#nebbiolo1#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo1#checksrc: OK
 SingleCellMultiModal#nebbiolo1#install: OK
 SingleCellMultiModal#nebbiolo1#buildsrc: OK
-SingleCellMultiModal#nebbiolo1#checksrc: ERROR
+SingleCellMultiModal#nebbiolo1#checksrc: OK
 SingleMoleculeFootprintingData#nebbiolo1#install: OK
 SingleMoleculeFootprintingData#nebbiolo1#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo1#checksrc: OK

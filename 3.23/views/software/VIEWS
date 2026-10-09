@@ -29142,7 +29142,7 @@ Rfiles: vignettes/DEsingle/inst/doc/DEsingle.R
 dependencyCount: 39
 
 Package: DESpace
-Version: 2.4.0
+Version: 2.4.1
 Depends: R (>= 4.5.0)
 Imports: edgeR, limma, dplyr, stats, Matrix, SpatialExperiment,
         ggplot2, SummarizedExperiment, S4Vectors, BiocGenerics,
@@ -29154,7 +29154,7 @@ Suggests: knitr, rmarkdown, testthat, BiocStyle, muSpaData,
         concaveman
 License: GPL-3
 Archs: x64
-MD5sum: 105ff1bf39b8fd51c36754de30f20b22
+MD5sum: 8876eb82378117b6b494b0bd78be4ab6
 NeedsCompilation: no
 Title: DESpace: a framework to discover spatially variable genes and
         differential spatial patterns across conditions
@@ -29171,13 +29171,16 @@ Description: Intuitive framework for identifying spatially variable
         interactions as covariates. DSP genes-representing differences
         in spatial gene expression patterns across experimental
         conditions-are identified by testing the interaction between
-        spatial clusters and conditions.
+        spatial clusters and conditions. See Cai et al. (2024)
+        <doi:10.1093/bioinformatics/btae027> and Cai et al. (2026)
+        <doi:10.1093/bioinformatics/btag450>.
 biocViews: Spatial, SingleCell, RNASeq, Transcriptomics,
         GeneExpression, Sequencing,
         DifferentialExpression,StatisticalMethod, Visualization
 Author: Peiying Cai [aut, cre] (ORCID:
-        <https://orcid.org/0009-0001-9229-2244>), Simone Tiberi [aut]
-        (ORCID: <https://orcid.org/0000-0002-3054-9964>)
+        <https://orcid.org/0009-0001-9229-2244>), Mark D. Robinson
+        [aut] (ORCID: <https://orcid.org/0000-0002-3048-5518>), Simone
+        Tiberi [aut] (ORCID: <https://orcid.org/0000-0002-3054-9964>)
 Maintainer: Peiying Cai <peiying.cai@uzh.ch>
 URL: https://github.com/peicai/DESpace,
         https://peicai.github.io/DESpace/
@@ -29185,10 +29188,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/peicai/DESpace/issues
 git_url: https://git.bioconductor.org/packages/DESpace
 git_branch: RELEASE_3_23
-git_last_commit: 93c47a3
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/DESpace_2.4.0.tar.gz
+git_last_commit: 1fa643f
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-07
+source.ver: src/contrib/DESpace_2.4.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/DESpace_2.4.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/DESpace_2.4.0.tgz
@@ -48161,7 +48164,7 @@ Rfiles: vignettes/GSRI/inst/doc/gsri.R
 dependencyCount: 64
 
 Package: GSVA
-Version: 2.6.10
+Version: 2.6.11
 Depends: R (>= 4.0.0)
 Imports: methods, stats, utils, graphics, BiocGenerics, MatrixGenerics,
         S4Vectors, S4Arrays, HDF5Array, SparseArray, DelayedArray,
@@ -48176,7 +48179,7 @@ Suggests: RUnit, BiocStyle, knitr, rmarkdown, limma, RColorBrewer,
         data.table, plotly, future, promises, shinybusy, shinyjs
 License: Artistic-2.0
 Archs: x64
-MD5sum: 9333cd2d825cf09a70cfb43cc784b04f
+MD5sum: eedd63f95574b3c4426925057982b682
 NeedsCompilation: yes
 Title: Gene Set Variation Analysis for Microarray and RNA-Seq Data
 Description: Gene Set Variation Analysis (GSVA) is a non-parametric,
@@ -48203,10 +48206,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/rcastelo/GSVA/issues
 git_url: https://git.bioconductor.org/packages/GSVA
 git_branch: RELEASE_3_23
-git_last_commit: e1447e5
-git_last_commit_date: 2026-10-05
-Date/Publication: 2026-10-05
-source.ver: src/contrib/GSVA_2.6.10.tar.gz
+git_last_commit: bd0c90e
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-07
+source.ver: src/contrib/GSVA_2.6.11.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.10.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.10.tgz
@@ -62876,7 +62879,7 @@ Date/Publication: 2026-09-07
 source.ver: src/contrib/MetaboDynamics_2.2.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/MetaboDynamics_2.2.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/MetaboDynamics_2.2.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/MetaboDynamics_2.2.1.tgz
 mac.binary.sonoma-arm64.ver:
         bin/macosx/sonoma-arm64/contrib/4.6/MetaboDynamics_2.2.1.tgz
 vignettes:
@@ -68556,6 +68559,63 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/Motif2Site/inst/doc/Motif2Site.R
 dependencyCount: 124
+
+Package: motifbreakR
+Version: 2.26.1
+Depends: R (>= 4.4.0), grid, MotifDb
+Imports: methods, grDevices, stringr, parallel, BiocGenerics, S4Vectors
+        (>= 0.9.25), IRanges, GenomeInfoDb, GenomicRanges, Biostrings,
+        BSgenome, rtracklayer, VariantAnnotation, BiocParallel,
+        motifStack, Gviz, matrixStats, TFMPvalue, SummarizedExperiment,
+        pwalign, DT, bsicons, BiocFileCache, biomaRt, bslib, shiny,
+        vroom
+Suggests: BSgenome.Hsapiens.UCSC.hg19,
+        SNPlocs.Hsapiens.dbSNP155.GRCh37, knitr, rmarkdown,
+        BSgenome.Drerio.UCSC.danRer7, BiocStyle,
+        BSgenome.Hsapiens.1000genomes.hs37d5,
+        BSgenome.Hsapiens.UCSC.hg19.masked,
+        BSgenome.Hsapiens.NCBI.GRCh38,
+        BSgenome.Hsapiens.UCSC.hg38.masked, BSgenome.Hsapiens.UCSC.hg38
+License: GPL-2
+MD5sum: e874cc82ae3d1dda6b9ec6b21fe053f9
+NeedsCompilation: no
+Title: A Package For Predicting The Disruptiveness Of Single Nucleotide
+        Polymorphisms On Transcription Factor Binding Sites
+Description: We introduce motifbreakR, which allows the biologist to
+        judge in the first place whether the sequence surrounding the
+        polymorphism is a good match, and in the second place how much
+        information is gained or lost in one allele of the polymorphism
+        relative to another. MotifbreakR is both flexible and
+        extensible over previous offerings; giving a choice of
+        algorithms for interrogation of genomes with motifs from public
+        sources that users can choose from; these are 1) a weighted-sum
+        probability matrix, 2) log-probabilities, and 3) weighted by
+        relative entropy. MotifbreakR can predict effects for novel or
+        previously described variants in public databases, making it
+        suitable for tasks beyond the scope of its original design.
+        Lastly, it can be used to interrogate any genome curated within
+        Bioconductor (currently there are 32 species, a total of 109
+        versions).
+biocViews: ChIPSeq, Visualization, MotifAnnotation, Transcription
+Author: Simon Gert Coetzee [aut, cre] (ORCID:
+        <https://orcid.org/0000-0003-4267-5930>), Dennis J. Hazelett
+        [aut]
+Maintainer: Simon Gert Coetzee <coetzee@uthscsa.edu>
+VignetteBuilder: knitr
+BugReports: https://github.com/Simon-Coetzee/motifbreakR/issues
+git_url: https://git.bioconductor.org/packages/motifbreakR
+git_branch: RELEASE_3_23
+git_last_commit: aa7fb28
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-07
+source.ver: src/contrib/motifbreakR_2.26.1.tar.gz
+vignettes: vignettes/motifbreakR/inst/doc/motifbreakR-vignette.html
+vignetteTitles: motifbreakR: an Introduction
+hasREADME: FALSE
+hasNEWS: FALSE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles: vignettes/motifbreakR/inst/doc/motifbreakR-vignette.R
 
 Package: motifcounter
 Version: 1.35.0
@@ -80798,11 +80858,11 @@ git_last_commit: e95e5e2
 git_last_commit_date: 2026-10-06
 Date/Publication: 2026-10-06
 source.ver: src/contrib/planttfhunter_1.12.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/planttfhunter_1.12.0.zip
+win.binary.ver: bin/windows/contrib/4.6/planttfhunter_1.12.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/planttfhunter_1.12.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/planttfhunter_1.12.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/planttfhunter_1.12.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/planttfhunter_1.12.1.tgz
 vignettes: vignettes/planttfhunter/inst/doc/vignette_planttfhunter.html
 vignetteTitles: Genome-wide identification and classification of
         transcription factors in plant genomes
@@ -86725,13 +86785,13 @@ importsMe: CircSeqAlignTk, esATAC, UMI4Cats, MetaScope
 dependencyCount: 30
 
 Package: RbowtieCuda
-Version: 1.4.3
+Version: 1.4.4
 Depends: R (>= 4.5.0)
 Imports: methods
 Suggests: knitr, rmarkdown, RUnit, BiocGenerics
 License: BSD_3_clause + file LICENSE
 Archs: x64
-MD5sum: 9e5cf47d4b0e7f9024529682e0290f0f
+MD5sum: 218fcbf6ff3128974715b7142dbee7d0
 NeedsCompilation: yes
 Title: An R Wrapper for nvBowtie and nvBWT, a rewritten version of
         Bowtie2 for cuda
@@ -86753,10 +86813,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/FranckRICHARD01/RbowtieCuda/issues
 git_url: https://git.bioconductor.org/packages/RbowtieCuda
 git_branch: RELEASE_3_23
-git_last_commit: 9835091
-git_last_commit_date: 2026-05-08
-Date/Publication: 2026-05-08
-source.ver: src/contrib/RbowtieCuda_1.4.3.tar.gz
+git_last_commit: 349b599
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-07
+source.ver: src/contrib/RbowtieCuda_1.4.4.tar.gz
 vignettes: vignettes/RbowtieCuda/inst/doc/RbowtieCuda-Introduction.html
 vignetteTitles: An Introduction to RbowtieCuda
 hasREADME: FALSE
@@ -119606,49 +119666,6 @@ Author: Gopuraja Dharmalingam, Doug Barrows, Tom Carroll
 Maintainer: Tom Carroll <tc.infomatics@gmail.com>
 VignetteBuilder: knitr
 PackageStatus: Deprecated
-
-Package: motifbreakR
-Version: 2.26.0
-Depends: R (>= 4.4.0), grid, MotifDb
-Imports: methods, grDevices, stringr, parallel, BiocGenerics, S4Vectors
-        (>= 0.9.25), IRanges, GenomeInfoDb, GenomicRanges, Biostrings,
-        BSgenome, rtracklayer, VariantAnnotation, BiocParallel,
-        motifStack, Gviz, matrixStats, TFMPvalue, SummarizedExperiment,
-        pwalign, DT, bsicons, BiocFileCache, biomaRt, bslib, shiny,
-        vroom
-Suggests: BSgenome.Hsapiens.UCSC.hg19,
-        SNPlocs.Hsapiens.dbSNP155.GRCh37, knitr, rmarkdown,
-        BSgenome.Drerio.UCSC.danRer7, BiocStyle,
-        BSgenome.Hsapiens.1000genomes.hs37d5,
-        BSgenome.Hsapiens.UCSC.hg19.masked,
-        BSgenome.Hsapiens.NCBI.GRCh38,
-        BSgenome.Hsapiens.UCSC.hg38.masked, BSgenome.Hsapiens.UCSC.hg38
-License: GPL-2
-NeedsCompilation: no
-Title: A Package For Predicting The Disruptiveness Of Single Nucleotide
-        Polymorphisms On Transcription Factor Binding Sites
-Description: We introduce motifbreakR, which allows the biologist to
-        judge in the first place whether the sequence surrounding the
-        polymorphism is a good match, and in the second place how much
-        information is gained or lost in one allele of the polymorphism
-        relative to another. MotifbreakR is both flexible and
-        extensible over previous offerings; giving a choice of
-        algorithms for interrogation of genomes with motifs from public
-        sources that users can choose from; these are 1) a weighted-sum
-        probability matrix, 2) log-probabilities, and 3) weighted by
-        relative entropy. MotifbreakR can predict effects for novel or
-        previously described variants in public databases, making it
-        suitable for tasks beyond the scope of its original design.
-        Lastly, it can be used to interrogate any genome curated within
-        Bioconductor (currently there are 32 species, a total of 109
-        versions).
-biocViews: ChIPSeq, Visualization, MotifAnnotation, Transcription
-Author: Simon Gert Coetzee [aut, cre] (ORCID:
-        <https://orcid.org/0000-0003-4267-5930>), Dennis J. Hazelett
-        [aut]
-Maintainer: Simon Gert Coetzee <coetzee@uthscsa.edu>
-VignetteBuilder: knitr
-BugReports: https://github.com/Simon-Coetzee/motifbreakR/issues
 
 Package: RiboProfiling
 Version: 1.42.0
