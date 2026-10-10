@@ -5581,10 +5581,10 @@ importsMe: TBSignatureProfiler
 dependencyCount: 93
 
 Package: assorthead
-Version: 1.6.3
+Version: 1.6.4
 Suggests: knitr, rmarkdown, BiocStyle
 License: MIT + file LICENSE
-MD5sum: 0900a80795ea2dbc2bdb97e85b80e693
+MD5sum: 3d29d7ace812a2181e89898b0d871c0a
 NeedsCompilation: no
 Title: Assorted Header-Only C++ Libraries
 Description: Vendors an assortment of useful header-only C++ libraries.
@@ -5604,10 +5604,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/LTLA/assorthead/issues
 git_url: https://git.bioconductor.org/packages/assorthead
 git_branch: RELEASE_3_23
-git_last_commit: 9ee2dd8
-git_last_commit_date: 2026-05-25
-Date/Publication: 2026-05-25
-source.ver: src/contrib/assorthead_1.6.3.tar.gz
+git_last_commit: fb2bf57
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-08
+source.ver: src/contrib/assorthead_1.6.4.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/assorthead_1.6.3.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/assorthead_1.6.3.tgz
@@ -9663,8 +9663,8 @@ importsMe: AlphaMissenseR, AMARETTO, atSNP, autonomics, BayesSpace,
         enhancerHomologSearch, EnMCB, EnrichmentBrowser, EpiTxDb, fenr,
         fgga, GeDi, GenomicScores, GenomicSuperSignature, ggkegg,
         GSEABenchmarkeR, gwascat, imageFeatureTCGA, iSEEindex, MBQN,
-        MIRit, MotifPeeker, MsBackendMetaboLights, msPurity,
-        OmicsMLRepoR, ontoProc, ORFik, OSTA.data, PhIPData,
+        MIRit, motifbreakR, MotifPeeker, MsBackendMetaboLights,
+        msPurity, OmicsMLRepoR, ontoProc, ORFik, OSTA.data, PhIPData,
         PlinkMatrix, PMScanR, postNet, psichomics, rBLAST, recount3,
         recountmethylation, regutools, ReUseData, RiboDiPA, rpx, scviR,
         sesame, signeR, SMTrackR, spacexr, SpatialExperiment,
@@ -9787,29 +9787,30 @@ importsMe: a4Preproc, affycoretools, affylmGUI, alabaster.bumpy,
         methInheritSim, MethylAid, methylPipe, methylumi, mia, miaViz,
         miloR, mimager, MinimumDistance, MIRA, MiRaGE, missMethyl,
         mist, mobileRNA, Modstrings, mogsa, monaLisa, monocle,
-        Moonlight2R, Motif2Site, msa, MsBackendSql, MsExperiment,
-        MSnID, MultiAssayExperiment, multicrispr, MultiDataSet,
-        multiMiR, MultimodalExperiment, mumosa, MutationalPatterns,
-        mutscan, MutSeqR, mzR, NanoStringNCTools, nearBynding, notame,
-        notameStats, notameViz, npGSEA, nucleR, oligoClasses, openCyto,
-        openPrimeR, ORFik, OUTRIDER, parati, parglms, pcaMethods,
-        PDATK, pdInfoBuilder, PharmacoGx, PhIPData, PhosR, phyloseq,
-        piano, PIPETS, plyinteractions, podkat, pram, primirTSS, proDA,
-        profileScoreDist, pRoloc, pRolocGUI, ProteoDisco, PSMatch,
-        PureCN, QDNAseq, QFeatures, qPLEXanalyzer, qsea, QTLExperiment,
-        QuasR, R3CPET, R453Plus1Toolbox, RadioGx, raer,
-        RaggedExperiment, ramr, ramwas, RCAS, RCy3, RCyjs, recoup,
-        ReducedExperiment, REMP, ReportingTools, RGSEA, RiboCrypt,
-        RiboDiPA, ribosomeProfilingQC, RJMCMCNucleosomes, rnaEditr,
-        RNAmodR, RNAmodR.AlkAnilineSeq, RNAmodR.ML,
-        RNAmodR.RiboMethSeq, RNAseqCovarImpute, roar, Rqc, rqubic,
-        Rsamtools, rsbml, rScudo, RTCGAToolbox, rtracklayer, SanityR,
-        saseR, SC3, SCArray.sat, scater, scDblFinder, scDotPlot,
-        scECODA, scmap, scmeth, SCnorm, SCOPE, scPipe, scran, scruff,
-        scuttle, SEMPLR, SeqVarTools, sevenC, SGSeq, SharedObject,
-        shinyDSP, shinyMethyl, signatureSearch, signeR, signifinder,
-        simPIC, SingleCellExperiment, SingleMoleculeFootprinting,
-        SingleR, sitadela, Site2Target, SNPhood, snpStats, sparrow,
+        Moonlight2R, Motif2Site, motifbreakR, msa, MsBackendSql,
+        MsExperiment, MSnID, MultiAssayExperiment, multicrispr,
+        MultiDataSet, multiMiR, MultimodalExperiment, mumosa,
+        MutationalPatterns, mutscan, MutSeqR, mzR, NanoStringNCTools,
+        nearBynding, notame, notameStats, notameViz, npGSEA, nucleR,
+        oligoClasses, openCyto, openPrimeR, ORFik, OUTRIDER, parati,
+        parglms, pcaMethods, PDATK, pdInfoBuilder, PharmacoGx,
+        PhIPData, PhosR, phyloseq, piano, PIPETS, plyinteractions,
+        podkat, pram, primirTSS, proDA, profileScoreDist, pRoloc,
+        pRolocGUI, ProteoDisco, PSMatch, PureCN, QDNAseq, QFeatures,
+        qPLEXanalyzer, qsea, QTLExperiment, QuasR, R3CPET,
+        R453Plus1Toolbox, RadioGx, raer, RaggedExperiment, ramr,
+        ramwas, RCAS, RCy3, RCyjs, recoup, ReducedExperiment, REMP,
+        ReportingTools, RGSEA, RiboCrypt, RiboDiPA,
+        ribosomeProfilingQC, RJMCMCNucleosomes, rnaEditr, RNAmodR,
+        RNAmodR.AlkAnilineSeq, RNAmodR.ML, RNAmodR.RiboMethSeq,
+        RNAseqCovarImpute, roar, Rqc, rqubic, Rsamtools, rsbml, rScudo,
+        RTCGAToolbox, rtracklayer, SanityR, saseR, SC3, SCArray.sat,
+        scater, scDblFinder, scDotPlot, scECODA, scmap, scmeth, SCnorm,
+        SCOPE, scPipe, scran, scruff, scuttle, SEMPLR, SeqVarTools,
+        sevenC, SGSeq, SharedObject, shinyDSP, shinyMethyl,
+        signatureSearch, signeR, signifinder, simPIC,
+        SingleCellExperiment, SingleMoleculeFootprinting, SingleR,
+        sitadela, Site2Target, SNPhood, snpStats, sparrow,
         SpatialExperiment, SpatialFeatureExperiment, Spectra, splatter,
         SpliceWiz, SplicingGraphs, SplineDV, sRACIPE, sscu, StabMap,
         standR, strandCheckR, Structstrings, SummarizedExperiment, SVP,
@@ -10349,8 +10350,8 @@ importsMe: abseqR, ADImpute, AffiXcan, ALDEx2, AlphaBeta, AlpsNMR,
         metaseqR2, methodical, MethylAid, methylGSA, methyLImp2,
         methylInheritance, methylscaper, methylumi, MetNet, mia,
         miaViz, MICSQTL, miloR, minfi, MIRit, mist, mixOmics, MOGAMUN,
-        MoleculeExperiment, monaLisa, MotifPeeker, MPAC, MPRAnalyze,
-        MsBackendMassbank, MsBackendMgf, MsBackendMsp,
+        MoleculeExperiment, monaLisa, motifbreakR, MotifPeeker, MPAC,
+        MPRAnalyze, MsBackendMassbank, MsBackendMgf, MsBackendMsp,
         MsBackendRawFileReader, MsBackendSql, MSnbase, msqrob2,
         MsQuality, MSstatsResponse, multiHiCcompare, mumosa, muscat,
         NBAMSeq, nnSVG, notame, notameStats, NPARC, omicsGMF, ORFik,
@@ -10584,7 +10585,7 @@ suggestsMe: dearseq, citcdf
 dependencyCount: 57
 
 Package: BiocSingular
-Version: 1.28.0
+Version: 1.28.1
 Imports: BiocGenerics, S4Vectors, Matrix, methods, utils, DelayedArray,
         BiocParallel, ScaledMatrix, irlba, rsvd, Rcpp, beachmat (>=
         2.25.1)
@@ -10592,7 +10593,7 @@ LinkingTo: Rcpp, beachmat, assorthead
 Suggests: testthat, BiocStyle, knitr, rmarkdown, ResidualMatrix
 License: GPL-3
 Archs: x64
-MD5sum: ad586e9236ce6ee15e6ae67dc3180e45
+MD5sum: e81f52e88e8fceee9a3362c63ecad3f5
 NeedsCompilation: yes
 Title: Singular Value Decomposition for Bioconductor Packages
 Description: Implements exact and approximate methods for singular
@@ -10609,10 +10610,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/LTLA/BiocSingular/issues
 git_url: https://git.bioconductor.org/packages/BiocSingular
 git_branch: RELEASE_3_23
-git_last_commit: 675ff54
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/BiocSingular_1.28.0.tar.gz
+git_last_commit: 6f81946
+git_last_commit_date: 2026-10-07
+Date/Publication: 2026-10-08
+source.ver: src/contrib/BiocSingular_1.28.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/BiocSingular_1.28.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/BiocSingular_1.28.0.tgz
@@ -10874,29 +10875,30 @@ suggestsMe: ACE, ADAM, ADAMgui, ADImpute, AffiXcan, affycoretools,
         mitology, mixOmics, MLInterfaces, MMDiff2, MMUPHin, mnem,
         moanin, mobileRNA, MODA, Modstrings, MOFA2, mogsa,
         MoleculeExperiment, MOMA, monaLisa, Moonlight2R, MoonlightR,
-        mosbi, MOSClip, mosdef, MOSim, Motif2Site, MotifDb, motifStack,
-        motifTestR, MouseFM, mpra, MSA2dist, MsBackendMassbank,
-        MsBackendMetaboLights, MsBackendMgf, MsBackendMsp,
-        MsBackendRawFileReader, MsBackendSql, MsCoreUtils, MsDataHub,
-        MsExperiment, MsFeatures, msImpute, mslp, MSnbase, mspms,
-        MSPrep, msPurity, msqrob2, MsQuality, MSstats, MSstatsBioNet,
-        MSstatsLiP, MSstatsLOBD, MSstatsResponse, MSstatsTMT, MuData,
-        MultiAssayExperiment, MultiBaC, multicrispr, MultiDataSet,
-        multiGSEA, multiHiCcompare, multiMiR, MultimodalExperiment,
-        MultiRNAflow, multistateQTL, multiWGCNA, mumosa, MungeSumstats,
-        muscat, musicatk, MutationalPatterns, mutscan, MutSeqR,
-        MWASTools, mygene, myvariant, mzR, NADfinder, NanoMethViz,
-        NanoStringDiff, ncGTW, ncRNAtools, ndexr, Nebulosa, nempi,
-        NetActivity, netboost, nethet, NetPathMiner, netprioR,
-        netSmooth, NewWave, ngsReports, nipalsMCIA, nnSVG, nondetects,
-        NormalyzerDE, normr, notame, notameStats, notameViz, NPARC,
-        npGSEA, nucleoSim, nucleR, oligo, omicade4, omicRexposome,
-        omicsGMF, OmicsMLRepoR, omicsPrint, omicsViewer, Omixer,
-        OmnipathR, omXplore, oncoscanR, OncoScore, OncoSimulR,
-        ontoProc, optimalFlow, OPWeight, ORFhunteR, ORFik, OrganismDbi,
-        orthogene, orthos, Oscope, OSTA.data, OUTRIDER, OutSplice,
-        OVESEG, PAA, packFinder, padma, PAIRADISE, pairedGSEA, pairkat,
-        PanomiR, parati, parglms, parody, Path2PPI, pathlinkR, pathMED,
+        mosbi, MOSClip, mosdef, MOSim, Motif2Site, motifbreakR,
+        MotifDb, motifStack, motifTestR, MouseFM, mpra, MSA2dist,
+        MsBackendMassbank, MsBackendMetaboLights, MsBackendMgf,
+        MsBackendMsp, MsBackendRawFileReader, MsBackendSql,
+        MsCoreUtils, MsDataHub, MsExperiment, MsFeatures, msImpute,
+        mslp, MSnbase, mspms, MSPrep, msPurity, msqrob2, MsQuality,
+        MSstats, MSstatsBioNet, MSstatsLiP, MSstatsLOBD,
+        MSstatsResponse, MSstatsTMT, MuData, MultiAssayExperiment,
+        MultiBaC, multicrispr, MultiDataSet, multiGSEA,
+        multiHiCcompare, multiMiR, MultimodalExperiment, MultiRNAflow,
+        multistateQTL, multiWGCNA, mumosa, MungeSumstats, muscat,
+        musicatk, MutationalPatterns, mutscan, MutSeqR, MWASTools,
+        mygene, myvariant, mzR, NADfinder, NanoMethViz, NanoStringDiff,
+        ncGTW, ncRNAtools, ndexr, Nebulosa, nempi, NetActivity,
+        netboost, nethet, NetPathMiner, netprioR, netSmooth, NewWave,
+        ngsReports, nipalsMCIA, nnSVG, nondetects, NormalyzerDE, normr,
+        notame, notameStats, notameViz, NPARC, npGSEA, nucleoSim,
+        nucleR, oligo, omicade4, omicRexposome, omicsGMF, OmicsMLRepoR,
+        omicsPrint, omicsViewer, Omixer, OmnipathR, omXplore,
+        oncoscanR, OncoScore, OncoSimulR, ontoProc, optimalFlow,
+        OPWeight, ORFhunteR, ORFik, OrganismDbi, orthogene, orthos,
+        Oscope, OSTA.data, OUTRIDER, OutSplice, OVESEG, PAA,
+        packFinder, padma, PAIRADISE, pairedGSEA, pairkat, PanomiR,
+        parati, parglms, parody, Path2PPI, pathlinkR, pathMED,
         pcaExplorer, PCAN, PDATK, PeacoQC, peakCombiner, peakPantheR,
         Pedixplorer, PepSetTest, PepsNMR, pfamAnalyzeR, pgxRpi,
         phantasus, phantasusLite, PharmacoGx, phenopath, philr,
@@ -11418,15 +11420,15 @@ importsMe: BadRegionFinder, branchpointer, BUSpaRse, ChIPpeakAnno,
         dominoSignal, easyRNASeq, EDASeq, ELMER, EpiMix, epimutacions,
         FRASER, GDCRNATools, GenVisR, gINTomics, glmSparseNet,
         GOexpress, goSTAG, GRaNIE, Gviz, hermes, InterCellar, isobar,
-        LACE, mCSEA, MEDIPS, MetaboSignal, metaseqR2, MGFR, MouseFM,
-        OncoScore, oposSOM, ORFik, pcaExplorer, phenoTest, pRoloc,
-        ProteoMM, R453Plus1Toolbox, ramwas, recoup, ReducedExperiment,
-        rgsepd, scafari, scPipe, scQTLtools, seq2pathway, SeqGSEA,
-        singIST, sitadela, SpliceImpactR, SPLINTER, SPONGE, surfaltr,
-        SurfR, SWATH2stats, TCGAbiolinks, TEKRABber, terapadog,
-        TFEA.ChIP, transcriptogramer, txdbmaker, ViSEAGO, yarn,
-        biomartr, BioVenn, convertid, DiNAMIC.Duo, scGOclust,
-        snplinkage, snplist
+        LACE, mCSEA, MEDIPS, MetaboSignal, metaseqR2, MGFR,
+        motifbreakR, MouseFM, OncoScore, oposSOM, ORFik, pcaExplorer,
+        phenoTest, pRoloc, ProteoMM, R453Plus1Toolbox, ramwas, recoup,
+        ReducedExperiment, rgsepd, scafari, scPipe, scQTLtools,
+        seq2pathway, SeqGSEA, singIST, sitadela, SpliceImpactR,
+        SPLINTER, SPONGE, surfaltr, SurfR, SWATH2stats, TCGAbiolinks,
+        TEKRABber, terapadog, TFEA.ChIP, transcriptogramer, txdbmaker,
+        ViSEAGO, yarn, biomartr, BioVenn, convertid, DiNAMIC.Duo,
+        scGOclust, snplinkage, snplist
 suggestsMe: AnnotationForge, bioassayR, celda, ClusterJudge,
         crisprDesign, cTRAP, Damsel, DELocal, DOTSeq, epistack, fedup,
         FELLA, GeDi, h5vc, martini, massiR, MethReg, MiRaGE, MIRit,
@@ -11985,19 +11987,20 @@ importsMe: AllelicImbalance, AnnotationHubData, appreci8R, AssessORF,
         MesKit, metabinR, metaseqR2, methimpute, methodical,
         methylPipe, methylscaper, mia, microbiome, MicrobiotaProcess,
         microRNA, MMDiff2, mobileRNA, monaLisa, Motif2Site,
-        motifcounter, motifmatchr, MotifPeeker, motifStack, MSA2dist,
-        MSnID, MSstatsLiP, MSstatsPTM, multicrispr, MungeSumstats,
-        musicatk, MutationalPatterns, MutSeqR, NanoMethViz,
-        NanoStringNCTools, ngsReports, nucleR, oligoClasses, OmaDB,
-        openPrimeR, ORFik, OTUbase, packFinder, pdInfoBuilder,
-        PhyloProfile, phyloseq, PICB, pipeFrame, planttfhunter, podkat,
-        posDemux, postNet, primirTSS, proBAMr, procoil, profileplyr,
-        ProteoDisco, PureCN, Pviz, qPLEXanalyzer, qsea, QuasR, r3Cseq,
-        raer, ramwas, RCAS, Rcpi, recoup, regioneR, regutools, REMP,
-        RESOLVE, rfaRm, rhinotypeR, RiboCrypt, ribosomeProfilingQC,
-        RNAmodR, rprimer, Rqc, rtracklayer, sarks, scanMiR, scanMiRApp,
-        scifer, scmeth, SCOPE, scoreInvHap, scoup, scPipe, scruff,
-        SEMPLR, SeqArray, seqPattern, SGSeq, signeR, SigsPack,
+        motifbreakR, motifcounter, motifmatchr, MotifPeeker,
+        motifStack, MSA2dist, MSnID, MSstatsLiP, MSstatsPTM,
+        multicrispr, MungeSumstats, musicatk, MutationalPatterns,
+        MutSeqR, NanoMethViz, NanoStringNCTools, ngsReports, nucleR,
+        oligoClasses, OmaDB, openPrimeR, ORFik, OTUbase, packFinder,
+        pdInfoBuilder, PhyloProfile, phyloseq, PICB, pipeFrame,
+        planttfhunter, podkat, posDemux, postNet, primirTSS, proBAMr,
+        procoil, profileplyr, ProteoDisco, PureCN, Pviz, qPLEXanalyzer,
+        qsea, QuasR, r3Cseq, raer, ramwas, RCAS, Rcpi, recoup,
+        regioneR, regutools, REMP, RESOLVE, rfaRm, rhinotypeR,
+        RiboCrypt, ribosomeProfilingQC, RNAmodR, rprimer, Rqc,
+        rtracklayer, sarks, scanMiR, scanMiRApp, scifer, scmeth, SCOPE,
+        scoreInvHap, scoup, scPipe, scruff, SEMPLR, SeqArray,
+        seqPattern, SGSeq, signeR, SigsPack,
         SingleMoleculeFootprinting, sitadela, SNPhood,
         SomaticSignatures, SparseSignatures, spiky, SpliceImpactR,
         SpliceWiz, SPLINTER, sscu, StructuralVariantAnnotation,
@@ -13316,14 +13319,14 @@ importsMe: AllelicImbalance, appreci8R, ATACseqQC, atSNP, BEAT, bsseq,
         genomation, GenVisR, ggbio, gmapR, GreyListChIP, GUIDEseq,
         Gviz, HiCaptuRe, IsoformSwitchAnalyzeR, katdetectr, m6Aboost,
         methodical, methrix, MethylSeekR, MMDiff2, monaLisa,
-        Motif2Site, motifmatchr, MotifPeeker, msgbsR, multicrispr,
-        MungeSumstats, musicatk, MutationalPatterns, MutSeqR, ORFik,
-        pipeFrame, podkat, qsea, QuasR, R453Plus1Toolbox, raer, RAIDS,
-        RareVariantVis, RCAS, regioneR, REMP, RESOLVE,
-        ribosomeProfilingQC, RNAmodR, scmeth, SCOPE, signeR, SigsPack,
-        SingleMoleculeFootprinting, SparseSignatures, spiky, SpliceWiz,
-        TAPseq, TFBSTools, transmogR, tRNAscanImport, UMI4Cats,
-        VariantAnnotation, VariantFiltering, VariantTools,
+        Motif2Site, motifbreakR, motifmatchr, MotifPeeker, msgbsR,
+        multicrispr, MungeSumstats, musicatk, MutationalPatterns,
+        MutSeqR, ORFik, pipeFrame, podkat, qsea, QuasR,
+        R453Plus1Toolbox, raer, RAIDS, RareVariantVis, RCAS, regioneR,
+        REMP, RESOLVE, ribosomeProfilingQC, RNAmodR, scmeth, SCOPE,
+        signeR, SigsPack, SingleMoleculeFootprinting, SparseSignatures,
+        spiky, SpliceWiz, TAPseq, TFBSTools, transmogR, tRNAscanImport,
+        UMI4Cats, VariantAnnotation, VariantFiltering, VariantTools,
         BSgenome.Alyrata.JGI.v1, BSgenome.Amellifera.BeeBase.assembly4,
         BSgenome.Amellifera.NCBI.AmelHAv3.1,
         BSgenome.Amellifera.UCSC.apiMel2,
@@ -21039,11 +21042,11 @@ git_last_commit: 4d5a006
 git_last_commit_date: 2026-09-08
 Date/Publication: 2026-09-09
 source.ver: src/contrib/CNVRanger_1.28.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/CNVRanger_1.28.0.zip
+win.binary.ver: bin/windows/contrib/4.6/CNVRanger_1.28.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/CNVRanger_1.28.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/CNVRanger_1.28.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/CNVRanger_1.28.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/CNVRanger_1.28.1.tgz
 vignettes: vignettes/CNVRanger/inst/doc/CNVRanger.html
 vignetteTitles: Summarization and quantitative trait analysis of CNV
         ranges
@@ -29192,11 +29195,11 @@ git_last_commit: 1fa643f
 git_last_commit_date: 2026-10-07
 Date/Publication: 2026-10-07
 source.ver: src/contrib/DESpace_2.4.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/DESpace_2.4.0.zip
+win.binary.ver: bin/windows/contrib/4.6/DESpace_2.4.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/DESpace_2.4.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/DESpace_2.4.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/DESpace_2.4.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/DESpace_2.4.1.tgz
 vignettes: vignettes/DESpace/inst/doc/DSP.html,
         vignettes/DESpace/inst/doc/SVG.html
 vignetteTitles: Differential Spatial Pattern between conditions, A
@@ -36399,7 +36402,7 @@ suggestsMe: spatialHeatmap
 dependencyCount: 64
 
 Package: extraChIPs
-Version: 1.16.2
+Version: 1.16.3
 Depends: BiocParallel, R (>= 4.2.0), GenomicRanges, ggplot2 (>= 4.0.0),
         ggside (>= 0.4.0), Seqinfo, SummarizedExperiment (>= 1.39.1),
         tibble
@@ -36413,7 +36416,7 @@ Suggests: apeglm, BiocStyle, SimpleUpset, covr, DESeq2,
         plyranges, quantro, rmarkdown, testthat (>= 3.0.0), tidyverse,
         VennDiagram
 License: GPL-3
-MD5sum: 6ebca4bfed9d8ecfce8d3b29f05b756b
+MD5sum: e613a4447de3dfa02a060f2b9b410c52
 NeedsCompilation: yes
 Title: Additional functions for working with ChIP-Seq data
 Description: This package builds on existing tools and adds some simple
@@ -36432,10 +36435,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/smped/extraChIPs/issues
 git_url: https://git.bioconductor.org/packages/extraChIPs
 git_branch: RELEASE_3_23
-git_last_commit: 40aebb9
-git_last_commit_date: 2026-06-29
-Date/Publication: 2026-06-30
-source.ver: src/contrib/extraChIPs_1.16.2.tar.gz
+git_last_commit: ebb04b2
+git_last_commit_date: 2026-10-08
+Date/Publication: 2026-10-08
+source.ver: src/contrib/extraChIPs_1.16.3.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/extraChIPs_1.15.2.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/extraChIPs_1.16.2.tgz
@@ -42587,15 +42590,15 @@ importsMe: AllelicImbalance, annoLinker, AnnotationHubData,
         GUIDEseq, Gviz, gwascat, h5vc, HiCaptuRe, HiContacts, idr2d,
         igblastr, karyoploteR, katdetectr, mariner, metagene2,
         metaseqR2, methimpute, methodical, MethylSeekR, methylumi,
-        missMethyl, mobileRNA, Motif2Site, multiHiCcompare,
-        MungeSumstats, musicatk, MutationalPatterns, myvariant,
-        NADfinder, normr, OGRE, ORFik, parati, plotgardener, proActiv,
-        profileplyr, ProteoDisco, PureCN, R3CPET, raer, RareVariantVis,
-        RCAS, recount, regioneR, regionReport, RESOLVE, rGREAT,
-        ribosomeProfilingQC, roar, scanMiRApp, scDblFinder, scmeth,
-        scRNAseqApp, scruff, SEMPLR, seqCAT, SGSeq, signeR, SigsPack,
-        Site2Target, SNPhood, SOMNiBUS, SparseSignatures, SPICEY,
-        spiky, SpliceWiz, STADyUM, svaNUMT, svaRetro, TAPseq,
+        missMethyl, mobileRNA, Motif2Site, motifbreakR,
+        multiHiCcompare, MungeSumstats, musicatk, MutationalPatterns,
+        myvariant, NADfinder, normr, OGRE, ORFik, parati, plotgardener,
+        proActiv, profileplyr, ProteoDisco, PureCN, R3CPET, raer,
+        RareVariantVis, RCAS, recount, regioneR, regionReport, RESOLVE,
+        rGREAT, ribosomeProfilingQC, roar, scanMiRApp, scDblFinder,
+        scmeth, scRNAseqApp, scruff, SEMPLR, seqCAT, SGSeq, signeR,
+        SigsPack, Site2Target, SNPhood, SOMNiBUS, SparseSignatures,
+        SPICEY, spiky, SpliceWiz, STADyUM, svaNUMT, svaRetro, TAPseq,
         TCGAutils, tidyCoverage, TnT, trackViewer, transcriptR,
         txdbmaker, UMI4Cats, UPDhmm, VanillaICE, VariantFiltering,
         VariantTools, VaSP, VplotR, wiggleplotr, fitCons.UCSC.hg19,
@@ -43578,8 +43581,8 @@ importsMe: ACE, alabaster.se, ALDEx2, amplican, annoLinker,
         methylInheritance, MethylSeekR, methylSig, methylumi,
         MinimumDistance, MIRA, missMethyl, mitoClone2, MMDiff2,
         mobileRNA, Modstrings, monaLisa, Moonlight2R, mosaics,
-        Motif2Site, motifmatchr, MotifPeeker, MouseFM, MSA2dist,
-        MultiAssayExperiment, multicrispr, MultiDataSet,
+        Motif2Site, motifbreakR, motifmatchr, MotifPeeker, MouseFM,
+        MSA2dist, MultiAssayExperiment, multicrispr, MultiDataSet,
         multiHiCcompare, MungeSumstats, musicatk, MutSeqR, NanoMethViz,
         ncRNAtools, nearBynding, normr, nucleR, nullranges, OGRE,
         oligoClasses, OmaDB, openPrimeR, OrganismDbi, OUTRIDER,
@@ -48474,10 +48477,11 @@ dependsOnMe: biomvRCNS, chimeraviz, cicero, Pviz,
         methylationArrayAnalysis, rnaseqGene, csawBook
 importsMe: AllelicImbalance, ASpli, CAGEfightR, comapr, crisprViz,
         DMRcate, DuplexDiscovereR, ELMER, epimutacions,
-        GenomicInteractions, maser, mCSEA, MEAL, methylPipe, OGRE,
-        primirTSS, regutools, RNAmodR, RNAmodR.AlkAnilineSeq,
-        RNAmodR.RiboMethSeq, SPLINTER, srnadiff, tadar, trackViewer,
-        TVTB, uncoverappLib, VariantFiltering, DMRcatedata
+        GenomicInteractions, maser, mCSEA, MEAL, methylPipe,
+        motifbreakR, OGRE, primirTSS, regutools, RNAmodR,
+        RNAmodR.AlkAnilineSeq, RNAmodR.RiboMethSeq, SPLINTER, srnadiff,
+        tadar, trackViewer, TVTB, uncoverappLib, VariantFiltering,
+        DMRcatedata
 suggestsMe: annmap, BindingSiteFinder, cellbaseR, CNEr, CNVRanger,
         ensembldb, extraChIPs, fishpond, GenomicRanges, gwascat, MIRit,
         pqsfinder, QuasR, RnBeads, segmenter, SplicingGraphs, TFutils,
@@ -54825,12 +54829,12 @@ importsMe: alabaster.bumpy, alabaster.ranges, alabaster.se, ALDEx2,
         methrix, methylCC, methylInheritance, methylKit, methylPipe,
         MethylSeekR, methylSig, methylumi, mia, minfi, MinimumDistance,
         MIRA, missMethyl, mobileRNA, Modstrings, monaLisa, mosaics,
-        MOSim, Motif2Site, motifmatchr, MotifPeeker, motifTestR,
-        MouseFM, msa, MSA2dist, MsBackendMassbank, MsBackendMgf,
-        MsBackendMsp, MsBackendRawFileReader, MsBackendSql,
-        MsExperiment, msgbsR, MSnbase, MultiAssayExperiment,
-        MultiDataSet, mumosa, MungeSumstats, musicatk,
-        MutationalPatterns, mutscan, MutSeqR, NanoMethViz,
+        MOSim, Motif2Site, motifbreakR, motifmatchr, MotifPeeker,
+        motifTestR, MouseFM, msa, MSA2dist, MsBackendMassbank,
+        MsBackendMgf, MsBackendMsp, MsBackendRawFileReader,
+        MsBackendSql, MsExperiment, msgbsR, MSnbase,
+        MultiAssayExperiment, MultiDataSet, mumosa, MungeSumstats,
+        musicatk, MutationalPatterns, mutscan, MutSeqR, NanoMethViz,
         NanoStringNCTools, ncRNAtools, normr, nucleoSim, nucleR,
         nullranges, OGRE, oligoClasses, OmaDB, OMICsPCA, openPrimeR,
         OrganismDbi, OUTRIDER, OutSplice, packFinder, panelcn.mops,
@@ -57033,7 +57037,7 @@ Rfiles: vignettes/KnowSeq/inst/doc/KnowSeq.R
 dependencyCount: 167
 
 Package: knowYourCG
-Version: 1.8.2
+Version: 1.8.3
 Depends: R (>= 4.4.0)
 Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
         rlang, GenomicRanges, IRanges, reshape2, S4Vectors, stats,
@@ -57042,7 +57046,7 @@ Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
 Suggests: testthat (>= 3.0.0), SummarizedExperiment, rmarkdown, knitr,
         sesame, gprofiler2, ggrastr
 License: AGPL-3
-MD5sum: 6d255a6a5e5403c2a06c39db7c344729
+MD5sum: 79d3b8163e2309386ab464709168b8e2
 NeedsCompilation: yes
 Title: Functional analysis of DNA methylome datasets
 Description: KnowYourCG (KYCG) is a supervised learning framework
@@ -57073,10 +57077,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/zhou-lab/knowYourCG/issues
 git_url: https://git.bioconductor.org/packages/knowYourCG
 git_branch: RELEASE_3_23
-git_last_commit: 621dcf3
-git_last_commit_date: 2026-09-22
-Date/Publication: 2026-09-23
-source.ver: src/contrib/knowYourCG_1.8.2.tar.gz
+git_last_commit: db39baa
+git_last_commit_date: 2026-10-08
+Date/Publication: 2026-10-08
+source.ver: src/contrib/knowYourCG_1.8.3.tar.gz
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/knowYourCG_1.8.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -68616,6 +68620,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/motifbreakR/inst/doc/motifbreakR-vignette.R
+dependencyCount: 178
 
 Package: motifcounter
 Version: 1.35.0
@@ -68699,7 +68704,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/MotifDb/inst/doc/MotifDb.R
-dependsOnMe: generegulation
+dependsOnMe: motifbreakR, generegulation
 importsMe: rTRMui, TENET
 suggestsMe: ATACseqQC, DiffLogo, enhancerHomologSearch, igvR, memes,
         MMDiff2, motifcounter, motifStack, motifTestR,
@@ -68856,7 +68861,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/motifStack/inst/doc/motifStack_HTML.R
 dependsOnMe: generegulation
-importsMe: ATACseqQC, atSNP, dagLogo, ribosomeProfilingQC
+importsMe: ATACseqQC, atSNP, dagLogo, motifbreakR, ribosomeProfilingQC
 suggestsMe: ChIPpeakAnno, TFutils, trackViewer, tripr, universalmotif
 dependencyCount: 111
 
@@ -71691,14 +71696,14 @@ Rfiles: vignettes/multiscan/inst/doc/multiscan.R
 dependencyCount: 7
 
 Package: multistateQTL
-Version: 2.4.0
+Version: 2.4.1
 Depends: QTLExperiment, SummarizedExperiment, ComplexHeatmap, collapse
 Imports: methods, S4Vectors, data.table, grid, dplyr, tidyr,
         matrixStats, stats, fitdistrplus, viridis, ggplot2, circlize,
         mashr, grDevices
 Suggests: testthat, BiocStyle, knitr, covr, rmarkdown
 License: GPL-3
-MD5sum: 1910a56e80927ac64ba77d127112afd9
+MD5sum: d524ecfd96ec471d52ed8b130b35142a
 NeedsCompilation: no
 Title: Toolkit for the analysis of multi-state QTL data
 Description: A collection of tools for doing various analyses of
@@ -71720,10 +71725,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/dunstone-a/multistateQTL/issues
 git_url: https://git.bioconductor.org/packages/multistateQTL
 git_branch: RELEASE_3_23
-git_last_commit: acf5349
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/multistateQTL_2.4.0.tar.gz
+git_last_commit: 1ab09a2
+git_last_commit_date: 2026-10-08
+Date/Publication: 2026-10-08
+source.ver: src/contrib/multistateQTL_2.4.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/multistateQTL_2.4.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/multistateQTL_2.4.0.tgz
@@ -84155,11 +84160,11 @@ dependsOnMe: amplican, MethTargetedNGS, QSutils, R453Plus1Toolbox,
         sangeranalyseR, sangerseqR, CleanBSequences
 importsMe: ChIPpeakAnno, chromVAR, CNEr, crisprShiny, DominoEffect,
         enhancerHomologSearch, ggseqalign, GUIDEseq, IMMAN,
-        IsoformSwitchAnalyzeR, methylscaper, MSA2dist, openPrimeR,
-        scanMiR, scifer, ShortRead, SpliceImpactR, SPLINTER,
-        StructuralVariantAnnotation, svaNUMT, TFBSTools, AbSolution,
-        AntibodyForests, BIGr, DiPALM, dowser, longreadvqs, ogrdbstats,
-        PACVr, revert
+        IsoformSwitchAnalyzeR, methylscaper, motifbreakR, MSA2dist,
+        openPrimeR, scanMiR, scifer, ShortRead, SpliceImpactR,
+        SPLINTER, StructuralVariantAnnotation, svaNUMT, TFBSTools,
+        AbSolution, AntibodyForests, BIGr, DiPALM, dowser, longreadvqs,
+        ogrdbstats, PACVr, revert
 suggestsMe: BiocGenerics, Biostrings, idpr, msa, mutscan, RSVSim,
         geneviewer, seqtrie
 dependencyCount: 15
@@ -93474,22 +93479,23 @@ importsMe: AnnotationHubData, annotatr, APAlyzer, ATACseqQC,
         HicAggR, HiCPotts, hicVennDiagram, HiTC, icetea, igvR, INSPEcT,
         IsoformSwitchAnalyzeR, karyoploteR, m6Aboost, magpie, maser,
         MEDIPS, metagene2, metaseqR2, methodical, methrix, methylKit,
-        mist, mobileRNA, Moonlight2R, MotifDb, MotifPeeker,
-        multicrispr, MungeSumstats, NADfinder, nearBynding, normr,
-        OGRE, OMICsPCA, ORFik, PAST, periodicDNA, plyranges, PMScanR,
-        pram, primirTSS, proBAMr, profileplyr, PureCN, qsea, QuasR,
-        raer, RCAS, recount, recount3, recoup, regioneR, REMP,
-        RiboCrypt, ribosomeProfilingQC, rifi, rifiComparative, rmspc,
-        RNAmodR, roar, scanMiRApp, scDblFinder, scPipe, scRNAseqApp,
-        scruff, seqCAT, seqsetvis, sevenC, SGSeq, shinyepico, signeR,
-        SigsPack, sitadela, SMTrackR, SOMNiBUS, SpliceImpactR,
-        SpliceWiz, srnadiff, STADyUM, TEKRABber, TENET, TFBSTools,
-        tidyCoverage, trackViewer, transcriptR, TRESS, tRNAscanImport,
-        txcutr, txdbmaker, VariantAnnotation, VariantTools, wavClusteR,
-        wiggleplotr, GenomicState, chipenrich.data, DMRcatedata,
-        geneLenDataBase, NxtIRFdata, raerdata, spatialLIBD, seqpac,
-        OSTA, crispRdesignR, GALLO, GencoDymo2, locuszoomr, ocrRBBR,
-        PlasmaMutationDetector, PopPsiSeqR, tepr
+        mist, mobileRNA, Moonlight2R, motifbreakR, MotifDb,
+        MotifPeeker, multicrispr, MungeSumstats, NADfinder,
+        nearBynding, normr, OGRE, OMICsPCA, ORFik, PAST, periodicDNA,
+        plyranges, PMScanR, pram, primirTSS, proBAMr, profileplyr,
+        PureCN, qsea, QuasR, raer, RCAS, recount, recount3, recoup,
+        regioneR, REMP, RiboCrypt, ribosomeProfilingQC, rifi,
+        rifiComparative, rmspc, RNAmodR, roar, scanMiRApp, scDblFinder,
+        scPipe, scRNAseqApp, scruff, seqCAT, seqsetvis, sevenC, SGSeq,
+        shinyepico, signeR, SigsPack, sitadela, SMTrackR, SOMNiBUS,
+        SpliceImpactR, SpliceWiz, srnadiff, STADyUM, TEKRABber, TENET,
+        TFBSTools, tidyCoverage, trackViewer, transcriptR, TRESS,
+        tRNAscanImport, txcutr, txdbmaker, VariantAnnotation,
+        VariantTools, wavClusteR, wiggleplotr, GenomicState,
+        chipenrich.data, DMRcatedata, geneLenDataBase, NxtIRFdata,
+        raerdata, spatialLIBD, seqpac, OSTA, crispRdesignR, GALLO,
+        GencoDymo2, locuszoomr, ocrRBBR, PlasmaMutationDetector,
+        PopPsiSeqR, tepr
 suggestsMe: alabaster.files, annoLinker, AnnotationHub, autonomics,
         BiocFileCache, biovizBase, BREW3R.r, bsseq, cicero,
         compEpiTools, CrispRVariants, crisprViz, DAMEfinder, DiffBind,
@@ -94183,11 +94189,11 @@ importsMe: ADImpute, adverSCarial, affycoretools, aggregateBioVar,
         minfi, MinimumDistance, MIRA, MiRaGE, missMethyl, missRows,
         mist, mitoClone2, MMDiff2, moanin, mobileRNA, Modstrings,
         MoleculeExperiment, monaLisa, mosaics, MOSClip, mosdef, MOSim,
-        Motif2Site, motifmatchr, MotifPeeker, motifTestR, MPAC, mpra,
-        msa, MsBackendMassbank, MsBackendMetaboLights, MsBackendMgf,
-        MsBackendMsp, MsBackendRawFileReader, MsBackendSql,
-        MsCoreUtils, MsExperiment, msgbsR, MSPrep, MuData,
-        MultiAssayExperiment, MultiDataSet, MultiRNAflow,
+        Motif2Site, motifbreakR, motifmatchr, MotifPeeker, motifTestR,
+        MPAC, mpra, msa, MsBackendMassbank, MsBackendMetaboLights,
+        MsBackendMgf, MsBackendMsp, MsBackendRawFileReader,
+        MsBackendSql, MsCoreUtils, MsExperiment, msgbsR, MSPrep,
+        MuData, MultiAssayExperiment, MultiDataSet, MultiRNAflow,
         multistateQTL, mumosa, muscat, musicatk, MutationalPatterns,
         mutscan, MutSeqR, mygene, myvariant, NanoMethViz, ncRNAtools,
         nearBynding, notame, nucleoSim, nucleR, nullranges, OAtools,
@@ -108603,64 +108609,64 @@ importsMe: ADAM, ADImpute, aggregateBioVar, airpart, alabaster.sfe,
         MethylAid, methyLImp2, methylscaper, methylumi, miaDash,
         miaSim, miaTime, MicrobiotaProcess, midasHLA, miloR,
         MinimumDistance, miRSM, missMethyl, mist, MLInterfaces, MLSeq,
-        mobileRNA, monaLisa, MoonlightR, mosdef, motifmatchr,
-        MotifPeeker, MPAC, MPRAnalyze, MsExperiment, MsFeatures,
-        msgbsR, mspms, MSPrep, msqrob2, MuData, MultiDataSet,
-        MultiRNAflow, multiWGCNA, mumosa, muscat, musicatk, mutscan,
-        MutSeqR, MWASTools, NanoMethViz, Nebulosa, NetActivity,
-        netSmooth, nipalsMCIA, nnSVG, NormalyzerDE, OAtools,
-        oligoClasses, omicRexposome, omicsGMF, omicsPrint, omicsViewer,
-        omXplore, oncomix, ontoProc, ORFik, OVESEG, PAIRADISE,
-        pairedGSEA, pairkat, parati, pcaExplorer, peco, PepSetTest,
-        pgxRpi, PharmacoGx, phenopath, PhosR, pipeComp, Pirat, PIUMA,
-        plaid, planttfhunter, plyxp, pmp, poem, PolySTest, POMA, POWSC,
-        proActiv, proBatch, proDA, psichomics, PureCN, QFeatures,
-        qsmooth, quantiseqr, R453Plus1Toolbox, RadioGx, raer,
-        RaggedExperiment, RankMap, RareVariantVis, RBedMethyl,
-        ReactomeGSA, RegionalST, regionReport, regsplice, RFGeneRank,
-        rgsepd, rifi, rifiComparative, Rmmquant, RNAAgeCalc, RNAsense,
-        RNAshapeQC, roar, RolDE, ropls, rScudo, RTCGAToolbox, RTN,
-        RUCova, SanityR, saseR, satuRn, SBGNview, SC3, scafari,
-        SCArray, SCArray.sat, scater, scBFA, scCB2, scConform,
-        scDblFinder, scDD, scDDboost, scDesign3, scDiagnostics, scds,
-        scECODA, scGraphVerse, scHOT, scider, scLang, scmap, scMerge,
-        scMET, scmeth, scMultiSim, SCnorm, scoreInvHap, scp, scPipe,
-        scQTLtools, scran, scReClassify, scRepertoire, scruff, scry,
-        scTensor, scTGIF, scuttle, scviR, segmenter, seqCAT, SEraster,
-        sesame, sfi, shinyDSP, sigFeature, signifinder, SigsPack,
-        SimBu, simPIC, simpleSeg, singIST, SingleCellAlleleExperiment,
-        singscore, slalom, slingshot, smartid, SmartPhos, smoothclust,
-        snapcount, SNPhood, sosta, SpaceTrooper, spacexr, Spaniel,
-        SpaNorm, spARI, spaSim, SpatialArtifacts, SpatialCPie,
-        spatialDE, SpatialExperiment, spatialFDA,
-        SpatialFeatureExperiment, spatialHeatmap, spatialSimGP, SPIAT,
-        spicyR, splatter, SpliceImpactR, SpliceWiz, SplicingFactory,
-        SplineDV, SpNeigh, spoon, SpotClean, SpotSweeper, srnadiff,
-        sSNAPPY, StabMap, standR, StatescopeR, Statial, stJoincount,
-        stPipe, struct, StructuralVariantAnnotation, supersigs, SurfR,
-        SVMDO, SVP, switchde, systemPipeR, systemPipeTools,
-        TBSignatureProfiler, TCGAbiolinks, TCGAutils, TCseq, TENET,
-        tenXplore, TFutils, tidybulk, tidyexposomics, tidyprint,
-        tidySingleCellExperiment, tidySpatialExperiment, TOAST, tomoda,
-        ToxicoGx, tpSVG, tradeSeq, TrajectoryUtils, transformGamPoi,
-        transmogR, treeclimbR, TreeSummarizedExperiment, Trendy,
-        tricycle, TSCAN, TTMap, TVTB, tximeta, UCell, UPDhmm, VAExprs,
-        VariantFiltering, VDJdive, vidger, VisiumIO, visiumStitched,
-        VISTA, vmrseq, Voyager, wpm, XAItest, xCell2, xcms, XeniumIO,
-        xenLite, zellkonverter, zFPKM, zitools,
-        BloodCancerMultiOmics2017, brgedata, CLLmethylation, COSMIC.67,
-        curatedTCGAData, DoReMiTra, easierData, emtdata, EMTscoreData,
-        FieldEffectCrc, FlowSorted.Blood.EPIC,
-        FlowSorted.CordBloodCombined.450k, GSE13015, HCATonsilData,
-        HiBED, HMP2Data, IHWpaper, LegATo, MerfishData, MetaGxBreast,
-        MetaScope, orthosData, scRNAseq, SingleCellMultiModal,
-        spatialLIBD, TabulaMurisSenisData, TCGAWorkflowData,
-        TENET.ExperimentHub, TENxXeniumData, ExpHunterSuite,
-        fluentGenomics, autoGO, bioLeak, blisa, celliverse, DWLS,
-        hicream, imcExperiment, karyotapR, MetAlyzer, microbial,
-        mikropml, multimedia, NGSToolKit, PlasmaMutationDetector, RCPA,
-        RNAseqQC, ROCnGO, SCIntRuler, sclValid, scROSHI, treediff,
-        VSOLassoBag
+        mobileRNA, monaLisa, MoonlightR, mosdef, motifbreakR,
+        motifmatchr, MotifPeeker, MPAC, MPRAnalyze, MsExperiment,
+        MsFeatures, msgbsR, mspms, MSPrep, msqrob2, MuData,
+        MultiDataSet, MultiRNAflow, multiWGCNA, mumosa, muscat,
+        musicatk, mutscan, MutSeqR, MWASTools, NanoMethViz, Nebulosa,
+        NetActivity, netSmooth, nipalsMCIA, nnSVG, NormalyzerDE,
+        OAtools, oligoClasses, omicRexposome, omicsGMF, omicsPrint,
+        omicsViewer, omXplore, oncomix, ontoProc, ORFik, OVESEG,
+        PAIRADISE, pairedGSEA, pairkat, parati, pcaExplorer, peco,
+        PepSetTest, pgxRpi, PharmacoGx, phenopath, PhosR, pipeComp,
+        Pirat, PIUMA, plaid, planttfhunter, plyxp, pmp, poem,
+        PolySTest, POMA, POWSC, proActiv, proBatch, proDA, psichomics,
+        PureCN, QFeatures, qsmooth, quantiseqr, R453Plus1Toolbox,
+        RadioGx, raer, RaggedExperiment, RankMap, RareVariantVis,
+        RBedMethyl, ReactomeGSA, RegionalST, regionReport, regsplice,
+        RFGeneRank, rgsepd, rifi, rifiComparative, Rmmquant,
+        RNAAgeCalc, RNAsense, RNAshapeQC, roar, RolDE, ropls, rScudo,
+        RTCGAToolbox, RTN, RUCova, SanityR, saseR, satuRn, SBGNview,
+        SC3, scafari, SCArray, SCArray.sat, scater, scBFA, scCB2,
+        scConform, scDblFinder, scDD, scDDboost, scDesign3,
+        scDiagnostics, scds, scECODA, scGraphVerse, scHOT, scider,
+        scLang, scmap, scMerge, scMET, scmeth, scMultiSim, SCnorm,
+        scoreInvHap, scp, scPipe, scQTLtools, scran, scReClassify,
+        scRepertoire, scruff, scry, scTensor, scTGIF, scuttle, scviR,
+        segmenter, seqCAT, SEraster, sesame, sfi, shinyDSP, sigFeature,
+        signifinder, SigsPack, SimBu, simPIC, simpleSeg, singIST,
+        SingleCellAlleleExperiment, singscore, slalom, slingshot,
+        smartid, SmartPhos, smoothclust, snapcount, SNPhood, sosta,
+        SpaceTrooper, spacexr, Spaniel, SpaNorm, spARI, spaSim,
+        SpatialArtifacts, SpatialCPie, spatialDE, SpatialExperiment,
+        spatialFDA, SpatialFeatureExperiment, spatialHeatmap,
+        spatialSimGP, SPIAT, spicyR, splatter, SpliceImpactR,
+        SpliceWiz, SplicingFactory, SplineDV, SpNeigh, spoon,
+        SpotClean, SpotSweeper, srnadiff, sSNAPPY, StabMap, standR,
+        StatescopeR, Statial, stJoincount, stPipe, struct,
+        StructuralVariantAnnotation, supersigs, SurfR, SVMDO, SVP,
+        switchde, systemPipeR, systemPipeTools, TBSignatureProfiler,
+        TCGAbiolinks, TCGAutils, TCseq, TENET, tenXplore, TFutils,
+        tidybulk, tidyexposomics, tidyprint, tidySingleCellExperiment,
+        tidySpatialExperiment, TOAST, tomoda, ToxicoGx, tpSVG,
+        tradeSeq, TrajectoryUtils, transformGamPoi, transmogR,
+        treeclimbR, TreeSummarizedExperiment, Trendy, tricycle, TSCAN,
+        TTMap, TVTB, tximeta, UCell, UPDhmm, VAExprs, VariantFiltering,
+        VDJdive, vidger, VisiumIO, visiumStitched, VISTA, vmrseq,
+        Voyager, wpm, XAItest, xCell2, xcms, XeniumIO, xenLite,
+        zellkonverter, zFPKM, zitools, BloodCancerMultiOmics2017,
+        brgedata, CLLmethylation, COSMIC.67, curatedTCGAData,
+        DoReMiTra, easierData, emtdata, EMTscoreData, FieldEffectCrc,
+        FlowSorted.Blood.EPIC, FlowSorted.CordBloodCombined.450k,
+        GSE13015, HCATonsilData, HiBED, HMP2Data, IHWpaper, LegATo,
+        MerfishData, MetaGxBreast, MetaScope, orthosData, scRNAseq,
+        SingleCellMultiModal, spatialLIBD, TabulaMurisSenisData,
+        TCGAWorkflowData, TENET.ExperimentHub, TENxXeniumData,
+        ExpHunterSuite, fluentGenomics, autoGO, bioLeak, blisa,
+        celliverse, DWLS, hicream, imcExperiment, karyotapR, MetAlyzer,
+        microbial, mikropml, multimedia, NGSToolKit,
+        PlasmaMutationDetector, RCPA, RNAseqQC, ROCnGO, SCIntRuler,
+        sclValid, scROSHI, treediff, VSOLassoBag
 suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
         BindingSiteFinder, biobroom, BiocPkgTools, biomformat,
         cageminer, CCAFE, CTdata, dar, dcanr, dearseq, decoupleR,
@@ -116290,7 +116296,7 @@ importsMe: AllelicImbalance, APAlyzer, appreci8R, BadRegionFinder,
         customProDB, DAMEfinder, decompTumor2Sig, DominoEffect, fcScan,
         fRagmentomics, G4SNVHunter, GA4GHclient, GenomicFiles, GenVisR,
         ggbio, gmapR, gwascat, gwasurvivr, icetea, igvR, karyoploteR,
-        katdetectr, lineagespot, MungeSumstats, musicatk,
+        katdetectr, lineagespot, motifbreakR, MungeSumstats, musicatk,
         MutationalPatterns, MutSeqR, parati, ProteoDisco, RAIDS,
         scoreInvHap, SEMPLR, signeR, SigsPack, SNPhood, svaRetro,
         tadar, tLOH, transmogR, TVTB, Uniquorn, UPDhmm, VCFArray,

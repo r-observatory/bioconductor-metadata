@@ -362,7 +362,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/ExpHunterSuite/inst/doc/hunter.R
-dependencyCount: 315
+dependencyCount: 313
 
 Package: ExpressionNormalizationWorkflow
 Version: 1.38.0

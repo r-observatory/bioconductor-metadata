@@ -11,7 +11,7 @@ chipseqDB#nebbiolo1#buildsrc: OK
 csawUsersGuide#nebbiolo1#install: OK
 csawUsersGuide#nebbiolo1#buildsrc: OK
 cytofWorkflow#nebbiolo1#install: OK
-cytofWorkflow#nebbiolo1#buildsrc: OK
+cytofWorkflow#nebbiolo1#buildsrc: ERROR
 EGSEA123#nebbiolo1#install: OK
 EGSEA123#nebbiolo1#buildsrc: OK
 ExpHunterSuite#nebbiolo1#install: OK

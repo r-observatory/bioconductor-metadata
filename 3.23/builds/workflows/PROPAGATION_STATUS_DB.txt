@@ -4,7 +4,6 @@ BP4RNAseq#source#propagate: UNNEEDED, same version is already published
 CAGEWorkflow#source#propagate: UNNEEDED, same version is already published
 chipseqDB#source#propagate: UNNEEDED, same version is already published
 csawUsersGuide#source#propagate: UNNEEDED, same version is already published
-cytofWorkflow#source#propagate: UNNEEDED, same version is already published
 EGSEA123#source#propagate: UNNEEDED, same version is already published
 ExpHunterSuite#source#propagate: UNNEEDED, same version is already published
 ExpressionNormalizationWorkflow#source#propagate: UNNEEDED, same version is already published
