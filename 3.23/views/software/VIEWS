@@ -5608,11 +5608,11 @@ git_last_commit: fb2bf57
 git_last_commit_date: 2026-10-07
 Date/Publication: 2026-10-08
 source.ver: src/contrib/assorthead_1.6.4.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/assorthead_1.6.3.zip
+win.binary.ver: bin/windows/contrib/4.6/assorthead_1.6.4.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/assorthead_1.6.3.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/assorthead_1.6.4.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/assorthead_1.6.3.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/assorthead_1.6.4.tgz
 vignettes: vignettes/assorthead/inst/doc/userguide.html
 vignetteTitles: User's Guide
 hasREADME: FALSE
@@ -9019,8 +9019,8 @@ dependsOnMe: ACME, affy, affycomp, affyContam, affycoretools, affyPLM,
         prostateCancerTaylor, prostateCancerVarambally, pumadata,
         rcellminerData, RUVnormalizeData, SpikeInSubset, TCGAcrcmiRNA,
         TCGAcrcmRNA, tweeDEseqCountData, yeastCC, coreheat, crmn,
-        eLNNpairedCov, GWASbyCluster, heatmapFlex, lmQCM, MM2Sdata,
-        MMDvariance, propOverlap
+        eLNNpairedCov, heatmapFlex, lmQCM, MM2Sdata, MMDvariance,
+        propOverlap
 importsMe: a4Base, a4Classif, a4Core, a4Preproc, ABarray, ACE, aCGH,
         adSplit, affyILM, AgiMicroRna, ANF, annmap, annotate,
         AnnotationHubData, annotationTools, arrayQualityMetrics,
@@ -10614,11 +10614,11 @@ git_last_commit: 6f81946
 git_last_commit_date: 2026-10-07
 Date/Publication: 2026-10-08
 source.ver: src/contrib/BiocSingular_1.28.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/BiocSingular_1.28.0.zip
+win.binary.ver: bin/windows/contrib/4.6/BiocSingular_1.28.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/BiocSingular_1.28.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/BiocSingular_1.28.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/BiocSingular_1.28.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/BiocSingular_1.28.1.tgz
 vignettes: vignettes/BiocSingular/inst/doc/decomposition.html,
         vignettes/BiocSingular/inst/doc/representations.html
 vignetteTitles: 1. SVD and PCA, 2. Matrix classes
@@ -11047,12 +11047,12 @@ suggestsMe: ACE, ADAM, ADAMgui, ADImpute, AffiXcan, affycoretools,
         EGSEA123, ExpressionNormalizationWorkflow, generegulation,
         highthroughputassays, liftOver, recountWorkflow, RNAseq123,
         seqpac, sequencing, variants, BiocBookDemo, OMA, OSTA, aIc,
-        asteRisk, BigDataStatMeth, BiocManager, corrmeta, cyjShiny,
-        DEHOGT, gcmrec, genetic.algo.optimizeR, ggBubbles, GSEMA, ipd,
-        ipsRdbs, magmaR, MariNET, MarZIC, multiclassPairs, nemoR,
-        net4pg, nfcore.utils, openSkies, presto, Rediscover, rjsoncons,
-        rworkflows, SCIntRuler, SRscore, StepReg, StepRegShiny,
-        survrec, TFactSR, tidyGenR
+        asteRisk, BigDataStatMeth, BiocManager, ConvergeR, corrmeta,
+        cyjShiny, DEHOGT, gcmrec, genetic.algo.optimizeR, ggBubbles,
+        GSEMA, ipd, ipsRdbs, magmaR, MariNET, MarZIC, multiclassPairs,
+        nemoR, net4pg, nfcore.utils, openSkies, presto, Rediscover,
+        rjsoncons, rworkflows, SCIntRuler, SRscore, StepReg,
+        StepRegShiny, survrec, TFactSR, tidyGenR
 dependencyCount: 32
 
 Package: biocthis
@@ -36441,9 +36441,9 @@ Date/Publication: 2026-10-08
 source.ver: src/contrib/extraChIPs_1.16.3.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/extraChIPs_1.15.2.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/extraChIPs_1.16.2.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/extraChIPs_1.16.3.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/extraChIPs_1.16.2.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/extraChIPs_1.16.3.tgz
 vignettes:
         vignettes/extraChIPs/inst/doc/differential_signal_fixed.html,
         vignettes/extraChIPs/inst/doc/differential_signal_sliding.html,
@@ -57037,7 +57037,7 @@ Rfiles: vignettes/KnowSeq/inst/doc/KnowSeq.R
 dependencyCount: 167
 
 Package: knowYourCG
-Version: 1.8.3
+Version: 1.8.4
 Depends: R (>= 4.4.0)
 Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
         rlang, GenomicRanges, IRanges, reshape2, S4Vectors, stats,
@@ -57046,7 +57046,7 @@ Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
 Suggests: testthat (>= 3.0.0), SummarizedExperiment, rmarkdown, knitr,
         sesame, gprofiler2, ggrastr
 License: AGPL-3
-MD5sum: 79d3b8163e2309386ab464709168b8e2
+MD5sum: d77a29c0d5a8934692b53f90a8968ad4
 NeedsCompilation: yes
 Title: Functional analysis of DNA methylome datasets
 Description: KnowYourCG (KYCG) is a supervised learning framework
@@ -57077,10 +57077,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/zhou-lab/knowYourCG/issues
 git_url: https://git.bioconductor.org/packages/knowYourCG
 git_branch: RELEASE_3_23
-git_last_commit: db39baa
+git_last_commit: 572baa0
 git_last_commit_date: 2026-10-08
-Date/Publication: 2026-10-08
-source.ver: src/contrib/knowYourCG_1.8.3.tar.gz
+Date/Publication: 2026-10-11
+source.ver: src/contrib/knowYourCG_1.8.4.tar.gz
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/knowYourCG_1.8.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -57911,12 +57911,12 @@ importsMe: a4Base, ABSSeq, affycoretools, affylmGUI, AMARETTO,
         BeadArrayUseCases, signatureSearchData, spatialLIBD,
         ExpHunterSuite, ExpressionNormalizationWorkflow,
         recountWorkflow, batchtma, BPM, Cascade, cinaR, diffwrap,
-        DiPALM, dsb, eLNNpairedCov, GSEMA, GWASbyCluster, hicream,
-        lfproQC, lilikoi, limorhyde2, lipidomeR, MetAlyzer, metaMA,
-        mi4p, miRtest, MKmisc, MKomics, MSclassifR, newIMVC, nlcv,
-        oncoPredict, OncoSubtype, Patterns, plfMA, promor, RANKS, RCPA,
-        robusttseq, RPPanalyzer, scBio, scGOclust, scROSHI, ssizeRNA,
-        tinyarray, TransProR, treediff, wrProteo, XYomics
+        DiPALM, dsb, eLNNpairedCov, GSEMA, hicream, lfproQC, lilikoi,
+        limorhyde2, lipidomeR, MetAlyzer, metaMA, mi4p, miRtest,
+        MKmisc, MKomics, MSclassifR, newIMVC, nlcv, oncoPredict,
+        OncoSubtype, Patterns, plfMA, promor, RANKS, RCPA, robusttseq,
+        RPPanalyzer, scBio, scGOclust, scROSHI, ssizeRNA, tinyarray,
+        TransProR, treediff, wrProteo, XYomics
 suggestsMe: ABarray, ADaCGH2, Biobase, biobroom, BiocSet, BioNet,
         BioQC, blase, broadSeq, Category, categoryCompare, celaref,
         CellBench, CellMixS, ChIPpeakAnno, ClassifyR, CMA, coGPS,
@@ -71729,11 +71729,11 @@ git_last_commit: 1ab09a2
 git_last_commit_date: 2026-10-08
 Date/Publication: 2026-10-08
 source.ver: src/contrib/multistateQTL_2.4.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/multistateQTL_2.4.0.zip
+win.binary.ver: bin/windows/contrib/4.6/multistateQTL_2.4.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/multistateQTL_2.4.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/multistateQTL_2.4.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/multistateQTL_2.4.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/multistateQTL_2.4.1.tgz
 vignettes: vignettes/multistateQTL/inst/doc/multistateQTL.html
 vignetteTitles: multistateQTL: Orchestrating multi-state QTL analysis
         in R
@@ -75590,7 +75590,7 @@ Rfiles: vignettes/omicsGMF/inst/doc/Proteomics-vignette.R,
 dependencyCount: 181
 
 Package: OmicsMLRepoR
-Version: 1.6.0
+Version: 1.6.1
 Depends: R (>= 4.4.0)
 Imports: dplyr, stringr, rols, tidyr, methods, stats, tibble,
         data.tree, jsonlite, plyr, BiocFileCache, readr, DiagrammeR,
@@ -75598,7 +75598,7 @@ Imports: dplyr, stringr, rols, tidyr, methods, stats, tibble,
 Suggests: arrow, knitr, BiocStyle, curatedMetagenomicData, testthat (>=
         3.0.0), cBioPortalData
 License: Artistic-2.0
-MD5sum: e826acb78ca32a84305570e7a74bcd41
+MD5sum: b6d455067493c295635f0641911d97c5
 NeedsCompilation: no
 Title: Search harmonized metadata created under the OmicsMLRepo project
 Description: This package provides functions to browse the harmonized
@@ -75613,10 +75613,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/shbrief/OmicsMLRepoR/issues
 git_url: https://git.bioconductor.org/packages/OmicsMLRepoR
 git_branch: RELEASE_3_23
-git_last_commit: 75e8efd
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/OmicsMLRepoR_1.6.0.tar.gz
+git_last_commit: 361dd53
+git_last_commit_date: 2026-10-08
+Date/Publication: 2026-10-11
+source.ver: src/contrib/OmicsMLRepoR_1.6.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/OmicsMLRepoR_1.6.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/OmicsMLRepoR_1.6.0.tgz
@@ -87598,7 +87598,6 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: TRUE
 hasLICENSE: FALSE
-importsMe: enviGCMS
 suggestsMe: adductomicsR, MSnbase, RforProteomics, CorMID,
         InterpretMSSpectrum
 dependencyCount: 3
@@ -87848,7 +87847,7 @@ git_last_commit: 744eb16
 git_last_commit_date: 2026-04-28
 Date/Publication: 2026-04-28
 source.ver: src/contrib/rebook_1.22.0.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/rebook_1.21.0.zip
+win.binary.ver: bin/windows/contrib/4.6/rebook_1.22.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/rebook_1.22.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -100529,7 +100528,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/sfi/inst/doc/workflow.R
-dependencyCount: 77
+dependencyCount: 76
 
 Package: SGSeq
 Version: 1.46.0
@@ -103808,7 +103807,7 @@ Rfiles: vignettes/snpStats/inst/doc/data-input-vignette.R,
         vignettes/snpStats/inst/doc/tdt-vignette.R
 dependsOnMe: MAGAR
 importsMe: cardelino, DExMA, gwascat, martini, RVS, scoreInvHap,
-        GenomicTools.fileHandler, gpcp, GWASbyCluster, SNPkit, TriadSim
+        GenomicTools.fileHandler, gpcp, SNPkit, TriadSim
 suggestsMe: crlmm, GenomicFiles, GWASTools, ldblock, omicRexposome,
         omicsPrint, VariantAnnotation, adjclust, dartR, dartR.popgen,
         genio, pegas, RcppDPR, statgenGWAS
