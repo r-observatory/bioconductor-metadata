@@ -129,7 +129,7 @@ bsseqData#nebbiolo2#buildsrc: OK
 bsseqData#nebbiolo2#checksrc: WARNINGS
 bugphyzz#nebbiolo2#install: OK
 bugphyzz#nebbiolo2#buildsrc: OK
-bugphyzz#nebbiolo2#checksrc: ERROR
+bugphyzz#nebbiolo2#checksrc: OK
 cancerdata#nebbiolo2#install: OK
 cancerdata#nebbiolo2#buildsrc: OK
 cancerdata#nebbiolo2#checksrc: OK
@@ -267,7 +267,7 @@ curatedTCGAData#nebbiolo2#buildsrc: OK
 curatedTCGAData#nebbiolo2#checksrc: OK
 CytoMethIC#nebbiolo2#install: OK
 CytoMethIC#nebbiolo2#buildsrc: OK
-CytoMethIC#nebbiolo2#checksrc: OK
+CytoMethIC#nebbiolo2#checksrc: ERROR
 DAPARdata#nebbiolo2#install: OK
 DAPARdata#nebbiolo2#buildsrc: OK
 DAPARdata#nebbiolo2#checksrc: OK
@@ -995,8 +995,8 @@ RegParallel#nebbiolo2#install: OK
 RegParallel#nebbiolo2#buildsrc: ERROR
 RegParallel#nebbiolo2#checksrc: skipped
 RforProteomics#nebbiolo2#install: OK
-RforProteomics#nebbiolo2#buildsrc: OK
-RforProteomics#nebbiolo2#checksrc: OK
+RforProteomics#nebbiolo2#buildsrc: TIMEOUT
+RforProteomics#nebbiolo2#checksrc: skipped
 rheumaticConditionWOLLBOLD#nebbiolo2#install: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#buildsrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#checksrc: OK
