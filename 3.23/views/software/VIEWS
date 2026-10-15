@@ -27545,7 +27545,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/DeepPINCS/inst/doc/DeepPINCS.R
 importsMe: GenProSeq, VAExprs
-dependencyCount: 142
+dependencyCount: 146
 
 Package: deepSNV
 Version: 1.58.0
@@ -33171,14 +33171,14 @@ Rfiles: vignettes/edge/inst/doc/edge.R
 dependencyCount: 87
 
 Package: edgeR
-Version: 4.10.5
+Version: 4.10.6
 Depends: R (>= 3.6.0), limma (>= 3.63.6)
 Imports: methods, graphics, stats, utils, locfit
 Suggests: jsonlite, knitr, Matrix, nanoparquet, readr, rhdf5,
         SeuratObject, splines, AnnotationDbi, Biobase, BiocStyle,
         org.Hs.eg.db, S4Vectors, SummarizedExperiment
 License: GPL (>=2)
-MD5sum: ec5f6318a2db2c3c4fbae2a40e2ce889
+MD5sum: 5ce2d973fafc2be031e6e98296cb0d42
 NeedsCompilation: yes
 Title: Empirical Analysis of Digital Gene Expression Data in R
 Description: Differential expression analysis of sequence count data.
@@ -33213,10 +33213,10 @@ URL: https://bioinf.wehi.edu.au/edgeR/,
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/edgeR
 git_branch: RELEASE_3_23
-git_last_commit: c4a54bd
-git_last_commit_date: 2026-09-03
-Date/Publication: 2026-09-06
-source.ver: src/contrib/edgeR_4.10.5.tar.gz
+git_last_commit: 4861033
+git_last_commit_date: 2026-10-13
+Date/Publication: 2026-10-13
+source.ver: src/contrib/edgeR_4.10.6.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.5.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.5.tgz
@@ -43872,7 +43872,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/GenProSeq/inst/doc/GenProSeq.R
-dependencyCount: 146
+dependencyCount: 150
 
 Package: GenVisR
 Version: 1.44.0
@@ -45098,8 +45098,8 @@ importsMe: cardelino, cellmig, cogeqc, crumblr, DspikeIn, enrichplot,
 suggestsMe: compcodeR, CrcBiomeScreen, epiSeeker, fastreeR, syntenet,
         TreeAndLeaf, treeio, TreeSummarizedExperiment, universalmotif,
         OMA, aplot, aplotExtra, bGMYC4, DAISIE, deeptime, FossilSim,
-        gggenomes, ggimage, ggtangle, idiogramFISH, MetaNet, nosoi,
-        oppr, PCMBase, pctax, piglet, RAINBOWR, rhierbaps, rphylopic,
+        gggenomes, ggtangle, idiogramFISH, MetaNet, nosoi, oppr,
+        PCMBase, pctax, piglet, RAINBOWR, rhierbaps, rphylopic,
         treestructure
 dependencyCount: 79
 
@@ -48213,11 +48213,11 @@ git_last_commit: 549ec83
 git_last_commit_date: 2026-10-10
 Date/Publication: 2026-10-12
 source.ver: src/contrib/GSVA_2.6.12.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.10.zip
+win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.12.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.10.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.12.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.10.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.12.tgz
 vignettes: vignettes/GSVA/inst/doc/GSVA_proteomics.html,
         vignettes/GSVA/inst/doc/GSVA_scRNAseq.html,
         vignettes/GSVA/inst/doc/GSVA_spRNAseq.html,
@@ -75617,7 +75617,7 @@ git_last_commit: 361dd53
 git_last_commit_date: 2026-10-08
 Date/Publication: 2026-10-11
 source.ver: src/contrib/OmicsMLRepoR_1.6.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/OmicsMLRepoR_1.6.0.zip
+win.binary.ver: bin/windows/contrib/4.6/OmicsMLRepoR_1.6.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/OmicsMLRepoR_1.6.1.tgz
 mac.binary.sonoma-arm64.ver:
@@ -77674,7 +77674,7 @@ Rfiles: vignettes/paircompviz/inst/doc/vignette.R
 dependencyCount: 11
 
 Package: pairedGSEA
-Version: 1.12.0
+Version: 1.12.1
 Depends: R (>= 4.4.0)
 Imports: DESeq2, DEXSeq, limma, fgsea, msigdbr, sva,
         SummarizedExperiment, S4Vectors, BiocParallel, ggplot2,
@@ -77682,7 +77682,7 @@ Imports: DESeq2, DEXSeq, limma, fgsea, msigdbr, sva,
 Suggests: writexl, readxl, readr, rhdf5, plotly, testthat (>= 3.0.0),
         knitr, rmarkdown, BiocStyle, covr
 License: MIT + file LICENSE
-MD5sum: 1049410464ff861de5099bd9346a784a
+MD5sum: 2b1def61b8133c994947582fbab7a08c
 NeedsCompilation: no
 Title: Paired DGE and DGS analysis for gene set enrichment analysis
 Description: pairedGSEA makes it simple to run a paired Differential
@@ -77705,10 +77705,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/shdam/pairedGSEA/issues
 git_url: https://git.bioconductor.org/packages/pairedGSEA
 git_branch: RELEASE_3_23
-git_last_commit: 79ba22d
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/pairedGSEA_1.12.0.tar.gz
+git_last_commit: c51feeb
+git_last_commit_date: 2026-10-12
+Date/Publication: 2026-10-13
+source.ver: src/contrib/pairedGSEA_1.12.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/pairedGSEA_1.12.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/pairedGSEA_1.12.0.tgz
@@ -90474,7 +90474,7 @@ linksToMe: scrapper
 dependencyCount: 5
 
 Package: rigvf
-Version: 1.4.1
+Version: 1.4.2
 Depends: R (>= 4.1.0)
 Imports: methods, httr2, rjsoncons, dplyr, tidyr, rlang, memoise,
         cachem, whisker, jsonlite, GenomicRanges, IRanges, Seqinfo
@@ -90482,7 +90482,7 @@ Suggests: knitr, rmarkdown, testthat (>= 3.0.0), plyranges,
         plotgardener, org.Hs.eg.db, TxDb.Hsapiens.UCSC.hg38.knownGene,
         tibble
 License: MIT + file LICENSE
-MD5sum: edf5783c31ba53614f39d20bdea585a6
+MD5sum: a1f848cab13410db988f95d9db384f80
 NeedsCompilation: no
 Title: R interface to the IGVF Catalog
 Description: The IGVF Catalog provides data on the impact of genomic
@@ -90502,10 +90502,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/IGVF/rigvf/issues
 git_url: https://git.bioconductor.org/packages/rigvf
 git_branch: RELEASE_3_23
-git_last_commit: f865534
-git_last_commit_date: 2026-08-19
-Date/Publication: 2026-08-20
-source.ver: src/contrib/rigvf_1.4.1.tar.gz
+git_last_commit: bed354e
+git_last_commit_date: 2026-10-13
+Date/Publication: 2026-10-13
+source.ver: src/contrib/rigvf_1.4.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/rigvf_1.4.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/rigvf_1.4.1.tgz
@@ -90904,7 +90904,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/RMassBank/inst/doc/RMassBank.R,
         vignettes/RMassBank/inst/doc/RMassBankNonstandard.R
 suggestsMe: RMassBankData
-dependencyCount: 172
+dependencyCount: 175
 
 Package: rmelting
 Version: 1.28.0
@@ -92062,15 +92062,15 @@ git_last_commit: 8016d5f
 git_last_commit_date: 2026-10-09
 Date/Publication: 2026-10-12
 source.ver: src/contrib/rols_3.8.3.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/rols_3.8.2.zip
+win.binary.ver: bin/windows/contrib/4.6/rols_3.8.3.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/rols_3.8.2.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/rols_3.8.3.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/rols_3.8.2.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/rols_3.8.3.tgz
 vignettes: vignettes/rols/inst/doc/rols.html
 vignetteTitles: An R interface to the Ontology Lookup Service
 hasREADME: FALSE
-hasNEWS: FALSE
+hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/rols/inst/doc/rols.R
@@ -95449,14 +95449,14 @@ dependsOnMe: SCArray.sat
 dependencyCount: 46
 
 Package: SCArray.sat
-Version: 1.12.0
+Version: 1.12.1
 Depends: methods, SCArray (>= 1.13.1), SeuratObject (>= 5.0), Seurat
         (>= 5.0)
 Imports: S4Vectors, utils, stats, BiocGenerics, BiocParallel, gdsfmt,
         DelayedArray, BiocSingular, SummarizedExperiment, Matrix
 Suggests: future, RUnit, knitr, markdown, rmarkdown, BiocStyle
 License: GPL-3
-MD5sum: 42e660d3b8f65e325a79dcc004d17485
+MD5sum: 93551f3e75110d40d1e8df4179d5cb7d
 NeedsCompilation: no
 Title: Large-scale single-cell RNA-seq data analysis using GDS files
         and Seurat
@@ -95485,10 +95485,10 @@ BugReports:
         https://github.com/AbbVie-ComputationalGenomics/SCArray/issues
 git_url: https://git.bioconductor.org/packages/SCArray.sat
 git_branch: RELEASE_3_23
-git_last_commit: c8b4dfc
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/SCArray.sat_1.12.0.tar.gz
+git_last_commit: f825335
+git_last_commit_date: 2026-10-13
+Date/Publication: 2026-10-13
+source.ver: src/contrib/SCArray.sat_1.12.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/SCArray.sat_1.12.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/SCArray.sat_1.12.0.tgz
@@ -116060,7 +116060,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/VAExprs/inst/doc/VAExprs.R
 suggestsMe: GenProSeq
-dependencyCount: 197
+dependencyCount: 201
 
 Package: VanillaICE
 Version: 1.74.0

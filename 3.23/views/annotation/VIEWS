@@ -1920,7 +1920,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: cleanUpdTSeq, BSgenome.Drerio.UCSC.danRer7.masked
 importsMe: BSgenome.Drerio.UCSC.danRer7.masked
-suggestsMe: CAGEr, ChIPpeakAnno, heatmaps, seqPattern
+suggestsMe: CAGEr, ChIPpeakAnno, heatmaps, motifbreakR, seqPattern
 dependencyCount: 58
 
 Package: BSgenome.Drerio.UCSC.danRer7.masked
@@ -2265,8 +2265,8 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: RESOLVE
-suggestsMe: FRASER, MungeSumstats, SomaticSignatures, SparseSignatures,
-        VariantFiltering, mSigSpectra
+suggestsMe: FRASER, motifbreakR, MungeSumstats, SomaticSignatures,
+        SparseSignatures, VariantFiltering, mSigSpectra
 dependencyCount: 58
 
 Package: BSgenome.Hsapiens.NCBI.GRCh38
@@ -2291,7 +2291,8 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: cfDNAPro
 suggestsMe: bambu, BSgenome, ensembldb, FRASER, GenomeInfoDb, h5vc,
-        HiCaptuRe, MungeSumstats, raer, scmeth, NanoporeRNASeq
+        HiCaptuRe, motifbreakR, MungeSumstats, raer, scmeth,
+        NanoporeRNASeq
 dependencyCount: 58
 
 Package: BSgenome.Hsapiens.NCBI.T2T.CHM13v2.0
@@ -2473,14 +2474,14 @@ suggestsMe: ATACseqQC, BadRegionFinder, Basic4Cseq, BBCAnalyzer,
         ggbio, gmapR, GRaNIE, GreyListChIP, GUIDEseq, Gviz, h5vc,
         HiCDCPlus, InPAS, IntEREst, IsoformSwitchAnalyzeR, karyoploteR,
         LACHESIS, maftools, MEDIPS, MesKit, MethReg, methrix,
-        MinimumDistance, MiRaGE, motifmatchr, MotifPeeker, motifTestR,
-        MutationalPatterns, ORFik, OrganismDbi, pageRank, pipeFrame,
-        plotgardener, plyranges, ProteoDisco, qsea, R453Plus1Toolbox,
-        REMP, RiboCrypt, Rsamtools, RSVSim, rtracklayer, SEMPLR, SGSeq,
-        signeR, SigsPack, supersigs, svaNUMT, UMI4Cats,
-        VariantAnnotation, wavClusteR, FDb.FANTOM4.promoters.hg19,
-        FDb.UCSC.snp135common.hg19, FDb.UCSC.snp137common.hg19,
-        SNPlocs.Hsapiens.dbSNP144.GRCh37,
+        MinimumDistance, MiRaGE, motifbreakR, motifmatchr, MotifPeeker,
+        motifTestR, MutationalPatterns, ORFik, OrganismDbi, pageRank,
+        pipeFrame, plotgardener, plyranges, ProteoDisco, qsea,
+        R453Plus1Toolbox, REMP, RiboCrypt, Rsamtools, RSVSim,
+        rtracklayer, SEMPLR, SGSeq, signeR, SigsPack, supersigs,
+        svaNUMT, UMI4Cats, VariantAnnotation, wavClusteR,
+        FDb.FANTOM4.promoters.hg19, FDb.UCSC.snp135common.hg19,
+        FDb.UCSC.snp137common.hg19, SNPlocs.Hsapiens.dbSNP144.GRCh37,
         SNPlocs.Hsapiens.dbSNP155.GRCh37,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh37, ActiveDriverWGS, revert,
         SATS, sigminer
@@ -2516,8 +2517,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: CNVfilteR, CopyNumberPlots, karyoploteR, r3Cseq, regioneR,
-        RSVSim, gkmSVM
+suggestsMe: CNVfilteR, CopyNumberPlots, karyoploteR, motifbreakR,
+        r3Cseq, regioneR, RSVSim, gkmSVM
 dependencyCount: 59
 
 Package: BSgenome.Hsapiens.UCSC.hg38
@@ -2549,9 +2550,9 @@ suggestsMe: BSgenome, bsseq, BUSpaRse, ChIPpeakAnno, circRNAprofiler,
         eisaR, enhancerHomologSearch, EpiCompare, epiSeeker, EpiTxDb,
         FRASER, GenomicRanges, GenomicScores, GenVisR, GRaNIE,
         GUIDEseq, HiCDCPlus, MethReg, MethylSeekR, MIRit, Motif2Site,
-        MotifPeeker, multicrispr, MutSeqR, nullranges, periodicDNA,
-        pqsfinder, RAIDS, REMP, scanMiRApp, SCOPE, SEMPLR, Seqinfo,
-        signeR, supersigs, TAPseq, transmogR,
+        motifbreakR, MotifPeeker, multicrispr, MutSeqR, nullranges,
+        periodicDNA, pqsfinder, RAIDS, REMP, scanMiRApp, SCOPE, SEMPLR,
+        Seqinfo, signeR, supersigs, TAPseq, transmogR,
         BSgenome.Hsapiens.UCSC.hg38.dbSNP151.major,
         BSgenome.Hsapiens.UCSC.hg38.dbSNP151.minor,
         SNPlocs.Hsapiens.dbSNP144.GRCh38,
@@ -2653,7 +2654,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: BSgenome, podkat, spiky
+suggestsMe: BSgenome, motifbreakR, podkat, spiky
 dependencyCount: 61
 
 Package: BSgenome.Hsapiens.UCSC.hs1
@@ -20258,7 +20259,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: MungeSumstats
+suggestsMe: motifbreakR, MungeSumstats
 dependencyCount: 60
 
 Package: SNPlocs.Hsapiens.dbSNP155.GRCh38
