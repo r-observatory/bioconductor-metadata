@@ -267,7 +267,7 @@ curatedTCGAData#nebbiolo2#buildsrc: OK
 curatedTCGAData#nebbiolo2#checksrc: OK
 CytoMethIC#nebbiolo2#install: OK
 CytoMethIC#nebbiolo2#buildsrc: OK
-CytoMethIC#nebbiolo2#checksrc: ERROR
+CytoMethIC#nebbiolo2#checksrc: OK
 DAPARdata#nebbiolo2#install: OK
 DAPARdata#nebbiolo2#buildsrc: OK
 DAPARdata#nebbiolo2#checksrc: OK
@@ -1127,8 +1127,8 @@ Single.mTEC.Transcriptomes#nebbiolo2#install: OK
 Single.mTEC.Transcriptomes#nebbiolo2#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo2#checksrc: OK
 SingleCellMultiModal#nebbiolo2#install: OK
-SingleCellMultiModal#nebbiolo2#buildsrc: OK
-SingleCellMultiModal#nebbiolo2#checksrc: OK
+SingleCellMultiModal#nebbiolo2#buildsrc: ERROR
+SingleCellMultiModal#nebbiolo2#checksrc: skipped
 SingleMoleculeFootprintingData#nebbiolo2#install: OK
 SingleMoleculeFootprintingData#nebbiolo2#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo2#checksrc: OK

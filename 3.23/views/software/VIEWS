@@ -8232,14 +8232,14 @@ Rfiles: vignettes/BEclear/inst/doc/BEclear.R
 dependencyCount: 31
 
 Package: bedbaser
-Version: 1.4.1
+Version: 1.4.2
 Depends: R (>= 4.5.0)
 Imports: AnVIL (>= 1.16.0), BiocFileCache, curl, dplyr, GenomeInfoDb,
         GenomicRanges, httr, methods, purrr, rtracklayer, rlang,
         R.utils, stats, stringr, tibble, tidyr, tools, utils
 Suggests: BiocStyle, knitr, liftOver, testthat (>= 3.0.0), withr
 License: Artistic License 2.0
-MD5sum: bcd635aff71f11ff23948d41172e8b03
+MD5sum: f7a0bfc21d419d5bf18c9d25e2fa1ab6
 NeedsCompilation: no
 Title: A BEDbase client
 Description: A client for BEDbase. bedbaser provides access to the API
@@ -8257,10 +8257,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/waldronlab/bedbaser/issues
 git_url: https://git.bioconductor.org/packages/bedbaser
 git_branch: RELEASE_3_23
-git_last_commit: 31e8cf9
-git_last_commit_date: 2026-09-16
-Date/Publication: 2026-09-17
-source.ver: src/contrib/bedbaser_1.4.1.tar.gz
+git_last_commit: 2c17a44
+git_last_commit_date: 2026-10-13
+Date/Publication: 2026-10-14
+source.ver: src/contrib/bedbaser_1.4.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/bedbaser_1.3.6.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/bedbaser_1.4.0.tgz
@@ -10380,9 +10380,9 @@ importsMe: abseqR, ADImpute, AffiXcan, ALDEx2, AlphaBeta, AlpsNMR,
         VariantFiltering, VariantTools, VDJdive, velociraptor, vmrseq,
         Voyager, waddR, weitrix, xCell2, zinbwave, CytoMethIC,
         IHWpaper, JohnsonKinaseData, ExpHunterSuite, seqpac, OSTA,
-        causalBatch, DCLEAR, DTSEA, DysPIA, enviGCMS, GSEMA, Holomics,
-        LDM, LOCOM2, minSNPs, oosse, robin, scGate, spatialGE,
-        TmCalculator
+        causalBatch, DCLEAR, DTSEA, DysPIA, enviGCMS, enviPathR, GSEMA,
+        Holomics, LDM, LOCOM2, minSNPs, oosse, robin, scGate,
+        spatialGE, TmCalculator
 suggestsMe: alabaster.mae, beachmat, BiocNeighbors, cliqueMS,
         DelayedArray, EpiCompare, escape, GenomicDataCommons, ggsc,
         glmGamPoi, GRaNIE, h5mread, HDF5Array, imageFeatureTCGA,
@@ -11048,11 +11048,11 @@ suggestsMe: ACE, ADAM, ADAMgui, ADImpute, AffiXcan, affycoretools,
         highthroughputassays, liftOver, recountWorkflow, RNAseq123,
         seqpac, sequencing, variants, BiocBookDemo, OMA, OSTA, aIc,
         asteRisk, BigDataStatMeth, BiocManager, ConvergeR, corrmeta,
-        cyjShiny, DEHOGT, gcmrec, genetic.algo.optimizeR, ggBubbles,
-        GSEMA, ipd, ipsRdbs, magmaR, MariNET, MarZIC, multiclassPairs,
-        nemoR, net4pg, nfcore.utils, openSkies, presto, Rediscover,
-        rjsoncons, rworkflows, SCIntRuler, SRscore, StepReg,
-        StepRegShiny, survrec, TFactSR, tidyGenR
+        cyjShiny, DEHOGT, enviPathR, gcmrec, genetic.algo.optimizeR,
+        ggBubbles, GSEMA, ipd, ipsRdbs, magmaR, MariNET, MarZIC,
+        multiclassPairs, nemoR, net4pg, nfcore.utils, openSkies,
+        presto, Rediscover, rjsoncons, rworkflows, SCIntRuler, SRscore,
+        StepReg, StepRegShiny, survrec, TFactSR, tidyGenR
 dependencyCount: 32
 
 Package: biocthis
@@ -33217,11 +33217,11 @@ git_last_commit: 4861033
 git_last_commit_date: 2026-10-13
 Date/Publication: 2026-10-13
 source.ver: src/contrib/edgeR_4.10.6.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.5.zip
+win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.6.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.5.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.6.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/edgeR_4.10.5.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/edgeR_4.10.6.tgz
 vignettes: vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf,
         vignettes/edgeR/inst/doc/intro.html
 vignetteTitles: edgeR User's Guide, A brief introduction to edgeR
@@ -77709,11 +77709,11 @@ git_last_commit: c51feeb
 git_last_commit_date: 2026-10-12
 Date/Publication: 2026-10-13
 source.ver: src/contrib/pairedGSEA_1.12.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/pairedGSEA_1.12.0.zip
+win.binary.ver: bin/windows/contrib/4.6/pairedGSEA_1.12.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/pairedGSEA_1.12.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/pairedGSEA_1.12.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/pairedGSEA_1.12.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/pairedGSEA_1.12.1.tgz
 vignettes: vignettes/pairedGSEA/inst/doc/User-Guide.html
 vignetteTitles: User Guide
 hasREADME: FALSE
@@ -90506,11 +90506,11 @@ git_last_commit: bed354e
 git_last_commit_date: 2026-10-13
 Date/Publication: 2026-10-13
 source.ver: src/contrib/rigvf_1.4.2.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/rigvf_1.4.1.zip
+win.binary.ver: bin/windows/contrib/4.6/rigvf_1.4.2.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/rigvf_1.4.1.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/rigvf_1.4.2.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/rigvf_1.4.1.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/rigvf_1.4.2.tgz
 vignettes: vignettes/rigvf/inst/doc/rigvf.html
 vignetteTitles: Accessing data from the IGVF Catalog
 hasREADME: FALSE
@@ -95489,11 +95489,11 @@ git_last_commit: f825335
 git_last_commit_date: 2026-10-13
 Date/Publication: 2026-10-13
 source.ver: src/contrib/SCArray.sat_1.12.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/SCArray.sat_1.12.0.zip
+win.binary.ver: bin/windows/contrib/4.6/SCArray.sat_1.12.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/SCArray.sat_1.12.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/SCArray.sat_1.12.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/SCArray.sat_1.12.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/SCArray.sat_1.12.1.tgz
 vignettes: vignettes/SCArray.sat/inst/doc/SCArray.sat.html
 vignetteTitles: scRNA-seq data analysis with GDS files and Seurat
 hasREADME: FALSE
@@ -96018,7 +96018,7 @@ Rfiles: vignettes/scDataviz/inst/doc/scDataviz.R
 dependencyCount: 175
 
 Package: scDblFinder
-Version: 1.26.7
+Version: 1.26.9
 Depends: R (>= 4.0), SingleCellExperiment
 Imports: igraph, Matrix, BiocGenerics, BiocParallel, BiocNeighbors,
         BiocSingular, S4Vectors, SummarizedExperiment, scater, scuttle,
@@ -96028,7 +96028,7 @@ Imports: igraph, Matrix, BiocGenerics, BiocParallel, BiocNeighbors,
 Suggests: BiocStyle, knitr, rmarkdown, testthat, scRNAseq, circlize,
         ComplexHeatmap, ggplot2, dplyr, viridisLite, mbkmeans
 License: GPL-3 + file LICENSE
-MD5sum: d47fa77c4de6c247e2ae7e53c50f0116
+MD5sum: 4793b60f215464f081f7ee340f44d806
 NeedsCompilation: no
 Title: scDblFinder
 Description: The scDblFinder package gathers various methods for the
@@ -96048,10 +96048,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/plger/scDblFinder/issues
 git_url: https://git.bioconductor.org/packages/scDblFinder
 git_branch: RELEASE_3_23
-git_last_commit: a712645
-git_last_commit_date: 2026-06-26
-Date/Publication: 2026-06-30
-source.ver: src/contrib/scDblFinder_1.26.7.tar.gz
+git_last_commit: f25633b
+git_last_commit_date: 2026-10-14
+Date/Publication: 2026-10-14
+source.ver: src/contrib/scDblFinder_1.26.9.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/scDblFinder_1.26.7.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/scDblFinder_1.26.7.tgz
@@ -98281,17 +98281,17 @@ Rfiles: vignettes/screenCounter/inst/doc/counting.R
 dependencyCount: 36
 
 Package: ScreenR
-Version: 1.14.0
+Version: 1.14.1
 Depends: R (>= 4.3)
 Imports: methods (>= 4.0), rlang (>= 0.4), stringr (>= 1.4), limma (>=
         3.46), patchwork (>= 1.1), tibble (>= 3.1.6), scales (>=
-        1.1.1), ggvenn (>= 0.1.9), purrr (>= 0.3.4), ggplot2 (>= 3.3),
-        stats, tidyr (>= 1.2), magrittr (>= 1.0), dplyr (>= 1.0), edgeR
-        (>= 3.32), tidyselect (>= 1.1.2)
+        1.1.1), ggvenn (>= 0.1.9), purrr (>= 0.3.4), ggplot2 (>=
+        3.5.2), stats, tidyr (>= 1.2), magrittr (>= 1.0), dplyr (>=
+        1.1.0), edgeR (>= 3.32), tidyselect (>= 1.1.2)
 Suggests: rmarkdown (>= 2.11), markdown, knitr (>= 1.37), testthat (>=
         3.0.0), BiocStyle (>= 2.22.0), covr (>= 3.5)
 License: MIT + file LICENSE
-MD5sum: ecd48cc5e2c98fc05d6214e527525d20
+MD5sum: 867d45d9c53266700ddcea2c1b18dc7f
 NeedsCompilation: no
 Title: Package to Perform High Throughput Biological Screening
 Description: ScreenR is a package suitable to perform hit
@@ -98312,10 +98312,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/EmanuelSoda/ScreenR/issues
 git_url: https://git.bioconductor.org/packages/ScreenR
 git_branch: RELEASE_3_23
-git_last_commit: 930cf5a
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/ScreenR_1.14.0.tar.gz
+git_last_commit: 6a93674
+git_last_commit_date: 2026-10-14
+Date/Publication: 2026-10-14
+source.ver: src/contrib/ScreenR_1.14.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/ScreenR_1.13.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/ScreenR_1.14.0.tgz
@@ -107761,15 +107761,15 @@ Rfiles: vignettes/STATegRa/inst/doc/STATegRa.R
 dependencyCount: 46
 
 Package: StatescopeR
-Version: 1.0.1
+Version: 1.0.2
 Depends: R (>= 4.6.0)
 Imports: S4Vectors, SummarizedExperiment, reticulate, methods,
-        SingleCellExperiment, matrixStats, scran, basilisk, Matrix,
+        SingleCellExperiment, matrixStats, scrapper, basilisk, Matrix,
         ComplexHeatmap, ggplot2, cowplot, utils
 Suggests: BiocStyle, knitr, RefManageR, rmarkdown, sessioninfo,
-        scRNAseq, scuttle, testthat
+        scRNAseq, testthat, edgeR
 License: MIT + file LICENSE
-MD5sum: 54fd5cc34254a0a8d200b0c7282c6af7
+MD5sum: 12c4f998899d20d3f24a5aab03fd439a
 NeedsCompilation: no
 Title: StatescopeR framework for discovery of cell states from cell
         type-specific gene expression profiles inferred from bulk mRNA
@@ -107791,10 +107791,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/tgac-vumc/StatescopeR/issues
 git_url: https://git.bioconductor.org/packages/StatescopeR
 git_branch: RELEASE_3_23
-git_last_commit: 34f00af
-git_last_commit_date: 2026-05-20
-Date/Publication: 2026-05-20
-source.ver: src/contrib/StatescopeR_1.0.1.tar.gz
+git_last_commit: b486cf6
+git_last_commit_date: 2026-10-14
+Date/Publication: 2026-10-14
+source.ver: src/contrib/StatescopeR_1.0.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/StatescopeR_1.0.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/StatescopeR_1.0.1.tgz
@@ -109944,7 +109944,7 @@ suggestsMe: systemPipeShiny, systemPipeTools, systemPipeRdata
 dependencyCount: 94
 
 Package: systemPipeShiny
-Version: 1.22.0
+Version: 1.22.1
 Depends: R (>= 4.0.0), shiny (>= 1.6.0), spsUtil (>= 0.2.2), spsComps
         (>= 0.3.3), drawer (>= 0.2)
 Imports: DT, assertthat, bsplus, crayon, dplyr, ggplot2, htmltools,
@@ -109960,7 +109960,7 @@ Suggests: testthat, BiocStyle, knitr, rmarkdown, systemPipeR (>=
         UpSetR, tidyr, esquisse (>= 1.1.0), cicerone
 License: GPL (>= 3)
 Archs: x64
-MD5sum: 0d4ac19409f085c3d44bab68bbeff029
+MD5sum: 1c1808a47bd84f5ce3b8340dae9fe432
 NeedsCompilation: no
 Title: systemPipeShiny: An Interactive Framework for Workflow
         Management and Visualization
@@ -110004,10 +110004,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/systemPipeR/systemPipeShiny/issues
 git_url: https://git.bioconductor.org/packages/systemPipeShiny
 git_branch: RELEASE_3_23
-git_last_commit: be40dac
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/systemPipeShiny_1.22.0.tar.gz
+git_last_commit: c1e996a
+git_last_commit_date: 2026-10-13
+Date/Publication: 2026-10-14
+source.ver: src/contrib/systemPipeShiny_1.22.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/systemPipeShiny_1.22.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/systemPipeShiny_1.22.0.tgz

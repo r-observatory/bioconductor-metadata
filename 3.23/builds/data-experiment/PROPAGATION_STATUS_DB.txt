@@ -40,6 +40,7 @@ breastCancerVDX#source#propagate: UNNEEDED, same version is already published
 brgedata#source#propagate: UNNEEDED, same version is already published
 bronchialIL13#source#propagate: UNNEEDED, same version is already published
 bsseqData#source#propagate: UNNEEDED, same version is already published
+bugphyzz#source#propagate: UNNEEDED, same version is already published
 cancerdata#source#propagate: UNNEEDED, same version is already published
 CardinalWorkflows#source#propagate: UNNEEDED, same version is already published
 ccdata#source#propagate: UNNEEDED, same version is already published

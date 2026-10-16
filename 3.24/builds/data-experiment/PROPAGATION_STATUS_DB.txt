@@ -83,6 +83,7 @@ curatedOvarianData#source#propagate: UNNEEDED, same version is already published
 curatedPCaData#source#propagate: UNNEEDED, same version is already published
 curatedTBData#source#propagate: UNNEEDED, same version is already published
 curatedTCGAData#source#propagate: UNNEEDED, same version is already published
+CytoMethIC#source#propagate: UNNEEDED, same version is already published
 DAPARdata#source#propagate: UNNEEDED, same version is already published
 DaparToolshedData#source#propagate: UNNEEDED, same version is already published
 davidTiling#source#propagate: UNNEEDED, same version is already published
@@ -140,7 +141,7 @@ gageData#source#propagate: UNNEEDED, same version is already published
 gaschYHS#source#propagate: UNNEEDED, same version is already published
 gcspikelite#source#propagate: UNNEEDED, same version is already published
 gDNAinRNAseqData#source#propagate: UNNEEDED, same version is already published
-gDRtestData#source#propagate: YES
+gDRtestData#source#propagate: UNNEEDED, same version is already published
 geneLenDataBase#source#propagate: UNNEEDED, same version is already published
 genomationData#source#propagate: UNNEEDED, same version is already published
 GenomicDistributionsData#source#propagate: UNNEEDED, same version is already published
@@ -341,7 +342,7 @@ scTHI.data#source#propagate: UNNEEDED, same version is already published
 seq2pathway.data#source#propagate: UNNEEDED, same version is already published
 seqc#source#propagate: UNNEEDED, same version is already published
 serumStimulation#source#propagate: UNNEEDED, same version is already published
-sesameData#source#propagate: YES
+sesameData#source#propagate: UNNEEDED, same version is already published
 seventyGeneData#source#propagate: UNNEEDED, same version is already published
 SFEData#source#propagate: UNNEEDED, same version is already published
 shinyMethylData#source#propagate: UNNEEDED, same version is already published
@@ -349,7 +350,6 @@ signatureSearchData#source#propagate: UNNEEDED, same version is already publishe
 SimBenchData#source#propagate: UNNEEDED, same version is already published
 simpIntLists#source#propagate: UNNEEDED, same version is already published
 Single.mTEC.Transcriptomes#source#propagate: UNNEEDED, same version is already published
-SingleCellMultiModal#source#propagate: UNNEEDED, same version is already published
 SingleMoleculeFootprintingData#source#propagate: UNNEEDED, same version is already published
 SNAData#source#propagate: UNNEEDED, same version is already published
 SNAGEEdata#source#propagate: UNNEEDED, same version is already published
