@@ -8261,11 +8261,11 @@ git_last_commit: 2c17a44
 git_last_commit_date: 2026-10-13
 Date/Publication: 2026-10-14
 source.ver: src/contrib/bedbaser_1.4.2.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/bedbaser_1.3.6.zip
+win.binary.ver: bin/windows/contrib/4.6/bedbaser_1.4.2.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/bedbaser_1.4.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/bedbaser_1.4.2.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/bedbaser_1.4.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/bedbaser_1.4.2.tgz
 vignettes: vignettes/bedbaser/inst/doc/bedbaser.html
 vignetteTitles: bedbaser
 hasREADME: FALSE
@@ -33265,13 +33265,13 @@ suggestsMe: ABSSeq, biobroom, ClassifyR, cqn, cydar, dcanr, dearseq,
         glmGamPoi, goseq, groHMM, GSAR, GSVA, ideal, iSEEpathways,
         iSEEu, lemur, missMethyl, MoonlightR, multiMiR, raer, recount,
         regionReport, RFGeneRank, ribosomeProfilingQC, satuRn, scider,
-        SeqGate, signifinder, SpliceWiz, stageR, subSeq, systemPipeR,
-        TCGAbiolinks, TFEA.ChIP, tidybulk, tidyexposomics, topconfects,
-        transmogR, tximeta, tximport, variancePartition, weitrix,
-        Wrench, zenith, zFPKM, leeBamViews, CAGEWorkflow, chipseqDB,
-        DGEobj, DGEobj.utils, DiPALM, easybio, ggpicrust2, glmmSeq,
-        inDAGO, MiscMetabar, palasso, pctax, pmartR, seqgendiff,
-        seqwrap, SIBERG, volcano3D
+        SeqGate, signifinder, SpliceWiz, stageR, StatescopeR, subSeq,
+        systemPipeR, TCGAbiolinks, TFEA.ChIP, tidybulk, tidyexposomics,
+        topconfects, transmogR, tximeta, tximport, variancePartition,
+        weitrix, Wrench, zenith, zFPKM, leeBamViews, CAGEWorkflow,
+        chipseqDB, DGEobj, DGEobj.utils, DiPALM, easybio, ggpicrust2,
+        glmmSeq, inDAGO, MiscMetabar, palasso, pctax, pmartR,
+        seqgendiff, seqwrap, SIBERG, volcano3D
 dependencyCount: 10
 
 Package: EDIRquery
@@ -48486,7 +48486,7 @@ suggestsMe: annmap, BindingSiteFinder, cellbaseR, CNEr, CNVRanger,
         ensembldb, extraChIPs, fishpond, GenomicRanges, gwascat, MIRit,
         pqsfinder, QuasR, RnBeads, segmenter, SplicingGraphs, TFutils,
         Single.mTEC.Transcriptomes, CAGEWorkflow, chipseqDB, chicane,
-        GRIN2
+        GRIN2, shaman
 dependencyCount: 150
 
 Package: GWAS.BAYES
@@ -67220,7 +67220,8 @@ importsMe: AlpsNMR, benchdamic, DepecheR, PLSDAbatch, POMA, RFLOMICS,
         plsRcox, SISIR
 suggestsMe: autonomics, notameStats, planet, eoPredData,
         MetabolomicsBasics, MSclassifR, OmicNetR, orbital, pctax,
-        recipes, RVAideMemoire, SelectBoost, sharp, tidypredict
+        recipes, RVAideMemoire, SelectBoost, sharp, specProc,
+        tidypredict
 dependencyCount: 83
 
 Package: MLInterfaces
@@ -92177,7 +92178,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/ropls/inst/doc/ropls-vignette.R
 importsMe: ASICS, biosigner, lipidr, MultiBaC
 suggestsMe: autonomics, ptairMS, structToolbox, MetabolomicsBasics,
-        R.ComDim, readyomics
+        R.ComDim, readyomics, specProc
 dependencyCount: 97
 
 Package: ROSeq
@@ -96052,11 +96053,11 @@ git_last_commit: f25633b
 git_last_commit_date: 2026-10-14
 Date/Publication: 2026-10-14
 source.ver: src/contrib/scDblFinder_1.26.9.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/scDblFinder_1.26.7.zip
+win.binary.ver: bin/windows/contrib/4.6/scDblFinder_1.26.9.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/scDblFinder_1.26.7.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/scDblFinder_1.26.9.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/scDblFinder_1.26.7.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/scDblFinder_1.26.9.tgz
 vignettes: vignettes/scDblFinder/inst/doc/computeDoubletDensity.html,
         vignettes/scDblFinder/inst/doc/findDoubletClusters.html,
         vignettes/scDblFinder/inst/doc/introduction.html,
@@ -98072,7 +98073,7 @@ importsMe: BASiCS, BASiCStan, BatchQC, BayesSpace, BioTIP, celda,
         DeconvoBuddies, Dino, epiregulon, epiregulon.extra, FLAMES,
         MOSim, MPAC, msImpute, mumosa, pipeComp, scDblFinder, scDD,
         scMerge, scTreeViz, scTypeEval, singIST, singleCellTK, Spaniel,
-        SpaNorm, StatescopeR, OSTA, mixhvg
+        SpaNorm, OSTA, mixhvg
 suggestsMe: anglemania, APL, Banksy, batchelor, blase, bluster,
         CellTrails, clusterExperiment, decontX, destiny, dittoSeq,
         DOtools, escape, escheR, ExperimentSubset, ggsc, ggspavis,
@@ -98136,7 +98137,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/scrapper/inst/doc/userguide.R
 dependsOnMe: OSCA.advanced, OSCA.basic, scrapbook, SingleRBook
 importsMe: BatChef, epiregulon, FLAMES, imcRtools, scDblFinder,
-        splatter, OSTA
+        splatter, StatescopeR, OSTA
 suggestsMe: Coralysis, GSVA, scran, SingleR, spatialHeatmap, OSTA
 dependencyCount: 30
 
@@ -98316,11 +98317,11 @@ git_last_commit: 6a93674
 git_last_commit_date: 2026-10-14
 Date/Publication: 2026-10-14
 source.ver: src/contrib/ScreenR_1.14.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/ScreenR_1.13.1.zip
+win.binary.ver: bin/windows/contrib/4.6/ScreenR_1.14.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/ScreenR_1.14.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/ScreenR_1.14.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/ScreenR_1.14.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/ScreenR_1.14.1.tgz
 vignettes: vignettes/ScreenR/inst/doc/Analysis_Example.html
 vignetteTitles: ScreenR Example Analysis
 hasREADME: FALSE
@@ -98945,8 +98946,8 @@ suggestsMe: Banksy, bluster, CSOA, dreamlet, epiregulon.extra, escheR,
         mastR, mia, miloR, raer, ReactomeGSA, SCArray, scConform,
         scDiagnostics, scDotPlot, schex, Seqtometry,
         SingleCellAlleleExperiment, sketchR, smoothclust, SpotSweeper,
-        StatescopeR, SVP, tpSVG, TSCAN, HCAData, MouseThymusAgeing,
-        OMA, futurize, LISTO, scCustomize
+        SVP, tpSVG, TSCAN, HCAData, MouseThymusAgeing, OMA, futurize,
+        LISTO, scCustomize
 linksToMe: DropletUtils, scran
 dependencyCount: 39
 
@@ -105768,7 +105769,7 @@ Rfiles: vignettes/SPICEY/inst/doc/SPICEY.R
 dependencyCount: 98
 
 Package: spicyR
-Version: 1.24.0
+Version: 1.24.1
 Depends: R (>= 4.1)
 Imports: BiocParallel, ClassifyR, S4Vectors, SingleCellExperiment,
         SpatialExperiment, SummarizedExperiment, cli, concaveman,
@@ -105779,7 +105780,7 @@ Imports: BiocParallel, ClassifyR, S4Vectors, SingleCellExperiment,
 Suggests: SpatialDatasets, BiocStyle, knitr, rmarkdown, pkgdown,
         imcRtools, testthat (>= 3.0.0)
 License: GPL (>=2)
-MD5sum: d9ade800069de3722598bf10c3b88798
+MD5sum: 224da66c913abdcd63f6749010972079
 NeedsCompilation: no
 Title: Spatial analysis of in situ cytometry data
 Description: The spicyR package provides a framework for performing
@@ -105803,10 +105804,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/SydneyBioX/spicyR/issues
 git_url: https://git.bioconductor.org/packages/spicyR
 git_branch: RELEASE_3_23
-git_last_commit: d77fd6d
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/spicyR_1.24.0.tar.gz
+git_last_commit: 672ea0a
+git_last_commit_date: 2026-10-15
+Date/Publication: 2026-10-15
+source.ver: src/contrib/spicyR_1.24.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/spicyR_1.24.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/spicyR_1.24.0.tgz
@@ -107807,7 +107808,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/StatescopeR/inst/doc/StatescopeR.R
-dependencyCount: 98
+dependencyCount: 77
 
 Package: Statial
 Version: 1.14.0
@@ -110008,11 +110009,11 @@ git_last_commit: c1e996a
 git_last_commit_date: 2026-10-13
 Date/Publication: 2026-10-14
 source.ver: src/contrib/systemPipeShiny_1.22.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/systemPipeShiny_1.22.0.zip
+win.binary.ver: bin/windows/contrib/4.6/systemPipeShiny_1.22.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/systemPipeShiny_1.22.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/systemPipeShiny_1.22.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/systemPipeShiny_1.22.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/systemPipeShiny_1.22.1.tgz
 vignettes: vignettes/systemPipeShiny/inst/doc/systemPipeShiny.html
 vignetteTitles: systemPipeShiny
 hasREADME: FALSE
