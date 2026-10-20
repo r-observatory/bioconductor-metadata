@@ -14,7 +14,7 @@ ACME#source#propagate: UNNEEDED, same version is already published
 ADaCGH2#source#propagate: UNNEEDED, same version is already published
 ADAM#source#propagate: UNNEEDED, same version is already published
 ADAMgui#source#propagate: UNNEEDED, same version is already published
-ADAPT#source#propagate: YES
+ADAPT#source#propagate: UNNEEDED, same version is already published
 ADImpute#source#propagate: UNNEEDED, same version is already published
 adSplit#source#propagate: UNNEEDED, same version is already published
 adverSCarial#source#propagate: UNNEEDED, same version is already published
@@ -164,18 +164,17 @@ BEAT#source#propagate: UNNEEDED, same version is already published
 BEclear#source#propagate: UNNEEDED, same version is already published
 bedbaser#source#propagate: UNNEEDED, same version is already published
 benchdamic#source#propagate: UNNEEDED, same version is already published
-BenchHub#source#propagate: UNNEEDED, same version is already published
 BERT#source#propagate: UNNEEDED, same version is already published
 betaHMM#source#propagate: UNNEEDED, same version is already published
 betterChromVAR#source#propagate: UNNEEDED, same version is already published
 bettr#source#propagate: UNNEEDED, same version is already published
 BG2#source#propagate: UNNEEDED, same version is already published
 BgeeCall#source#propagate: UNNEEDED, same version is already published
-BgeeDB#source#propagate: YES
+BgeeDB#source#propagate: UNNEEDED, same version is already published
 BicARE#source#propagate: UNNEEDED, same version is already published
 BiFET#source#propagate: UNNEEDED, same version is already published
 bigmelon#source#propagate: UNNEEDED, same version is already published
-BindingSiteFinder#source#propagate: YES
+BindingSiteFinder#source#propagate: UNNEEDED, same version is already published
 bioassayR#source#propagate: UNNEEDED, same version is already published
 Biobase#source#propagate: UNNEEDED, same version is already published
 Bioc.gff#source#propagate: UNNEEDED, same version is already published
@@ -186,7 +185,7 @@ BiocBaseUtils#source#propagate: UNNEEDED, same version is already published
 BiocBook#source#propagate: UNNEEDED, same version is already published
 BiocBuildReporter#source#propagate: UNNEEDED, same version is already published
 BiocCheck#source#propagate: UNNEEDED, same version is already published
-BiocDuckDB#source#propagate: YES
+BiocDuckDB#source#propagate: UNNEEDED, same version is already published
 BiocFHIR#source#propagate: UNNEEDED, same version is already published
 BiocFileCache#source#propagate: UNNEEDED, same version is already published
 BiocGenerics#source#propagate: UNNEEDED, same version is already published
@@ -239,7 +238,7 @@ borealis#source#propagate: UNNEEDED, same version is already published
 BRAIN#source#propagate: UNNEEDED, same version is already published
 branchpointer#source#propagate: UNNEEDED, same version is already published
 breakpointR#source#propagate: UNNEEDED, same version is already published
-BreastSubtypeR#source#propagate: YES
+BreastSubtypeR#source#propagate: UNNEEDED, same version is already published
 brendaDb#source#propagate: UNNEEDED, same version is already published
 BREW3R.r#source#propagate: UNNEEDED, same version is already published
 BridgeDbR#source#propagate: UNNEEDED, same version is already published
@@ -301,7 +300,7 @@ CellBench#source#propagate: UNNEEDED, same version is already published
 cellity#source#propagate: UNNEEDED, same version is already published
 CellMapper#source#propagate: UNNEEDED, same version is already published
 CellMentor#source#propagate: UNNEEDED, same version is already published
-cellmig#source#propagate: UNNEEDED, same version is already published
+cellmig#source#propagate: YES
 cellmigRation#source#propagate: UNNEEDED, same version is already published
 CellMixS#source#propagate: UNNEEDED, same version is already published
 cellNexus#source#propagate: UNNEEDED, same version is already published
@@ -617,7 +616,7 @@ DRIMSeq#source#propagate: UNNEEDED, same version is already published
 DriverNet#source#propagate: UNNEEDED, same version is already published
 DropletUtils#source#propagate: UNNEEDED, same version is already published
 drugfindR#source#propagate: UNNEEDED, same version is already published
-drugTargetInteractions#source#propagate: UNNEEDED, same version is already published
+drugTargetInteractions#source#propagate: YES
 DrugVsDisease#source#propagate: UNNEEDED, same version is already published
 DspikeIn#source#propagate: UNNEEDED, same version is already published
 DSS#source#propagate: UNNEEDED, same version is already published
@@ -642,7 +641,7 @@ EBSeq#source#propagate: UNNEEDED, same version is already published
 ecolitk#source#propagate: UNNEEDED, same version is already published
 EDASeq#source#propagate: UNNEEDED, same version is already published
 edge#source#propagate: UNNEEDED, same version is already published
-edgeR#source#propagate: UNNEEDED, same version is already published
+edgeR#source#propagate: YES
 EDIRquery#source#propagate: UNNEEDED, same version is already published
 eds#source#propagate: UNNEEDED, same version is already published
 EGAD#source#propagate: UNNEEDED, same version is already published
@@ -683,6 +682,7 @@ EpiTxDb#source#propagate: UNNEEDED, same version is already published
 epivizr#source#propagate: UNNEEDED, same version is already published
 epivizrChart#source#propagate: UNNEEDED, same version is already published
 epivizrData#source#propagate: UNNEEDED, same version is already published
+epivizrServer#source#propagate: UNNEEDED, same version is already published
 epivizrStandalone#source#propagate: UNNEEDED, same version is already published
 erccdashboard#source#propagate: UNNEEDED, same version is already published
 ERSSA#source#propagate: UNNEEDED, same version is already published
@@ -700,7 +700,7 @@ ExperimentHub#source#propagate: UNNEEDED, same version is already published
 ExperimentHubData#source#propagate: UNNEEDED, same version is already published
 ExperimentSubset#source#propagate: UNNEEDED, same version is already published
 ExploreModelMatrix#source#propagate: UNNEEDED, same version is already published
-exploreSE#source#propagate: YES
+exploreSE#source#propagate: UNNEEDED, same version is already published
 ExpoRiskR#source#propagate: UNNEEDED, same version is already published
 extraChIPs#source#propagate: UNNEEDED, same version is already published
 fabia#source#propagate: UNNEEDED, same version is already published
@@ -793,12 +793,12 @@ gcrma#source#propagate: UNNEEDED, same version is already published
 GDCRNATools#source#propagate: UNNEEDED, same version is already published
 gDNAx#source#propagate: UNNEEDED, same version is already published
 gDR#source#propagate: UNNEEDED, same version is already published
-gDRcore#source#propagate: YES
+gDRcore#source#propagate: UNNEEDED, same version is already published
 gDRimport#source#propagate: UNNEEDED, same version is already published
 gDRstyle#source#propagate: UNNEEDED, same version is already published
-gDRutils#source#propagate: YES
+gDRutils#source#propagate: UNNEEDED, same version is already published
 GDSArray#source#propagate: UNNEEDED, same version is already published
-gdscloud#source#propagate: UNNEEDED, same version is already published
+gdscloud#source#propagate: YES
 gdsfmt#source#propagate: UNNEEDED, same version is already published
 GeDi#source#propagate: UNNEEDED, same version is already published
 GEM#source#propagate: UNNEEDED, same version is already published
@@ -843,7 +843,6 @@ GenomicInteractionNodes#source#propagate: UNNEEDED, same version is already publ
 GenomicInteractions#source#propagate: UNNEEDED, same version is already published
 GenomicOZone#source#propagate: UNNEEDED, same version is already published
 GenomicPlot#source#propagate: UNNEEDED, same version is already published
-GenomicRanges#source#propagate: UNNEEDED, same version is already published
 GenomicScores#source#propagate: UNNEEDED, same version is already published
 GenomicSuperSignature#source#propagate: UNNEEDED, same version is already published
 GenomicTuples#source#propagate: UNNEEDED, same version is already published
@@ -861,7 +860,7 @@ gesel#source#propagate: UNNEEDED, same version is already published
 getDEE2#source#propagate: UNNEEDED, same version is already published
 geva#source#propagate: UNNEEDED, same version is already published
 GEWIST#source#propagate: UNNEEDED, same version is already published
-GExPipe#source#propagate: UNNEEDED, same version is already published
+GExPipe#source#propagate: YES
 geyser#source#propagate: UNNEEDED, same version is already published
 gg4way#source#propagate: UNNEEDED, same version is already published
 ggcyto#source#propagate: UNNEEDED, same version is already published
@@ -871,6 +870,7 @@ ggmsa#source#propagate: UNNEEDED, same version is already published
 GGPA#source#propagate: UNNEEDED, same version is already published
 ggsc#source#propagate: UNNEEDED, same version is already published
 ggseqalign#source#propagate: UNNEEDED, same version is already published
+ggspavis#source#propagate: UNNEEDED, same version is already published
 ggtree#source#propagate: UNNEEDED, same version is already published
 ggtreeDendro#source#propagate: UNNEEDED, same version is already published
 ggtreeExtra#source#propagate: UNNEEDED, same version is already published
@@ -1178,6 +1178,7 @@ mapscape#source#propagate: UNNEEDED, same version is already published
 markeR#source#propagate: UNNEEDED, same version is already published
 marr#source#propagate: UNNEEDED, same version is already published
 marray#source#propagate: UNNEEDED, same version is already published
+martini#source#propagate: UNNEEDED, same version is already published
 maser#source#propagate: UNNEEDED, same version is already published
 maSigPro#source#propagate: UNNEEDED, same version is already published
 maskBAD#source#propagate: UNNEEDED, same version is already published
@@ -1185,7 +1186,6 @@ MassArray#source#propagate: UNNEEDED, same version is already published
 massiR#source#propagate: UNNEEDED, same version is already published
 MassSpecWavelet#source#propagate: UNNEEDED, same version is already published
 MAST#source#propagate: UNNEEDED, same version is already published
-mastR#source#propagate: UNNEEDED, same version is already published
 matchBox#source#propagate: UNNEEDED, same version is already published
 MatrixGenerics#source#propagate: UNNEEDED, same version is already published
 MatrixQCvis#source#propagate: UNNEEDED, same version is already published
@@ -1201,7 +1201,6 @@ MBQN#source#propagate: UNNEEDED, same version is already published
 mbQTL#source#propagate: UNNEEDED, same version is already published
 MBttest#source#propagate: UNNEEDED, same version is already published
 MCbiclust#source#propagate: UNNEEDED, same version is already published
-mCSEA#source#propagate: UNNEEDED, same version is already published
 mdp#source#propagate: UNNEEDED, same version is already published
 mdqc#source#propagate: UNNEEDED, same version is already published
 MDSvis#source#propagate: UNNEEDED, same version is already published
@@ -1250,7 +1249,7 @@ methrix#source#propagate: UNNEEDED, same version is already published
 MethTargetedNGS#source#propagate: UNNEEDED, same version is already published
 MethylAid#source#propagate: UNNEEDED, same version is already published
 methylCC#source#propagate: UNNEEDED, same version is already published
-methylclock#source#propagate: UNNEEDED, same version is already published
+methylclock#source#propagate: YES
 methylGSA#source#propagate: UNNEEDED, same version is already published
 methyLImp2#source#propagate: UNNEEDED, same version is already published
 methylInheritance#source#propagate: UNNEEDED, same version is already published
@@ -1272,7 +1271,7 @@ mia#source#propagate: UNNEEDED, same version is already published
 miaDash#source#propagate: UNNEEDED, same version is already published
 miaSim#source#propagate: UNNEEDED, same version is already published
 miaTime#source#propagate: UNNEEDED, same version is already published
-miaViz#source#propagate: YES
+miaViz#source#propagate: UNNEEDED, same version is already published
 MiChip#source#propagate: UNNEEDED, same version is already published
 microbiome#source#propagate: UNNEEDED, same version is already published
 microbiomeDASim#source#propagate: UNNEEDED, same version is already published
@@ -1338,7 +1337,6 @@ motifmatchr#source#propagate: UNNEEDED, same version is already published
 MotifPeeker#source#propagate: UNNEEDED, same version is already published
 motifStack#source#propagate: UNNEEDED, same version is already published
 motifTestR#source#propagate: UNNEEDED, same version is already published
-MouseFM#source#propagate: UNNEEDED, same version is already published
 MPAC#source#propagate: UNNEEDED, same version is already published
 MPFE#source#propagate: UNNEEDED, same version is already published
 mpra#source#propagate: UNNEEDED, same version is already published
@@ -1346,9 +1344,10 @@ MPRAnalyze#source#propagate: UNNEEDED, same version is already published
 msa#source#propagate: UNNEEDED, same version is already published
 MSA2dist#source#propagate: UNNEEDED, same version is already published
 MsBackendMassbank#source#propagate: UNNEEDED, same version is already published
+MsBackendMassIVE#source#propagate: UNNEEDED, same version is already published
 MsBackendMgf#source#propagate: UNNEEDED, same version is already published
 MsBackendMsp#source#propagate: UNNEEDED, same version is already published
-MsBackendParquet#source#propagate: YES
+MsBackendParquet#source#propagate: UNNEEDED, same version is already published
 MsBackendRawFileReader#source#propagate: UNNEEDED, same version is already published
 MsBackendSql#source#propagate: UNNEEDED, same version is already published
 MsCoreUtils#source#propagate: UNNEEDED, same version is already published
@@ -1496,6 +1495,7 @@ orthogene#source#propagate: UNNEEDED, same version is already published
 orthos#source#propagate: UNNEEDED, same version is already published
 OSAT#source#propagate: UNNEEDED, same version is already published
 Oscope#source#propagate: UNNEEDED, same version is already published
+OSTA.data#source#propagate: UNNEEDED, same version is already published
 OTUbase#source#propagate: UNNEEDED, same version is already published
 OUTRIDER#source#propagate: UNNEEDED, same version is already published
 OutSplice#source#propagate: UNNEEDED, same version is already published
@@ -1521,7 +1521,7 @@ parody#source#propagate: UNNEEDED, same version is already published
 PAST#source#propagate: UNNEEDED, same version is already published
 Path2PPI#source#propagate: UNNEEDED, same version is already published
 pathifier#source#propagate: UNNEEDED, same version is already published
-pathlinkR#source#propagate: UNNEEDED, same version is already published
+pathlinkR#source#propagate: YES
 pathMED#source#propagate: NO, package depends on 'decoupleR' which is not available
 PathNet#source#propagate: UNNEEDED, same version is already published
 PathoStat#source#propagate: UNNEEDED, same version is already published
@@ -1564,7 +1564,8 @@ phyloseq#source#propagate: UNNEEDED, same version is already published
 piano#source#propagate: UNNEEDED, same version is already published
 PICB#source#propagate: UNNEEDED, same version is already published
 pickgene#source#propagate: UNNEEDED, same version is already published
-PinPath#source#propagate: UNNEEDED, same version is already published
+Pigengene#source#propagate: UNNEEDED, same version is already published
+PinPath#source#propagate: YES
 pipeComp#source#propagate: UNNEEDED, same version is already published
 pipeFrame#source#propagate: UNNEEDED, same version is already published
 Pirat#source#propagate: UNNEEDED, same version is already published
@@ -1788,6 +1789,7 @@ rnaSentry#source#propagate: UNNEEDED, same version is already published
 rnaseqcomp#source#propagate: UNNEEDED, same version is already published
 RNAseqCovarImpute#source#propagate: UNNEEDED, same version is already published
 RNASeqPower#source#propagate: UNNEEDED, same version is already published
+RnaSeqSampleSize#source#propagate: UNNEEDED, same version is already published
 RNAshapeQC#source#propagate: UNNEEDED, same version is already published
 RnBeads#source#propagate: UNNEEDED, same version is already published
 roar#source#propagate: UNNEEDED, same version is already published
@@ -1936,7 +1938,7 @@ semisup#source#propagate: UNNEEDED, same version is already published
 SEMPLR#source#propagate: UNNEEDED, same version is already published
 seq.hotSPOT#source#propagate: UNNEEDED, same version is already published
 seq2pathway#source#propagate: UNNEEDED, same version is already published
-SeqArray#source#propagate: UNNEEDED, same version is already published
+SeqArray#source#propagate: YES
 seqCAT#source#propagate: UNNEEDED, same version is already published
 seqcombo#source#propagate: UNNEEDED, same version is already published
 SeqGate#source#propagate: UNNEEDED, same version is already published
@@ -1948,6 +1950,7 @@ SeqSQC#source#propagate: UNNEEDED, same version is already published
 Seqtometry#source#propagate: UNNEEDED, same version is already published
 SeqVarTools#source#propagate: UNNEEDED, same version is already published
 SEraster#source#propagate: UNNEEDED, same version is already published
+sesame#source#propagate: YES
 SETA#source#propagate: UNNEEDED, same version is already published
 SEtools#source#propagate: UNNEEDED, same version is already published
 sevenbridges#source#propagate: UNNEEDED, same version is already published
@@ -2010,7 +2013,6 @@ SNAGEE#source#propagate: UNNEEDED, same version is already published
 snapcount#source#propagate: UNNEEDED, same version is already published
 snifter#source#propagate: UNNEEDED, same version is already published
 snm#source#propagate: UNNEEDED, same version is already published
-SNPediaR#source#propagate: UNNEEDED, same version is already published
 SNPRelate#source#propagate: UNNEEDED, same version is already published
 snpStats#source#propagate: UNNEEDED, same version is already published
 SomaticSignatures#source#propagate: UNNEEDED, same version is already published
@@ -2019,7 +2021,6 @@ sosta#source#propagate: UNNEEDED, same version is already published
 SpaceMarkers#source#propagate: UNNEEDED, same version is already published
 SpaceTrooper#source#propagate: UNNEEDED, same version is already published
 spacexr#source#propagate: UNNEEDED, same version is already published
-spammR#source#propagate: UNNEEDED, same version is already published
 Spaniel#source#propagate: UNNEEDED, same version is already published
 SpaNorm#source#propagate: UNNEEDED, same version is already published
 spARI#source#propagate: UNNEEDED, same version is already published
@@ -2032,7 +2033,7 @@ spaSim#source#propagate: UNNEEDED, same version is already published
 SpatialArtifacts#source#propagate: UNNEEDED, same version is already published
 SpatialCPie#source#propagate: UNNEEDED, same version is already published
 SpatialData.data#source#propagate: UNNEEDED, same version is already published
-spatialdataR#source#propagate: UNNEEDED, same version is already published
+spatialdataR#source#propagate: YES
 spatialDE#source#propagate: UNNEEDED, same version is already published
 SpatialDecon#source#propagate: UNNEEDED, same version is already published
 SpatialExperiment#source#propagate: UNNEEDED, same version is already published
@@ -2047,7 +2048,7 @@ SpeCond#source#propagate: UNNEEDED, same version is already published
 Spectra#source#propagate: UNNEEDED, same version is already published
 SpectralTAD#source#propagate: UNNEEDED, same version is already published
 SpectraQL#source#propagate: UNNEEDED, same version is already published
-SpectraStash#source#propagate: YES
+SpectraStash#source#propagate: UNNEEDED, same version is already published
 SpectriPy#source#propagate: UNNEEDED, same version is already published
 SPEM#source#propagate: UNNEEDED, same version is already published
 SPIA#source#propagate: UNNEEDED, same version is already published
@@ -2073,7 +2074,7 @@ SPONGE#source#propagate: UNNEEDED, same version is already published
 spoon#source#propagate: UNNEEDED, same version is already published
 SpotClean#source#propagate: UNNEEDED, same version is already published
 SPOTlight#source#propagate: UNNEEDED, same version is already published
-SpotSweeper#source#propagate: YES
+SpotSweeper#source#propagate: UNNEEDED, same version is already published
 spqn#source#propagate: UNNEEDED, same version is already published
 SPsimSeq#source#propagate: UNNEEDED, same version is already published
 squallms#source#propagate: UNNEEDED, same version is already published
@@ -2092,7 +2093,7 @@ STADyUM#source#propagate: UNNEEDED, same version is already published
 standR#source#propagate: UNNEEDED, same version is already published
 staRgate#source#propagate: UNNEEDED, same version is already published
 STATegRa#source#propagate: UNNEEDED, same version is already published
-StatescopeR#source#propagate: YES
+StatescopeR#source#propagate: UNNEEDED, same version is already published
 statTarget#source#propagate: UNNEEDED, same version is already published
 stepNorm#source#propagate: UNNEEDED, same version is already published
 stPipe#source#propagate: UNNEEDED, same version is already published
@@ -2118,6 +2119,7 @@ svaNUMT#source#propagate: UNNEEDED, same version is already published
 svaRetro#source#propagate: UNNEEDED, same version is already published
 SVP#source#propagate: UNNEEDED, same version is already published
 SwarnSeq#source#propagate: UNNEEDED, same version is already published
+SWATH2stats#source#propagate: UNNEEDED, same version is already published
 SwathXtend#source#propagate: UNNEEDED, same version is already published
 swfdr#source#propagate: UNNEEDED, same version is already published
 switchBox#source#propagate: UNNEEDED, same version is already published
@@ -2127,7 +2129,7 @@ SynExtend#source#propagate: UNNEEDED, same version is already published
 synlet#source#propagate: UNNEEDED, same version is already published
 SynMut#source#propagate: UNNEEDED, same version is already published
 syntenet#source#propagate: UNNEEDED, same version is already published
-systemPipeR#source#propagate: UNNEEDED, same version is already published
+systemPipeR#source#propagate: YES
 systemPipeShiny#source#propagate: UNNEEDED, same version is already published
 systemPipeTools#source#propagate: UNNEEDED, same version is already published
 tadar#source#propagate: UNNEEDED, same version is already published
@@ -2157,7 +2159,7 @@ TFARM#source#propagate: UNNEEDED, same version is already published
 TFBSTools#source#propagate: UNNEEDED, same version is already published
 TFEA.ChIP#source#propagate: UNNEEDED, same version is already published
 TFHAZ#source#propagate: UNNEEDED, same version is already published
-thyroidBRS#source#propagate: UNNEEDED, same version is already published
+thyroidBRS#source#propagate: YES
 tidybulk#source#propagate: UNNEEDED, same version is already published
 tidyCoverage#source#propagate: UNNEEDED, same version is already published
 tidyexposomics#source#propagate: UNNEEDED, same version is already published
@@ -2271,6 +2273,7 @@ vissE#source#propagate: UNNEEDED, same version is already published
 VISTA#source#propagate: UNNEEDED, same version is already published
 vmrseq#source#propagate: UNNEEDED, same version is already published
 Voyager#source#propagate: UNNEEDED, same version is already published
+VplotR#source#propagate: UNNEEDED, same version is already published
 vsclust#source#propagate: UNNEEDED, same version is already published
 vsn#source#propagate: UNNEEDED, same version is already published
 vtpnet#source#propagate: UNNEEDED, same version is already published
@@ -2300,6 +2303,7 @@ xmapbridge#source#propagate: UNNEEDED, same version is already published
 XVector#source#propagate: UNNEEDED, same version is already published
 yamss#source#propagate: UNNEEDED, same version is already published
 YAPSA#source#propagate: UNNEEDED, same version is already published
+yarn#source#propagate: UNNEEDED, same version is already published
 ZarrArray#source#propagate: UNNEEDED, same version is already published
 zellkonverter#source#propagate: UNNEEDED, same version is already published
 zenith#source#propagate: UNNEEDED, same version is already published
@@ -2322,7 +2326,7 @@ ACME#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publ
 ADaCGH2#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ADAM#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ADAMgui#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-ADAPT#mac.binary.big-sur-x86_64#propagate: YES
+ADAPT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ADImpute#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 adSplit#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 adverSCarial#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2465,18 +2469,17 @@ BEAT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publ
 BEclear#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 bedbaser#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 benchdamic#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-BenchHub#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BERT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 betaHMM#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 betterChromVAR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 bettr#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BG2#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BgeeCall#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-BgeeDB#mac.binary.big-sur-x86_64#propagate: YES
+BgeeDB#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BicARE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiFET#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 bigmelon#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-BindingSiteFinder#mac.binary.big-sur-x86_64#propagate: YES
+BindingSiteFinder#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 bioassayR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Biobase#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Bioc.gff#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2487,7 +2490,7 @@ BiocBaseUtils#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is alr
 BiocBook#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiocBuildReporter#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiocCheck#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-BiocDuckDB#mac.binary.big-sur-x86_64#propagate: YES
+BiocDuckDB#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiocFHIR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiocFileCache#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BiocGenerics#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2538,7 +2541,7 @@ borealis#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already 
 BRAIN#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 branchpointer#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 breakpointR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-BreastSubtypeR#mac.binary.big-sur-x86_64#propagate: YES
+BreastSubtypeR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 brendaDb#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BREW3R.r#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 BridgeDbR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2580,6 +2583,7 @@ CatsCradle#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is alread
 CausalR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cbaf#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cBioPortalData#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+CBN2Path#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CBNplot#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cbpManager#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CCAFE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2595,7 +2599,7 @@ CellBench#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 cellity#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CellMapper#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CellMentor#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-cellmig#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+cellmig#mac.binary.big-sur-x86_64#propagate: YES
 cellmigRation#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CellMixS#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cellNexus#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2733,6 +2737,7 @@ coRdon#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 Cormotif#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CorNetto#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 corral#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+coseq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 CoSIA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cosmiq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 cosmosR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2840,6 +2845,7 @@ demuxmix#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already 
 demuxSNP#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DenoIST#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DEP#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+DepecheR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DepInfeR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DEqMS#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 derfinder#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2902,7 +2908,7 @@ DRIMSeq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already p
 DriverNet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DropletUtils#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 drugfindR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-drugTargetInteractions#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+drugTargetInteractions#mac.binary.big-sur-x86_64#propagate: YES
 DrugVsDisease#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DspikeIn#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 DSS#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2927,7 +2933,7 @@ EBSeq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 ecolitk#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 EDASeq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 edge#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-edgeR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+edgeR#mac.binary.big-sur-x86_64#propagate: YES
 EDIRquery#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 eds#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 EGAD#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -2987,7 +2993,7 @@ ExperimentHub#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is alr
 ExperimentHubData#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ExperimentSubset#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ExploreModelMatrix#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-exploreSE#mac.binary.big-sur-x86_64#propagate: YES
+exploreSE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ExpoRiskR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 extraChIPs#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 fabia#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3078,12 +3084,12 @@ gcrma#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 GDCRNATools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gDNAx#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gDR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-gDRcore#mac.binary.big-sur-x86_64#propagate: YES
+gDRcore#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gDRimport#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gDRstyle#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-gDRutils#mac.binary.big-sur-x86_64#propagate: YES
+gDRutils#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GDSArray#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-gdscloud#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+gdscloud#mac.binary.big-sur-x86_64#propagate: YES
 gdsfmt#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GeDi#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GEM#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3145,7 +3151,7 @@ gesel#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 getDEE2#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 geva#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GEWIST#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-GExPipe#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+GExPipe#mac.binary.big-sur-x86_64#propagate: NO, package depends on 'sva' which is only available as a source package that needs compilation
 geyser#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gg4way#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggcyto#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3155,6 +3161,7 @@ ggmsa#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 GGPA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggsc#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggseqalign#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+ggspavis#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggtree#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggtreeDendro#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ggtreeExtra#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3192,6 +3199,7 @@ GPA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publi
 GPlinksR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 gpls#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GrafGen#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+GRaNIE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 graper#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 graph#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 GraphAlignment#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3392,7 +3400,6 @@ LBE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publi
 lcmsPlot#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ldblock#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 LEA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-leapR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 LedPred#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 lefser#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 lemur#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3457,7 +3464,6 @@ MassArray#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 massiR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MassSpecWavelet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MAST#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-mastR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 matchBox#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MatrixGenerics#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MatrixQCvis#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3520,7 +3526,7 @@ methrix#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already p
 MethTargetedNGS#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MethylAid#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 methylCC#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-methylclock#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+methylclock#mac.binary.big-sur-x86_64#propagate: YES
 methylGSA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 methyLImp2#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 methylInheritance#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3542,7 +3548,7 @@ mgsa#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publ
 miaDash#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 miaSim#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 miaTime#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-miaViz#mac.binary.big-sur-x86_64#propagate: YES
+miaViz#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MiChip#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 microbiome#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 microbiomeDASim#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3617,7 +3623,7 @@ MSA2dist#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already 
 MsBackendMassbank#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsBackendMgf#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsBackendMsp#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-MsBackendParquet#mac.binary.big-sur-x86_64#propagate: YES
+MsBackendParquet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsBackendRawFileReader#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsBackendSql#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsCoreUtils#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3629,6 +3635,7 @@ mslp#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publ
 msmsEDA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 msmsTests#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 mspms#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+msPurity#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 msqrob2#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsQuality#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 MsStash#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3759,6 +3766,7 @@ OrganismDbi#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is alrea
 orthogene#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 OSAT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Oscope#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+OSTA.data#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 OTUbase#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 OUTRIDER#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 OutSplice#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3784,7 +3792,7 @@ parody#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 PAST#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Path2PPI#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 pathifier#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-pathlinkR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+pathlinkR#mac.binary.big-sur-x86_64#propagate: YES
 PathNet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 PathoStat#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 pathRender#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3826,7 +3834,7 @@ piano#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 PICB#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 pickgene#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Pigengene#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-PinPath#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+PinPath#mac.binary.big-sur-x86_64#propagate: YES
 pipeComp#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 pipeFrame#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 PIUMA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3969,7 +3977,6 @@ RCy3#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already publ
 RCyjs#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Rdisop#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 RDRToolbox#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-ReactomeGSA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ReactomePA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ReadqPCR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 REBET#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -3990,7 +3997,6 @@ regsplice#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 regutools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 REMP#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ReportingTools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-RepViz#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ResidualMatrix#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 RESOLVE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 retrofit#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4064,7 +4070,7 @@ Rsamtools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 rScudo#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 rsemmed#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 RSeqAn#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-Rsubread#mac.binary.big-sur-x86_64#propagate: YES
+Rsubread#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 RSVSim#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 rSWeeP#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 RTCA#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4102,6 +4108,7 @@ satuRn#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 SBGNview#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SBMLR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SC3#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+scafari#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Scale4C#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 ScaledMatrix#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SCAN.UPC#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4186,7 +4193,7 @@ semisup#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already p
 SEMPLR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 seq.hotSPOT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 seq2pathway#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-SeqArray#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+SeqArray#mac.binary.big-sur-x86_64#propagate: YES
 seqCAT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 seqcombo#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SeqGate#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4236,6 +4243,8 @@ simona#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 simPIC#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 simpleSeg#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 simplifyEnrichment#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+sincell#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+singIST#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SingleCellAlleleExperiment#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SingleCellExperiment#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SingleCellSignalR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4267,7 +4276,6 @@ sosta#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 SpaceMarkers#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpaceTrooper#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 spacexr#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-spammR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 Spaniel#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpaNorm#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 spARI#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4280,7 +4288,7 @@ spaSim#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 SpatialArtifacts#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpatialCPie#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpatialData.data#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-spatialdataR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+spatialdataR#mac.binary.big-sur-x86_64#propagate: YES
 SpatialDecon#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpatialExperiment#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpatialExperimentIO#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4319,7 +4327,7 @@ SPONGE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pu
 spoon#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SpotClean#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SPOTlight#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-SpotSweeper#mac.binary.big-sur-x86_64#propagate: YES
+SpotSweeper#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 spqn#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SPsimSeq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 squallms#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4371,7 +4379,7 @@ SynExtend#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 synlet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 SynMut#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 syntenet#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-systemPipeR#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+systemPipeR#mac.binary.big-sur-x86_64#propagate: YES
 systemPipeShiny#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 systemPipeTools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 tadar#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4390,7 +4398,6 @@ TCGAutils#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already
 TCseq#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TDbasedUFE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TDbasedUFEadv#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-TEKRABber#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TENET#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TENxIO#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 tenXplore#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4402,7 +4409,7 @@ TFARM#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 TFBSTools#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TFEA.ChIP#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 TFHAZ#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-thyroidBRS#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
+thyroidBRS#mac.binary.big-sur-x86_64#propagate: YES
 tidybulk#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 tidyCoverage#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 tidyexposomics#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
@@ -4494,7 +4501,6 @@ uSORT#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already pub
 VAExprs#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 VanillaICE#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 VarCon#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
-VariantAnnotation#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 VariantFiltering#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 vbmp#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
 VCFArray#mac.binary.big-sur-x86_64#propagate: UNNEEDED, same version is already published
