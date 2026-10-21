@@ -10,6 +10,7 @@ airway#source#propagate: UNNEEDED, same version is already published
 ALL#source#propagate: UNNEEDED, same version is already published
 ALLMLL#source#propagate: UNNEEDED, same version is already published
 AmpAffyExample#source#propagate: UNNEEDED, same version is already published
+AnnotatedBCGEData#source#propagate: YES
 antiProfilesData#source#propagate: UNNEEDED, same version is already published
 aracne.networks#source#propagate: UNNEEDED, same version is already published
 ARRmData#source#propagate: UNNEEDED, same version is already published
@@ -317,6 +318,7 @@ raerdata#source#propagate: UNNEEDED, same version is already published
 rcellminerData#source#propagate: UNNEEDED, same version is already published
 RcisTarget.hg19.motifDBs.cisbpOnly.500bp#source#propagate: UNNEEDED, same version is already published
 ReactomeGSA.data#source#propagate: UNNEEDED, same version is already published
+RforProteomics#source#propagate: UNNEEDED, same version is already published
 rheumaticConditionWOLLBOLD#source#propagate: UNNEEDED, same version is already published
 RITANdata#source#propagate: UNNEEDED, same version is already published
 RMassBankData#source#propagate: UNNEEDED, same version is already published
@@ -337,7 +339,6 @@ scanMiRData#source#propagate: UNNEEDED, same version is already published
 scATAC.Explorer#source#propagate: UNNEEDED, same version is already published
 SCLCBam#source#propagate: UNNEEDED, same version is already published
 scMultiome#source#propagate: UNNEEDED, same version is already published
-scRNAseq#source#propagate: UNNEEDED, same version is already published
 scTHI.data#source#propagate: UNNEEDED, same version is already published
 seq2pathway.data#source#propagate: UNNEEDED, same version is already published
 seqc#source#propagate: UNNEEDED, same version is already published
@@ -350,6 +351,7 @@ signatureSearchData#source#propagate: UNNEEDED, same version is already publishe
 SimBenchData#source#propagate: UNNEEDED, same version is already published
 simpIntLists#source#propagate: UNNEEDED, same version is already published
 Single.mTEC.Transcriptomes#source#propagate: UNNEEDED, same version is already published
+SingleCellMultiModal#source#propagate: UNNEEDED, same version is already published
 SingleMoleculeFootprintingData#source#propagate: UNNEEDED, same version is already published
 SNAData#source#propagate: UNNEEDED, same version is already published
 SNAGEEdata#source#propagate: UNNEEDED, same version is already published
@@ -367,7 +369,7 @@ stemHypoxia#source#propagate: UNNEEDED, same version is already published
 STexampleData#source#propagate: UNNEEDED, same version is already published
 SubcellularSpatialData#source#propagate: UNNEEDED, same version is already published
 SVM2CRMdata#source#propagate: UNNEEDED, same version is already published
-systemPipeRdata#source#propagate: UNNEEDED, same version is already published
+systemPipeRdata#source#propagate: YES
 TabulaMurisData#source#propagate: UNNEEDED, same version is already published
 TabulaMurisSenisData#source#propagate: UNNEEDED, same version is already published
 TargetScoreData#source#propagate: UNNEEDED, same version is already published

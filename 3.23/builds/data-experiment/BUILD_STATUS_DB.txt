@@ -450,7 +450,7 @@ gDRtestData#nebbiolo1#buildsrc: OK
 gDRtestData#nebbiolo1#checksrc: OK
 geneLenDataBase#nebbiolo1#install: OK
 geneLenDataBase#nebbiolo1#buildsrc: OK
-geneLenDataBase#nebbiolo1#checksrc: OK
+geneLenDataBase#nebbiolo1#checksrc: ERROR
 genomationData#nebbiolo1#install: OK
 genomationData#nebbiolo1#buildsrc: OK
 genomationData#nebbiolo1#checksrc: OK
@@ -1119,7 +1119,7 @@ Single.mTEC.Transcriptomes#nebbiolo1#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo1#checksrc: OK
 SingleCellMultiModal#nebbiolo1#install: OK
 SingleCellMultiModal#nebbiolo1#buildsrc: OK
-SingleCellMultiModal#nebbiolo1#checksrc: OK
+SingleCellMultiModal#nebbiolo1#checksrc: ERROR
 SingleMoleculeFootprintingData#nebbiolo1#install: OK
 SingleMoleculeFootprintingData#nebbiolo1#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo1#checksrc: OK

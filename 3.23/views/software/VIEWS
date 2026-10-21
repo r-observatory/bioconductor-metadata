@@ -703,7 +703,11 @@ git_last_commit: 3d23885
 git_last_commit_date: 2026-10-16
 Date/Publication: 2026-10-18
 source.ver: src/contrib/ADAPT_1.6.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/ADAPT_1.6.0.zip
+win.binary.ver: bin/windows/contrib/4.6/ADAPT_1.6.1.zip
+mac.binary.big-sur-x86_64.ver:
+        bin/macosx/big-sur-x86_64/contrib/4.6/ADAPT_1.6.1.tgz
+mac.binary.sonoma-arm64.ver:
+        bin/macosx/sonoma-arm64/contrib/4.6/ADAPT_1.6.1.tgz
 vignettes: vignettes/ADAPT/inst/doc/ADAPT-manual.html
 vignetteTitles: ADAPT Tutorial
 hasREADME: FALSE
@@ -19958,7 +19962,7 @@ Rfiles: vignettes/ClusterJudge/inst/doc/ClusterJudge-intro.R
 dependencyCount: 26
 
 Package: clusterProfiler
-Version: 4.20.2
+Version: 4.20.3
 Depends: R (>= 4.2.0)
 Imports: aisdk, AnnotationDbi, dplyr, enrichit (>= 0.1.1), enrichplot
         (>= 1.9.3), ggplot2, GO.db, GOSemSim (>= 2.27.2), gson (>=
@@ -19967,7 +19971,7 @@ Imports: aisdk, AnnotationDbi, dplyr, enrichit (>= 0.1.1), enrichplot
 Suggests: AnnotationHub, BiocManager, DOSE, ggtangle, readr,
         org.Hs.eg.db, quarto, testthat
 License: Artistic-2.0
-MD5sum: bfa30340483188be282138b425dc488e
+MD5sum: 4dfd43e4135925b09825ac0458b3e6ae
 NeedsCompilation: no
 Title: A Universal Enrichment Tool for Interpreting Omics Data
 Description: A universal tool for interpreting functional
@@ -19993,10 +19997,10 @@ VignetteBuilder: quarto
 BugReports: https://github.com/YuLab-SMU/clusterProfiler/issues
 git_url: https://git.bioconductor.org/packages/clusterProfiler
 git_branch: RELEASE_3_23
-git_last_commit: 7f2cc56
-git_last_commit_date: 2026-10-01
-Date/Publication: 2026-10-05
-source.ver: src/contrib/clusterProfiler_4.20.2.tar.gz
+git_last_commit: 72bb1f4
+git_last_commit_date: 2026-10-18
+Date/Publication: 2026-10-19
+source.ver: src/contrib/clusterProfiler_4.20.3.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.2.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.2.tgz
@@ -33171,14 +33175,14 @@ Rfiles: vignettes/edge/inst/doc/edge.R
 dependencyCount: 87
 
 Package: edgeR
-Version: 4.10.6
+Version: 4.10.7
 Depends: R (>= 3.6.0), limma (>= 3.63.6)
 Imports: methods, graphics, stats, utils, locfit
 Suggests: jsonlite, knitr, Matrix, nanoparquet, readr, rhdf5,
         SeuratObject, splines, AnnotationDbi, Biobase, BiocStyle,
         org.Hs.eg.db, S4Vectors, SummarizedExperiment
 License: GPL (>=2)
-MD5sum: 5ce2d973fafc2be031e6e98296cb0d42
+MD5sum: 2f4ce588034c0b8dd24b23dc782d74c6
 NeedsCompilation: yes
 Title: Empirical Analysis of Digital Gene Expression Data in R
 Description: Differential expression analysis of sequence count data.
@@ -33213,10 +33217,10 @@ URL: https://bioinf.wehi.edu.au/edgeR/,
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/edgeR
 git_branch: RELEASE_3_23
-git_last_commit: 4861033
-git_last_commit_date: 2026-10-13
-Date/Publication: 2026-10-13
-source.ver: src/contrib/edgeR_4.10.6.tar.gz
+git_last_commit: 27ba7b3
+git_last_commit_date: 2026-10-17
+Date/Publication: 2026-10-19
+source.ver: src/contrib/edgeR_4.10.7.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.6.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.6.tgz
@@ -47239,8 +47243,8 @@ suggestsMe: anansi, AnnotationDbi, DAPAR, DEGraph, EBcoexpress,
         ecolitk, gwascat, KEGGlincs, MLP, NetPathMiner, omXplore,
         rBiopaxParser, RCX, rTRM, S4Vectors, SPIA, VariantTools,
         arulesViz, bnlearn, bnstruct, bsub, caugi, gbutils, GeneNet,
-        gMCP, lava, loon, maGUI, netmeta, PFCI, psych, rCausalMGM,
-        rEMM, rPref, sisal, textplot, tidygraph, zenplots
+        ggmGraphEditor, gMCP, lava, loon, maGUI, netmeta, PFCI, psych,
+        rCausalMGM, rEMM, rPref, sisal, textplot, tidygraph, zenplots
 dependencyCount: 7
 
 Package: GraphAlignment
@@ -48167,7 +48171,7 @@ Rfiles: vignettes/GSRI/inst/doc/gsri.R
 dependencyCount: 64
 
 Package: GSVA
-Version: 2.6.12
+Version: 2.6.14
 Depends: R (>= 4.0.0)
 Imports: methods, stats, utils, graphics, BiocGenerics, MatrixGenerics,
         S4Vectors, S4Arrays, HDF5Array, SparseArray, DelayedArray,
@@ -48182,7 +48186,7 @@ Suggests: RUnit, BiocStyle, knitr, rmarkdown, limma, RColorBrewer,
         data.table, plotly, future, promises, shinybusy, shinyjs
 License: Artistic-2.0
 Archs: x64
-MD5sum: 26906288ae8c30ee5b78cd4164309f06
+MD5sum: e96c5673ab71849f35f19407b759935c
 NeedsCompilation: yes
 Title: Gene Set Variation Analysis for Microarray and RNA-Seq Data
 Description: Gene Set Variation Analysis (GSVA) is a non-parametric,
@@ -48209,10 +48213,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/rcastelo/GSVA/issues
 git_url: https://git.bioconductor.org/packages/GSVA
 git_branch: RELEASE_3_23
-git_last_commit: 549ec83
-git_last_commit_date: 2026-10-10
-Date/Publication: 2026-10-12
-source.ver: src/contrib/GSVA_2.6.12.tar.gz
+git_last_commit: 966d818
+git_last_commit_date: 2026-10-19
+Date/Publication: 2026-10-19
+source.ver: src/contrib/GSVA_2.6.14.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.12.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.12.tgz
@@ -51081,7 +51085,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/hopach/inst/doc/hopach.R
 importsMe: phenoTest, scClassify, treekoR
-suggestsMe: MicrobiotaProcess
+suggestsMe: MicrobiotaProcess, rtemis
 dependencyCount: 9
 
 Package: HPAanalyze

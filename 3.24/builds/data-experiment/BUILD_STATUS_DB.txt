@@ -35,8 +35,8 @@ AmpAffyExample#nebbiolo2#install: OK
 AmpAffyExample#nebbiolo2#buildsrc: OK
 AmpAffyExample#nebbiolo2#checksrc: WARNINGS
 AnnotatedBCGEData#nebbiolo2#install: OK
-AnnotatedBCGEData#nebbiolo2#buildsrc: ERROR
-AnnotatedBCGEData#nebbiolo2#checksrc: skipped
+AnnotatedBCGEData#nebbiolo2#buildsrc: OK
+AnnotatedBCGEData#nebbiolo2#checksrc: OK
 antiProfilesData#nebbiolo2#install: OK
 antiProfilesData#nebbiolo2#buildsrc: OK
 antiProfilesData#nebbiolo2#checksrc: OK
@@ -995,8 +995,8 @@ RegParallel#nebbiolo2#install: OK
 RegParallel#nebbiolo2#buildsrc: ERROR
 RegParallel#nebbiolo2#checksrc: skipped
 RforProteomics#nebbiolo2#install: OK
-RforProteomics#nebbiolo2#buildsrc: TIMEOUT
-RforProteomics#nebbiolo2#checksrc: skipped
+RforProteomics#nebbiolo2#buildsrc: OK
+RforProteomics#nebbiolo2#checksrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#install: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#buildsrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#checksrc: OK
@@ -1089,7 +1089,7 @@ scpdata#nebbiolo2#buildsrc: OK
 scpdata#nebbiolo2#checksrc: ERROR
 scRNAseq#nebbiolo2#install: OK
 scRNAseq#nebbiolo2#buildsrc: OK
-scRNAseq#nebbiolo2#checksrc: OK
+scRNAseq#nebbiolo2#checksrc: ERROR
 scTHI.data#nebbiolo2#install: OK
 scTHI.data#nebbiolo2#buildsrc: OK
 scTHI.data#nebbiolo2#checksrc: OK
@@ -1127,8 +1127,8 @@ Single.mTEC.Transcriptomes#nebbiolo2#install: OK
 Single.mTEC.Transcriptomes#nebbiolo2#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo2#checksrc: OK
 SingleCellMultiModal#nebbiolo2#install: OK
-SingleCellMultiModal#nebbiolo2#buildsrc: ERROR
-SingleCellMultiModal#nebbiolo2#checksrc: skipped
+SingleCellMultiModal#nebbiolo2#buildsrc: OK
+SingleCellMultiModal#nebbiolo2#checksrc: OK
 SingleMoleculeFootprintingData#nebbiolo2#install: OK
 SingleMoleculeFootprintingData#nebbiolo2#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo2#checksrc: OK
