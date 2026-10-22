@@ -36,13 +36,16 @@ if (!exists("parse_build_status_db", mode = "function")) {
 if (!exists("views_state_rows", mode = "function")) {
   source(file.path(.script_dir, "views_history.R"))
 }
+if (!exists("read_checksum_state", mode = "function")) {
+  source(file.path(.script_dir, "checksums.R"))
+}
 
 iso <- function(t) format(t, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
 # GET a URL: status, body as UTF-8 text, and Last-Modified in UTC.
-http_get <- function(url) {
+http_get <- function(url, timeout = 600) {
   res <- curl::curl_fetch_memory(
-    url, handle = curl::new_handle(followlocation = TRUE, timeout = 600))
+    url, handle = curl::new_handle(followlocation = TRUE, timeout = timeout))
   hdr <- curl::parse_headers_list(res$headers)
   body <- rawToChar(res$content)
   Encoding(body) <- "UTF-8"
@@ -124,7 +127,8 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
   # 3a. Build reports. A failed stream keeps its prior rows and never stops
   # the catalog.
   run_at <- iso(Sys.time())
-  builds <- read_build_state(io, prev, config_branch_versions(config_text), run_at)
+  branch_versions <- config_branch_versions(config_text)
+  builds <- read_build_state(io, prev, branch_versions, run_at)
 
   # 3b. biocViews vocabulary per release
   empty_edges <- data.frame(
@@ -523,6 +527,22 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
     if (nrow(carry) > 0L) authors_df <- rbind(authors_df, carry)
   }
 
+  # 6b. Package checksums of every release and devel. Never fatal: an error
+  # keeps the prior rows.
+  checksums <- tryCatch(
+    read_checksum_state(io, prev, releases_df$version,
+                        live = c(current_release, unname(branch_versions))),
+    error = function(e) {
+      message("Package checksums not read this run: ", conditionMessage(e))
+      keep_checksum_state(prev)
+    })
+  message(sprintf(paste("Package checksums: %d releases and %d repositories read, %d rows,",
+                        "%d repositories missing, %d failed, %d deferred"),
+                  checksums$releases_read, checksums$repositories_read, nrow(checksums$rows),
+                  length(checksums$missing), length(checksums$failed),
+                  length(checksums$deferred)))
+  checksums_fp <- checksums_fingerprint(checksums$rows, checksums$frozen)
+
   # 7. Export catalog and manifest
   db_path <- file.path(out_dir, "bioconductor-metadata.db")
 
@@ -560,7 +580,8 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
                  names_all_df = names_all_df, vignettes_df = vignettes_df,
                  build_reports_df = builds$reports,
                  build_status_df = builds$history,
-                 views_history_df = views_hist$history)
+                 views_history_df = views_hist$history,
+                 checksums_df = checksums$rows)
 
   # Integrity / completeness core for the primary published db. export_catalog
   # closes its own connection before returning, so the file on disk is
@@ -595,6 +616,7 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
     (prev$manifest$source$views_fingerprint     %||% "") != views_fingerprint ||
     (prev$manifest$source$releases_fingerprint  %||% "") != releases_fingerprint ||
     (prev$manifest$source$biocviews_fingerprint %||% "") != biocviews_fingerprint ||
+    (prev$manifest$source$checksums_fingerprint %||% "") != checksums_fp ||
     !identical(as.integer(prev$manifest$source$schema %||% NA_integer_), BIOC_METADATA_SCHEMA)
 
   manifest <- list(
@@ -618,12 +640,24 @@ run_update <- function(io, out_dir, force_full = FALSE, live_floor = BIOC_LIVE_F
                                 closed = views_hist$counts[["closed"]],
                                 applied = I(setdiff(views_apply, views_hist$skipped)),
                                 skipped_stale = I(views_hist$skipped)),
+    # frozen lists the frozen release repositories already read, which later
+    # runs do not ask for again.
+    checksums            = list(releases_read = checksums$releases_read,
+                                repositories_read = checksums$repositories_read,
+                                rows = nrow(checksums$rows),
+                                repositories_missing = length(checksums$missing),
+                                repositories_failed = length(checksums$failed),
+                                repositories_deferred = length(checksums$deferred),
+                                missing = I(checksums$missing),
+                                failed = I(checksums$failed),
+                                frozen = I(checksums$frozen)),
     source               = list(
       views_fingerprint     = views_fingerprint,
       releases_fingerprint  = releases_fingerprint,
       biocviews_fingerprint = biocviews_fingerprint,
       views_sha256          = views_sha,
       builds_fingerprint    = builds_fp,
+      checksums_fingerprint = checksums_fp,
       n_view_edges          = nrow(view_edges_df),
       schema                = BIOC_METADATA_SCHEMA
     )
@@ -926,7 +960,12 @@ read_catalog_db <- function(db_path, manifest = list()) {
        names_all = read("bioc_names_all") %||% empty_bioc_names_all(),
        build_reports = state[["bioc_build_reports"]],
        build_status  = state[["bioc_build_status_history"]],
-       views_history = state[["bioc_views_history"]])
+       views_history = state[["bioc_views_history"]],
+       # Checksums can be read again from upstream, so this table never stops the run.
+       checksums     = tryCatch(read("bioc_package_checksums"), error = function(e) {
+         message("Prior checksum table not read: ", conditionMessage(e))
+         NULL
+       }))
 }
 
 # The prior catalog from the `current` release. No release is a bootstrap; a
@@ -997,6 +1036,20 @@ default_io <- function(sleep = Sys.sleep, http = http_get) {
       with_retry({
         r <- http(u)
         if (r$status >= 500L || r$status == 429L) stop(sprintf("HTTP %s for %s", r$status, u))
+        r
+      }, waits = ITEM_RETRY_WAITS_S, sleep = sleep)
+    },
+
+    # One release repository's PACKAGES file. A 404 comes back as a result; 5xx,
+    # 429 and a 200 that is not a PACKAGES file retry on the item budget.
+    fetch_packages = function(release, repository) {
+      u <- packages_url(release, repository)
+      with_retry({
+        r <- http(u, timeout = CHECKSUM_HTTP_TIMEOUT_S)
+        if (r$status >= 500L || r$status == 429L) stop(sprintf("HTTP %s for %s", r$status, u))
+        if (identical(r$status, 200L) && !parse_packages_checksums(r$body)$valid) {
+          stop(sprintf("%s is not a PACKAGES file", u))
+        }
         r
       }, waits = ITEM_RETRY_WAITS_S, sleep = sleep)
     },

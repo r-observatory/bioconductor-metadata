@@ -53,7 +53,8 @@ BIOC_STATE_TABLES <- c("bioc_build_reports", "bioc_build_status_history",
 # Published schema version; a change forces the next run to publish.
 # 2: bioc_vignettes, bioc_packages has_news and views_has_readme, bioc_authors ror_id and comment.
 # 3: bioc_packages VIEWS fields, bioc_build_reports, bioc_build_status_history, bioc_views_history.
-BIOC_METADATA_SCHEMA <- 3L
+# 4: bioc_package_checksums.
+BIOC_METADATA_SCHEMA <- 4L
 
 # Floor for the names size gate: a live count below this is treated as a partial
 # VIEWS fetch and the run reuses the prior bioc_names_all.
@@ -84,3 +85,14 @@ BUILD_NODE_GONE_AFTER <- 7L
 # VIEWS fields kept on bioc_packages after views_has_readme, in schema order.
 VIEWS_EXTRA_COLS <- c("package_status", "date_publication", "linking_to",
                       "enhances", "dependency_count", "author_text")
+
+# Package checksums, read at <PACKAGES_BASE>/<release>/<repository>/src/contrib/PACKAGES.
+PACKAGES_BASE  <- "https://bioconductor.org/packages"
+CHECKSUM_REPOS <- unname(BIOC_REPO_PATHS)
+
+# The checksums must never hold up the catalog: each file gets the item budget
+# and a short timeout, and reading stops for the run after this many failures
+# in a row or once this many seconds have passed. The rest waits a day.
+CHECKSUM_HTTP_TIMEOUT_S <- 60
+CHECKSUM_FAIL_STREAK    <- 3L
+CHECKSUM_TIME_BUDGET_S  <- 600

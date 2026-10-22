@@ -1,0 +1,42 @@
+Package: a4
+Version: 1.58.0
+Depends: a4Base, a4Preproc, a4Classif, a4Core, a4Reporting
+Suggests: MLP, nlcv, ALL, Cairo, Rgraphviz, GOstats
+License: GPL-3
+MD5sum: 3c2a0b1f6d3e4a5b6c7d8e9f0a1b2c3d
+NeedsCompilation: no
+
+Package: a4Base
+Version: 1.58.0
+Depends: a4Preproc, a4Core
+Imports: methods, graphics, grid, Biobase, annaffy, mpm, genefilter,
+        limma, multtest, glmnet, gplots
+Suggests: Cairo, ALL, hgu95av2.db, nlcv
+Enhances: gridSVG, JavaGD
+License: GPL-3
+MD5sum: 0f1e2d3c4b5a69788796a5b4c3d2e1f0
+NeedsCompilation: no
+
+Package: abseqR
+Version: 1.28.0
+Depends: R (>= 3.5.0)
+License: GPL-3 | file LICENSE
+NeedsCompilation: no
+
+Package: ABSSeq
+Version: 1.64.0
+Depends: R (>= 2.10), methods
+Imports: locfit, limma
+License: GPL (>= 3)
+MD5sum: 9a8b7c6d5e4f30211203f4e5d6c7b8a9
+NeedsCompilation: no
+
+Package: a4
+Version: 1.58.0
+License: GPL-3
+MD5sum: ffffffffffffffffffffffffffffffff
+NeedsCompilation: no
+
+Package: aCGH
+MD5sum: 1234567890abcdef1234567890abcdef
+NeedsCompilation: yes
