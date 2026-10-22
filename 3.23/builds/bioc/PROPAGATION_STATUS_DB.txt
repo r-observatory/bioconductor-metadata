@@ -301,7 +301,7 @@ CellNOptR#source#propagate: UNNEEDED, same version is already published
 cellscape#source#propagate: UNNEEDED, same version is already published
 CellTrails#source#propagate: UNNEEDED, same version is already published
 cellxgenedp#source#propagate: UNNEEDED, same version is already published
-CEMiTool#source#propagate: UNNEEDED, same version is already published
+CEMiTool#source#propagate: YES
 censcyt#source#propagate: UNNEEDED, same version is already published
 Cepo#source#propagate: UNNEEDED, same version is already published
 ceRNAnetsim#source#propagate: UNNEEDED, same version is already published
@@ -371,7 +371,7 @@ clusterExperiment#source#propagate: UNNEEDED, same version is already published
 ClusterFoldSimilarity#source#propagate: UNNEEDED, same version is already published
 ClusterGVis#source#propagate: UNNEEDED, same version is already published
 ClusterJudge#source#propagate: UNNEEDED, same version is already published
-clusterProfiler#source#propagate: YES
+clusterProfiler#source#propagate: UNNEEDED, same version is already published
 clusterSeq#source#propagate: UNNEEDED, same version is already published
 ClusterSignificance#source#propagate: UNNEEDED, same version is already published
 clusterStab#source#propagate: UNNEEDED, same version is already published
@@ -460,7 +460,6 @@ CrispRVariants#source#propagate: UNNEEDED, same version is already published
 crisprVerse#source#propagate: UNNEEDED, same version is already published
 crisprViz#source#propagate: UNNEEDED, same version is already published
 crlmm#source#propagate: UNNEEDED, same version is already published
-crumblr#source#propagate: UNNEEDED, same version is already published
 crupR#source#propagate: UNNEEDED, same version is already published
 CSAR#source#propagate: UNNEEDED, same version is already published
 csaw#source#propagate: UNNEEDED, same version is already published
@@ -468,14 +467,11 @@ csdR#source#propagate: UNNEEDED, same version is already published
 CSOA#source#propagate: UNNEEDED, same version is already published
 CSSQ#source#propagate: UNNEEDED, same version is already published
 ctc#source#propagate: UNNEEDED, same version is already published
-CTdata#source#propagate: UNNEEDED, same version is already published
 CTDquerier#source#propagate: UNNEEDED, same version is already published
-CTexploreR#source#propagate: UNNEEDED, same version is already published
 cTRAP#source#propagate: UNNEEDED, same version is already published
 ctsGE#source#propagate: UNNEEDED, same version is already published
 CTSV#source#propagate: UNNEEDED, same version is already published
 CuratedAtlasQueryR#source#propagate: UNNEEDED, same version is already published
-customCMPdb#source#propagate: UNNEEDED, same version is already published
 cyanoFilter#source#propagate: UNNEEDED, same version is already published
 cycle#source#propagate: UNNEEDED, same version is already published
 cydar#source#propagate: UNNEEDED, same version is already published
@@ -580,7 +576,6 @@ DMCFB#source#propagate: UNNEEDED, same version is already published
 DMCHMM#source#propagate: UNNEEDED, same version is already published
 dmGsea#source#propagate: UNNEEDED, same version is already published
 DMRcaller#source#propagate: UNNEEDED, same version is already published
-DMRcate#source#propagate: UNNEEDED, same version is already published
 DMRScan#source#propagate: UNNEEDED, same version is already published
 dmrseq#source#propagate: UNNEEDED, same version is already published
 DNABarcodeCompatibility#source#propagate: UNNEEDED, same version is already published
@@ -629,7 +624,7 @@ EBSeq#source#propagate: UNNEEDED, same version is already published
 ecolitk#source#propagate: UNNEEDED, same version is already published
 EDASeq#source#propagate: UNNEEDED, same version is already published
 edge#source#propagate: UNNEEDED, same version is already published
-edgeR#source#propagate: YES
+edgeR#source#propagate: UNNEEDED, same version is already published
 EDIRquery#source#propagate: UNNEEDED, same version is already published
 eds#source#propagate: UNNEEDED, same version is already published
 EGAD#source#propagate: UNNEEDED, same version is already published
@@ -645,7 +640,6 @@ EnMCB#source#propagate: UNNEEDED, same version is already published
 ENmix#source#propagate: UNNEEDED, same version is already published
 EnrichDO#source#propagate: UNNEEDED, same version is already published
 EnrichedHeatmap#source#propagate: UNNEEDED, same version is already published
-EnrichmentBrowser#source#propagate: UNNEEDED, same version is already published
 enrichplot#source#propagate: UNNEEDED, same version is already published
 enrichViewNet#source#propagate: UNNEEDED, same version is already published
 ensembldb#source#propagate: UNNEEDED, same version is already published
@@ -669,7 +663,6 @@ EpiTxDb#source#propagate: UNNEEDED, same version is already published
 epivizr#source#propagate: UNNEEDED, same version is already published
 epivizrChart#source#propagate: UNNEEDED, same version is already published
 epivizrData#source#propagate: UNNEEDED, same version is already published
-epivizrServer#source#propagate: UNNEEDED, same version is already published
 epivizrStandalone#source#propagate: UNNEEDED, same version is already published
 erccdashboard#source#propagate: UNNEEDED, same version is already published
 ERSSA#source#propagate: UNNEEDED, same version is already published
@@ -863,6 +856,7 @@ ggtreeExtra#source#propagate: UNNEEDED, same version is already published
 ggtreeSpace#source#propagate: UNNEEDED, same version is already published
 GIGSEA#source#propagate: UNNEEDED, same version is already published
 ginmappeR#source#propagate: UNNEEDED, same version is already published
+gINTomics#source#propagate: UNNEEDED, same version is already published
 GLAD#source#propagate: UNNEEDED, same version is already published
 GladiaTOX#source#propagate: UNNEEDED, same version is already published
 Glimma#source#propagate: UNNEEDED, same version is already published
@@ -917,7 +911,7 @@ gsean#source#propagate: UNNEEDED, same version is already published
 GSgalgoR#source#propagate: UNNEEDED, same version is already published
 GSReg#source#propagate: UNNEEDED, same version is already published
 GSRI#source#propagate: UNNEEDED, same version is already published
-GSVA#source#propagate: YES
+GSVA#source#propagate: UNNEEDED, same version is already published
 gtrellis#source#propagate: UNNEEDED, same version is already published
 GUIDEseq#source#propagate: UNNEEDED, same version is already published
 Guitar#source#propagate: UNNEEDED, same version is already published
@@ -1008,6 +1002,7 @@ idiogram#source#propagate: UNNEEDED, same version is already published
 idpr#source#propagate: UNNEEDED, same version is already published
 idr2d#source#propagate: UNNEEDED, same version is already published
 IFAA#source#propagate: UNNEEDED, same version is already published
+igblastr#source#propagate: UNNEEDED, same version is already published
 iGC#source#propagate: UNNEEDED, same version is already published
 IgGeneUsage#source#propagate: UNNEEDED, same version is already published
 igvR#source#propagate: UNNEEDED, same version is already published
@@ -1227,6 +1222,7 @@ metaMS#source#propagate: UNNEEDED, same version is already published
 MetaPhOR#source#propagate: UNNEEDED, same version is already published
 metapod#source#propagate: UNNEEDED, same version is already published
 metapone#source#propagate: UNNEEDED, same version is already published
+MetaProViz#source#propagate: UNNEEDED, same version is already published
 metaSeq#source#propagate: UNNEEDED, same version is already published
 metaseqR2#source#propagate: UNNEEDED, same version is already published
 MetCirc#source#propagate: UNNEEDED, same version is already published
@@ -1259,7 +1255,6 @@ MGnifyR#source#propagate: UNNEEDED, same version is already published
 mgsa#source#propagate: UNNEEDED, same version is already published
 mia#source#propagate: UNNEEDED, same version is already published
 miaDash#source#propagate: UNNEEDED, same version is already published
-miaSim#source#propagate: UNNEEDED, same version is already published
 miaTime#source#propagate: UNNEEDED, same version is already published
 miaViz#source#propagate: UNNEEDED, same version is already published
 MiChip#source#propagate: UNNEEDED, same version is already published
@@ -1278,6 +1273,7 @@ minet#source#propagate: UNNEEDED, same version is already published
 minfi#source#propagate: UNNEEDED, same version is already published
 MinimumDistance#source#propagate: UNNEEDED, same version is already published
 MiPP#source#propagate: UNNEEDED, same version is already published
+miQC#source#propagate: UNNEEDED, same version is already published
 MIRA#source#propagate: UNNEEDED, same version is already published
 MiRaGE#source#propagate: UNNEEDED, same version is already published
 miRBaseConverter#source#propagate: UNNEEDED, same version is already published
@@ -1313,6 +1309,7 @@ MoleculeExperiment#source#propagate: UNNEEDED, same version is already published
 MOMA#source#propagate: UNNEEDED, same version is already published
 monaLisa#source#propagate: UNNEEDED, same version is already published
 monocle#source#propagate: UNNEEDED, same version is already published
+Moonlight2R#source#propagate: UNNEEDED, same version is already published
 MoonlightR#source#propagate: UNNEEDED, same version is already published
 mosaics#source#propagate: UNNEEDED, same version is already published
 MOSClip#source#propagate: UNNEEDED, same version is already published
@@ -1355,7 +1352,6 @@ MsQuality#source#propagate: UNNEEDED, same version is already published
 MSstats#source#propagate: UNNEEDED, same version is already published
 MSstatsBig#source#propagate: UNNEEDED, same version is already published
 MSstatsBioNet#source#propagate: UNNEEDED, same version is already published
-MSstatsConvert#source#propagate: UNNEEDED, same version is already published
 MSstatsLiP#source#propagate: UNNEEDED, same version is already published
 MSstatsLOBD#source#propagate: UNNEEDED, same version is already published
 MSstatsPTM#source#propagate: UNNEEDED, same version is already published
@@ -1423,7 +1419,6 @@ NoRCE#source#propagate: UNNEEDED, same version is already published
 normalize450K#source#propagate: UNNEEDED, same version is already published
 NormalyzerDE#source#propagate: UNNEEDED, same version is already published
 NormqPCR#source#propagate: UNNEEDED, same version is already published
-normr#source#propagate: UNNEEDED, same version is already published
 notame#source#propagate: UNNEEDED, same version is already published
 notameStats#source#propagate: UNNEEDED, same version is already published
 notameViz#source#propagate: UNNEEDED, same version is already published
@@ -1473,8 +1468,6 @@ optimalFlow#source#propagate: UNNEEDED, same version is already published
 OPWeight#source#propagate: UNNEEDED, same version is already published
 OrderedList#source#propagate: UNNEEDED, same version is already published
 ORFhunteR#source#propagate: UNNEEDED, same version is already published
-ORFik#source#propagate: UNNEEDED, same version is already published
-OrganismDbi#source#propagate: UNNEEDED, same version is already published
 orthogene#source#propagate: UNNEEDED, same version is already published
 orthos#source#propagate: UNNEEDED, same version is already published
 OSAT#source#propagate: UNNEEDED, same version is already published
@@ -1678,7 +1671,6 @@ RCASPAR#source#propagate: UNNEEDED, same version is already published
 rcellminer#source#propagate: UNNEEDED, same version is already published
 rCGH#source#propagate: UNNEEDED, same version is already published
 RCM#source#propagate: UNNEEDED, same version is already published
-Rcollectl#source#propagate: UNNEEDED, same version is already published
 Rcpi#source#propagate: UNNEEDED, same version is already published
 RCSL#source#propagate: UNNEEDED, same version is already published
 Rcwl#source#propagate: UNNEEDED, same version is already published
@@ -1712,7 +1704,6 @@ regsplice#source#propagate: UNNEEDED, same version is already published
 regutools#source#propagate: UNNEEDED, same version is already published
 REMP#source#propagate: UNNEEDED, same version is already published
 ReportingTools#source#propagate: UNNEEDED, same version is already published
-RepViz#source#propagate: UNNEEDED, same version is already published
 ResidualMatrix#source#propagate: UNNEEDED, same version is already published
 RESOLVE#source#propagate: UNNEEDED, same version is already published
 retrofit#source#propagate: UNNEEDED, same version is already published
@@ -1884,6 +1875,7 @@ scoup#source#propagate: UNNEEDED, same version is already published
 scPassport#source#propagate: UNNEEDED, same version is already published
 scPCA#source#propagate: UNNEEDED, same version is already published
 scPipe#source#propagate: UNNEEDED, same version is already published
+scQTLtools#source#propagate: UNNEEDED, same version is already published
 scran#source#propagate: UNNEEDED, same version is already published
 scrapper#source#propagate: UNNEEDED, same version is already published
 scReClassify#source#propagate: UNNEEDED, same version is already published
@@ -1991,6 +1983,7 @@ SNAGEE#source#propagate: UNNEEDED, same version is already published
 snapcount#source#propagate: UNNEEDED, same version is already published
 snifter#source#propagate: UNNEEDED, same version is already published
 snm#source#propagate: UNNEEDED, same version is already published
+SNPediaR#source#propagate: UNNEEDED, same version is already published
 SNPRelate#source#propagate: UNNEEDED, same version is already published
 snpStats#source#propagate: UNNEEDED, same version is already published
 SomaticSignatures#source#propagate: UNNEEDED, same version is already published
@@ -2038,6 +2031,7 @@ spkTools#source#propagate: UNNEEDED, same version is already published
 splatter#source#propagate: UNNEEDED, same version is already published
 SpliceImpactR#source#propagate: UNNEEDED, same version is already published
 splicelogic#source#propagate: UNNEEDED, same version is already published
+SpliceWiz#source#propagate: UNNEEDED, same version is already published
 SplicingFactory#source#propagate: UNNEEDED, same version is already published
 SplicingGraphs#source#propagate: UNNEEDED, same version is already published
 SplineDV#source#propagate: UNNEEDED, same version is already published
@@ -2226,7 +2220,6 @@ VAExprs#source#propagate: UNNEEDED, same version is already published
 VanillaICE#source#propagate: UNNEEDED, same version is already published
 VarCon#source#propagate: UNNEEDED, same version is already published
 variancePartition#source#propagate: UNNEEDED, same version is already published
-VariantAnnotation#source#propagate: UNNEEDED, same version is already published
 VariantExperiment#source#propagate: UNNEEDED, same version is already published
 VariantFiltering#source#propagate: UNNEEDED, same version is already published
 VariantTools#source#propagate: UNNEEDED, same version is already published

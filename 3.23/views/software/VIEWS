@@ -16649,7 +16649,7 @@ Rfiles: vignettes/cellxgenedp/inst/doc/a_using_cellxgenedp.R,
 dependencyCount: 62
 
 Package: CEMiTool
-Version: 1.36.0
+Version: 1.36.1
 Depends: R (>= 4.0)
 Imports: methods, scales, dplyr, data.table (>= 1.9.4), WGCNA, grid,
         ggplot2, ggpmisc, ggthemes, ggrepel, sna, clusterProfiler,
@@ -16658,7 +16658,7 @@ Imports: methods, scales, dplyr, data.table (>= 1.9.4), WGCNA, grid,
         ggdendro, gridExtra, gtable, fastcluster
 Suggests: testthat, BiocManager
 License: GPL-3
-MD5sum: 4f889dadb5a89645ec52de36f4d52c51
+MD5sum: 68f5d5dd5deefd37291d98109c37f73f
 NeedsCompilation: no
 Title: Co-expression Modules identification Tool
 Description: The CEMiTool package unifies the discovery and the
@@ -16679,10 +16679,10 @@ Maintainer: Helder Nakaya <hnakaya@usp.br>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/CEMiTool
 git_branch: RELEASE_3_23
-git_last_commit: 2c2dbf9
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/CEMiTool_1.36.0.tar.gz
+git_last_commit: 87db7cd
+git_last_commit_date: 2026-10-20
+Date/Publication: 2026-10-20
+source.ver: src/contrib/CEMiTool_1.36.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/CEMiTool_1.36.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/CEMiTool_1.36.0.tgz
@@ -20001,11 +20001,11 @@ git_last_commit: 72bb1f4
 git_last_commit_date: 2026-10-18
 Date/Publication: 2026-10-19
 source.ver: src/contrib/clusterProfiler_4.20.3.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.2.zip
+win.binary.ver: bin/windows/contrib/4.6/clusterProfiler_4.20.3.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.2.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/clusterProfiler_4.20.3.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/clusterProfiler_4.20.2.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/clusterProfiler_4.20.3.tgz
 vignettes: vignettes/clusterProfiler/inst/doc/clusterProfiler.html
 vignetteTitles: clusterProfiler.html
 hasREADME: FALSE
@@ -22334,7 +22334,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CONFESS/inst/doc/vignette_tex.R,
         vignettes/CONFESS/inst/doc/vignette.R
-dependencyCount: 150
+dependencyCount: 151
 
 Package: consensus
 Version: 1.30.0
@@ -30026,7 +30026,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/diggit/inst/doc/diggit.R
-dependencyCount: 95
+dependencyCount: 96
 
 Package: Dino
 Version: 1.18.0
@@ -31636,7 +31636,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/DOtools/inst/doc/DOtools.R
-dependencyCount: 342
+dependencyCount: 343
 
 Package: DOTSeq
 Version: 1.0.0
@@ -33221,11 +33221,11 @@ git_last_commit: 27ba7b3
 git_last_commit_date: 2026-10-17
 Date/Publication: 2026-10-19
 source.ver: src/contrib/edgeR_4.10.7.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.6.zip
+win.binary.ver: bin/windows/contrib/4.6/edgeR_4.10.7.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.6.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/edgeR_4.10.7.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/edgeR_4.10.6.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/edgeR_4.10.7.tgz
 vignettes: vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf,
         vignettes/edgeR/inst/doc/intro.html
 vignetteTitles: edgeR User's Guide, A brief introduction to edgeR
@@ -37022,7 +37022,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/fCCAC/inst/doc/fCCAC.R
-dependencyCount: 132
+dependencyCount: 133
 
 Package: fCI
 Version: 1.42.0
@@ -38662,7 +38662,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/flowMeans/inst/doc/flowMeans.R
 importsMe: optimalFlow
-dependencyCount: 44
+dependencyCount: 45
 
 Package: flowMerge
 Version: 2.60.0
@@ -38704,7 +38704,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/flowMerge/inst/doc/flowmerge.R
 suggestsMe: segmenTier
-dependencyCount: 52
+dependencyCount: 53
 
 Package: flowPeaks
 Version: 1.58.0
@@ -38960,7 +38960,7 @@ Rfiles: vignettes/flowStats/inst/doc/GettingStartedWithFlowStats.R
 dependsOnMe: flowVS, highthroughputassays
 suggestsMe: cydar, flowClust, flowCore, flowTime, flowViz, ggcyto,
         openCyto, idendr0
-dependencyCount: 101
+dependencyCount: 102
 
 Package: flowTime
 Version: 1.36.0
@@ -39136,7 +39136,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/flowVS/inst/doc/flowVS.R
-dependencyCount: 102
+dependencyCount: 103
 
 Package: flowWorkspace
 Version: 4.24.0
@@ -39659,7 +39659,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/FRGEpistasis/inst/doc/FRGEpistasis.R
-dependencyCount: 50
+dependencyCount: 51
 
 Package: frma
 Version: 1.64.0
@@ -48217,11 +48217,11 @@ git_last_commit: 966d818
 git_last_commit_date: 2026-10-19
 Date/Publication: 2026-10-19
 source.ver: src/contrib/GSVA_2.6.14.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.12.zip
+win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.14.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.12.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.14.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.12.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.14.tgz
 vignettes: vignettes/GSVA/inst/doc/GSVA_proteomics.html,
         vignettes/GSVA/inst/doc/GSVA_scRNAseq.html,
         vignettes/GSVA/inst/doc/GSVA_spRNAseq.html,
@@ -56290,7 +56290,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/IWTomics/inst/doc/IWTomics.R
-dependencyCount: 59
+dependencyCount: 60
 
 Package: jazzPanda
 Version: 1.4.0
@@ -73179,7 +73179,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/Nebulosa/inst/doc/introduction.R,
         vignettes/Nebulosa/inst/doc/nebulosa_seurat.R
 suggestsMe: scCustomize, SCpubr
-dependencyCount: 82
+dependencyCount: 83
 
 Package: nempi
 Version: 1.20.0
@@ -76653,7 +76653,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/optimalFlow/inst/doc/optimalFlow_vignette.R
-dependencyCount: 98
+dependencyCount: 99
 
 Package: OPWeight
 Version: 1.34.0
@@ -87910,7 +87910,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/reconsi/inst/doc/reconsiVignette.R
-dependencyCount: 76
+dependencyCount: 77
 
 Package: recount
 Version: 1.38.0
@@ -104980,7 +104980,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/spatialFDA/inst/doc/DiabetesIsletExample.R,
         vignettes/spatialFDA/inst/doc/DiabetesIsletExampleBrief.R
 importsMe: OSTA
-dependencyCount: 140
+dependencyCount: 141
 
 Package: SpatialFeatureExperiment
 Version: 1.14.0
@@ -109692,7 +109692,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles:
         vignettes/synergyfinder/inst/doc/User_tutorual_of_the_SynergyFinder_plus.R
-dependencyCount: 213
+dependencyCount: 209
 
 Package: SynExtend
 Version: 1.24.0
@@ -115604,7 +115604,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/UMI4Cats/inst/doc/UMI4Cats.R
-dependencyCount: 148
+dependencyCount: 149
 
 Package: uncoverappLib
 Version: 1.22.0
