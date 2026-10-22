@@ -431,10 +431,13 @@ parse_biocviews_dot <- function(dot_text) {
 #'   the empty table only.
 #' @param vignettes_df  data.frame with the 9 bioc_vignettes columns as returned
 #'   by build_bioc_vignettes(). NULL or 0-row creates the empty table only.
+#' @param checksums_df  data.frame with the 5 bioc_package_checksums columns.
+#'   NULL creates no table.
 export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
                            view_edges_df = NULL, names_all_df = NULL,
                            vignettes_df = NULL, build_reports_df = NULL,
-                           build_status_df = NULL, views_history_df = NULL) {
+                           build_status_df = NULL, views_history_df = NULL,
+                           checksums_df = NULL) {
   if (file.exists(path)) unlink(path)
   con <- RSQLite::dbConnect(RSQLite::SQLite(), path)
   on.exit(RSQLite::dbDisconnect(con), add = TRUE)
@@ -640,6 +643,23 @@ export_catalog <- function(path, packages_df, authors_df, releases_df = NULL,
         ON bioc_views_history(package, field) WHERE ended_on IS NULL")
     if (nrow(views_history_df) > 0L) {
       RSQLite::dbWriteTable(con, "bioc_views_history", views_history_df, append = TRUE)
+    }
+  }
+
+  if (!is.null(checksums_df)) {
+    RSQLite::dbExecute(con, "
+      CREATE TABLE bioc_package_checksums (
+        release    TEXT NOT NULL,
+        repository TEXT NOT NULL,
+        package    TEXT NOT NULL,
+        version    TEXT NOT NULL,
+        md5sum     TEXT NOT NULL,
+        PRIMARY KEY (release, repository, package)
+      )")
+    if (nrow(checksums_df) > 0L) {
+      RSQLite::dbWriteTable(con, "bioc_package_checksums",
+        checksums_df[, c("release", "repository", "package", "version", "md5sum"), drop = FALSE],
+        append = TRUE)
     }
   }
 

@@ -199,6 +199,44 @@ test_that("an empty catalog whose manifest says n_packages 0 is read as no prior
   expect_equal(nrow(read_prev_catalog(sleep = no_sleep)$packages), 0L)
 })
 
+test_that("the prior checksum table is read back, and a db that predates it gives none", {
+  old <- withr::local_tempdir()
+  write_prior_catalog(old)
+  local_fake_release("HTTP/2.0 200 OK", old)
+  expect_null(read_prev_catalog(sleep = no_sleep)$checksums)
+
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, extra_sql = c(
+    paste("CREATE TABLE bioc_package_checksums (release TEXT, repository TEXT, package TEXT,",
+          "version TEXT, md5sum TEXT)"),
+    "INSERT INTO bioc_package_checksums VALUES ('3.22', 'bioc', 'PkgSoft', '1.0.0', 'abc')"))
+  local_fake_release("HTTP/2.0 200 OK", src)
+  expect_equal(read_prev_catalog(sleep = no_sleep)$checksums$md5sum, "abc")
+})
+
+test_that("a checksum table that cannot be read leaves the rest of the prior catalog readable", {
+  src <- withr::local_tempdir()
+  write_prior_catalog(src, extra_sql = c(
+    paste("CREATE TABLE bioc_package_checksums (release TEXT, repository TEXT, package TEXT,",
+          "version TEXT, md5sum TEXT)"),
+    "INSERT INTO bioc_package_checksums VALUES ('3.22', 'bioc', 'PkgSoft', '1.0.0', 'abc')"))
+  db <- file.path(src, "bioconductor-metadata.db")
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), db)
+  page <- RSQLite::dbGetQuery(con, paste("SELECT rootpage FROM sqlite_master",
+                                         "WHERE name = 'bioc_package_checksums'"))$rootpage
+  size <- RSQLite::dbGetQuery(con, "PRAGMA page_size")[[1]]
+  RSQLite::dbDisconnect(con)
+  # Only that table's page is overwritten, so reading it fails and nothing else does.
+  f <- file(db, "r+b")
+  seek(f, (page - 1) * size, rw = "write")
+  writeBin(as.raw(rep(0xff, size)), f)
+  close(f)
+
+  expect_message(prev <- read_catalog_db(db, list()), "Prior checksum table not read")
+  expect_null(prev$checksums)
+  expect_equal(prev$packages$name, "PkgSoft")
+})
+
 test_that("run_update stops on an unreadable prior and writes nothing", {
   tmp <- withr::local_tempdir()
   out <- file.path(tmp, "out")

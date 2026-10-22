@@ -23,6 +23,14 @@ The run stops when the `current` release exists but its manifest or database can
 
 A run that publishes replaces the database and the manifest on the `current` release one at a time: the file is uploaded under a temporary name, the upload's size and SHA-256 are checked against the local file, the old asset is deleted and the upload is renamed. A run that stops between the delete and the rename leaves the upload on the release and prints the `gh api` command that renames it.
 
+## Package checksums
+
+`bioc_package_checksums` holds one row per release, repository and package with the `Version` and `MD5sum` given in that release's `PACKAGES` file, read from `https://bioconductor.org/packages/<release>/<repository>/src/contrib/PACKAGES` for the `bioc`, `data/annotation`, `data/experiment` and `workflows` repositories. An entry without a version or checksum is left out.
+
+Every release in `bioc_releases` is read, and devel under its version number. A release that is neither current nor devel no longer changes, so each of its repositories is read once and kept; the current release and devel are read on every run and their rows replaced. A repository a release does not have (HTTP 404) is skipped and listed under `checksums.missing` in the manifest, which also counts the releases and repositories read and the rows.
+
+The checksums never stop or hold up the catalog. A failed read keeps that repository's earlier rows, and after three failures in a row or ten minutes of reading the rest waits for the next run.
+
 ## Feedback
 
 Found a bug, a wrong number, or a missing package? Report it at [r-observatory/feedback](https://github.com/r-observatory/feedback/issues/new/choose). All feedback about R Observatory, the site, the data, and the pipelines, is tracked in one place.

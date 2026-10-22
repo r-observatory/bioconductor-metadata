@@ -444,3 +444,34 @@ test_that("export_catalog writes bioc_views_history with its open-row index", {
     "'3.23', 'software', '2026-09-30T18:14:30Z', '2026-09-30T18:14:30Z', 1, NULL)")),
     "UNIQUE")
 })
+
+test_that("export_catalog writes bioc_package_checksums keyed by release, repository and package", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  cs <- data.frame(release = c("3.22", "3.23"), repository = c("bioc", "data/annotation"),
+                   package = c("PkgAlpha", "PkgBeta"), version = c("1.0.0", "2.1.3"),
+                   md5sum = c(strrep("a", 32), strrep("b", 32)), stringsAsFactors = FALSE)
+  export_catalog(tmp, make_packages_df(), make_authors_df(), checksums_df = cs)
+
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  info <- RSQLite::dbGetQuery(con, "PRAGMA table_info(bioc_package_checksums)")
+  expect_equal(info$name, c("release", "repository", "package", "version", "md5sum"))
+  key <- info[info$pk > 0, , drop = FALSE]
+  expect_equal(key$name[order(key$pk)], c("release", "repository", "package"))
+  expect_equal(RSQLite::dbGetQuery(con, paste(
+    "SELECT md5sum FROM bioc_package_checksums WHERE package = 'PkgBeta'"))$md5sum,
+    strrep("b", 32))
+  expect_error(RSQLite::dbExecute(con, paste(
+    "INSERT INTO bioc_package_checksums VALUES",
+    "('3.22', 'bioc', 'PkgAlpha', '1.0.1', 'cccccccccccccccccccccccccccccccc')")), "UNIQUE")
+})
+
+test_that("export_catalog without a checksum frame creates no checksum table", {
+  tmp <- tempfile(fileext = ".db")
+  on.exit(unlink(tmp), add = TRUE)
+  export_catalog(tmp, make_packages_df(), make_authors_df())
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), tmp)
+  on.exit(RSQLite::dbDisconnect(con), add = TRUE)
+  expect_false(RSQLite::dbExistsTable(con, "bioc_package_checksums"))
+})

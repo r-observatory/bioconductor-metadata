@@ -1418,7 +1418,7 @@ test_that("manifest$changed is TRUE on a schema bump with unchanged VIEWS", {
   expect_true(res$manifest$changed)
   expect_equal(res$manifest$source$schema, BIOC_METADATA_SCHEMA)
   from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
-  expect_equal(from_disk$source$schema, 3L)
+  expect_equal(from_disk$source$schema, 4L)
 })
 
 test_that("manifest$changed is TRUE when the prior manifest has no schema", {
@@ -2131,6 +2131,157 @@ test_that("builds_fingerprint keeps the newest applied report per version and re
   expect_equal(builds_fingerprint(r),
                "3.23:bioc:2026-09-28T17:40:00Z,3.23:workflows:2026-09-29T16:45:00Z")
   expect_equal(builds_fingerprint(r[0, ]), "")
+})
+
+# ---------------------------------------------------------------------------
+# Package checksums
+# ---------------------------------------------------------------------------
+
+CHECKSUM_CONFIG_YAML <- paste0(FIXTURE_CONFIG_YAML,
+                               "release_version: \"3.23\"\ndevel_version: \"3.24\"\n")
+
+packages_file <- function(versions, md5 = sprintf("%032d", seq_along(versions))) {
+  paste(sprintf("Package: %s\nVersion: %s\nMD5sum: %s\nNeedsCompilation: no\n",
+                names(versions), versions, md5), collapse = "\n")
+}
+
+# 3.22 is frozen, 3.23 is current and 3.24 is devel.
+CHECKSUM_FILES <- list(
+  "3.22/bioc"            = packages_file(c(PkgOld = "0.9.0", PkgSoft = "1.0.0")),
+  "3.23/bioc"            = packages_file(c(PkgSoft = "1.2.0")),
+  "3.23/data/annotation" = packages_file(c(PkgAnnot = "2.0.0")),
+  "3.24/bioc"            = packages_file(c(PkgSoft = "1.3.0")))
+
+# The stub io with a devel version and PACKAGES files keyed "release/repository";
+# anything else is a 404. Each request is recorded in calls$keys.
+with_packages <- function(io, files, calls = new.env()) {
+  calls$keys <- character(0)
+  io$config_yaml <- function() CHECKSUM_CONFIG_YAML
+  io$fetch_packages <- function(release, repository) {
+    key <- paste(release, repository, sep = "/")
+    calls$keys <- c(calls$keys, key)
+    body <- files[[key]]
+    if (is.null(body)) return(list(status = 404L, body = "", last_modified = NA_character_))
+    list(status = 200L, body = body, last_modified = NA_character_)
+  }
+  io
+}
+
+checksums_of <- function(out) {
+  con <- RSQLite::dbConnect(RSQLite::SQLite(), file.path(out, "bioconductor-metadata.db"))
+  on.exit(RSQLite::dbDisconnect(con))
+  RSQLite::dbGetQuery(con, paste("SELECT * FROM bioc_package_checksums",
+                                 "ORDER BY release, repository, package"))
+}
+
+test_that("run_update writes every release's checksums and counts them in the manifest and log", {
+  tmp <- withr::local_tempdir()
+  out <- file.path(tmp, "out")
+  msgs <- capture_messages(
+    res <- run_update(with_packages(make_stub_io(), CHECKSUM_FILES), out, force_full = TRUE))
+
+  cs <- checksums_of(out)
+  expect_equal(cs$release, c("3.22", "3.22", "3.23", "3.23", "3.24"))
+  expect_equal(cs$repository, c("bioc", "bioc", "bioc", "data/annotation", "bioc"))
+  expect_equal(cs$package, c("PkgOld", "PkgSoft", "PkgSoft", "PkgAnnot", "PkgSoft"))
+  expect_equal(cs$version[cs$release == "3.24"], "1.3.0")
+  expect_equal(cs$md5sum[cs$package == "PkgAnnot"], sprintf("%032d", 1L))
+
+  m <- res$manifest$checksums
+  expect_equal(m$releases_read, 3L)
+  expect_equal(m$repositories_read, 4L)
+  expect_equal(m$rows, 5L)
+  expect_equal(m$repositories_missing, 8L)
+  expect_equal(res$manifest$tables$bioc_package_checksums, 5L)
+  expect_true(any(grepl(paste("Package checksums: 3 releases and 4 repositories read, 5 rows,",
+                              "8 repositories missing, 0 failed, 0 deferred"), msgs, fixed = TRUE)))
+  from_disk <- jsonlite::read_json(file.path(out, "manifest.json"))
+  expect_setequal(unlist(from_disk$checksums$frozen), paste0("3.22/", CHECKSUM_REPOS))
+  expect_true("3.24/workflows" %in% unlist(from_disk$checksums$missing))
+})
+
+test_that("a second run asks only for the current release and devel and keeps the frozen rows", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two")
+  suppressMessages(run_update(with_packages(make_stub_io(), CHECKSUM_FILES), out1,
+                              force_full = TRUE))
+  first <- checksums_of(out1)
+
+  files <- CHECKSUM_FILES
+  files[["3.23/bioc"]] <- packages_file(c(PkgSoft = "1.2.1"), md5 = strrep("c", 32))
+  # A frozen release is never asked for again, so this never lands.
+  files[["3.22/bioc"]] <- packages_file(c(PkgOld = "9.9.9"))
+  calls <- new.env()
+  io <- with_packages(make_stub_io(prev_manifest = jsonlite::read_json(file.path(out1, "manifest.json")),
+                                   prev_state = list(checksums = first)), files, calls)
+  res <- suppressMessages(run_update(io, out2, force_full = TRUE))
+
+  expect_setequal(calls$keys, c(paste0("3.23/", CHECKSUM_REPOS), paste0("3.24/", CHECKSUM_REPOS)))
+  second <- checksums_of(out2)
+  expect_equal(second[second$release == "3.22", ], first[first$release == "3.22", ],
+               ignore_attr = TRUE)
+  current <- second[second$release == "3.23" & second$package == "PkgSoft", ]
+  expect_equal(current$version, "1.2.1")
+  expect_equal(current$md5sum, strrep("c", 32))
+  expect_equal(res$manifest$checksums$repositories_read, 3L)
+  expect_equal(res$manifest$checksums$rows, 5L)
+})
+
+test_that("checksums that cannot be read change nothing else the run writes", {
+  tmp <- withr::local_tempdir()
+  base <- with_packages(make_stub_io(build_files = all_build_files()), CHECKSUM_FILES)
+  ok <- suppressMessages(run_update(base, file.path(tmp, "ok"), force_full = TRUE,
+                                    live_floor = 1L))
+  broken <- base
+  broken$fetch_packages <- function(release, repository) stop("HTTP 504 for PACKAGES")
+  res <- suppressMessages(run_update(broken, file.path(tmp, "broken"), force_full = TRUE,
+                                     live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_true(res$status$builds_ok)
+  others <- setdiff(names(ok$manifest$tables), "bioc_package_checksums")
+  expect_equal(res$manifest$tables[others], ok$manifest$tables[others])
+  expect_equal(res$manifest$tables$bioc_package_checksums, 0L)
+  expect_equal(res$manifest$checksums$repositories_failed, CHECKSUM_FAIL_STREAK)
+  expect_equal(res$manifest$checksums$repositories_deferred, 12L - CHECKSUM_FAIL_STREAK)
+})
+
+test_that("an error inside the checksum step keeps the prior rows and never stops the run", {
+  tmp <- withr::local_tempdir()
+  prior <- data.frame(release = "3.22", repository = "bioc", package = "PkgOld",
+                      version = "0.9.0", md5sum = strrep("a", 32), stringsAsFactors = FALSE)
+  real <- checksum_pairs
+  withr::defer(assign("checksum_pairs", real, envir = globalenv()))
+  assign("checksum_pairs", function(...) stop("unexpected"), envir = globalenv())
+  io <- with_packages(make_stub_io(prev_state = list(checksums = prior),
+                                   prev_manifest = list(checksums = list(frozen = list("3.22/bioc")))),
+                      CHECKSUM_FILES)
+
+  msgs <- capture_messages(res <- run_update(io, file.path(tmp, "out"), force_full = TRUE,
+                                             live_floor = 1L))
+
+  expect_true(res$status$catalog_ok)
+  expect_true(any(grepl("Package checksums not read this run: unexpected", msgs, fixed = TRUE)))
+  expect_equal(checksums_of(file.path(tmp, "out"))$package, "PkgOld")
+  expect_equal(as.character(res$manifest$checksums$frozen), "3.22/bioc")
+})
+
+test_that("the same checksums again leave the gate closed and a changed one opens it", {
+  tmp <- withr::local_tempdir()
+  run <- function(files, prev_manifest, prev_rows, out) {
+    io <- with_packages(make_stub_io(prev_pkgs = .bv_prev_pkgs, prev_manifest = prev_manifest,
+                                     prev_state = list(checksums = prev_rows)), files)
+    suppressMessages(run_update(io, file.path(tmp, out), force_full = FALSE))
+  }
+  first <- run(CHECKSUM_FILES, .steady_manifest(), NULL, "one")
+  expect_true(first$manifest$changed)
+  rows <- checksums_of(file.path(tmp, "one"))
+
+  expect_false(run(CHECKSUM_FILES, first$manifest, rows, "two")$manifest$changed)
+
+  files <- CHECKSUM_FILES
+  files[["3.24/bioc"]] <- packages_file(c(PkgSoft = "1.3.0"), md5 = strrep("d", 32))
+  expect_true(run(files, first$manifest, rows, "three")$manifest$changed)
 })
 
 test_that("views_sha256 ignores the attributes fetch_views adds", {
