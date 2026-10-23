@@ -6450,7 +6450,7 @@ git_last_commit: 9c97404
 git_last_commit_date: 2026-04-28
 Date/Publication: 2026-05-12
 source.ver: src/contrib/BadRegionFinder_1.40.0.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/BadRegionFinder_1.39.0.zip
+win.binary.ver: bin/windows/contrib/4.6/BadRegionFinder_1.40.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/BadRegionFinder_1.40.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -12896,7 +12896,7 @@ Rfiles: vignettes/breakpointR/inst/doc/breakpointR.R
 dependencyCount: 73
 
 Package: BreastSubtypeR
-Version: 1.4.1
+Version: 1.4.2
 Depends: R (>= 4.5.0)
 Imports: methods, Biobase, tidyselect, dplyr, ggplot2, magrittr, rlang,
         stringr, withr, edgeR, ComplexHeatmap, impute (>= 1.80.0),
@@ -12906,7 +12906,7 @@ Imports: methods, Biobase, tidyselect, dplyr, ggplot2, magrittr, rlang,
 Suggests: lifecycle, tidyverse, shiny (>= 1.9.1), bslib (>= 0.8.0),
         BiocStyle, knitr, rmarkdown, testthat (>= 3.2.0)
 License: GPL-3
-MD5sum: 27ef72bd64a2f158ae905c860c7598e7
+MD5sum: 361b992a26d5ee24f011171d864e3192
 NeedsCompilation: no
 Title: Cohort-aware methods for intrinsic molecular subtyping of breast
         cancer
@@ -12931,10 +12931,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/yqkiuo/BreastSubtypeR/issues
 git_url: https://git.bioconductor.org/packages/BreastSubtypeR
 git_branch: RELEASE_3_23
-git_last_commit: 10dc223
-git_last_commit_date: 2026-09-22
-Date/Publication: 2026-09-22
-source.ver: src/contrib/BreastSubtypeR_1.4.1.tar.gz
+git_last_commit: 773135c
+git_last_commit_date: 2026-10-21
+Date/Publication: 2026-10-21
+source.ver: src/contrib/BreastSubtypeR_1.4.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/BreastSubtypeR_1.4.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/BreastSubtypeR_1.4.1.tgz
@@ -16683,11 +16683,11 @@ git_last_commit: 87db7cd
 git_last_commit_date: 2026-10-20
 Date/Publication: 2026-10-20
 source.ver: src/contrib/CEMiTool_1.36.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/CEMiTool_1.36.0.zip
+win.binary.ver: bin/windows/contrib/4.6/CEMiTool_1.36.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/CEMiTool_1.36.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/CEMiTool_1.36.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/CEMiTool_1.36.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/CEMiTool_1.36.1.tgz
 vignettes: vignettes/CEMiTool/inst/doc/CEMiTool.html
 vignetteTitles: CEMiTool: Co-expression Modules Identification Tool
 hasREADME: FALSE
@@ -52575,7 +52575,7 @@ Rfiles: vignettes/IFAA/inst/doc/IFAA.R
 dependencyCount: 98
 
 Package: igblastr
-Version: 1.2.23
+Version: 1.2.24
 Depends: R (>= 4.2.0), tibble, Biostrings
 Imports: methods, utils, stats, tools, R.utils, curl, httr, xml2,
         rvest, xtable, jsonlite, BiocGenerics, S4Vectors, IRanges,
@@ -52583,7 +52583,7 @@ Imports: methods, utils, stats, tools, R.utils, curl, httr, xml2,
 Suggests: Peptides, GenomicAlignments, parallel, testthat, knitr,
         rmarkdown, BiocStyle, ggplot2, dplyr, scales, ggseqlogo, airr
 License: Artistic-2.0
-MD5sum: 43d5beec8449a8cfdf69b5a18b3142f7
+MD5sum: dadc1b0777762680da799deb534ec99a
 NeedsCompilation: no
 Title: User-friendly R Wrapper to IgBLAST
 Description: The igblastr package provides functions to conveniently
@@ -52615,10 +52615,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/HyrienLab/igblastr/issues
 git_url: https://git.bioconductor.org/packages/igblastr
 git_branch: RELEASE_3_23
-git_last_commit: 92aa038
-git_last_commit_date: 2026-09-18
-Date/Publication: 2026-09-20
-source.ver: src/contrib/igblastr_1.2.23.tar.gz
+git_last_commit: d2f2981
+git_last_commit_date: 2026-10-21
+Date/Publication: 2026-10-21
+source.ver: src/contrib/igblastr_1.2.24.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/igblastr_1.2.23.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/igblastr_1.2.23.tgz
@@ -86288,7 +86288,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/Rarr/inst/doc/features.R,
         vignettes/Rarr/inst/doc/Rarr.R
 importsMe: ImageArray, ZarrArray
-suggestsMe: anndataR
+suggestsMe: anndataR, taruwind
 dependencyCount: 29
 
 Package: rawDiag
@@ -88377,7 +88377,7 @@ Rfiles: vignettes/Rega/inst/doc/Rega.R
 dependencyCount: 48
 
 Package: RegEnrich
-Version: 1.22.1
+Version: 1.22.2
 Depends: R (>= 4.0.0), S4Vectors, dplyr, tibble, BiocSet,
         SummarizedExperiment
 Imports: randomForest, fgsea, enrichit, qvalue, gson, DOSE,
@@ -88385,7 +88385,7 @@ Imports: randomForest, fgsea, enrichit, qvalue, gson, DOSE,
         methods, reshape2, magrittr, BiocStyle
 Suggests: GEOquery, rmarkdown, knitr, BiocManager, testthat
 License: GPL (>= 2)
-MD5sum: 0c5b439b2d15466724f9e3621df7a374
+MD5sum: e64d852114fcbcef58679b5497695c14
 NeedsCompilation: no
 Title: Gene regulator enrichment analysis
 Description: This package is a pipeline to identify the key gene
@@ -88404,10 +88404,10 @@ Maintainer: Weiyang Tao <weiyangtao1513@gmail.com>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/RegEnrich
 git_branch: RELEASE_3_23
-git_last_commit: ada7c37
-git_last_commit_date: 2026-05-11
-Date/Publication: 2026-05-12
-source.ver: src/contrib/RegEnrich_1.22.1.tar.gz
+git_last_commit: f363934
+git_last_commit_date: 2026-10-21
+Date/Publication: 2026-10-21
+source.ver: src/contrib/RegEnrich_1.22.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/RegEnrich_1.22.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/RegEnrich_1.22.1.tgz

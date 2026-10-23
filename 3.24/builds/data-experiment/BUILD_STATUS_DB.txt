@@ -251,8 +251,8 @@ curatedCRCData#nebbiolo2#install: OK
 curatedCRCData#nebbiolo2#buildsrc: OK
 curatedCRCData#nebbiolo2#checksrc: OK
 curatedMetagenomicData#nebbiolo2#install: OK
-curatedMetagenomicData#nebbiolo2#buildsrc: ERROR
-curatedMetagenomicData#nebbiolo2#checksrc: skipped
+curatedMetagenomicData#nebbiolo2#buildsrc: OK
+curatedMetagenomicData#nebbiolo2#checksrc: ERROR
 curatedOvarianData#nebbiolo2#install: OK
 curatedOvarianData#nebbiolo2#buildsrc: OK
 curatedOvarianData#nebbiolo2#checksrc: OK
@@ -317,8 +317,8 @@ DoReMiTra#nebbiolo2#install: OK
 DoReMiTra#nebbiolo2#buildsrc: OK
 DoReMiTra#nebbiolo2#checksrc: OK
 dorothea#nebbiolo2#install: OK
-dorothea#nebbiolo2#buildsrc: ERROR
-dorothea#nebbiolo2#checksrc: skipped
+dorothea#nebbiolo2#buildsrc: OK
+dorothea#nebbiolo2#checksrc: ERROR
 dressCheck#nebbiolo2#install: OK
 dressCheck#nebbiolo2#buildsrc: OK
 dressCheck#nebbiolo2#checksrc: OK
@@ -801,7 +801,7 @@ msdata#nebbiolo2#buildsrc: OK
 msdata#nebbiolo2#checksrc: OK
 msigdb#nebbiolo2#install: OK
 msigdb#nebbiolo2#buildsrc: OK
-msigdb#nebbiolo2#checksrc: WARNINGS
+msigdb#nebbiolo2#checksrc: ERROR
 MSMB#nebbiolo2#install: OK
 MSMB#nebbiolo2#buildsrc: OK
 MSMB#nebbiolo2#checksrc: OK
@@ -822,7 +822,7 @@ muleaData#nebbiolo2#buildsrc: ERROR
 muleaData#nebbiolo2#checksrc: skipped
 multiWGCNAdata#nebbiolo2#install: OK
 multiWGCNAdata#nebbiolo2#buildsrc: OK
-multiWGCNAdata#nebbiolo2#checksrc: OK
+multiWGCNAdata#nebbiolo2#checksrc: ERROR
 muscData#nebbiolo2#install: OK
 muscData#nebbiolo2#buildsrc: OK
 muscData#nebbiolo2#checksrc: WARNINGS
@@ -1089,7 +1089,7 @@ scpdata#nebbiolo2#buildsrc: OK
 scpdata#nebbiolo2#checksrc: ERROR
 scRNAseq#nebbiolo2#install: OK
 scRNAseq#nebbiolo2#buildsrc: OK
-scRNAseq#nebbiolo2#checksrc: ERROR
+scRNAseq#nebbiolo2#checksrc: OK
 scTHI.data#nebbiolo2#install: OK
 scTHI.data#nebbiolo2#buildsrc: OK
 scTHI.data#nebbiolo2#checksrc: OK
@@ -1160,8 +1160,8 @@ spatialDmelxsim#nebbiolo2#install: OK
 spatialDmelxsim#nebbiolo2#buildsrc: OK
 spatialDmelxsim#nebbiolo2#checksrc: OK
 spatialLIBD#nebbiolo2#install: OK
-spatialLIBD#nebbiolo2#buildsrc: OK
-spatialLIBD#nebbiolo2#checksrc: OK
+spatialLIBD#nebbiolo2#buildsrc: ERROR
+spatialLIBD#nebbiolo2#checksrc: skipped
 SpikeIn#nebbiolo2#install: OK
 SpikeIn#nebbiolo2#buildsrc: OK
 SpikeIn#nebbiolo2#checksrc: OK

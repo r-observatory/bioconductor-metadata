@@ -444,7 +444,7 @@ annoLinker#kunpeng2#buildsrc: OK
 annoLinker#kunpeng2#checksrc: OK
 annotate#nebbiolo1#install: OK
 annotate#nebbiolo1#buildsrc: OK
-annotate#nebbiolo1#checksrc: TIMEOUT
+annotate#nebbiolo1#checksrc: OK
 annotate#kunpeng2#install: OK
 annotate#kunpeng2#buildsrc: ERROR
 annotate#kunpeng2#checksrc: skipped
@@ -1584,7 +1584,7 @@ bugsigdbr#kunpeng2#buildsrc: OK
 bugsigdbr#kunpeng2#checksrc: OK
 BulkSignalR#nebbiolo1#install: OK
 BulkSignalR#nebbiolo1#buildsrc: OK
-BulkSignalR#nebbiolo1#checksrc: OK
+BulkSignalR#nebbiolo1#checksrc: ERROR
 BulkSignalR#kunpeng2#install: OK
 BulkSignalR#kunpeng2#buildsrc: OK
 BulkSignalR#kunpeng2#checksrc: OK
@@ -1620,7 +1620,7 @@ BUScorrect#kunpeng2#buildsrc: OK
 BUScorrect#kunpeng2#checksrc: OK
 BUSpaRse#nebbiolo1#install: OK
 BUSpaRse#nebbiolo1#buildsrc: OK
-BUSpaRse#nebbiolo1#checksrc: OK
+BUSpaRse#nebbiolo1#checksrc: ERROR
 BUSpaRse#kunpeng2#install: OK
 BUSpaRse#kunpeng2#buildsrc: ERROR
 BUSpaRse#kunpeng2#checksrc: skipped
@@ -2921,8 +2921,8 @@ crlmm#kunpeng2#install: OK
 crlmm#kunpeng2#buildsrc: OK
 crlmm#kunpeng2#checksrc: WARNINGS
 crumblr#nebbiolo1#install: OK
-crumblr#nebbiolo1#buildsrc: ERROR
-crumblr#nebbiolo1#checksrc: skipped
+crumblr#nebbiolo1#buildsrc: OK
+crumblr#nebbiolo1#checksrc: OK
 crumblr#kunpeng2#install: OK
 crumblr#kunpeng2#buildsrc: OK
 crumblr#kunpeng2#checksrc: OK
@@ -2969,8 +2969,8 @@ ctc#kunpeng2#install: OK
 ctc#kunpeng2#buildsrc: OK
 ctc#kunpeng2#checksrc: OK
 CTdata#nebbiolo1#install: OK
-CTdata#nebbiolo1#buildsrc: ERROR
-CTdata#nebbiolo1#checksrc: skipped
+CTdata#nebbiolo1#buildsrc: OK
+CTdata#nebbiolo1#checksrc: OK
 CTdata#kunpeng2#install: OK
 CTdata#kunpeng2#buildsrc: OK
 CTdata#kunpeng2#checksrc: OK
@@ -2981,8 +2981,8 @@ CTDquerier#kunpeng2#install: OK
 CTDquerier#kunpeng2#buildsrc: OK
 CTDquerier#kunpeng2#checksrc: WARNINGS
 CTexploreR#nebbiolo1#install: OK
-CTexploreR#nebbiolo1#buildsrc: ERROR
-CTexploreR#nebbiolo1#checksrc: skipped
+CTexploreR#nebbiolo1#buildsrc: OK
+CTexploreR#nebbiolo1#checksrc: OK
 CTexploreR#kunpeng2#install: OK
 CTexploreR#kunpeng2#buildsrc: OK
 CTexploreR#kunpeng2#checksrc: OK
@@ -3017,8 +3017,8 @@ CuratedAtlasQueryR#kunpeng2#install: OK
 CuratedAtlasQueryR#kunpeng2#buildsrc: TIMEOUT
 CuratedAtlasQueryR#kunpeng2#checksrc: skipped
 customCMPdb#nebbiolo1#install: OK
-customCMPdb#nebbiolo1#buildsrc: ERROR
-customCMPdb#nebbiolo1#checksrc: skipped
+customCMPdb#nebbiolo1#buildsrc: OK
+customCMPdb#nebbiolo1#checksrc: OK
 customCMPdb#kunpeng2#install: OK
 customCMPdb#kunpeng2#buildsrc: OK
 customCMPdb#kunpeng2#checksrc: OK
@@ -3167,8 +3167,8 @@ DaMiRseq#kunpeng2#install: OK
 DaMiRseq#kunpeng2#buildsrc: OK
 DaMiRseq#kunpeng2#checksrc: OK
 Damsel#nebbiolo1#install: OK
-Damsel#nebbiolo1#buildsrc: OK
-Damsel#nebbiolo1#checksrc: ERROR
+Damsel#nebbiolo1#buildsrc: ERROR
+Damsel#nebbiolo1#checksrc: skipped
 Damsel#kunpeng2#install: OK
 Damsel#kunpeng2#buildsrc: OK
 Damsel#kunpeng2#checksrc: WARNINGS
@@ -3839,8 +3839,8 @@ DropletUtils#kunpeng2#install: OK
 DropletUtils#kunpeng2#buildsrc: OK
 DropletUtils#kunpeng2#checksrc: WARNINGS
 drugfindR#nebbiolo1#install: OK
-drugfindR#nebbiolo1#buildsrc: OK
-drugfindR#nebbiolo1#checksrc: OK
+drugfindR#nebbiolo1#buildsrc: ERROR
+drugfindR#nebbiolo1#checksrc: skipped
 drugfindR#kunpeng2#install: OK
 drugfindR#kunpeng2#buildsrc: OK
 drugfindR#kunpeng2#checksrc: OK
@@ -3936,7 +3936,7 @@ easyreporting#kunpeng2#buildsrc: OK
 easyreporting#kunpeng2#checksrc: OK
 easyRNASeq#nebbiolo1#install: OK
 easyRNASeq#nebbiolo1#buildsrc: OK
-easyRNASeq#nebbiolo1#checksrc: WARNINGS
+easyRNASeq#nebbiolo1#checksrc: ERROR
 easyRNASeq#kunpeng2#install: OK
 easyRNASeq#kunpeng2#buildsrc: OK
 easyRNASeq#kunpeng2#checksrc: ERROR
@@ -4091,8 +4091,8 @@ EnrichedHeatmap#kunpeng2#install: OK
 EnrichedHeatmap#kunpeng2#buildsrc: OK
 EnrichedHeatmap#kunpeng2#checksrc: OK
 EnrichmentBrowser#nebbiolo1#install: OK
-EnrichmentBrowser#nebbiolo1#buildsrc: ERROR
-EnrichmentBrowser#nebbiolo1#checksrc: skipped
+EnrichmentBrowser#nebbiolo1#buildsrc: OK
+EnrichmentBrowser#nebbiolo1#checksrc: OK
 EnrichmentBrowser#kunpeng2#install: OK
 EnrichmentBrowser#kunpeng2#buildsrc: OK
 EnrichmentBrowser#kunpeng2#checksrc: OK
@@ -4235,8 +4235,8 @@ epivizrData#kunpeng2#install: OK
 epivizrData#kunpeng2#buildsrc: OK
 epivizrData#kunpeng2#checksrc: OK
 epivizrServer#nebbiolo1#install: OK
-epivizrServer#nebbiolo1#buildsrc: ERROR
-epivizrServer#nebbiolo1#checksrc: skipped
+epivizrServer#nebbiolo1#buildsrc: OK
+epivizrServer#nebbiolo1#checksrc: WARNINGS
 epivizrServer#kunpeng2#install: OK
 epivizrServer#kunpeng2#buildsrc: OK
 epivizrServer#kunpeng2#checksrc: WARNINGS
@@ -5256,7 +5256,7 @@ GenProSeq#kunpeng2#buildsrc: OK
 GenProSeq#kunpeng2#checksrc: OK
 GenVisR#nebbiolo1#install: OK
 GenVisR#nebbiolo1#buildsrc: OK
-GenVisR#nebbiolo1#checksrc: OK
+GenVisR#nebbiolo1#checksrc: ERROR
 GenVisR#kunpeng2#install: OK
 GenVisR#kunpeng2#buildsrc: OK
 GenVisR#kunpeng2#checksrc: ERROR
@@ -5592,7 +5592,7 @@ GOSemSim#kunpeng2#buildsrc: OK
 GOSemSim#kunpeng2#checksrc: OK
 goseq#nebbiolo1#install: OK
 goseq#nebbiolo1#buildsrc: OK
-goseq#nebbiolo1#checksrc: OK
+goseq#nebbiolo1#checksrc: ERROR
 goseq#kunpeng2#install: OK
 goseq#kunpeng2#buildsrc: OK
 goseq#kunpeng2#checksrc: OK
@@ -6144,7 +6144,7 @@ HMMcopy#kunpeng2#buildsrc: OK
 HMMcopy#kunpeng2#checksrc: WARNINGS
 HoloFoodR#nebbiolo1#install: OK
 HoloFoodR#nebbiolo1#buildsrc: OK
-HoloFoodR#nebbiolo1#checksrc: OK
+HoloFoodR#nebbiolo1#checksrc: ERROR
 HoloFoodR#kunpeng2#install: OK
 HoloFoodR#kunpeng2#buildsrc: OK
 HoloFoodR#kunpeng2#checksrc: OK
@@ -6347,8 +6347,8 @@ idiogram#kunpeng2#install: OK
 idiogram#kunpeng2#buildsrc: OK
 idiogram#kunpeng2#checksrc: OK
 idpr#nebbiolo1#install: OK
-idpr#nebbiolo1#buildsrc: OK
-idpr#nebbiolo1#checksrc: OK
+idpr#nebbiolo1#buildsrc: ERROR
+idpr#nebbiolo1#checksrc: skipped
 idpr#kunpeng2#install: OK
 idpr#kunpeng2#buildsrc: OK
 idpr#kunpeng2#checksrc: OK
@@ -7323,7 +7323,7 @@ marray#kunpeng2#buildsrc: OK
 marray#kunpeng2#checksrc: OK
 martini#nebbiolo1#install: OK
 martini#nebbiolo1#buildsrc: OK
-martini#nebbiolo1#checksrc: OK
+martini#nebbiolo1#checksrc: ERROR
 martini#kunpeng2#install: OK
 martini#kunpeng2#buildsrc: OK
 martini#kunpeng2#checksrc: OK
@@ -7857,7 +7857,7 @@ methylscaper#kunpeng2#buildsrc: OK
 methylscaper#kunpeng2#checksrc: OK
 MethylSeekR#nebbiolo1#install: OK
 MethylSeekR#nebbiolo1#buildsrc: OK
-MethylSeekR#nebbiolo1#checksrc: OK
+MethylSeekR#nebbiolo1#checksrc: ERROR
 MethylSeekR#kunpeng2#install: OK
 MethylSeekR#kunpeng2#buildsrc: OK
 MethylSeekR#kunpeng2#checksrc: OK
@@ -7940,8 +7940,8 @@ miaDash#kunpeng2#install: OK
 miaDash#kunpeng2#buildsrc: OK
 miaDash#kunpeng2#checksrc: OK
 miaSim#nebbiolo1#install: OK
-miaSim#nebbiolo1#buildsrc: TIMEOUT
-miaSim#nebbiolo1#checksrc: skipped
+miaSim#nebbiolo1#buildsrc: OK
+miaSim#nebbiolo1#checksrc: OK
 miaSim#kunpeng2#install: OK
 miaSim#kunpeng2#buildsrc: OK
 miaSim#kunpeng2#checksrc: OK
@@ -8151,7 +8151,7 @@ mirTarRnaSeq#kunpeng2#buildsrc: OK
 mirTarRnaSeq#kunpeng2#checksrc: OK
 missMethyl#nebbiolo1#install: OK
 missMethyl#nebbiolo1#buildsrc: OK
-missMethyl#nebbiolo1#checksrc: ERROR
+missMethyl#nebbiolo1#checksrc: WARNINGS
 missMethyl#kunpeng2#install: OK
 missMethyl#kunpeng2#buildsrc: OK
 missMethyl#kunpeng2#checksrc: WARNINGS
@@ -8169,7 +8169,7 @@ mist#kunpeng2#buildsrc: OK
 mist#kunpeng2#checksrc: OK
 mistyR#nebbiolo1#install: OK
 mistyR#nebbiolo1#buildsrc: OK
-mistyR#nebbiolo1#checksrc: OK
+mistyR#nebbiolo1#checksrc: ERROR
 mistyR#kunpeng2#install: OK
 mistyR#kunpeng2#buildsrc: OK
 mistyR#kunpeng2#checksrc: ERROR
@@ -8307,7 +8307,7 @@ monocle#kunpeng2#buildsrc: OK
 monocle#kunpeng2#checksrc: OK
 Moonlight2R#nebbiolo1#install: OK
 Moonlight2R#nebbiolo1#buildsrc: OK
-Moonlight2R#nebbiolo1#checksrc: OK
+Moonlight2R#nebbiolo1#checksrc: ERROR
 Moonlight2R#kunpeng2#install: OK
 Moonlight2R#kunpeng2#buildsrc: ERROR
 Moonlight2R#kunpeng2#checksrc: skipped
@@ -8589,7 +8589,7 @@ MSstatsBioNet#kunpeng2#buildsrc: OK
 MSstatsBioNet#kunpeng2#checksrc: OK
 MSstatsConvert#nebbiolo1#install: OK
 MSstatsConvert#nebbiolo1#buildsrc: OK
-MSstatsConvert#nebbiolo1#checksrc: ERROR
+MSstatsConvert#nebbiolo1#checksrc: OK
 MSstatsConvert#kunpeng2#install: OK
 MSstatsConvert#kunpeng2#buildsrc: OK
 MSstatsConvert#kunpeng2#checksrc: OK
@@ -9033,7 +9033,7 @@ NormqPCR#kunpeng2#buildsrc: OK
 NormqPCR#kunpeng2#checksrc: OK
 normr#nebbiolo1#install: OK
 normr#nebbiolo1#buildsrc: OK
-normr#nebbiolo1#checksrc: ERROR
+normr#nebbiolo1#checksrc: WARNINGS
 normr#kunpeng2#install: OK
 normr#kunpeng2#buildsrc: OK
 normr#kunpeng2#checksrc: WARNINGS
@@ -9344,8 +9344,8 @@ ORFhunteR#kunpeng2#install: OK
 ORFhunteR#kunpeng2#buildsrc: OK
 ORFhunteR#kunpeng2#checksrc: WARNINGS
 ORFik#nebbiolo1#install: OK
-ORFik#nebbiolo1#buildsrc: ERROR
-ORFik#nebbiolo1#checksrc: skipped
+ORFik#nebbiolo1#buildsrc: OK
+ORFik#nebbiolo1#checksrc: OK
 ORFik#kunpeng2#install: OK
 ORFik#kunpeng2#buildsrc: OK
 ORFik#kunpeng2#checksrc: ERROR
@@ -9357,7 +9357,7 @@ Organism.dplyr#kunpeng2#buildsrc: OK
 Organism.dplyr#kunpeng2#checksrc: ERROR
 OrganismDbi#nebbiolo1#install: OK
 OrganismDbi#nebbiolo1#buildsrc: OK
-OrganismDbi#nebbiolo1#checksrc: ERROR
+OrganismDbi#nebbiolo1#checksrc: OK
 OrganismDbi#kunpeng2#install: OK
 OrganismDbi#kunpeng2#buildsrc: OK
 OrganismDbi#kunpeng2#checksrc: ERROR
@@ -9807,7 +9807,7 @@ pickgene#kunpeng2#buildsrc: OK
 pickgene#kunpeng2#checksrc: WARNINGS
 Pigengene#nebbiolo1#install: OK
 Pigengene#nebbiolo1#buildsrc: OK
-Pigengene#nebbiolo1#checksrc: WARNINGS
+Pigengene#nebbiolo1#checksrc: ERROR
 Pigengene#kunpeng2#install: OK
 Pigengene#kunpeng2#buildsrc: OK
 Pigengene#kunpeng2#checksrc: ERROR
@@ -10635,7 +10635,7 @@ RCM#kunpeng2#buildsrc: OK
 RCM#kunpeng2#checksrc: OK
 Rcollectl#nebbiolo1#install: OK
 Rcollectl#nebbiolo1#buildsrc: OK
-Rcollectl#nebbiolo1#checksrc: ERROR
+Rcollectl#nebbiolo1#checksrc: OK
 Rcollectl#kunpeng2#install: OK
 Rcollectl#kunpeng2#buildsrc: ERROR
 Rcollectl#kunpeng2#checksrc: skipped
@@ -10851,7 +10851,7 @@ ReportingTools#kunpeng2#buildsrc: OK
 ReportingTools#kunpeng2#checksrc: OK
 RepViz#nebbiolo1#install: OK
 RepViz#nebbiolo1#buildsrc: OK
-RepViz#nebbiolo1#checksrc: ERROR
+RepViz#nebbiolo1#checksrc: WARNINGS
 RepViz#kunpeng2#install: OK
 RepViz#kunpeng2#buildsrc: OK
 RepViz#kunpeng2#checksrc: WARNINGS
@@ -11253,7 +11253,7 @@ RolDE#kunpeng2#buildsrc: OK
 RolDE#kunpeng2#checksrc: OK
 rols#nebbiolo1#install: OK
 rols#nebbiolo1#buildsrc: OK
-rols#nebbiolo1#checksrc: OK
+rols#nebbiolo1#checksrc: ERROR
 rols#kunpeng2#install: OK
 rols#kunpeng2#buildsrc: OK
 rols#kunpeng2#checksrc: OK
@@ -11432,8 +11432,8 @@ Rtpca#kunpeng2#install: OK
 Rtpca#kunpeng2#buildsrc: OK
 Rtpca#kunpeng2#checksrc: OK
 rtracklayer#nebbiolo1#install: OK
-rtracklayer#nebbiolo1#buildsrc: OK
-rtracklayer#nebbiolo1#checksrc: WARNINGS
+rtracklayer#nebbiolo1#buildsrc: ERROR
+rtracklayer#nebbiolo1#checksrc: skipped
 rtracklayer#kunpeng2#install: OK
 rtracklayer#kunpeng2#buildsrc: OK
 rtracklayer#kunpeng2#checksrc: WARNINGS
@@ -12032,8 +12032,8 @@ scTHI#kunpeng2#install: OK
 scTHI#kunpeng2#buildsrc: OK
 scTHI#kunpeng2#checksrc: OK
 scToppR#nebbiolo1#install: OK
-scToppR#nebbiolo1#buildsrc: OK
-scToppR#nebbiolo1#checksrc: WARNINGS
+scToppR#nebbiolo1#buildsrc: ERROR
+scToppR#nebbiolo1#checksrc: skipped
 scToppR#kunpeng2#install: OK
 scToppR#kunpeng2#buildsrc: OK
 scToppR#kunpeng2#checksrc: WARNINGS
@@ -12465,7 +12465,7 @@ SingleCellExperiment#kunpeng2#buildsrc: OK
 SingleCellExperiment#kunpeng2#checksrc: OK
 SingleCellSignalR#nebbiolo1#install: OK
 SingleCellSignalR#nebbiolo1#buildsrc: OK
-SingleCellSignalR#nebbiolo1#checksrc: OK
+SingleCellSignalR#nebbiolo1#checksrc: ERROR
 SingleCellSignalR#kunpeng2#install: OK
 SingleCellSignalR#kunpeng2#buildsrc: OK
 SingleCellSignalR#kunpeng2#checksrc: OK
@@ -12601,9 +12601,9 @@ SNAGEE#nebbiolo1#checksrc: OK
 SNAGEE#kunpeng2#install: OK
 SNAGEE#kunpeng2#buildsrc: OK
 SNAGEE#kunpeng2#checksrc: OK
-snapcount#nebbiolo1#install: OK
-snapcount#nebbiolo1#buildsrc: OK
-snapcount#nebbiolo1#checksrc: OK
+snapcount#nebbiolo1#install: ERROR
+snapcount#nebbiolo1#buildsrc: ERROR
+snapcount#nebbiolo1#checksrc: skipped
 snapcount#kunpeng2#install: OK
 snapcount#kunpeng2#buildsrc: ERROR
 snapcount#kunpeng2#checksrc: skipped
@@ -12620,8 +12620,8 @@ snm#kunpeng2#install: OK
 snm#kunpeng2#buildsrc: OK
 snm#kunpeng2#checksrc: OK
 SNPediaR#nebbiolo1#install: OK
-SNPediaR#nebbiolo1#buildsrc: OK
-SNPediaR#nebbiolo1#checksrc: OK
+SNPediaR#nebbiolo1#buildsrc: ERROR
+SNPediaR#nebbiolo1#checksrc: skipped
 SNPediaR#kunpeng2#install: OK
 SNPediaR#kunpeng2#buildsrc: ERROR
 SNPediaR#kunpeng2#checksrc: skipped
@@ -13598,14 +13598,14 @@ tidyprint#kunpeng2#install: OK
 tidyprint#kunpeng2#buildsrc: OK
 tidyprint#kunpeng2#checksrc: OK
 tidysbml#nebbiolo1#install: OK
-tidysbml#nebbiolo1#buildsrc: ERROR
-tidysbml#nebbiolo1#checksrc: skipped
+tidysbml#nebbiolo1#buildsrc: OK
+tidysbml#nebbiolo1#checksrc: OK
 tidysbml#kunpeng2#install: OK
 tidysbml#kunpeng2#buildsrc: OK
 tidysbml#kunpeng2#checksrc: OK
 tidySingleCellExperiment#nebbiolo1#install: OK
 tidySingleCellExperiment#nebbiolo1#buildsrc: OK
-tidySingleCellExperiment#nebbiolo1#checksrc: OK
+tidySingleCellExperiment#nebbiolo1#checksrc: ERROR
 tidySingleCellExperiment#kunpeng2#install: OK
 tidySingleCellExperiment#kunpeng2#buildsrc: OK
 tidySingleCellExperiment#kunpeng2#checksrc: OK
@@ -13748,8 +13748,8 @@ topGO#kunpeng2#install: OK
 topGO#kunpeng2#buildsrc: OK
 topGO#kunpeng2#checksrc: WARNINGS
 toppgene#nebbiolo1#install: OK
-toppgene#nebbiolo1#buildsrc: OK
-toppgene#nebbiolo1#checksrc: OK
+toppgene#nebbiolo1#buildsrc: ERROR
+toppgene#nebbiolo1#checksrc: skipped
 toppgene#kunpeng2#install: OK
 toppgene#kunpeng2#buildsrc: ERROR
 toppgene#kunpeng2#checksrc: skipped
@@ -14043,7 +14043,7 @@ UCell#kunpeng2#buildsrc: OK
 UCell#kunpeng2#checksrc: WARNINGS
 UCSC.utils#nebbiolo1#install: OK
 UCSC.utils#nebbiolo1#buildsrc: OK
-UCSC.utils#nebbiolo1#checksrc: OK
+UCSC.utils#nebbiolo1#checksrc: ERROR
 UCSC.utils#kunpeng2#install: OK
 UCSC.utils#kunpeng2#buildsrc: OK
 UCSC.utils#kunpeng2#checksrc: OK
@@ -14138,8 +14138,8 @@ variancePartition#kunpeng2#install: OK
 variancePartition#kunpeng2#buildsrc: OK
 variancePartition#kunpeng2#checksrc: OK
 VariantAnnotation#nebbiolo1#install: OK
-VariantAnnotation#nebbiolo1#buildsrc: ERROR
-VariantAnnotation#nebbiolo1#checksrc: skipped
+VariantAnnotation#nebbiolo1#buildsrc: OK
+VariantAnnotation#nebbiolo1#checksrc: WARNINGS
 VariantAnnotation#kunpeng2#install: OK
 VariantAnnotation#kunpeng2#buildsrc: OK
 VariantAnnotation#kunpeng2#checksrc: ERROR
@@ -14451,7 +14451,7 @@ YAPSA#kunpeng2#buildsrc: OK
 YAPSA#kunpeng2#checksrc: OK
 yarn#nebbiolo1#install: OK
 yarn#nebbiolo1#buildsrc: OK
-yarn#nebbiolo1#checksrc: OK
+yarn#nebbiolo1#checksrc: ERROR
 yarn#kunpeng2#install: OK
 yarn#kunpeng2#buildsrc: OK
 yarn#kunpeng2#checksrc: OK

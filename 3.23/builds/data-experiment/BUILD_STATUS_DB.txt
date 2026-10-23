@@ -308,8 +308,8 @@ DoReMiTra#nebbiolo1#install: OK
 DoReMiTra#nebbiolo1#buildsrc: OK
 DoReMiTra#nebbiolo1#checksrc: OK
 dorothea#nebbiolo1#install: OK
-dorothea#nebbiolo1#buildsrc: ERROR
-dorothea#nebbiolo1#checksrc: skipped
+dorothea#nebbiolo1#buildsrc: OK
+dorothea#nebbiolo1#checksrc: ERROR
 dressCheck#nebbiolo1#install: OK
 dressCheck#nebbiolo1#buildsrc: OK
 dressCheck#nebbiolo1#checksrc: OK
@@ -450,7 +450,7 @@ gDRtestData#nebbiolo1#buildsrc: OK
 gDRtestData#nebbiolo1#checksrc: OK
 geneLenDataBase#nebbiolo1#install: OK
 geneLenDataBase#nebbiolo1#buildsrc: OK
-geneLenDataBase#nebbiolo1#checksrc: ERROR
+geneLenDataBase#nebbiolo1#checksrc: OK
 genomationData#nebbiolo1#install: OK
 genomationData#nebbiolo1#buildsrc: OK
 genomationData#nebbiolo1#checksrc: OK
@@ -714,7 +714,7 @@ MEEBOdata#nebbiolo1#buildsrc: OK
 MEEBOdata#nebbiolo1#checksrc: WARNINGS
 MerfishData#nebbiolo1#install: OK
 MerfishData#nebbiolo1#buildsrc: OK
-MerfishData#nebbiolo1#checksrc: OK
+MerfishData#nebbiolo1#checksrc: ERROR
 MetaGxBreast#nebbiolo1#install: OK
 MetaGxBreast#nebbiolo1#buildsrc: OK
 MetaGxBreast#nebbiolo1#checksrc: OK
@@ -1119,7 +1119,7 @@ Single.mTEC.Transcriptomes#nebbiolo1#buildsrc: OK
 Single.mTEC.Transcriptomes#nebbiolo1#checksrc: OK
 SingleCellMultiModal#nebbiolo1#install: OK
 SingleCellMultiModal#nebbiolo1#buildsrc: OK
-SingleCellMultiModal#nebbiolo1#checksrc: ERROR
+SingleCellMultiModal#nebbiolo1#checksrc: OK
 SingleMoleculeFootprintingData#nebbiolo1#install: OK
 SingleMoleculeFootprintingData#nebbiolo1#buildsrc: OK
 SingleMoleculeFootprintingData#nebbiolo1#checksrc: OK
