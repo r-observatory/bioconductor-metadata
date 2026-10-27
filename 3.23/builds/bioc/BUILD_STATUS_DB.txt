@@ -732,7 +732,7 @@ AUCell#kunpeng2#buildsrc: OK
 AUCell#kunpeng2#checksrc: OK
 autonomics#nebbiolo1#install: OK
 autonomics#nebbiolo1#buildsrc: OK
-autonomics#nebbiolo1#checksrc: OK
+autonomics#nebbiolo1#checksrc: ERROR
 autonomics#kunpeng2#install: OK
 autonomics#kunpeng2#buildsrc: OK
 autonomics#kunpeng2#checksrc: ERROR
@@ -773,8 +773,8 @@ BADER#kunpeng2#install: OK
 BADER#kunpeng2#buildsrc: OK
 BADER#kunpeng2#checksrc: OK
 BadRegionFinder#nebbiolo1#install: OK
-BadRegionFinder#nebbiolo1#buildsrc: OK
-BadRegionFinder#nebbiolo1#checksrc: ERROR
+BadRegionFinder#nebbiolo1#buildsrc: ERROR
+BadRegionFinder#nebbiolo1#checksrc: skipped
 BadRegionFinder#kunpeng2#install: OK
 BadRegionFinder#kunpeng2#buildsrc: OK
 BadRegionFinder#kunpeng2#checksrc: OK
@@ -809,8 +809,8 @@ BANDITS#kunpeng2#install: OK
 BANDITS#kunpeng2#buildsrc: OK
 BANDITS#kunpeng2#checksrc: OK
 bandle#nebbiolo1#install: OK
-bandle#nebbiolo1#buildsrc: OK
-bandle#nebbiolo1#checksrc: WARNINGS
+bandle#nebbiolo1#buildsrc: ERROR
+bandle#nebbiolo1#checksrc: skipped
 bandle#kunpeng2#install: OK
 bandle#kunpeng2#buildsrc: OK
 bandle#kunpeng2#checksrc: WARNINGS
@@ -1493,8 +1493,8 @@ BRAIN#kunpeng2#install: OK
 BRAIN#kunpeng2#buildsrc: OK
 BRAIN#kunpeng2#checksrc: WARNINGS
 branchpointer#nebbiolo1#install: OK
-branchpointer#nebbiolo1#buildsrc: OK
-branchpointer#nebbiolo1#checksrc: OK
+branchpointer#nebbiolo1#buildsrc: ERROR
+branchpointer#nebbiolo1#checksrc: skipped
 branchpointer#kunpeng2#install: OK
 branchpointer#kunpeng2#buildsrc: ERROR
 branchpointer#kunpeng2#checksrc: skipped
@@ -1787,8 +1787,8 @@ cBioPortalData#kunpeng2#install: OK
 cBioPortalData#kunpeng2#buildsrc: OK
 cBioPortalData#kunpeng2#checksrc: OK
 CBN2Path#nebbiolo1#install: OK
-CBN2Path#nebbiolo1#buildsrc: ERROR
-CBN2Path#nebbiolo1#checksrc: skipped
+CBN2Path#nebbiolo1#buildsrc: OK
+CBN2Path#nebbiolo1#checksrc: OK
 CBN2Path#kunpeng2#install: OK
 CBN2Path#kunpeng2#buildsrc: OK
 CBN2Path#kunpeng2#checksrc: OK
@@ -2988,7 +2988,7 @@ CTexploreR#kunpeng2#buildsrc: TIMEOUT
 CTexploreR#kunpeng2#checksrc: skipped
 cTRAP#nebbiolo1#install: OK
 cTRAP#nebbiolo1#buildsrc: OK
-cTRAP#nebbiolo1#checksrc: OK
+cTRAP#nebbiolo1#checksrc: ERROR
 cTRAP#kunpeng2#install: OK
 cTRAP#kunpeng2#buildsrc: ERROR
 cTRAP#kunpeng2#checksrc: skipped
@@ -3167,8 +3167,8 @@ DaMiRseq#kunpeng2#install: OK
 DaMiRseq#kunpeng2#buildsrc: OK
 DaMiRseq#kunpeng2#checksrc: OK
 Damsel#nebbiolo1#install: OK
-Damsel#nebbiolo1#buildsrc: ERROR
-Damsel#nebbiolo1#checksrc: skipped
+Damsel#nebbiolo1#buildsrc: OK
+Damsel#nebbiolo1#checksrc: WARNINGS
 Damsel#kunpeng2#install: OK
 Damsel#kunpeng2#buildsrc: OK
 Damsel#kunpeng2#checksrc: WARNINGS
@@ -3444,7 +3444,7 @@ densvis#kunpeng2#buildsrc: OK
 densvis#kunpeng2#checksrc: OK
 DepecheR#nebbiolo1#install: OK
 DepecheR#nebbiolo1#buildsrc: OK
-DepecheR#nebbiolo1#checksrc: OK
+DepecheR#nebbiolo1#checksrc: ERROR
 DepecheR#kunpeng2#install: OK
 DepecheR#kunpeng2#buildsrc: OK
 DepecheR#kunpeng2#checksrc: OK
@@ -3455,8 +3455,8 @@ DepInfeR#kunpeng2#install: OK
 DepInfeR#kunpeng2#buildsrc: OK
 DepInfeR#kunpeng2#checksrc: OK
 DEqMS#nebbiolo1#install: OK
-DEqMS#nebbiolo1#buildsrc: ERROR
-DEqMS#nebbiolo1#checksrc: skipped
+DEqMS#nebbiolo1#buildsrc: OK
+DEqMS#nebbiolo1#checksrc: OK
 DEqMS#kunpeng2#install: OK
 DEqMS#kunpeng2#buildsrc: OK
 DEqMS#kunpeng2#checksrc: OK
@@ -4061,8 +4061,8 @@ EnhancedVolcano#kunpeng2#install: OK
 EnhancedVolcano#kunpeng2#buildsrc: OK
 EnhancedVolcano#kunpeng2#checksrc: OK
 enhancerHomologSearch#nebbiolo1#install: OK
-enhancerHomologSearch#nebbiolo1#buildsrc: OK
-enhancerHomologSearch#nebbiolo1#checksrc: OK
+enhancerHomologSearch#nebbiolo1#buildsrc: ERROR
+enhancerHomologSearch#nebbiolo1#checksrc: skipped
 enhancerHomologSearch#kunpeng2#install: OK
 enhancerHomologSearch#kunpeng2#buildsrc: OK
 enhancerHomologSearch#kunpeng2#checksrc: OK
@@ -4469,8 +4469,8 @@ fedup#kunpeng2#install: OK
 fedup#kunpeng2#buildsrc: OK
 fedup#kunpeng2#checksrc: OK
 FELLA#nebbiolo1#install: OK
-FELLA#nebbiolo1#buildsrc: OK
-FELLA#nebbiolo1#checksrc: OK
+FELLA#nebbiolo1#buildsrc: ERROR
+FELLA#nebbiolo1#checksrc: skipped
 FELLA#kunpeng2#install: OK
 FELLA#kunpeng2#buildsrc: ERROR
 FELLA#kunpeng2#checksrc: skipped
@@ -4500,7 +4500,7 @@ FGNet#kunpeng2#buildsrc: OK
 FGNet#kunpeng2#checksrc: WARNINGS
 fgsea#nebbiolo1#install: OK
 fgsea#nebbiolo1#buildsrc: OK
-fgsea#nebbiolo1#checksrc: ERROR
+fgsea#nebbiolo1#checksrc: OK
 fgsea#kunpeng2#install: OK
 fgsea#kunpeng2#buildsrc: OK
 fgsea#kunpeng2#checksrc: OK
@@ -5256,7 +5256,7 @@ GenProSeq#kunpeng2#buildsrc: OK
 GenProSeq#kunpeng2#checksrc: OK
 GenVisR#nebbiolo1#install: OK
 GenVisR#nebbiolo1#buildsrc: OK
-GenVisR#nebbiolo1#checksrc: OK
+GenVisR#nebbiolo1#checksrc: ERROR
 GenVisR#kunpeng2#install: OK
 GenVisR#kunpeng2#buildsrc: OK
 GenVisR#kunpeng2#checksrc: ERROR
@@ -5298,7 +5298,7 @@ GeomxTools#kunpeng2#buildsrc: OK
 GeomxTools#kunpeng2#checksrc: OK
 GEOquery#nebbiolo1#install: OK
 GEOquery#nebbiolo1#buildsrc: OK
-GEOquery#nebbiolo1#checksrc: ERROR
+GEOquery#nebbiolo1#checksrc: OK
 GEOquery#kunpeng2#install: OK
 GEOquery#kunpeng2#buildsrc: ERROR
 GEOquery#kunpeng2#checksrc: skipped
@@ -6143,8 +6143,8 @@ HMMcopy#kunpeng2#install: OK
 HMMcopy#kunpeng2#buildsrc: OK
 HMMcopy#kunpeng2#checksrc: WARNINGS
 HoloFoodR#nebbiolo1#install: OK
-HoloFoodR#nebbiolo1#buildsrc: OK
-HoloFoodR#nebbiolo1#checksrc: ERROR
+HoloFoodR#nebbiolo1#buildsrc: ERROR
+HoloFoodR#nebbiolo1#checksrc: skipped
 HoloFoodR#kunpeng2#install: OK
 HoloFoodR#kunpeng2#buildsrc: ERROR
 HoloFoodR#kunpeng2#checksrc: skipped
@@ -6621,7 +6621,7 @@ iPath#kunpeng2#buildsrc: OK
 iPath#kunpeng2#checksrc: OK
 ipdDb#nebbiolo1#install: OK
 ipdDb#nebbiolo1#buildsrc: OK
-ipdDb#nebbiolo1#checksrc: OK
+ipdDb#nebbiolo1#checksrc: ERROR
 ipdDb#kunpeng2#install: OK
 ipdDb#kunpeng2#buildsrc: OK
 ipdDb#kunpeng2#checksrc: OK
@@ -7323,7 +7323,7 @@ marray#kunpeng2#buildsrc: OK
 marray#kunpeng2#checksrc: OK
 martini#nebbiolo1#install: OK
 martini#nebbiolo1#buildsrc: OK
-martini#nebbiolo1#checksrc: ERROR
+martini#nebbiolo1#checksrc: OK
 martini#kunpeng2#install: OK
 martini#kunpeng2#buildsrc: OK
 martini#kunpeng2#checksrc: OK
@@ -7371,7 +7371,7 @@ MAST#kunpeng2#buildsrc: OK
 MAST#kunpeng2#checksrc: OK
 mastR#nebbiolo1#install: OK
 mastR#nebbiolo1#buildsrc: OK
-mastR#nebbiolo1#checksrc: ERROR
+mastR#nebbiolo1#checksrc: OK
 mastR#kunpeng2#install: OK
 mastR#kunpeng2#buildsrc: OK
 mastR#kunpeng2#checksrc: ERROR
@@ -8067,7 +8067,7 @@ MiPP#kunpeng2#buildsrc: OK
 MiPP#kunpeng2#checksrc: OK
 miQC#nebbiolo1#install: OK
 miQC#nebbiolo1#buildsrc: OK
-miQC#nebbiolo1#checksrc: ERROR
+miQC#nebbiolo1#checksrc: OK
 miQC#kunpeng2#install: OK
 miQC#kunpeng2#buildsrc: OK
 miQC#kunpeng2#checksrc: OK
@@ -8150,8 +8150,8 @@ mirTarRnaSeq#kunpeng2#install: OK
 mirTarRnaSeq#kunpeng2#buildsrc: OK
 mirTarRnaSeq#kunpeng2#checksrc: OK
 missMethyl#nebbiolo1#install: OK
-missMethyl#nebbiolo1#buildsrc: OK
-missMethyl#nebbiolo1#checksrc: ERROR
+missMethyl#nebbiolo1#buildsrc: ERROR
+missMethyl#nebbiolo1#checksrc: skipped
 missMethyl#kunpeng2#install: OK
 missMethyl#kunpeng2#buildsrc: OK
 missMethyl#kunpeng2#checksrc: WARNINGS
@@ -8379,7 +8379,7 @@ motifmatchr#kunpeng2#buildsrc: OK
 motifmatchr#kunpeng2#checksrc: OK
 MotifPeeker#nebbiolo1#install: OK
 MotifPeeker#nebbiolo1#buildsrc: OK
-MotifPeeker#nebbiolo1#checksrc: OK
+MotifPeeker#nebbiolo1#checksrc: ERROR
 MotifPeeker#kunpeng2#install: OK
 MotifPeeker#kunpeng2#buildsrc: OK
 MotifPeeker#kunpeng2#checksrc: OK
@@ -8583,7 +8583,7 @@ MSstatsBig#kunpeng2#buildsrc: OK
 MSstatsBig#kunpeng2#checksrc: OK
 MSstatsBioNet#nebbiolo1#install: OK
 MSstatsBioNet#nebbiolo1#buildsrc: OK
-MSstatsBioNet#nebbiolo1#checksrc: OK
+MSstatsBioNet#nebbiolo1#checksrc: ERROR
 MSstatsBioNet#kunpeng2#install: OK
 MSstatsBioNet#kunpeng2#buildsrc: OK
 MSstatsBioNet#kunpeng2#checksrc: OK
@@ -8858,8 +8858,8 @@ NanoTube#kunpeng2#install: OK
 NanoTube#kunpeng2#buildsrc: OK
 NanoTube#kunpeng2#checksrc: OK
 NBAMSeq#nebbiolo1#install: OK
-NBAMSeq#nebbiolo1#buildsrc: OK
-NBAMSeq#nebbiolo1#checksrc: OK
+NBAMSeq#nebbiolo1#buildsrc: ERROR
+NBAMSeq#nebbiolo1#checksrc: skipped
 NBAMSeq#kunpeng2#install: OK
 NBAMSeq#kunpeng2#buildsrc: OK
 NBAMSeq#kunpeng2#checksrc: OK
@@ -9344,8 +9344,8 @@ ORFhunteR#kunpeng2#install: OK
 ORFhunteR#kunpeng2#buildsrc: OK
 ORFhunteR#kunpeng2#checksrc: WARNINGS
 ORFik#nebbiolo1#install: OK
-ORFik#nebbiolo1#buildsrc: OK
-ORFik#nebbiolo1#checksrc: OK
+ORFik#nebbiolo1#buildsrc: ERROR
+ORFik#nebbiolo1#checksrc: skipped
 ORFik#kunpeng2#install: OK
 ORFik#kunpeng2#buildsrc: OK
 ORFik#kunpeng2#checksrc: ERROR
@@ -9357,7 +9357,7 @@ Organism.dplyr#kunpeng2#buildsrc: OK
 Organism.dplyr#kunpeng2#checksrc: ERROR
 OrganismDbi#nebbiolo1#install: OK
 OrganismDbi#nebbiolo1#buildsrc: OK
-OrganismDbi#nebbiolo1#checksrc: ERROR
+OrganismDbi#nebbiolo1#checksrc: OK
 OrganismDbi#kunpeng2#install: OK
 OrganismDbi#kunpeng2#buildsrc: OK
 OrganismDbi#kunpeng2#checksrc: ERROR
@@ -9704,7 +9704,7 @@ pgca#kunpeng2#install: OK
 pgca#kunpeng2#buildsrc: OK
 pgca#kunpeng2#checksrc: OK
 pgxRpi#nebbiolo1#install: OK
-pgxRpi#nebbiolo1#buildsrc: ERROR
+pgxRpi#nebbiolo1#buildsrc: TIMEOUT
 pgxRpi#nebbiolo1#checksrc: skipped
 pgxRpi#kunpeng2#install: OK
 pgxRpi#kunpeng2#buildsrc: ERROR
@@ -10353,7 +10353,7 @@ Qtlizer#kunpeng2#buildsrc: OK
 Qtlizer#kunpeng2#checksrc: OK
 quantiseqr#nebbiolo1#install: OK
 quantiseqr#nebbiolo1#buildsrc: OK
-quantiseqr#nebbiolo1#checksrc: OK
+quantiseqr#nebbiolo1#checksrc: ERROR
 quantiseqr#kunpeng2#install: OK
 quantiseqr#kunpeng2#buildsrc: ERROR
 quantiseqr#kunpeng2#checksrc: skipped
@@ -10947,7 +10947,7 @@ Rgraphviz#kunpeng2#buildsrc: OK
 Rgraphviz#kunpeng2#checksrc: WARNINGS
 rGREAT#nebbiolo1#install: OK
 rGREAT#nebbiolo1#buildsrc: OK
-rGREAT#nebbiolo1#checksrc: TIMEOUT
+rGREAT#nebbiolo1#checksrc: OK
 rGREAT#kunpeng2#install: OK
 rGREAT#kunpeng2#buildsrc: OK
 rGREAT#kunpeng2#checksrc: ERROR
@@ -11942,8 +11942,8 @@ scPipe#kunpeng2#install: OK
 scPipe#kunpeng2#buildsrc: OK
 scPipe#kunpeng2#checksrc: OK
 scQTLtools#nebbiolo1#install: OK
-scQTLtools#nebbiolo1#buildsrc: ERROR
-scQTLtools#nebbiolo1#checksrc: skipped
+scQTLtools#nebbiolo1#buildsrc: OK
+scQTLtools#nebbiolo1#checksrc: ERROR
 scQTLtools#kunpeng2#install: OK
 scQTLtools#kunpeng2#buildsrc: OK
 scQTLtools#kunpeng2#checksrc: ERROR
@@ -12129,7 +12129,7 @@ seq.hotSPOT#kunpeng2#buildsrc: OK
 seq.hotSPOT#kunpeng2#checksrc: OK
 seq2pathway#nebbiolo1#install: OK
 seq2pathway#nebbiolo1#buildsrc: OK
-seq2pathway#nebbiolo1#checksrc: WARNINGS
+seq2pathway#nebbiolo1#checksrc: ERROR
 seq2pathway#kunpeng2#install: OK
 seq2pathway#kunpeng2#buildsrc: OK
 seq2pathway#kunpeng2#checksrc: ERROR
@@ -12158,8 +12158,8 @@ SeqGate#kunpeng2#install: OK
 SeqGate#kunpeng2#buildsrc: OK
 SeqGate#kunpeng2#checksrc: OK
 SeqGSEA#nebbiolo1#install: OK
-SeqGSEA#nebbiolo1#buildsrc: ERROR
-SeqGSEA#nebbiolo1#checksrc: skipped
+SeqGSEA#nebbiolo1#buildsrc: OK
+SeqGSEA#nebbiolo1#checksrc: OK
 SeqGSEA#kunpeng2#install: OK
 SeqGSEA#kunpeng2#buildsrc: ERROR
 SeqGSEA#kunpeng2#checksrc: skipped
@@ -12831,7 +12831,7 @@ SpeCond#kunpeng2#buildsrc: OK
 SpeCond#kunpeng2#checksrc: OK
 Spectra#nebbiolo1#install: OK
 Spectra#nebbiolo1#buildsrc: OK
-Spectra#nebbiolo1#checksrc: ERROR
+Spectra#nebbiolo1#checksrc: OK
 Spectra#kunpeng2#install: OK
 Spectra#kunpeng2#buildsrc: OK
 Spectra#kunpeng2#checksrc: OK
@@ -13562,8 +13562,8 @@ TFutils#kunpeng2#install: OK
 TFutils#kunpeng2#buildsrc: OK
 TFutils#kunpeng2#checksrc: OK
 tidybulk#nebbiolo1#install: OK
-tidybulk#nebbiolo1#buildsrc: OK
-tidybulk#nebbiolo1#checksrc: OK
+tidybulk#nebbiolo1#buildsrc: ERROR
+tidybulk#nebbiolo1#checksrc: skipped
 tidybulk#kunpeng2#install: OK
 tidybulk#kunpeng2#buildsrc: OK
 tidybulk#kunpeng2#checksrc: OK
@@ -13599,7 +13599,7 @@ tidyprint#kunpeng2#buildsrc: OK
 tidyprint#kunpeng2#checksrc: OK
 tidysbml#nebbiolo1#install: OK
 tidysbml#nebbiolo1#buildsrc: OK
-tidysbml#nebbiolo1#checksrc: ERROR
+tidysbml#nebbiolo1#checksrc: OK
 tidysbml#kunpeng2#install: OK
 tidysbml#kunpeng2#buildsrc: OK
 tidysbml#kunpeng2#checksrc: OK
@@ -14138,8 +14138,8 @@ variancePartition#kunpeng2#install: OK
 variancePartition#kunpeng2#buildsrc: OK
 variancePartition#kunpeng2#checksrc: OK
 VariantAnnotation#nebbiolo1#install: OK
-VariantAnnotation#nebbiolo1#buildsrc: OK
-VariantAnnotation#nebbiolo1#checksrc: WARNINGS
+VariantAnnotation#nebbiolo1#buildsrc: ERROR
+VariantAnnotation#nebbiolo1#checksrc: skipped
 VariantAnnotation#kunpeng2#install: OK
 VariantAnnotation#kunpeng2#buildsrc: OK
 VariantAnnotation#kunpeng2#checksrc: WARNINGS
@@ -14268,10 +14268,10 @@ Voyager#nebbiolo1#buildsrc: OK
 Voyager#nebbiolo1#checksrc: WARNINGS
 Voyager#kunpeng2#install: OK
 Voyager#kunpeng2#buildsrc: OK
-Voyager#kunpeng2#checksrc: NA
+Voyager#kunpeng2#checksrc: WARNINGS
 VplotR#nebbiolo1#install: OK
 VplotR#nebbiolo1#buildsrc: OK
-VplotR#nebbiolo1#checksrc: OK
+VplotR#nebbiolo1#checksrc: ERROR
 VplotR#kunpeng2#install: OK
 VplotR#kunpeng2#buildsrc: OK
 VplotR#kunpeng2#checksrc: OK
@@ -14304,7 +14304,7 @@ waddR#nebbiolo1#buildsrc: OK
 waddR#nebbiolo1#checksrc: OK
 waddR#kunpeng2#install: OK
 waddR#kunpeng2#buildsrc: OK
-waddR#kunpeng2#checksrc: NA
+waddR#kunpeng2#checksrc: OK
 wateRmelon#nebbiolo1#install: OK
 wateRmelon#nebbiolo1#buildsrc: OK
 wateRmelon#nebbiolo1#checksrc: WARNINGS
@@ -14388,7 +14388,7 @@ xcms#nebbiolo1#buildsrc: OK
 xcms#nebbiolo1#checksrc: OK
 xcms#kunpeng2#install: OK
 xcms#kunpeng2#buildsrc: OK
-xcms#kunpeng2#checksrc: NA
+xcms#kunpeng2#checksrc: OK
 xcore#nebbiolo1#install: OK
 xcore#nebbiolo1#buildsrc: OK
 xcore#nebbiolo1#checksrc: OK
@@ -14451,7 +14451,7 @@ YAPSA#kunpeng2#buildsrc: OK
 YAPSA#kunpeng2#checksrc: OK
 yarn#nebbiolo1#install: OK
 yarn#nebbiolo1#buildsrc: OK
-yarn#nebbiolo1#checksrc: ERROR
+yarn#nebbiolo1#checksrc: OK
 yarn#kunpeng2#install: OK
 yarn#kunpeng2#buildsrc: OK
 yarn#kunpeng2#checksrc: ERROR
@@ -14466,7 +14466,7 @@ zellkonverter#nebbiolo1#buildsrc: OK
 zellkonverter#nebbiolo1#checksrc: OK
 zellkonverter#kunpeng2#install: OK
 zellkonverter#kunpeng2#buildsrc: OK
-zellkonverter#kunpeng2#checksrc: NA
+zellkonverter#kunpeng2#checksrc: ERROR
 zenith#nebbiolo1#install: OK
 zenith#nebbiolo1#buildsrc: OK
 zenith#nebbiolo1#checksrc: WARNINGS
@@ -14490,7 +14490,7 @@ zitools#nebbiolo1#buildsrc: OK
 zitools#nebbiolo1#checksrc: WARNINGS
 zitools#kunpeng2#install: OK
 zitools#kunpeng2#buildsrc: OK
-zitools#kunpeng2#checksrc: NA
+zitools#kunpeng2#checksrc: WARNINGS
 ZygosityPredictor#nebbiolo1#install: OK
 ZygosityPredictor#nebbiolo1#buildsrc: OK
 ZygosityPredictor#nebbiolo1#checksrc: OK
