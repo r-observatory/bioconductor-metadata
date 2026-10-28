@@ -714,7 +714,7 @@ MEEBOdata#nebbiolo1#buildsrc: OK
 MEEBOdata#nebbiolo1#checksrc: WARNINGS
 MerfishData#nebbiolo1#install: OK
 MerfishData#nebbiolo1#buildsrc: OK
-MerfishData#nebbiolo1#checksrc: ERROR
+MerfishData#nebbiolo1#checksrc: OK
 MetaGxBreast#nebbiolo1#install: OK
 MetaGxBreast#nebbiolo1#buildsrc: OK
 MetaGxBreast#nebbiolo1#checksrc: OK
@@ -1250,8 +1250,8 @@ topdownrdata#nebbiolo1#install: OK
 topdownrdata#nebbiolo1#buildsrc: OK
 topdownrdata#nebbiolo1#checksrc: OK
 TransOmicsData#nebbiolo1#install: OK
-TransOmicsData#nebbiolo1#buildsrc: OK
-TransOmicsData#nebbiolo1#checksrc: OK
+TransOmicsData#nebbiolo1#buildsrc: ERROR
+TransOmicsData#nebbiolo1#checksrc: skipped
 tuberculosis#nebbiolo1#install: OK
 tuberculosis#nebbiolo1#buildsrc: OK
 tuberculosis#nebbiolo1#checksrc: OK

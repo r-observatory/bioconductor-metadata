@@ -565,7 +565,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles:
         vignettes/highthroughputassays/inst/doc/high-throughput-assays.R
-dependencyCount: 103
+dependencyCount: 108
 
 Package: liftOver
 Version: 1.36.0

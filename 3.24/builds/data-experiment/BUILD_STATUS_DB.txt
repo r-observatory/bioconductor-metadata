@@ -796,12 +796,9 @@ MouseThymusAgeing#nebbiolo2#checksrc: OK
 msd16s#nebbiolo2#install: OK
 msd16s#nebbiolo2#buildsrc: OK
 msd16s#nebbiolo2#checksrc: OK
-msdata#nebbiolo2#install: OK
-msdata#nebbiolo2#buildsrc: OK
-msdata#nebbiolo2#checksrc: OK
 msigdb#nebbiolo2#install: OK
 msigdb#nebbiolo2#buildsrc: OK
-msigdb#nebbiolo2#checksrc: ERROR
+msigdb#nebbiolo2#checksrc: WARNINGS
 MSMB#nebbiolo2#install: OK
 MSMB#nebbiolo2#buildsrc: OK
 MSMB#nebbiolo2#checksrc: OK
@@ -822,7 +819,7 @@ muleaData#nebbiolo2#buildsrc: ERROR
 muleaData#nebbiolo2#checksrc: skipped
 multiWGCNAdata#nebbiolo2#install: OK
 multiWGCNAdata#nebbiolo2#buildsrc: OK
-multiWGCNAdata#nebbiolo2#checksrc: ERROR
+multiWGCNAdata#nebbiolo2#checksrc: OK
 muscData#nebbiolo2#install: OK
 muscData#nebbiolo2#buildsrc: OK
 muscData#nebbiolo2#checksrc: WARNINGS
@@ -995,8 +992,8 @@ RegParallel#nebbiolo2#install: OK
 RegParallel#nebbiolo2#buildsrc: ERROR
 RegParallel#nebbiolo2#checksrc: skipped
 RforProteomics#nebbiolo2#install: OK
-RforProteomics#nebbiolo2#buildsrc: OK
-RforProteomics#nebbiolo2#checksrc: OK
+RforProteomics#nebbiolo2#buildsrc: TIMEOUT
+RforProteomics#nebbiolo2#checksrc: skipped
 rheumaticConditionWOLLBOLD#nebbiolo2#install: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#buildsrc: OK
 rheumaticConditionWOLLBOLD#nebbiolo2#checksrc: OK
@@ -1160,8 +1157,8 @@ spatialDmelxsim#nebbiolo2#install: OK
 spatialDmelxsim#nebbiolo2#buildsrc: OK
 spatialDmelxsim#nebbiolo2#checksrc: OK
 spatialLIBD#nebbiolo2#install: OK
-spatialLIBD#nebbiolo2#buildsrc: ERROR
-spatialLIBD#nebbiolo2#checksrc: skipped
+spatialLIBD#nebbiolo2#buildsrc: OK
+spatialLIBD#nebbiolo2#checksrc: OK
 SpikeIn#nebbiolo2#install: OK
 SpikeIn#nebbiolo2#buildsrc: OK
 SpikeIn#nebbiolo2#checksrc: OK
@@ -1263,7 +1260,7 @@ topdownrdata#nebbiolo2#buildsrc: OK
 topdownrdata#nebbiolo2#checksrc: OK
 TransOmicsData#nebbiolo2#install: OK
 TransOmicsData#nebbiolo2#buildsrc: OK
-TransOmicsData#nebbiolo2#checksrc: OK
+TransOmicsData#nebbiolo2#checksrc: ERROR
 tuberculosis#nebbiolo2#install: OK
 tuberculosis#nebbiolo2#buildsrc: OK
 tuberculosis#nebbiolo2#checksrc: OK

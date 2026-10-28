@@ -229,6 +229,7 @@ mCSEAdata#source#propagate: UNNEEDED, same version is already published
 mcsurvdata#source#propagate: UNNEEDED, same version is already published
 MEDIPSData#source#propagate: UNNEEDED, same version is already published
 MEEBOdata#source#propagate: UNNEEDED, same version is already published
+MerfishData#source#propagate: UNNEEDED, same version is already published
 MetaGxBreast#source#propagate: UNNEEDED, same version is already published
 MetaGxOvarian#source#propagate: UNNEEDED, same version is already published
 MetaGxPancreas#source#propagate: UNNEEDED, same version is already published
@@ -402,7 +403,6 @@ tissueTreg#source#propagate: UNNEEDED, same version is already published
 TMExplorer#source#propagate: UNNEEDED, same version is already published
 tofsimsData#source#propagate: UNNEEDED, same version is already published
 topdownrdata#source#propagate: UNNEEDED, same version is already published
-TransOmicsData#source#propagate: UNNEEDED, same version is already published
 tuberculosis#source#propagate: UNNEEDED, same version is already published
 tweeDEseqCountData#source#propagate: UNNEEDED, same version is already published
 tximportData#source#propagate: UNNEEDED, same version is already published

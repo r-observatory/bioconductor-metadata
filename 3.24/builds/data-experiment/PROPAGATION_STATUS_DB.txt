@@ -10,7 +10,7 @@ airway#source#propagate: UNNEEDED, same version is already published
 ALL#source#propagate: UNNEEDED, same version is already published
 ALLMLL#source#propagate: UNNEEDED, same version is already published
 AmpAffyExample#source#propagate: UNNEEDED, same version is already published
-AnnotatedBCGEData#source#propagate: UNNEEDED, same version is already published
+AnnotatedBCGEData#source#propagate: YES
 antiProfilesData#source#propagate: UNNEEDED, same version is already published
 aracne.networks#source#propagate: UNNEEDED, same version is already published
 ARRmData#source#propagate: UNNEEDED, same version is already published
@@ -142,7 +142,7 @@ gageData#source#propagate: UNNEEDED, same version is already published
 gaschYHS#source#propagate: UNNEEDED, same version is already published
 gcspikelite#source#propagate: UNNEEDED, same version is already published
 gDNAinRNAseqData#source#propagate: UNNEEDED, same version is already published
-gDRtestData#source#propagate: UNNEEDED, same version is already published
+gDRtestData#source#propagate: YES
 geneLenDataBase#source#propagate: UNNEEDED, same version is already published
 genomationData#source#propagate: UNNEEDED, same version is already published
 GenomicDistributionsData#source#propagate: UNNEEDED, same version is already published
@@ -254,12 +254,13 @@ MouseAgingData#source#propagate: UNNEEDED, same version is already published
 MouseGastrulationData#source#propagate: UNNEEDED, same version is already published
 MouseThymusAgeing#source#propagate: UNNEEDED, same version is already published
 msd16s#source#propagate: UNNEEDED, same version is already published
-msdata#source#propagate: UNNEEDED, same version is already published
+msigdb#source#propagate: UNNEEDED, same version is already published
 MSMB#source#propagate: UNNEEDED, same version is already published
 msPurityData#source#propagate: UNNEEDED, same version is already published
 msqc1#source#propagate: UNNEEDED, same version is already published
 mtbls2#source#propagate: UNNEEDED, same version is already published
 MUGAExampleData#source#propagate: UNNEEDED, same version is already published
+multiWGCNAdata#source#propagate: UNNEEDED, same version is already published
 muscData#source#propagate: UNNEEDED, same version is already published
 muSpaData#source#propagate: UNNEEDED, same version is already published
 MutSeqRData#source#propagate: UNNEEDED, same version is already published
@@ -283,7 +284,7 @@ optimalFlowData#source#propagate: UNNEEDED, same version is already published
 orthosData#source#propagate: UNNEEDED, same version is already published
 pasilla#source#propagate: UNNEEDED, same version is already published
 pasillaBamSubset#source#propagate: UNNEEDED, same version is already published
-PasillaTranscriptExpr#source#propagate: YES
+PasillaTranscriptExpr#source#propagate: UNNEEDED, same version is already published
 PathNetData#source#propagate: UNNEEDED, same version is already published
 PCHiCdata#source#propagate: UNNEEDED, same version is already published
 pd.atdschip.tiling#source#propagate: UNNEEDED, same version is already published
@@ -316,7 +317,6 @@ raerdata#source#propagate: UNNEEDED, same version is already published
 rcellminerData#source#propagate: UNNEEDED, same version is already published
 RcisTarget.hg19.motifDBs.cisbpOnly.500bp#source#propagate: UNNEEDED, same version is already published
 ReactomeGSA.data#source#propagate: UNNEEDED, same version is already published
-RforProteomics#source#propagate: UNNEEDED, same version is already published
 rheumaticConditionWOLLBOLD#source#propagate: UNNEEDED, same version is already published
 RITANdata#source#propagate: UNNEEDED, same version is already published
 RMassBankData#source#propagate: UNNEEDED, same version is already published
@@ -342,7 +342,7 @@ scTHI.data#source#propagate: UNNEEDED, same version is already published
 seq2pathway.data#source#propagate: UNNEEDED, same version is already published
 seqc#source#propagate: UNNEEDED, same version is already published
 serumStimulation#source#propagate: UNNEEDED, same version is already published
-sesameData#source#propagate: UNNEEDED, same version is already published
+sesameData#source#propagate: YES
 seventyGeneData#source#propagate: UNNEEDED, same version is already published
 SFEData#source#propagate: UNNEEDED, same version is already published
 shinyMethylData#source#propagate: UNNEEDED, same version is already published
@@ -360,6 +360,7 @@ SomaticCancerAlterations#source#propagate: UNNEEDED, same version is already pub
 SpaMTPData#source#propagate: UNNEEDED, same version is already published
 SpatialDatasets#source#propagate: UNNEEDED, same version is already published
 spatialDmelxsim#source#propagate: UNNEEDED, same version is already published
+spatialLIBD#source#propagate: UNNEEDED, same version is already published
 SpikeIn#source#propagate: UNNEEDED, same version is already published
 SpikeInSubset#source#propagate: UNNEEDED, same version is already published
 spqnData#source#propagate: UNNEEDED, same version is already published
@@ -392,7 +393,6 @@ tissueTreg#source#propagate: UNNEEDED, same version is already published
 TMExplorer#source#propagate: UNNEEDED, same version is already published
 tofsimsData#source#propagate: UNNEEDED, same version is already published
 topdownrdata#source#propagate: UNNEEDED, same version is already published
-TransOmicsData#source#propagate: UNNEEDED, same version is already published
 tuberculosis#source#propagate: UNNEEDED, same version is already published
 tweeDEseqCountData#source#propagate: UNNEEDED, same version is already published
 tximportData#source#propagate: UNNEEDED, same version is already published

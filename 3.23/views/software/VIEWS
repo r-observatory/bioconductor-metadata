@@ -6683,9 +6683,9 @@ Date/Publication: 2026-10-25
 source.ver: src/contrib/BANDITS_1.28.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/BANDITS_1.28.0.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/BANDITS_1.28.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/BANDITS_1.28.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/BANDITS_1.28.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/BANDITS_1.28.1.tgz
 vignettes: vignettes/BANDITS/inst/doc/BANDITS.html
 vignetteTitles: BANDITS: Bayesian ANalysis of DIfferenTial Splicing
 hasREADME: FALSE
@@ -6694,7 +6694,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/BANDITS/inst/doc/BANDITS.R
 importsMe: DifferentialRegulation
-dependencyCount: 64
+dependencyCount: 46
 
 Package: bandle
 Version: 1.16.0
@@ -12148,7 +12148,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/biotmle/inst/doc/exposureBiomarkers.R
-dependencyCount: 94
+dependencyCount: 93
 
 Package: biovizBase
 Version: 1.60.0
@@ -29765,7 +29765,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles:
         vignettes/DifferentialRegulation/inst/doc/DifferentialRegulation.R
-dependencyCount: 78
+dependencyCount: 68
 
 Package: diffGeneAnalysis
 Version: 1.94.0
@@ -31929,7 +31929,6 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/DRIMSeq/inst/doc/DRIMSeq.R
 dependsOnMe: rnaseqDTU
-importsMe: BANDITS
 dependencyCount: 52
 
 Package: DriverNet
@@ -38960,7 +38959,7 @@ Rfiles: vignettes/flowStats/inst/doc/GettingStartedWithFlowStats.R
 dependsOnMe: flowVS, highthroughputassays
 suggestsMe: cydar, flowClust, flowCore, flowTime, flowViz, ggcyto,
         openCyto, idendr0
-dependencyCount: 102
+dependencyCount: 107
 
 Package: flowTime
 Version: 1.36.0
@@ -39136,7 +39135,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/flowVS/inst/doc/flowVS.R
-dependencyCount: 103
+dependencyCount: 108
 
 Package: flowWorkspace
 Version: 4.24.0
@@ -39659,7 +39658,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/FRGEpistasis/inst/doc/FRGEpistasis.R
-dependencyCount: 51
+dependencyCount: 57
 
 Package: frma
 Version: 1.64.0
@@ -48219,9 +48218,9 @@ Date/Publication: 2026-10-25
 source.ver: src/contrib/GSVA_2.6.15.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.14.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.14.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.15.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.14.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/GSVA_2.6.15.tgz
 vignettes: vignettes/GSVA/inst/doc/GSVA_proteomics.html,
         vignettes/GSVA/inst/doc/GSVA_scRNAseq.html,
         vignettes/GSVA/inst/doc/GSVA_spRNAseq.html,
@@ -56290,7 +56289,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/IWTomics/inst/doc/IWTomics.R
-dependencyCount: 60
+dependencyCount: 65
 
 Package: jazzPanda
 Version: 1.4.0
@@ -57041,7 +57040,7 @@ Rfiles: vignettes/KnowSeq/inst/doc/KnowSeq.R
 dependencyCount: 167
 
 Package: knowYourCG
-Version: 1.8.4
+Version: 1.8.5
 Depends: R (>= 4.4.0)
 Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
         rlang, GenomicRanges, IRanges, reshape2, S4Vectors, stats,
@@ -57050,7 +57049,7 @@ Imports: sesameData, ExperimentHub, AnnotationHub, dplyr, methods,
 Suggests: testthat (>= 3.0.0), SummarizedExperiment, rmarkdown, knitr,
         sesame, gprofiler2, ggrastr
 License: AGPL-3
-MD5sum: d77a29c0d5a8934692b53f90a8968ad4
+MD5sum: 9fab07dfd787e6f844bdd86d7231399a
 NeedsCompilation: yes
 Title: Functional analysis of DNA methylome datasets
 Description: KnowYourCG (KYCG) is a supervised learning framework
@@ -57081,10 +57080,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/zhou-lab/knowYourCG/issues
 git_url: https://git.bioconductor.org/packages/knowYourCG
 git_branch: RELEASE_3_23
-git_last_commit: 572baa0
-git_last_commit_date: 2026-10-08
-Date/Publication: 2026-10-11
-source.ver: src/contrib/knowYourCG_1.8.4.tar.gz
+git_last_commit: 0d5d320
+git_last_commit_date: 2026-10-25
+Date/Publication: 2026-10-26
+source.ver: src/contrib/knowYourCG_1.8.5.tar.gz
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/knowYourCG_1.8.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -58114,14 +58113,14 @@ Rfiles: vignettes/limpca/inst/doc/limpca.R,
 dependencyCount: 134
 
 Package: LimROTS
-Version: 1.4.0
+Version: 1.4.1
 Depends: R (>= 4.5.0), SummarizedExperiment
 Imports: limma, stringr, qvalue, utils, stats, BiocParallel, S4Vectors,
         dplyr, survival, cmprsk, variancePartition
 Suggests: BiocStyle, ggplot2, testthat (>= 3.0.0), knitr, rmarkdown,
         caret, ROTS, mia, miaTime, TreeSummarizedExperiment
 License: GPL (>= 2)
-MD5sum: f77a65925d88009b98ef39b16cd0895e
+MD5sum: 130903e4dc970f1b9a66b6dfa2192f0b
 NeedsCompilation: no
 Title: LimROTS: A Hybrid Method Integrating Empirical Bayes and
         Reproducibility-Optimized Statistics for Robust Differential
@@ -58157,10 +58156,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/AliYoussef96/LimROTS/issues
 git_url: https://git.bioconductor.org/packages/LimROTS
 git_branch: RELEASE_3_23
-git_last_commit: 85ad0ed
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/LimROTS_1.4.0.tar.gz
+git_last_commit: 845ae22
+git_last_commit_date: 2026-10-26
+Date/Publication: 2026-10-26
+source.ver: src/contrib/LimROTS_1.4.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/LimROTS_1.4.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/LimROTS_1.4.0.tgz
@@ -71006,7 +71005,7 @@ suggestsMe: MSstatsResponse
 dependencyCount: 103
 
 Package: MuData
-Version: 1.16.0
+Version: 1.16.1
 Depends: Matrix, S4Vectors, rhdf5 (>= 2.45)
 Imports: methods, stats, MultiAssayExperiment, SingleCellExperiment,
         SummarizedExperiment, DelayedArray, S4Vectors
@@ -71014,7 +71013,7 @@ Suggests: HDF5Array, rmarkdown, knitr, fs, testthat, BiocStyle, covr,
         SingleCellMultiModal, CiteFuse, scater
 License: GPL-3
 Archs: x64
-MD5sum: 072f54b1e8148c56e31ce35815665fdb
+MD5sum: b33ef69e2aaa4e6c856d29f0db5ad9d2
 NeedsCompilation: no
 Title: Serialization for MultiAssayExperiment Objects
 Description: Save MultiAssayExperiments to h5mu files supported by muon
@@ -71030,10 +71029,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/ilia-kats/MuData/issues
 git_url: https://git.bioconductor.org/packages/MuData
 git_branch: RELEASE_3_23
-git_last_commit: 60b9e65
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/MuData_1.16.0.tar.gz
+git_last_commit: 3f9f20f
+git_last_commit_date: 2026-10-26
+Date/Publication: 2026-10-26
+source.ver: src/contrib/MuData_1.16.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/MuData_1.16.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/MuData_1.16.0.tgz
@@ -104980,7 +104979,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/spatialFDA/inst/doc/DiabetesIsletExample.R,
         vignettes/spatialFDA/inst/doc/DiabetesIsletExampleBrief.R
 importsMe: OSTA
-dependencyCount: 141
+dependencyCount: 139
 
 Package: SpatialFeatureExperiment
 Version: 1.14.0
@@ -115340,7 +115339,7 @@ suggestsMe: AnnotationHub, BindingSiteFinder, Bioc.gff, bumphunter,
 dependencyCount: 97
 
 Package: tximeta
-Version: 1.30.0
+Version: 1.30.1
 Depends: R (>= 4.1.0)
 Imports: SummarizedExperiment (>= 1.39.1), tximport, jsonlite,
         S4Vectors, IRanges, GenomicRanges (>= 1.61.1), AnnotationDbi,
@@ -115352,7 +115351,7 @@ Suggests: knitr, rmarkdown, testthat, tximportData (>= 1.37.5),
         macrophage
 License: GPL-2
 Archs: x64
-MD5sum: b20251386c5c3edaafd443f0ba4ee555
+MD5sum: 46a8df4f4e0f8f70aca0c3ad1ec94c6b
 NeedsCompilation: no
 Title: Transcript Quantification Import with Automatic Metadata
 Description: Transcript quantification import from Salmon and other
@@ -115372,10 +115371,10 @@ URL: https://github.com/thelovelab/tximeta
 VignetteBuilder: knitr, rmarkdown
 git_url: https://git.bioconductor.org/packages/tximeta
 git_branch: RELEASE_3_23
-git_last_commit: fe803f9
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/tximeta_1.30.0.tar.gz
+git_last_commit: ac40a55
+git_last_commit_date: 2026-06-15
+Date/Publication: 2026-10-26
+source.ver: src/contrib/tximeta_1.30.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/tximeta_1.30.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/tximeta_1.30.0.tgz
@@ -118087,13 +118086,13 @@ Rfiles: vignettes/wpm/inst/doc/wpm_vignette.R
 dependencyCount: 93
 
 Package: wppi
-Version: 1.19.0
+Version: 1.20.0
 Depends: R(>= 4.1)
 Imports: dplyr, igraph, logger, methods, magrittr, Matrix, OmnipathR(>=
         2.99.8), progress, purrr, rlang, RCurl, stats, tibble, tidyr
 Suggests: knitr, testthat, rmarkdown
 License: MIT + file LICENSE
-MD5sum: 4590d4e001606c8a378d801c06b2af51
+MD5sum: 63f55da5697e9cfcf5dd339af108dea9
 NeedsCompilation: no
 Title: Weighting protein-protein interactions
 Description: Protein-protein interaction data is essential for omics
@@ -118119,11 +118118,11 @@ URL: https://github.com/AnaGalhoz37/wppi
 VignetteBuilder: knitr
 BugReports: https://github.com/AnaGalhoz37/wppi/issues
 git_url: https://git.bioconductor.org/packages/wppi
-git_branch: devel
-git_last_commit: 40fc535
-git_last_commit_date: 2025-10-29
-Date/Publication: 2025-11-18
-source.ver: src/contrib/wppi_1.19.0.tar.gz
+git_branch: RELEASE_3_23
+git_last_commit: 0db0983
+git_last_commit_date: 2026-04-28
+Date/Publication: 2026-10-26
+source.ver: src/contrib/wppi_1.20.0.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/wppi_1.20.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/wppi_1.20.0.tgz
