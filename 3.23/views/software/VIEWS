@@ -6681,7 +6681,7 @@ git_last_commit: 72ba663
 git_last_commit_date: 2026-10-23
 Date/Publication: 2026-10-25
 source.ver: src/contrib/BANDITS_1.28.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/BANDITS_1.28.0.zip
+win.binary.ver: bin/windows/contrib/4.6/BANDITS_1.28.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/BANDITS_1.28.1.tgz
 mac.binary.sonoma-arm64.ver:
@@ -12022,7 +12022,7 @@ importsMe: AllelicImbalance, AnnotationHubData, appreci8R, AssessORF,
         MetaScope, microbiomeDataSets, pd.atdschip.tiling,
         PhyloProfileData, systemPipeRdata, seqpac, AbSolution,
         ActiveDriverWGS, alakazam, AnnotationBustR, AntibodyForests,
-        BASiNET, BASiNETEntropy, BIGr, biomartr, copyseparator,
+        ASmiR, BASiNET, BASiNETEntropy, BIGr, biomartr, copyseparator,
         crispRdesignR, CSESA, cubar, DiPALM, DNAmotif, eDNAfuns,
         ensembleTax, EpiSemble, GB5mcPred, genBaRcode, GencoDymo2,
         GenomicSig, iimi, kmeRtone, longreadvqs, metaCluster,
@@ -14592,7 +14592,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CaMutQC/inst/doc/CaMutQC-manual.R
-dependencyCount: 169
+dependencyCount: 176
 
 Package: canceR
 Version: 1.46.0
@@ -15487,7 +15487,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CBNplot/inst/doc/CBNplot_basic_usage.R
-dependencyCount: 158
+dependencyCount: 166
 
 Package: cbpManager
 Version: 1.20.0
@@ -16695,7 +16695,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CEMiTool/inst/doc/CEMiTool.R
-dependencyCount: 191
+dependencyCount: 198
 
 Package: censcyt
 Version: 1.20.0
@@ -20029,7 +20029,7 @@ suggestsMe: ChIPseeker, ClusterGVis, cola, DAPAR, DeeDeeExperiment,
         ggpicrust2, grandR, IOBR, ivolcano, OlinkAnalyze, pathdb,
         ReporterScore, SRscore, SurprisalAnalysis, tinyarray,
         UKBAnalytica, venny, wikiprofiler
-dependencyCount: 130
+dependencyCount: 138
 
 Package: clusterSeq
 Version: 1.36.0
@@ -22011,7 +22011,7 @@ importsMe: airpart, ASURAT, barbieQ, bettr, BindingSiteFinder, BioNERO,
         MetaHD, mineSweepR, missoNet, MitoHEAR, MKomics, ogrdbstats,
         Path.Analysis, PCAPAM50, pkgndep, rCISSVAE, RepeatedHighDim,
         rKOMICS, RNAseqQC, SingleCellComplexHeatMap, spatialGE,
-        spiralize, thisplot, tidyHeatmap, TransProR, visxhclust, wilson
+        spiralize, tidyHeatmap, TransProR, visxhclust, wilson
 suggestsMe: artMS, bambu, ClusterGVis, clustifyr, CNVRanger, Coralysis,
         demuxSNP, dittoSeq, EnrichmentBrowser, FlowSOM, gtrellis,
         HilbertCurve, mastR, miaViz, msImpute, msqrob2, plotgardener,
@@ -22023,7 +22023,7 @@ suggestsMe: artMS, bambu, ClusterGVis, clustifyr, CNVRanger, Coralysis,
         ggpicrust2, glydraw, grandR, GRIN2, inferCSN, IOBR, metasnf,
         multipanelfigure, pepdiff, piglet, plotthis, rliger,
         scCustomize, SCpubr, SeuratExplorer, sfcurve,
-        singleCellHaystack, SRscore, tinyarray, VizModules
+        singleCellHaystack, SRscore, thisplot, tinyarray, VizModules
 dependencyCount: 29
 
 Package: CompoundDb
@@ -28012,7 +28012,8 @@ importsMe: adverSCarial, alabaster.matrix, AUCell, batchelor, beachmat,
 suggestsMe: BiocGenerics, BiocNeighbors, ChIPpeakAnno, gwascat, hermes,
         iSEE, MAST, MatrixGenerics, ProteoDisco, S4Arrays, S4Vectors,
         satuRn, scone, spatialHeatmap, SPOTlight, TrajectoryUtils,
-        methFuse, presto, Seurat, SeuratObject, SigBridgeRUtils
+        cudacellr, methFuse, presto, Seurat, SeuratObject,
+        SigBridgeRUtils
 dependencyCount: 20
 
 Package: DelayedDataFrame
@@ -29089,11 +29090,11 @@ suggestsMe: aggregateBioVar, apeglm, bambu, BindingSiteFinder,
         tximport, variancePartition, Wrench, zinbwave, ChIPDBData,
         curatedAdipoChIP, curatedAdipoRNA, GSE62944, RegParallel,
         Single.mTEC.Transcriptomes, CAGEWorkflow, fluentGenomics,
-        seqpac, bakR, conos, dependentsimr, detectPanel, FateID,
-        futurize, genefindr, ggpicrust2, GiANT, glmmSeq, grandR, IOBR,
-        lfc, LorMe, metacoder, metaRNASeq, MiscMetabar, myTAI, pctax,
-        pmartR, presto, RaceID, rliger, seqgendiff, Seurat,
-        SeuratExplorer, venny, volcano3D
+        seqpac, bakR, conos, dependentsimr, detectPanel, enrichit,
+        FateID, futurize, genefindr, ggpicrust2, GiANT, glmmSeq,
+        grandR, IOBR, lfc, LorMe, metacoder, metaRNASeq, MiscMetabar,
+        myTAI, pctax, pmartR, presto, RaceID, rliger, seqgendiff,
+        Seurat, SeuratExplorer, venny, volcano3D
 dependencyCount: 54
 
 Package: DEsingle
@@ -31525,7 +31526,7 @@ importsMe: bioCancer, debrowser, enrichplot, GDCRNATools, GOaGO,
 suggestsMe: clusterProfiler, cola, GOSemSim, GRaNIE, rrvgo, scFeatures,
         scGPS, scGraphVerse, TDbasedUFEadv, enrichit, ggpicrust2, IOBR,
         wikiprofiler
-dependencyCount: 69
+dependencyCount: 77
 
 Package: doseR
 Version: 1.28.0
@@ -32685,7 +32686,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EasyCellType/inst/doc/my-vignette.R
-dependencyCount: 137
+dependencyCount: 145
 
 Package: easylift
 Version: 1.10.0
@@ -34200,7 +34201,7 @@ importsMe: carnation, CBNplot, ChIPseeker, clusterProfiler, damidBind,
 suggestsMe: GeoTcgaData, mastR, methylGSA, scFeatures, scGraphVerse,
         TDbasedUFEadv, tidybulk, VISTA, easyEWAS, ggpicrust2, IOBR,
         ivolcano, ReporterScore, SCpubr
-dependencyCount: 120
+dependencyCount: 128
 
 Package: enrichViewNet
 Version: 1.10.0
@@ -34258,7 +34259,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/enrichViewNet/inst/doc/enrichViewNet.R
-dependencyCount: 148
+dependencyCount: 156
 
 Package: ensembldb
 Version: 2.36.1
@@ -36740,7 +36741,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/famat/inst/doc/famat.R
-dependencyCount: 175
+dependencyCount: 183
 
 Package: fastLiquidAssociation
 Version: 1.48.0
@@ -44196,7 +44197,7 @@ git_last_commit: e77bdaa
 git_last_commit_date: 2026-10-23
 Date/Publication: 2026-10-25
 source.ver: src/contrib/GEOquery_2.80.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/GEOquery_2.80.0.zip
+win.binary.ver: bin/windows/contrib/4.6/GEOquery_2.80.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/GEOquery_2.80.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -46230,7 +46231,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/GOaGO/inst/doc/GOaGO.R
-dependencyCount: 144
+dependencyCount: 151
 
 Package: goatea
 Version: 2.0.0
@@ -46298,7 +46299,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/goatea/inst/doc/goatea_GUI.R,
         vignettes/goatea/inst/doc/goatea.R
-dependencyCount: 199
+dependencyCount: 206
 
 Package: GOexpress
 Version: 1.46.0
@@ -46702,7 +46703,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/goSorensen/inst/doc/Dissimilarities_Matrix.R,
         vignettes/goSorensen/inst/doc/goSorensen_Introduction.R
-dependencyCount: 134
+dependencyCount: 142
 
 Package: goSTAG
 Version: 1.36.0
@@ -48216,7 +48217,7 @@ git_last_commit: d2fdc55
 git_last_commit_date: 2026-10-22
 Date/Publication: 2026-10-25
 source.ver: src/contrib/GSVA_2.6.15.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.14.zip
+win.binary.ver: bin/windows/contrib/4.6/GSVA_2.6.15.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/GSVA_2.6.15.tgz
 mac.binary.sonoma-arm64.ver:
@@ -58160,11 +58161,11 @@ git_last_commit: 845ae22
 git_last_commit_date: 2026-10-26
 Date/Publication: 2026-10-26
 source.ver: src/contrib/LimROTS_1.4.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/LimROTS_1.4.0.zip
+win.binary.ver: bin/windows/contrib/4.6/LimROTS_1.4.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/LimROTS_1.4.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/LimROTS_1.4.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/LimROTS_1.4.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/LimROTS_1.4.1.tgz
 vignettes: vignettes/LimROTS/inst/doc/LimROTS_survival.html,
         vignettes/LimROTS/inst/doc/LimROTS.html
 vignetteTitles: LimROTS: Survival Analysis with Cox and Competing Risks
@@ -62440,7 +62441,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/meshes/inst/doc/meshes.R
-dependencyCount: 76
+dependencyCount: 84
 
 Package: meshr
 Version: 2.18.0
@@ -63440,7 +63441,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MetaPhOR/inst/doc/MetaPhOR-vignette.R
-dependencyCount: 174
+dependencyCount: 182
 
 Package: metapod
 Version: 1.20.0
@@ -65599,7 +65600,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MicrobiomeProfiler/inst/doc/MicrobiomeProfiler.R
-dependencyCount: 146
+dependencyCount: 154
 
 Package: MicrobiotaProcess
 Version: 1.24.0
@@ -66721,7 +66722,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/miRspongeR/inst/doc/miRspongeR.R
-dependencyCount: 253
+dependencyCount: 259
 
 Package: mirTarRnaSeq
 Version: 1.20.0
@@ -67144,7 +67145,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/mitology/inst/doc/mitology.R
-dependencyCount: 157
+dependencyCount: 164
 
 Package: mixOmics
 Version: 6.36.0
@@ -71033,11 +71034,11 @@ git_last_commit: 3f9f20f
 git_last_commit_date: 2026-10-26
 Date/Publication: 2026-10-26
 source.ver: src/contrib/MuData_1.16.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/MuData_1.16.0.zip
+win.binary.ver: bin/windows/contrib/4.6/MuData_1.16.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/MuData_1.16.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/MuData_1.16.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/MuData_1.16.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/MuData_1.16.1.tgz
 vignettes: vignettes/MuData/inst/doc/Blood-CITE-seq.html,
         vignettes/MuData/inst/doc/Cord-Blood-CITE-seq.html,
         vignettes/MuData/inst/doc/Getting-Started.html
@@ -71902,7 +71903,7 @@ suggestsMe: Ibex
 dependencyCount: 73
 
 Package: MungeSumstats
-Version: 1.20.0
+Version: 1.20.1
 Depends: R(>= 4.1)
 Imports: data.table, utils, R.utils, dplyr, stats, GenomicRanges,
         GenomeInfoDb, IRanges, ieugwasr(>= 1.0.1), BSgenome,
@@ -71914,12 +71915,12 @@ Suggests: SNPlocs.Hsapiens.dbSNP144.GRCh37,
         SNPlocs.Hsapiens.dbSNP155.GRCh38,
         BSgenome.Hsapiens.1000genomes.hs37d5,
         BSgenome.Hsapiens.NCBI.GRCh38, BiocGenerics, S4Vectors,
-        rmarkdown, markdown, knitr, testthat (>= 3.0.0), UpSetR,
+        rmarkdown, markdown, knitr, testthat (>= 3.1.7), UpSetR,
         BiocStyle, covr, Rsamtools, MatrixGenerics, badger,
         BiocParallel, GenomicFiles
 License: Artistic-2.0
 Archs: x64
-MD5sum: 39761cb63d5f2d52b38f0cf5103e1842
+MD5sum: c91a294a56bf4a1e97aadc591162933b
 NeedsCompilation: no
 Title: Standardise summary statistics from GWAS
 Description: The *MungeSumstats* package is designed to facilitate the
@@ -71941,10 +71942,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/neurogenomics/MungeSumstats/issues
 git_url: https://git.bioconductor.org/packages/MungeSumstats
 git_branch: RELEASE_3_23
-git_last_commit: 63fc668
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/MungeSumstats_1.20.0.tar.gz
+git_last_commit: ef92c4d
+git_last_commit_date: 2026-10-26
+Date/Publication: 2026-10-27
+source.ver: src/contrib/MungeSumstats_1.20.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/MungeSumstats_1.19.5.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/MungeSumstats_1.19.5.tgz
@@ -77909,7 +77910,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/PanomiR/inst/doc/PanomiR.R
-dependencyCount: 165
+dependencyCount: 173
 
 Package: panp
 Version: 1.82.0
@@ -78316,7 +78317,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/pathlinkR/inst/doc/pathlinkR.R
-dependencyCount: 167
+dependencyCount: 174
 
 Package: pathMED
 Version: 1.4.0
@@ -80479,7 +80480,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/Pigengene/inst/doc/Pigengene_inference.R
 importsMe: iNETgrate
-dependencyCount: 184
+dependencyCount: 191
 
 Package: pipeComp
 Version: 1.22.1
@@ -87748,7 +87749,7 @@ importsMe: bioCancer, famat, gINTomics, miRSM, miRspongeR, mitology,
         Pigengene, scTensor, ExpHunterSuite
 suggestsMe: CBNplot, ChIPseeker, cola, epiSeeker, GeDi, GRaNIE, scGPS,
         scGraphVerse, XYomics
-dependencyCount: 133
+dependencyCount: 141
 
 Package: ReadqPCR
 Version: 1.58.0
@@ -94284,13 +94285,13 @@ importsMe: ADImpute, adverSCarial, affycoretools, aggregateBioVar,
         scRNAseq, sesameData, SimBenchData, SingleCellMultiModal,
         SomaticCancerAlterations, spatialLIBD, TransOmicsData,
         tuberculosis, GeoMxWorkflows, seqpac, ActiveDriverWGS,
-        cpp11bigwig, crispRdesignR, DESNP, DR.SC, driveR, genBaRcode,
-        geno2proteo, hicream, imcExperiment, karyotapR, lisat, LoopRig,
-        MetAlyzer, microbial, mikropml, mSigSpectra, multimedia,
-        NIPTeR, ocrRBBR, oncoPredict, PlasmaMutationDetector,
-        PopPsiSeqR, restfulr, revert, RiskyCNV, rliger, rnaCrosslinkOO,
-        rsolr, sclValid, scROSHI, Signac, TaxaNorm, TmCalculator,
-        toxpiR, XYomics
+        cpp11bigwig, crispRdesignR, DESNP, DR.SC, driveR, enrichit,
+        genBaRcode, geno2proteo, hicream, imcExperiment, karyotapR,
+        lisat, LoopRig, MetAlyzer, microbial, mikropml, mSigSpectra,
+        multimedia, NIPTeR, ocrRBBR, oncoPredict,
+        PlasmaMutationDetector, PopPsiSeqR, restfulr, revert, RiskyCNV,
+        rliger, rnaCrosslinkOO, rsolr, sclValid, scROSHI, Signac,
+        TaxaNorm, TmCalculator, toxpiR, XYomics
 suggestsMe: AlphaMissenseR, AlpsNMR, ANCOMBC, anndataR, BiocGenerics,
         biomformat, CCAFE, chihaya, ClusterGVis, COTAN, dearseq, edgeR,
         epiregulon.extra, epivizrChart, GeoTcgaData, globalSeq,
@@ -94299,10 +94300,10 @@ suggestsMe: AlphaMissenseR, AlpsNMR, ANCOMBC, anndataR, BiocGenerics,
         scToppR, SpectraQL, SPOTlight, TFEA.ChIP, TFutils, XAItest,
         alternativeSplicingEvents.hg19, alternativeSplicingEvents.hg38,
         curatedAdipoChIP, curatedAdipoRNA, ObMiTi, xcoredata,
-        biocohort, bioIOT, cudaverse, dependentsimr, fioRa, genefindr,
-        ggmlR, gkmSVM, grandR, GRIN2, Immutables, inDAGO, krt, LorMe,
-        lstar, nemoR, pmartR, polyRAD, pQTLdata, RCPA, Rgff, scFlex,
-        Seurat, SNPassoc, updog, valr
+        biocohort, bioIOT, cudacellr, cudaverse, dependentsimr, fioRa,
+        genefindr, ggmlR, gkmSVM, grandR, GRIN2, Immutables, inDAGO,
+        krt, LorMe, lstar, nemoR, pmartR, polyRAD, pQTLdata, RCPA,
+        Rgff, scFlex, Seurat, SNPassoc, updog, valr
 linksToMe: Bioc.gff, Biostrings, cigarillo, CNEr, DECIPHER,
         GenomicAlignments, GenomicFeatures, h5mread, IRanges, kebabs,
         MatrixRider, posDemux, pwalign, Rsamtools, rtracklayer,
@@ -102282,10 +102283,10 @@ suggestsMe: ANCOMBC, anndataR, cellxgenedp, CTdata, DEsingle,
         Seqtometry, SingleR, sketchR, SummarizedExperiment,
         SuperCellCyto, TREG, updateObject, dorothea, DuoClustering2018,
         GSE103322, microbiomeDataSets, TabulaMurisData,
-        simpleSingleCell, bioIOT, Canek, clustree, cudaverse,
-        CytoSimplex, dyngen, futurize, gedi2, ggmlR, harf, harmony,
-        lstar, nebula, nemoR, presto, RaceID, radEmu, rliger, scFlex,
-        Seurat, singleCellHaystack, SuperCell, SVG, tidydr
+        simpleSingleCell, bioIOT, Canek, clustree, cudacellr,
+        cudaverse, CytoSimplex, dyngen, futurize, gedi2, ggmlR, harf,
+        harmony, lstar, nebula, nemoR, presto, RaceID, radEmu, rliger,
+        scFlex, Seurat, singleCellHaystack, SuperCell, SVG, tidydr
 dependencyCount: 25
 
 Package: SingleCellSignalR
@@ -102638,7 +102639,7 @@ importsMe: GSABenchmark
 dependencyCount: 26
 
 Package: sitadela
-Version: 1.20.0
+Version: 1.20.1
 Depends: R (>= 4.1.0)
 Imports: Biobase, BiocGenerics, biomaRt, Biostrings, Seqinfo,
         GenomicFeatures, GenomicRanges, IRanges, methods, parallel,
@@ -102647,7 +102648,7 @@ Imports: Biobase, BiocGenerics, biomaRt, Biostrings, Seqinfo,
 Suggests: GenomeInfoDb, BiocStyle, BSgenome, knitr, rmarkdown, RMySQL,
         RUnit
 License: Artistic-2.0
-MD5sum: 3fa1ef86cdeeabba398725dcf3f8e327
+MD5sum: e32f3560136c33e74bdb51c1c372e3dc
 NeedsCompilation: no
 Title: An R package for the easy provision of simple but complete
         tab-delimited genomic annotation from a variety of sources and
@@ -102673,10 +102674,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/pmoulos/sitadela/issues
 git_url: https://git.bioconductor.org/packages/sitadela
 git_branch: RELEASE_3_23
-git_last_commit: b0751b2
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/sitadela_1.20.0.tar.gz
+git_last_commit: edf9027
+git_last_commit_date: 2026-10-26
+Date/Publication: 2026-10-27
+source.ver: src/contrib/sitadela_1.20.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/sitadela_1.20.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/sitadela_1.19.0.tgz
@@ -108103,13 +108104,13 @@ Rfiles: vignettes/strandCheckR/inst/doc/strandCheckR.R
 dependencyCount: 98
 
 Package: STRINGdb
-Version: 2.24.1
+Version: 2.24.2
 Depends: R (>= 2.14.0)
 Imports: png, sqldf, plyr, igraph, httr, methods, RColorBrewer, gplots,
         hash, plotrix
 Suggests: RUnit, BiocGenerics
 License: GPL-2
-MD5sum: 7ada6998456d199ddacd36125649209a
+MD5sum: 52a16cd1ada236eee53d2cc734e341ce
 NeedsCompilation: no
 Title: STRINGdb - Protein-Protein Interaction Networks and Functional
         Enrichment Analysis
@@ -108121,10 +108122,10 @@ Author: Andrea Franceschini <andrea.franceschini@isb-sib.ch>
 Maintainer: Damian Szklarczyk <damian.szklarczyk@imls.uzh.ch>
 git_url: https://git.bioconductor.org/packages/STRINGdb
 git_branch: RELEASE_3_23
-git_last_commit: 5175a66
-git_last_commit_date: 2026-09-29
-Date/Publication: 2026-10-05
-source.ver: src/contrib/STRINGdb_2.24.1.tar.gz
+git_last_commit: 439ad6e
+git_last_commit_date: 2026-10-27
+Date/Publication: 2026-10-27
+source.ver: src/contrib/STRINGdb_2.24.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.1.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.1.tgz
@@ -108668,8 +108669,8 @@ importsMe: ADAM, ADImpute, aggregateBioVar, airpart, alabaster.sfe,
         SingleCellMultiModal, spatialLIBD, TabulaMurisSenisData,
         TCGAWorkflowData, TENET.ExperimentHub, TENxXeniumData,
         ExpHunterSuite, fluentGenomics, autoGO, bioLeak, blisa,
-        celliverse, DWLS, hicream, imcExperiment, karyotapR, MetAlyzer,
-        microbial, mikropml, multimedia, NGSToolKit,
+        celliverse, DWLS, enrichit, hicream, imcExperiment, karyotapR,
+        MetAlyzer, microbial, mikropml, multimedia, NGSToolKit,
         PlasmaMutationDetector, RCPA, RNAseqQC, ROCnGO, SCIntRuler,
         sclValid, scROSHI, treediff, VSOLassoBag
 suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
@@ -108688,12 +108689,12 @@ suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
         dorothea, DuoClustering2018, gDRtestData, GSE103322,
         multiWGCNAdata, pRolocdata, RforProteomics, SBGNview.data,
         tissueTreg, CAGEWorkflow, biocohort, bioIOT, Canek, CimpleG,
-        clustree, conos, CytoSimplex, dependentsimr, dyngen, file2meco,
-        ggmlR, ggpicrust2, hilldiv3, lfc, lstar, methFuse, MiscMetabar,
-        parafac4microbiome, polyRAD, presto, R.ComDim, RaceID, radEmu,
-        RGraphSpace, rliger, scFlex, scStability, seqgendiff, Seurat,
-        Signac, singleCellHaystack, speakeasyR, splitGraph, SuperCell,
-        SVG, teal.slice, tidydr, volcano3D
+        clustree, conos, cudacellr, CytoSimplex, dependentsimr, dyngen,
+        file2meco, ggmlR, ggpicrust2, hilldiv3, lfc, lstar, methFuse,
+        MiscMetabar, parafac4microbiome, polyRAD, presto, R.ComDim,
+        RaceID, radEmu, RGraphSpace, rliger, scFlex, scStability,
+        seqgendiff, Seurat, Signac, singleCellHaystack, speakeasyR,
+        splitGraph, SuperCell, SVG, teal.slice, tidydr, volcano3D
 dependencyCount: 24
 
 Package: Summix
@@ -115375,11 +115376,11 @@ git_last_commit: ac40a55
 git_last_commit_date: 2026-06-15
 Date/Publication: 2026-10-26
 source.ver: src/contrib/tximeta_1.30.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/tximeta_1.30.0.zip
+win.binary.ver: bin/windows/contrib/4.6/tximeta_1.30.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/tximeta_1.30.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/tximeta_1.30.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/tximeta_1.30.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/tximeta_1.30.1.tgz
 vignettes: vignettes/tximeta/inst/doc/tximeta.html
 vignetteTitles: tximeta: transcript quantification import with
         automatic metadata
