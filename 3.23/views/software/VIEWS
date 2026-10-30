@@ -17974,7 +17974,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/chipenrich/inst/doc/chipenrich-vignette.R
-dependencyCount: 157
+dependencyCount: 158
 
 Package: ChIPexoQual
 Version: 1.36.0
@@ -22334,7 +22334,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/CONFESS/inst/doc/vignette_tex.R,
         vignettes/CONFESS/inst/doc/vignette.R
-dependencyCount: 151
+dependencyCount: 152
 
 Package: consensus
 Version: 1.30.0
@@ -23590,7 +23590,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CPSM/inst/doc/CPSM.R
-dependencyCount: 207
+dependencyCount: 208
 
 Package: cpvSNP
 Version: 1.44.0
@@ -33950,7 +33950,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EnMCB/inst/doc/vignette.R
-dependencyCount: 125
+dependencyCount: 126
 
 Package: ENmix
 Version: 1.48.4
@@ -108126,11 +108126,11 @@ git_last_commit: 439ad6e
 git_last_commit_date: 2026-10-27
 Date/Publication: 2026-10-27
 source.ver: src/contrib/STRINGdb_2.24.2.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.1.zip
+win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.2.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.1.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.2.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/STRINGdb_2.24.1.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/STRINGdb_2.24.2.tgz
 vignettes: vignettes/STRINGdb/inst/doc/STRINGdb.pdf
 vignetteTitles: STRINGdb Vignette
 hasREADME: FALSE
