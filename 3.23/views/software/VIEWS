@@ -45037,7 +45037,7 @@ suggestsMe: GSVA, smoothclust, HCATonsilData
 dependencyCount: 76
 
 Package: ggtree
-Version: 4.2.0
+Version: 4.2.1
 Depends: R (>= 4.2.0)
 Imports: ape, aplot, cli, dplyr, ggfun (>= 0.1.7), ggiraph (>= 0.9.1),
         ggplot2 (>= 4.0.0), grid, magrittr, methods, purrr, rlang,
@@ -45047,7 +45047,7 @@ Suggests: emojifont, ggimage, ggplotify, shadowtext, grDevices, knitr,
         prettydoc, rmarkdown, igraph, testthat, tibble, glue,
         Biostrings
 License: Artistic-2.0
-MD5sum: caa3e4092ae8102e642df8d3fef6282a
+MD5sum: 683bce3b4e5d8109431898c586eadff7
 NeedsCompilation: no
 Title: an R package for visualization of tree and annotation data
 Description: 'ggtree' extends the 'ggplot2' plotting system which
@@ -45073,10 +45073,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/YuLab-SMU/ggtree/issues
 git_url: https://git.bioconductor.org/packages/ggtree
 git_branch: RELEASE_3_23
-git_last_commit: c23145e
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/ggtree_4.2.0.tar.gz
+git_last_commit: 90c87ee
+git_last_commit_date: 2026-10-29
+Date/Publication: 2026-10-29
+source.ver: src/contrib/ggtree_4.2.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/ggtree_4.2.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/ggtree_4.2.0.tgz
@@ -50994,7 +50994,7 @@ Rfiles: vignettes/HoloFoodR/inst/doc/HoloFoodR.R
 dependencyCount: 75
 
 Package: hoodscanR
-Version: 1.10.0
+Version: 1.10.1
 Depends: R (>= 4.3)
 Imports: knitr, rmarkdown, SpatialExperiment, SummarizedExperiment,
         circlize, ComplexHeatmap, scico, rlang, utils, ggplot2, grid,
@@ -51003,7 +51003,7 @@ LinkingTo: Rcpp
 Suggests: testthat (>= 3.0.0), BiocStyle
 License: GPL-3 + file LICENSE
 Archs: x64
-MD5sum: 26af7e8fe54a88411be616b4bacc09e1
+MD5sum: ad3d4ea6e5d4da71ec054ff5b529cc42
 NeedsCompilation: yes
 Title: Spatial cellular neighbourhood scanning in R
 Description: hoodscanR is an user-friendly R package providing
@@ -51025,10 +51025,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/DavisLaboratory/hoodscanR/issues
 git_url: https://git.bioconductor.org/packages/hoodscanR
 git_branch: RELEASE_3_23
-git_last_commit: 813dacc
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/hoodscanR_1.10.0.tar.gz
+git_last_commit: 3736ec3
+git_last_commit_date: 2026-10-28
+Date/Publication: 2026-10-29
+source.ver: src/contrib/hoodscanR_1.10.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/hoodscanR_1.10.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/hoodscanR_1.10.0.tgz
