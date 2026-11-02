@@ -14337,7 +14337,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/cageminer/inst/doc/cageminer.R
-dependencyCount: 191
+dependencyCount: 190
 
 Package: CAGEr
 Version: 2.18.0
@@ -15731,7 +15731,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CCPlotR/inst/doc/CCPlotR_visualisations.R
 suggestsMe: OSTA
-dependencyCount: 97
+dependencyCount: 96
 
 Package: CCPROMISE
 Version: 1.38.0
@@ -21586,7 +21586,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 suggestsMe: InteractiveComplexHeatmap, simplifyEnrichment
-dependencyCount: 63
+dependencyCount: 62
 
 Package: comapr
 Version: 1.16.0
@@ -23590,7 +23590,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/CPSM/inst/doc/CPSM.R
-dependencyCount: 208
+dependencyCount: 207
 
 Package: cpvSNP
 Version: 1.44.0
@@ -24458,7 +24458,7 @@ git_last_commit: d492277
 git_last_commit_date: 2026-04-28
 Date/Publication: 2026-04-28
 source.ver: src/contrib/crupR_1.4.0.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/crupR_1.3.0.zip
+win.binary.ver: bin/windows/contrib/4.6/crupR_1.4.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/crupR_1.4.0.tgz
 mac.binary.sonoma-arm64.ver:
@@ -29091,10 +29091,10 @@ suggestsMe: aggregateBioVar, apeglm, bambu, BindingSiteFinder,
         curatedAdipoChIP, curatedAdipoRNA, GSE62944, RegParallel,
         Single.mTEC.Transcriptomes, CAGEWorkflow, fluentGenomics,
         seqpac, bakR, conos, dependentsimr, detectPanel, enrichit,
-        FateID, futurize, genefindr, ggpicrust2, GiANT, glmmSeq,
-        grandR, IOBR, lfc, LorMe, metacoder, metaRNASeq, MiscMetabar,
-        myTAI, pctax, pmartR, presto, RaceID, rliger, seqgendiff,
-        Seurat, SeuratExplorer, venny, volcano3D
+        FateID, futurize, genefindr, ggpicrust2, ggvolc, GiANT,
+        glmmSeq, grandR, IOBR, lfc, LorMe, metacoder, metaRNASeq,
+        MiscMetabar, myTAI, pctax, pmartR, presto, RaceID, rliger,
+        seqgendiff, Seurat, SeuratExplorer, venny, volcano3D
 dependencyCount: 54
 
 Package: DEsingle
@@ -33274,7 +33274,7 @@ suggestsMe: ABSSeq, biobroom, ClassifyR, cqn, cydar, dcanr, dearseq,
         topconfects, transmogR, tximeta, tximport, variancePartition,
         weitrix, Wrench, zenith, zFPKM, leeBamViews, CAGEWorkflow,
         chipseqDB, DGEobj, DGEobj.utils, DiPALM, easybio, ggpicrust2,
-        glmmSeq, inDAGO, MiscMetabar, palasso, pctax, pmartR,
+        ggvolc, glmmSeq, inDAGO, MiscMetabar, palasso, pctax, pmartR,
         seqgendiff, seqwrap, SIBERG, volcano3D
 dependencyCount: 10
 
@@ -45077,11 +45077,11 @@ git_last_commit: 90c87ee
 git_last_commit_date: 2026-10-29
 Date/Publication: 2026-10-29
 source.ver: src/contrib/ggtree_4.2.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/ggtree_4.2.0.zip
+win.binary.ver: bin/windows/contrib/4.6/ggtree_4.2.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/ggtree_4.2.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/ggtree_4.2.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/ggtree_4.2.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/ggtree_4.2.1.tgz
 vignettes: vignettes/ggtree/inst/doc/ggtree.html
 vignetteTitles: ggtree
 hasREADME: FALSE
@@ -45664,7 +45664,7 @@ Rfiles: vignettes/glmSparseNet/inst/doc/example_brca_logistic.R,
         vignettes/glmSparseNet/inst/doc/example_skcm_survival.R,
         vignettes/glmSparseNet/inst/doc/separate2GroupsCox.R
 importsMe: priorityelasticnet
-dependencyCount: 180
+dependencyCount: 179
 
 Package: GlobalAncova
 Version: 4.30.0
@@ -47989,7 +47989,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/GSEAmining/inst/doc/GSEAmining.R
-dependencyCount: 57
+dependencyCount: 56
 
 Package: gsean
 Version: 1.32.0
@@ -51029,11 +51029,11 @@ git_last_commit: 3736ec3
 git_last_commit_date: 2026-10-28
 Date/Publication: 2026-10-29
 source.ver: src/contrib/hoodscanR_1.10.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/hoodscanR_1.10.0.zip
+win.binary.ver: bin/windows/contrib/4.6/hoodscanR_1.10.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/hoodscanR_1.10.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/hoodscanR_1.10.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/hoodscanR_1.10.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/hoodscanR_1.10.1.tgz
 vignettes: vignettes/hoodscanR/inst/doc/Quick_start.html
 vignetteTitles: hoodscanR_introduction
 hasREADME: FALSE
@@ -54581,7 +54581,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/iPath/inst/doc/iPath.R
-dependencyCount: 109
+dependencyCount: 108
 
 Package: ipdDb
 Version: 1.30.0
@@ -56508,7 +56508,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/katdetectr/inst/doc/General_overview.R
-dependencyCount: 124
+dependencyCount: 123
 
 Package: KBoost
 Version: 1.20.0
@@ -57251,7 +57251,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/LACHESIS/inst/doc/vignette_LACHESIS.R
-dependencyCount: 116
+dependencyCount: 115
 
 Package: LBE
 Version: 1.80.0
@@ -57938,10 +57938,10 @@ suggestsMe: ABarray, ADaCGH2, Biobase, biobroom, BiocSet, BioNet,
         mammaPrintData, msigdb, seventyGeneData, arrays, CAGEWorkflow,
         fluentGenomics, simpleSingleCell, AnnoProbe, aroma.affymetrix,
         canvasXpress, corncob, DGEobj.utils, easybio, ggpicrust2,
-        GiANT, hexbin, inDAGO, IOBR, limorhyde, maGUI, MosaiClusteR,
-        NACHO, pctax, pmartR, protti, RepeatedHighDim, seqgendiff,
-        Seurat, SeuratExplorer, simphony, st, volcano3D, wrGraph,
-        wrMisc
+        ggvolc, GiANT, hexbin, inDAGO, IOBR, limorhyde, maGUI,
+        MosaiClusteR, NACHO, pctax, pmartR, protti, RepeatedHighDim,
+        seqgendiff, Seurat, SeuratExplorer, simphony, st, volcano3D,
+        wrGraph, wrMisc
 dependencyCount: 6
 
 Package: limmaGUI
@@ -62480,7 +62480,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/meshr/inst/doc/MeSH.R
 importsMe: scTensor
-dependencyCount: 82
+dependencyCount: 81
 
 Package: MesKit
 Version: 1.22.0
@@ -63529,7 +63529,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/metapone/inst/doc/metapone.R
-dependencyCount: 50
+dependencyCount: 49
 
 Package: MetaProViz
 Version: 4.0.0
@@ -67220,8 +67220,8 @@ hasLICENSE: FALSE
 Rfiles: vignettes/mixOmics/inst/doc/vignette.R
 dependsOnMe: timeOmics, mixKernel, sgPLS
 importsMe: AlpsNMR, benchdamic, DepecheR, PLSDAbatch, POMA, RFLOMICS,
-        tidyexposomics, Coxmos, CytoProfile, Holomics, iTensor, plsmod,
-        plsRcox, SISIR
+        tidyexposomics, Coxmos, CytoProfile, Holomics, plsmod, plsRcox,
+        SISIR
 suggestsMe: autonomics, notameStats, planet, eoPredData,
         MetabolomicsBasics, MSclassifR, OmicNetR, orbital, pctax,
         recipes, RVAideMemoire, SelectBoost, sharp, specProc,
@@ -68416,7 +68416,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MOSClip/inst/doc/mosclip_vignette.R
-dependencyCount: 222
+dependencyCount: 221
 
 Package: mosdef
 Version: 1.8.0
@@ -69022,7 +69022,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MPAC/inst/doc/MPAC.R
-dependencyCount: 170
+dependencyCount: 169
 
 Package: MPFE
 Version: 1.48.0
@@ -72788,6 +72788,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/NanoStringNCTools/inst/doc/Introduction.R
 dependsOnMe: GeomxTools, GeoMxWorkflows
 importsMe: GeoDiff
+suggestsMe: NACHO
 dependencyCount: 77
 
 Package: NanoTube
@@ -74109,7 +74110,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/NormqPCR/inst/doc/NormqPCR.R
-suggestsMe: OAtools
+suggestsMe: OAtools, NACHO
 dependencyCount: 47
 
 Package: normr
@@ -79693,7 +79694,7 @@ Rfiles: vignettes/pgxRpi/inst/doc/Introduction_1_load_metadata.R,
         vignettes/pgxRpi/inst/doc/Introduction_2_query_variants.R,
         vignettes/pgxRpi/inst/doc/Introduction_3_access_cnv_frequency.R,
         vignettes/pgxRpi/inst/doc/Introduction_4_process_pgxseg.R
-dependencyCount: 133
+dependencyCount: 132
 
 Package: phantasus
 Version: 1.32.0
@@ -80162,7 +80163,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/PhosR/inst/doc/PhosR.R
 suggestsMe: SmartPhos
-dependencyCount: 139
+dependencyCount: 138
 
 Package: PhyloProfile
 Version: 2.4.7
@@ -88662,7 +88663,7 @@ Rfiles: vignettes/regionReport/inst/doc/bumphunterExample.R,
         vignettes/regionReport/inst/doc/regionReport.R
 importsMe: recountWorkflow
 suggestsMe: recount
-dependencyCount: 154
+dependencyCount: 153
 
 Package: regsplice
 Version: 1.38.1
@@ -93142,7 +93143,7 @@ Rfiles: vignettes/RTCGA/inst/doc/RTCGA_Workflow.R
 dependsOnMe: RTCGA.clinical, RTCGA.CNV, RTCGA.methylation,
         RTCGA.miRNASeq, RTCGA.mRNA, RTCGA.mutations, RTCGA.PANCAN12,
         RTCGA.rnaseq, RTCGA.RPPA
-dependencyCount: 132
+dependencyCount: 131
 
 Package: RTCGAToolbox
 Version: 2.42.0
@@ -93808,7 +93809,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/RUVSeq/inst/doc/RUVSeq.R
 dependsOnMe: octad, rnaseqGene
 importsMe: ribosomeProfilingQC, scone, standR
-suggestsMe: DEScan2, NanoTube, notame
+suggestsMe: DEScan2, NanoTube, notame, NACHO
 dependencyCount: 116
 
 Package: Rvisdiff
@@ -94302,8 +94303,8 @@ suggestsMe: AlphaMissenseR, AlpsNMR, ANCOMBC, anndataR, BiocGenerics,
         curatedAdipoChIP, curatedAdipoRNA, ObMiTi, xcoredata,
         biocohort, bioIOT, cudacellr, cudaverse, dependentsimr, fioRa,
         genefindr, ggmlR, gkmSVM, grandR, GRIN2, Immutables, inDAGO,
-        krt, LorMe, lstar, nemoR, pmartR, polyRAD, pQTLdata, RCPA,
-        Rgff, scFlex, Seurat, SNPassoc, updog, valr
+        krt, LorMe, lstar, NACHO, nemoR, pmartR, polyRAD, pQTLdata,
+        RCPA, Rgff, scFlex, Seurat, SNPassoc, updog, valr
 linksToMe: Bioc.gff, Biostrings, cigarillo, CNEr, DECIPHER,
         GenomicAlignments, GenomicFeatures, h5mread, IRanges, kebabs,
         MatrixRider, posDemux, pwalign, Rsamtools, rtracklayer,
@@ -97436,7 +97437,7 @@ Rfiles: vignettes/scMultiSim/inst/doc/basics.R,
         vignettes/scMultiSim/inst/doc/options.R,
         vignettes/scMultiSim/inst/doc/spatialCCI.R,
         vignettes/scMultiSim/inst/doc/workflow.R
-dependencyCount: 96
+dependencyCount: 95
 
 Package: SCnorm
 Version: 1.34.0
@@ -98649,7 +98650,7 @@ Rfiles:
         vignettes/scTensor/inst/doc/scTensor_3_CCI_Simulation.R,
         vignettes/scTensor/inst/doc/scTensor_4_Reanalysis.R,
         vignettes/scTensor/inst/doc/scTensor.R
-dependencyCount: 231
+dependencyCount: 230
 
 Package: scTGIF
 Version: 1.26.0
@@ -101411,7 +101412,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/signifinder/inst/doc/signifinder.R
-dependencyCount: 247
+dependencyCount: 246
 
 Package: SigsPack
 Version: 1.26.0
@@ -105148,7 +105149,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/SpatialOmicsOverlay/inst/doc/SpatialOmicsOverlay.R
-dependencyCount: 159
+dependencyCount: 158
 
 Package: spatialSimGP
 Version: 1.6.0
@@ -108691,10 +108692,11 @@ suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
         tissueTreg, CAGEWorkflow, biocohort, bioIOT, Canek, CimpleG,
         clustree, conos, cudacellr, CytoSimplex, dependentsimr, dyngen,
         file2meco, ggmlR, ggpicrust2, hilldiv3, lfc, lstar, methFuse,
-        MiscMetabar, parafac4microbiome, polyRAD, presto, R.ComDim,
-        RaceID, radEmu, RGraphSpace, rliger, scFlex, scStability,
-        seqgendiff, Seurat, Signac, singleCellHaystack, speakeasyR,
-        splitGraph, SuperCell, SVG, teal.slice, tidydr, volcano3D
+        MiscMetabar, NACHO, parafac4microbiome, polyRAD, presto,
+        R.ComDim, RaceID, radEmu, RGraphSpace, rliger, scFlex,
+        scStability, seqgendiff, Seurat, Signac, singleCellHaystack,
+        speakeasyR, splitGraph, SuperCell, SVG, teal.slice, tidydr,
+        volcano3D
 dependencyCount: 24
 
 Package: Summix
@@ -109082,7 +109084,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/survtype/inst/doc/survtype.R
-dependencyCount: 126
+dependencyCount: 125
 
 Package: sva
 Version: 3.60.0
@@ -111074,7 +111076,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/TENET/inst/doc/TENET_vignette.R
 suggestsMe: TENET.AnnotationHub, TENET.ExperimentHub
-dependencyCount: 210
+dependencyCount: 209
 
 Package: TENxIO
 Version: 1.14.0
@@ -117218,7 +117220,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/vissE/inst/doc/vissE.R
 suggestsMe: msigdb
-dependencyCount: 138
+dependencyCount: 137
 
 Package: VISTA
 Version: 1.0.0
