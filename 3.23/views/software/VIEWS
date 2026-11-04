@@ -432,7 +432,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/ACE/inst/doc/ACE_vignette.R
-dependencyCount: 66
+dependencyCount: 65
 
 Package: aCGH
 Version: 1.90.0
@@ -5740,7 +5740,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/asuri/inst/doc/asuri.R
-dependencyCount: 101
+dependencyCount: 100
 
 Package: atacInferCnv
 Version: 1.0.0
@@ -8616,7 +8616,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/BG2/inst/doc/BG2.R
-dependencyCount: 89
+dependencyCount: 88
 
 Package: BgeeCall
 Version: 1.28.4
@@ -12045,9 +12045,9 @@ suggestsMe: alabaster.files, annotate, AnnotationForge, AnnotationHub,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh37,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh38, BeadArrayUseCases, baseq,
         bbl, bio3d, BOLDconnectR, BOLDNODE, demulticoder, file2meco,
-        geneviewer, gkmSVM, gwas2crispr, inDAGO, karyotapR, maGUI,
-        msaR, NameNeedle, orthGS, phangorn, polyRAD, protr, sigminer,
-        Signac, tidysq, vectra, ViralEntropR
+        geneviewer, ggchord, gkmSVM, gwas2crispr, inDAGO, karyotapR,
+        maGUI, msaR, NameNeedle, orthGS, phangorn, polyRAD, protr,
+        sigminer, Signac, tidysq, vectra, ViralEntropR
 linksToMe: DECIPHER, kebabs, MatrixRider, posDemux, pwalign, Rsamtools,
         ShortRead, triplex, VariantAnnotation, VariantFiltering
 dependencyCount: 14
@@ -12148,7 +12148,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/biotmle/inst/doc/exposureBiomarkers.R
-dependencyCount: 93
+dependencyCount: 92
 
 Package: biovizBase
 Version: 1.60.0
@@ -12855,7 +12855,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/branchpointer/inst/doc/branchpointer.R
-dependencyCount: 152
+dependencyCount: 151
 
 Package: breakpointR
 Version: 1.30.0
@@ -12896,17 +12896,17 @@ Rfiles: vignettes/breakpointR/inst/doc/breakpointR.R
 dependencyCount: 73
 
 Package: BreastSubtypeR
-Version: 1.4.2
+Version: 1.4.3
 Depends: R (>= 4.5.0)
 Imports: methods, Biobase, tidyselect, dplyr, ggplot2, magrittr, rlang,
         stringr, withr, edgeR, ComplexHeatmap, impute (>= 1.80.0),
         data.table (>= 1.16.0), RColorBrewer (>= 1.1-3), circlize (>=
         0.4.16), ggrepel (>= 0.9.6), e1071 (>= 1.7-8),
         SummarizedExperiment, utils
-Suggests: lifecycle, tidyverse, shiny (>= 1.9.1), bslib (>= 0.8.0),
-        BiocStyle, knitr, rmarkdown, testthat (>= 3.2.0)
+Suggests: S4Vectors, lifecycle, tidyverse, shiny (>= 1.9.1), bslib (>=
+        0.8.0), BiocStyle, knitr, rmarkdown, testthat (>= 3.2.0)
 License: GPL-3
-MD5sum: 361b992a26d5ee24f011171d864e3192
+MD5sum: d7d95f154e193d5463f62134d50f75ae
 NeedsCompilation: no
 Title: Cohort-aware methods for intrinsic molecular subtyping of breast
         cancer
@@ -12931,10 +12931,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/yqkiuo/BreastSubtypeR/issues
 git_url: https://git.bioconductor.org/packages/BreastSubtypeR
 git_branch: RELEASE_3_23
-git_last_commit: 773135c
-git_last_commit_date: 2026-10-21
-Date/Publication: 2026-10-21
-source.ver: src/contrib/BreastSubtypeR_1.4.2.tar.gz
+git_last_commit: 9c0c9a4
+git_last_commit_date: 2026-11-01
+Date/Publication: 2026-11-02
+source.ver: src/contrib/BreastSubtypeR_1.4.3.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/BreastSubtypeR_1.4.2.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/BreastSubtypeR_1.4.2.tgz
@@ -16850,7 +16850,7 @@ Rfiles: vignettes/ceRNAnetsim/inst/doc/auxiliary_commands.R,
         vignettes/ceRNAnetsim/inst/doc/basic_usage.R,
         vignettes/ceRNAnetsim/inst/doc/convenient_iteration.R,
         vignettes/ceRNAnetsim/inst/doc/mirtarbase_example.R
-dependencyCount: 65
+dependencyCount: 64
 
 Package: CeTF
 Version: 1.24.0
@@ -20212,7 +20212,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/clustifyr/inst/doc/clustifyr.R,
         vignettes/clustifyr/inst/doc/geo-annotations.R
 suggestsMe: clustifyrdatahub
-dependencyCount: 89
+dependencyCount: 88
 
 Package: ClustIRR
 Version: 1.10.0
@@ -22465,7 +22465,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/consensusOV/inst/doc/consensusOV.R
 importsMe: signifinder
-dependencyCount: 155
+dependencyCount: 154
 
 Package: consensusSeekeR
 Version: 1.40.0
@@ -35925,7 +35925,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EventPointer/inst/doc/EventPointer.R
-dependencyCount: 165
+dependencyCount: 164
 
 Package: EWCE
 Version: 1.20.0
@@ -39352,7 +39352,7 @@ Rfiles: vignettes/fobitools/inst/doc/Dietary_data_annotation.R,
         vignettes/fobitools/inst/doc/food_enrichment_analysis.R,
         vignettes/fobitools/inst/doc/MW_ST000291_enrichment.R,
         vignettes/fobitools/inst/doc/MW_ST000629_enrichment.R
-dependencyCount: 121
+dependencyCount: 120
 
 Package: fourSynergy
 Version: 1.0.0
@@ -39463,7 +39463,7 @@ hasNEWS: TRUE
 hasINSTALL: TRUE
 hasLICENSE: FALSE
 Rfiles: vignettes/fRagmentomics/inst/doc/fRagmentomics.R
-dependencyCount: 115
+dependencyCount: 114
 
 Package: fraq
 Version: 1.0.2
@@ -41412,7 +41412,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/GeneBreak/inst/doc/GeneBreak.R
-dependencyCount: 49
+dependencyCount: 48
 
 Package: geneClassifiers
 Version: 1.36.0
@@ -41622,7 +41622,7 @@ importsMe: consensusOV, PDATK
 suggestsMe: GSgalgoR, breastCancerMAINZ, breastCancerNKI,
         breastCancerTRANSBIG, breastCancerUNT, breastCancerUPP,
         breastCancerVDX
-dependencyCount: 116
+dependencyCount: 115
 
 Package: GeneGA
 Version: 1.62.0
@@ -43657,9 +43657,9 @@ suggestsMe: AlphaMissenseR, AnnotationHub, autonomics, biobroom,
         BeadArrayUseCases, GeuvadisTranscriptExpr, MEDIPSData,
         MetaScope, nanotubes, RNAmodR.Data, Single.mTEC.Transcriptomes,
         systemPipeRdata, xcoredata, CAGEWorkflow, biocohort, chicane,
-        DGEobj, gkmSVM, GRIN2, lstar, methFuse, MoBPS, polyRAD, Rgff,
-        rliger, seqmagick, Seurat, sigminer, smer, SNPassoc, updog,
-        valr
+        DGEobj, ggchord, gkmSVM, GRIN2, lstar, methFuse, MoBPS,
+        polyRAD, Rgff, rliger, seqmagick, Seurat, sigminer, smer,
+        SNPassoc, updog, valr
 dependencyCount: 10
 
 Package: GenomicScores
@@ -48543,7 +48543,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/GWAS.BAYES/inst/doc/Vignette_BICOSS.R,
         vignettes/GWAS.BAYES/inst/doc/Vignette_GINA.R
-dependencyCount: 91
+dependencyCount: 90
 
 Package: gwascat
 Version: 2.44.0
@@ -51245,7 +51245,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/HPiP/inst/doc/HPiP_tutorial.R
-dependencyCount: 105
+dependencyCount: 104
 
 Package: HTqPCR
 Version: 1.66.0
@@ -51898,7 +51898,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/Ibex/inst/doc/Ibex.R
-dependencyCount: 134
+dependencyCount: 133
 
 Package: ibh
 Version: 1.60.0
@@ -54278,7 +54278,8 @@ importsMe: annoLinker, CAGEfightR, ChIPpeakAnno, DegCre, DMRcaller,
         HiCaptuRe, HiCcompare, HiCExperiment, HiContacts, HiCool,
         HiCParser, hicVennDiagram, mariner, nullranges, trackViewer,
         hicream, treediff
-suggestsMe: plotgardener, transmogR, updateObject, CAGEWorkflow
+suggestsMe: plotgardener, transmogR, updateObject, CAGEWorkflow,
+        ggchord
 dependencyCount: 26
 
 Package: InteractiveComplexHeatmap
@@ -54910,9 +54911,9 @@ suggestsMe: annotate, AnnotationHub, BaseSpaceR, BiocGenerics,
         regionReport, RTCGA, S4Vectors, scrapper, SEMPLR, SigsPack,
         splatter, svaNUMT, svaRetro, systemPipeR, TFutils, tidybulk,
         MetaScope, scMultiome, systemPipeRdata, xcoredata, yeastRNASeq,
-        biocohort, fuzzyjoin, gggenomes, gkmSVM, GRIN2, Immutables,
-        MiscMetabar, MoBPS, polyRAD, pQTLdata, rliger, scPloidy,
-        seqmagick, Seurat, sigminer, SNPassoc, updog, valr
+        biocohort, fuzzyjoin, ggchord, gggenomes, gkmSVM, GRIN2,
+        Immutables, MiscMetabar, MoBPS, polyRAD, pQTLdata, rliger,
+        scPloidy, seqmagick, Seurat, sigminer, SNPassoc, updog, valr
 linksToMe: Bioc.gff, Biostrings, cigarillo, CNEr, DECIPHER,
         GenomicAlignments, GenomicFeatures, kebabs, MatrixRider,
         posDemux, pwalign, Rsamtools, rtracklayer, ShortRead,
@@ -56346,7 +56347,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/jazzPanda/inst/doc/jazzPanda.R
-dependencyCount: 134
+dependencyCount: 133
 
 Package: jvecfor
 Version: 1.0.3
@@ -59459,7 +59460,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/m6Aboost/inst/doc/m6AboosVignettes.R
-dependencyCount: 152
+dependencyCount: 151
 
 Package: Maaslin2
 Version: 1.26.0
@@ -60289,7 +60290,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/maPredictDSC/inst/doc/maPredictDSC.R
-dependencyCount: 130
+dependencyCount: 129
 
 Package: mapscape
 Version: 1.36.0
@@ -60957,7 +60958,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/mastR/inst/doc/mastR_customized_design.R,
         vignettes/mastR/inst/doc/mastR_Demo.R
-dependencyCount: 156
+dependencyCount: 155
 
 Package: matchBox
 Version: 1.54.0
@@ -62624,7 +62625,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/metabCombiner/inst/doc/metabCombiner_vignette.R
-dependencyCount: 87
+dependencyCount: 86
 
 Package: metabinR
 Version: 2.0.0
@@ -67368,7 +67369,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/MLSeq/inst/doc/MLSeq.R
 importsMe: GARS
-dependencyCount: 134
+dependencyCount: 133
 
 Package: MMDiff2
 Version: 1.40.0
@@ -71903,7 +71904,7 @@ suggestsMe: Ibex
 dependencyCount: 73
 
 Package: MungeSumstats
-Version: 1.20.1
+Version: 1.20.2
 Depends: R(>= 4.1)
 Imports: data.table, utils, R.utils, dplyr, stats, GenomicRanges,
         GenomeInfoDb, IRanges, ieugwasr(>= 1.0.1), BSgenome,
@@ -71920,7 +71921,7 @@ Suggests: SNPlocs.Hsapiens.dbSNP144.GRCh37,
         BiocParallel, GenomicFiles
 License: Artistic-2.0
 Archs: x64
-MD5sum: c91a294a56bf4a1e97aadc591162933b
+MD5sum: f6de9776c835d6c7b28dafca2adb9c7e
 NeedsCompilation: no
 Title: Standardise summary statistics from GWAS
 Description: The *MungeSumstats* package is designed to facilitate the
@@ -71942,10 +71943,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/neurogenomics/MungeSumstats/issues
 git_url: https://git.bioconductor.org/packages/MungeSumstats
 git_branch: RELEASE_3_23
-git_last_commit: ef92c4d
-git_last_commit_date: 2026-10-26
-Date/Publication: 2026-10-27
-source.ver: src/contrib/MungeSumstats_1.20.1.tar.gz
+git_last_commit: 33227f3
+git_last_commit_date: 2026-11-02
+Date/Publication: 2026-11-02
+source.ver: src/contrib/MungeSumstats_1.20.2.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/MungeSumstats_1.19.5.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/MungeSumstats_1.19.5.tgz
@@ -73180,7 +73181,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/Nebulosa/inst/doc/introduction.R,
         vignettes/Nebulosa/inst/doc/nebulosa_seurat.R
 suggestsMe: scCustomize, SCpubr
-dependencyCount: 83
+dependencyCount: 82
 
 Package: nempi
 Version: 1.20.0
@@ -79694,7 +79695,7 @@ Rfiles: vignettes/pgxRpi/inst/doc/Introduction_1_load_metadata.R,
         vignettes/pgxRpi/inst/doc/Introduction_2_query_variants.R,
         vignettes/pgxRpi/inst/doc/Introduction_3_access_cnv_frequency.R,
         vignettes/pgxRpi/inst/doc/Introduction_4_process_pgxseg.R
-dependencyCount: 132
+dependencyCount: 131
 
 Package: phantasus
 Version: 1.32.0
@@ -84317,7 +84318,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/QDNAseq/inst/doc/QDNAseq.R
 dependsOnMe: GeneBreak, QDNAseq.hg19, QDNAseq.mm10
 importsMe: ACE, biscuiteer, cfdnakit
-dependencyCount: 48
+dependencyCount: 47
 
 Package: QFeatures
 Version: 1.22.0
@@ -94302,9 +94303,9 @@ suggestsMe: AlphaMissenseR, AlpsNMR, ANCOMBC, anndataR, BiocGenerics,
         alternativeSplicingEvents.hg19, alternativeSplicingEvents.hg38,
         curatedAdipoChIP, curatedAdipoRNA, ObMiTi, xcoredata,
         biocohort, bioIOT, cudacellr, cudaverse, dependentsimr, fioRa,
-        genefindr, ggmlR, gkmSVM, grandR, GRIN2, Immutables, inDAGO,
-        krt, LorMe, lstar, NACHO, nemoR, pmartR, polyRAD, pQTLdata,
-        RCPA, Rgff, scFlex, Seurat, SNPassoc, updog, valr
+        genefindr, ggchord, ggmlR, gkmSVM, grandR, GRIN2, Immutables,
+        inDAGO, krt, LorMe, lstar, NACHO, nemoR, pmartR, polyRAD,
+        pQTLdata, RCPA, Rgff, scFlex, Seurat, SNPassoc, updog, valr
 linksToMe: Bioc.gff, Biostrings, cigarillo, CNEr, DECIPHER,
         GenomicAlignments, GenomicFeatures, h5mread, IRanges, kebabs,
         MatrixRider, posDemux, pwalign, Rsamtools, rtracklayer,
@@ -96699,7 +96700,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/scGPS/inst/doc/vignette.R
-dependencyCount: 113
+dependencyCount: 112
 
 Package: scGraphVerse
 Version: 1.2.0
@@ -97070,7 +97071,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/scLANE/inst/doc/scLANE.R
-dependencyCount: 113
+dependencyCount: 112
 
 Package: scLang
 Version: 1.0.0
@@ -97906,7 +97907,7 @@ hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/scPCA/inst/doc/scpca_intro.R
 dependsOnMe: OSCA.advanced, OSCA.workflows
-dependencyCount: 70
+dependencyCount: 69
 
 Package: scPipe
 Version: 2.12.0
@@ -98387,7 +98388,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/scRepertoire/inst/doc/vignette.R
 importsMe: Ibex
 suggestsMe: dandelionR, immApex, immLynx
-dependencyCount: 115
+dependencyCount: 114
 
 Package: scRNAseqApp
 Version: 1.12.0
@@ -100115,7 +100116,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/Seqtometry/inst/doc/Seqtometry.R
-dependencyCount: 61
+dependencyCount: 60
 
 Package: SeqVarTools
 Version: 1.50.1
@@ -102287,7 +102288,8 @@ suggestsMe: ANCOMBC, anndataR, cellxgenedp, CTdata, DEsingle,
         simpleSingleCell, bioIOT, Canek, clustree, cudacellr,
         cudaverse, CytoSimplex, dyngen, futurize, gedi2, ggmlR, harf,
         harmony, lstar, nebula, nemoR, presto, RaceID, radEmu, rliger,
-        scFlex, Seurat, singleCellHaystack, SuperCell, SVG, tidydr
+        scFlex, Seurat, SexSeek, singleCellHaystack, SuperCell, SVG,
+        tidydr
 dependencyCount: 25
 
 Package: SingleCellSignalR
@@ -104239,7 +104241,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SpaNorm/inst/doc/SpaNorm.R
-dependencyCount: 114
+dependencyCount: 113
 
 Package: spARI
 Version: 1.2.0
@@ -105592,7 +105594,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/SPEM/inst/doc/SPEM-package.R
 importsMe: TMixClust
-dependencyCount: 21
+dependencyCount: 20
 
 Package: SPIA
 Version: 2.64.0
@@ -108694,9 +108696,9 @@ suggestsMe: alabaster.mae, AlpsNMR, ANCOMBC, anndataR, AnnotationHub,
         file2meco, ggmlR, ggpicrust2, hilldiv3, lfc, lstar, methFuse,
         MiscMetabar, NACHO, parafac4microbiome, polyRAD, presto,
         R.ComDim, RaceID, radEmu, RGraphSpace, rliger, scFlex,
-        scStability, seqgendiff, Seurat, Signac, singleCellHaystack,
-        speakeasyR, splitGraph, SuperCell, SVG, teal.slice, tidydr,
-        volcano3D
+        scStability, seqgendiff, Seurat, SexSeek, Signac,
+        singleCellHaystack, speakeasyR, splitGraph, SuperCell, SVG,
+        teal.slice, tidydr, uncertR, volcano3D
 dependencyCount: 24
 
 Package: Summix
@@ -108843,7 +108845,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/supersigs/inst/doc/supersigs.R
-dependencyCount: 104
+dependencyCount: 103
 
 Package: surfaltr
 Version: 1.18.0
@@ -109044,7 +109046,7 @@ importsMe: asuri, metaseqR2, PDATK, bigPLScox, Coxmos, pencal, plsRcox,
 suggestsMe: GSgalgoR, breastCancerMAINZ, breastCancerNKI,
         breastCancerTRANSBIG, breastCancerUNT, breastCancerUPP,
         breastCancerVDX
-dependencyCount: 55
+dependencyCount: 54
 
 Package: survtype
 Version: 1.28.0
@@ -112628,7 +112630,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/TMixClust/inst/doc/TMixClust.R
-dependencyCount: 41
+dependencyCount: 40
 
 Package: TMSig
 Version: 1.6.0
@@ -113655,7 +113657,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/transcriptR/inst/doc/transcriptR.R
-dependencyCount: 148
+dependencyCount: 147
 
 Package: transformGamPoi
 Version: 1.18.0
@@ -117816,7 +117818,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/wavFeatExt/inst/doc/wavFeatExt.R
-dependencyCount: 93
+dependencyCount: 92
 
 Package: weaver
 Version: 1.78.0

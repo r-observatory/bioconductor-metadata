@@ -5,13 +5,13 @@ arrays#nebbiolo1#buildsrc: OK
 BP4RNAseq#nebbiolo1#install: OK
 BP4RNAseq#nebbiolo1#buildsrc: OK
 CAGEWorkflow#nebbiolo1#install: OK
-CAGEWorkflow#nebbiolo1#buildsrc: ERROR
+CAGEWorkflow#nebbiolo1#buildsrc: OK
 chipseqDB#nebbiolo1#install: OK
 chipseqDB#nebbiolo1#buildsrc: OK
 csawUsersGuide#nebbiolo1#install: OK
 csawUsersGuide#nebbiolo1#buildsrc: OK
 cytofWorkflow#nebbiolo1#install: OK
-cytofWorkflow#nebbiolo1#buildsrc: ERROR
+cytofWorkflow#nebbiolo1#buildsrc: OK
 EGSEA123#nebbiolo1#install: OK
 EGSEA123#nebbiolo1#buildsrc: OK
 ExpHunterSuite#nebbiolo1#install: OK

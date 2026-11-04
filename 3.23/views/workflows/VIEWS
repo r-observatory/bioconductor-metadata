@@ -702,7 +702,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/recountWorkflow/inst/doc/recount-workflow.R
-dependencyCount: 244
+dependencyCount: 243
 
 Package: RNAseq123
 Version: 1.36.0
