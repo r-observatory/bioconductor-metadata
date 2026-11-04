@@ -1794,6 +1794,33 @@ test_that("an empty propagation file leaves the propagation rows open and fails 
   expect_false("3.23/builds/bioc/PROPAGATION_STATUS_DB.txt" %in% archived)
 })
 
+test_that("an empty propagation file fails the build check once, not again for the same report", {
+  tmp <- withr::local_tempdir()
+  out1 <- file.path(tmp, "one"); out2 <- file.path(tmp, "two"); out3 <- file.path(tmp, "three")
+  suppressMessages(run_update(make_stub_io(build_files = all_build_files()), out1,
+                              force_full = TRUE))
+  day2 <- all_build_files(release_check = "PkgSoft#nebbiolo1#checksrc: OK",
+                          release_snapshot = DAY2_SNAPSHOT)
+  day2[["release/bioc/PROPAGATION_STATUS_DB.txt"]] <- stub_file("")
+  run_day <- function(prev, out) {
+    suppressMessages(run_update(make_stub_io(build_files = day2, prev_state = state_of(prev)),
+                                out, force_full = TRUE, live_floor = 1L))
+  }
+
+  first <- run_day(out1, out2)
+  expect_equal(stream_of(first, "release", "bioc")$outcome, "applied")
+  expect_false(first$status$builds_ok)
+
+  again <- run_day(out2, out3)
+  rel <- stream_of(again, "release", "bioc")
+  expect_equal(rel$outcome, "unchanged")
+  expect_equal(rel$propagation, "skipped_floor")
+  expect_true(again$status$builds_ok)
+  p <- release_propagation_rows(out3)
+  expect_equal(nrow(p), 1L)
+  expect_true(is.na(p$ended_on))
+})
+
 test_that("a propagation file under half its open rows leaves them open, and half applies", {
   tmp <- withr::local_tempdir()
   out1 <- file.path(tmp, "one")

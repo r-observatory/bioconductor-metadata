@@ -159,9 +159,12 @@ jobs:
               exit 1
             fi
           done
+          # A report already seen with a skipped propagation file is a warning, not a failure.
+          jq -r '.streams[] | select(.outcome == "unchanged" and .propagation == "skipped_floor")
+            | "::warning::Build report \(.branch)/\(.repo) \(.bioc_version) of \(.report_at): \(.reason // "propagation file skipped"), as when it was first read"' out/status.json
           if [ "$(jq -r '.builds_ok' out/status.json)" != "true" ]; then
             echo "A build report was not read; the catch-up run reads them again." >&2
-            jq -c '.streams[] | select((.outcome != "applied" and .outcome != "unchanged") or .propagation == "skipped_floor")' out/status.json >&2
+            jq -c '.streams[] | select((.outcome != "applied" and .outcome != "unchanged") or (.outcome == "applied" and .propagation == "skipped_floor"))' out/status.json >&2
             exit 1
           fi
 
