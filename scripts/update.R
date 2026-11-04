@@ -904,8 +904,11 @@ read_build_state <- function(io, prev, branch_versions, now) {
     summary[[length(summary) + 1L]] <- one$row
   }
   retired <- retire_build_versions(history, served_versions(streams, prior_reports), now)
+  # A skipped propagation file fails the run only with the report that brought it.
+  # The same report read again tells the catch-up nothing new.
   ok <- all(vapply(summary, function(x) {
-    x$outcome %in% c("applied", "unchanged") && x$propagation != "skipped_floor"
+    x$outcome %in% c("applied", "unchanged") &&
+      !(x$propagation == "skipped_floor" && x$outcome == "applied")
   }, logical(1)))
   list(reports = reports, history = retired$history, streams = streams,
        summary = summary, retired = retired$closed, ok = ok)
