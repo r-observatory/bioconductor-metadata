@@ -11442,7 +11442,7 @@ suggestsMe: AnnotationForge, bioassayR, celda, ClusterJudge,
         zinbwave, BioMartGOGeneSets, BloodCancerMultiOmics2017,
         leeBamViews, RegParallel, RforProteomics, ExpHunterSuite, BED,
         BioInsight, CimpleG, DGEobj, DGEobj.utils, diffwrap, gaawr2,
-        geneviewer, grandR, GRIN2, IDConverter, IOBR, kangar00, MoBPS,
+        grandR, GRIN2, IDConverter, IOBR, kangar00, MoBPS,
         MosaiClusteR, Patterns, ProFAST, rtemis.a3, scDiffCom,
         SCORPION, SNPassoc
 dependencyCount: 61
@@ -12935,11 +12935,11 @@ git_last_commit: 9c0c9a4
 git_last_commit_date: 2026-11-01
 Date/Publication: 2026-11-02
 source.ver: src/contrib/BreastSubtypeR_1.4.3.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/BreastSubtypeR_1.4.2.zip
+win.binary.ver: bin/windows/contrib/4.6/BreastSubtypeR_1.4.3.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/BreastSubtypeR_1.4.2.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/BreastSubtypeR_1.4.3.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/BreastSubtypeR_1.4.2.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/BreastSubtypeR_1.4.3.tgz
 vignettes: vignettes/BreastSubtypeR/inst/doc/BreastSubtypeR.html
 vignetteTitles: BreastSubtypeR: Introduction and Workflow
 hasREADME: FALSE
@@ -18143,7 +18143,7 @@ Rfiles: vignettes/ChIPQC/inst/doc/ChIPQC.R
 dependencyCount: 159
 
 Package: ChIPseeker
-Version: 1.48.0
+Version: 1.48.1
 Depends: R (>= 4.1.0)
 Imports: AnnotationDbi, aplot, BiocGenerics, boot, dplyr, enrichplot,
         IRanges, GenomeInfoDb, GenomicRanges, GenomicFeatures, ggplot2,
@@ -18155,7 +18155,7 @@ Suggests: clusterProfiler, ggimage, ggplotify, ggupset, ggVennDiagram,
         knitr, org.Hs.eg.db, prettydoc, ReactomePA, rmarkdown,
         testthat, TxDb.Hsapiens.UCSC.hg38.knownGene
 License: Artistic-2.0
-MD5sum: d7ffc6e31ecb74dd90e1940fbedf328e
+MD5sum: 2fcc825123219768c5f87fe4556ad0a2
 NeedsCompilation: no
 Title: ChIPseeker for ChIP peak Annotation, Comparison, and
         Visualization
@@ -18183,10 +18183,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/YuLab-SMU/ChIPseeker/issues
 git_url: https://git.bioconductor.org/packages/ChIPseeker
 git_branch: RELEASE_3_23
-git_last_commit: 6c4d5bc
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/ChIPseeker_1.48.0.tar.gz
+git_last_commit: 75b255f
+git_last_commit_date: 2026-11-02
+Date/Publication: 2026-11-03
+source.ver: src/contrib/ChIPseeker_1.48.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/ChIPseeker_1.48.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/ChIPseeker_1.48.0.tgz
@@ -75861,7 +75861,7 @@ Rfiles: vignettes/Omixer/inst/doc/omixer-vignette.R
 dependencyCount: 46
 
 Package: OmnipathR
-Version: 4.0.0
+Version: 4.0.3
 Depends: R(>= 4.0)
 Imports: checkmate, crayon, curl, digest, dplyr(>= 1.1.0), fs, httr2,
         igraph, jsonlite, later, logger, lubridate, magrittr, progress,
@@ -75873,7 +75873,7 @@ Suggests: BiocStyle, bookdown, ggplot2, ggraph, gprofiler2, knitr,
         mlrMBO, parallelMap, ParamHelpers, R.matlab, SBMLR, sigmajs,
         smoof, testthat
 License: MIT + file LICENSE
-MD5sum: c5a4b4b22de6c7eaf0c2849e4fb6541d
+MD5sum: 12990fb87de98784fb68103262646b9e
 NeedsCompilation: no
 Title: OmniPath web service client and more
 Description: A client for the OmniPath web service
@@ -75905,10 +75905,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/saezlab/OmnipathR/issues
 git_url: https://git.bioconductor.org/packages/OmnipathR
 git_branch: RELEASE_3_23
-git_last_commit: a4e9224
-git_last_commit_date: 2026-04-29
-Date/Publication: 2026-04-30
-source.ver: src/contrib/OmnipathR_4.0.0.tar.gz
+git_last_commit: cd0eeae
+git_last_commit_date: 2026-10-29
+Date/Publication: 2026-11-03
+source.ver: src/contrib/OmnipathR_4.0.3.tar.gz
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/OmnipathR_3.19.2.tgz
 mac.binary.sonoma-arm64.ver:
@@ -86797,13 +86797,13 @@ importsMe: CircSeqAlignTk, esATAC, UMI4Cats, MetaScope
 dependencyCount: 30
 
 Package: RbowtieCuda
-Version: 1.4.4
+Version: 1.4.6
 Depends: R (>= 4.5.0)
 Imports: methods
 Suggests: knitr, rmarkdown, RUnit, BiocGenerics
 License: BSD_3_clause + file LICENSE
 Archs: x64
-MD5sum: 218fcbf6ff3128974715b7142dbee7d0
+MD5sum: 45aef18ef87fafe397d37f6e756e90e8
 NeedsCompilation: yes
 Title: An R Wrapper for nvBowtie and nvBWT, a rewritten version of
         Bowtie2 for cuda
@@ -86825,10 +86825,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/FranckRICHARD01/RbowtieCuda/issues
 git_url: https://git.bioconductor.org/packages/RbowtieCuda
 git_branch: RELEASE_3_23
-git_last_commit: 349b599
-git_last_commit_date: 2026-10-07
-Date/Publication: 2026-10-07
-source.ver: src/contrib/RbowtieCuda_1.4.4.tar.gz
+git_last_commit: cb0e625
+git_last_commit_date: 2026-11-03
+Date/Publication: 2026-11-03
+source.ver: src/contrib/RbowtieCuda_1.4.6.tar.gz
 vignettes: vignettes/RbowtieCuda/inst/doc/RbowtieCuda-Introduction.html
 vignetteTitles: An Introduction to RbowtieCuda
 hasREADME: FALSE
@@ -94295,17 +94295,18 @@ importsMe: ADImpute, adverSCarial, affycoretools, aggregateBioVar,
         rliger, rnaCrosslinkOO, rsolr, sclValid, scROSHI, Signac,
         TaxaNorm, TmCalculator, toxpiR, XYomics
 suggestsMe: AlphaMissenseR, AlpsNMR, ANCOMBC, anndataR, BiocGenerics,
-        biomformat, CCAFE, chihaya, ClusterGVis, COTAN, dearseq, edgeR,
-        epiregulon.extra, epivizrChart, GeoTcgaData, globalSeq,
-        GWASTools, GWENA, gypsum, iscream, koinar, maftools, martini,
-        MicrobiotaProcess, MsQuality, MungeSumstats, RTCGA, scFeatures,
-        scToppR, SpectraQL, SPOTlight, TFEA.ChIP, TFutils, XAItest,
-        alternativeSplicingEvents.hg19, alternativeSplicingEvents.hg38,
-        curatedAdipoChIP, curatedAdipoRNA, ObMiTi, xcoredata,
-        biocohort, bioIOT, cudacellr, cudaverse, dependentsimr, fioRa,
-        genefindr, ggchord, ggmlR, gkmSVM, grandR, GRIN2, Immutables,
-        inDAGO, krt, LorMe, lstar, NACHO, nemoR, pmartR, polyRAD,
-        pQTLdata, RCPA, Rgff, scFlex, Seurat, SNPassoc, updog, valr
+        biomformat, BreastSubtypeR, CCAFE, chihaya, ClusterGVis, COTAN,
+        dearseq, edgeR, epiregulon.extra, epivizrChart, GeoTcgaData,
+        globalSeq, GWASTools, GWENA, gypsum, iscream, koinar, maftools,
+        martini, MicrobiotaProcess, MsQuality, MungeSumstats, RTCGA,
+        scFeatures, scToppR, SpectraQL, SPOTlight, TFEA.ChIP, TFutils,
+        XAItest, alternativeSplicingEvents.hg19,
+        alternativeSplicingEvents.hg38, curatedAdipoChIP,
+        curatedAdipoRNA, ObMiTi, xcoredata, biocohort, bioIOT,
+        cudacellr, cudaverse, dependentsimr, fioRa, genefindr, ggchord,
+        ggmlR, gkmSVM, grandR, GRIN2, Immutables, inDAGO, krt, LorMe,
+        lstar, NACHO, nemoR, pmartR, polyRAD, pQTLdata, RCPA, Rgff,
+        scFlex, Seurat, SNPassoc, updog, valr
 linksToMe: Bioc.gff, Biostrings, cigarillo, CNEr, DECIPHER,
         GenomicAlignments, GenomicFeatures, h5mread, IRanges, kebabs,
         MatrixRider, posDemux, pwalign, Rsamtools, rtracklayer,
