@@ -9096,8 +9096,8 @@ suggestsMe: AUCell, autonomics, BiocGenerics, CellMapper, clustComp,
         yeastExpData, yeastRNASeq, amap, aroma.affymetrix, BaseSet,
         CimpleG, clValid, CrossValidate, distrDoc, GenAlgo, ggpicrust2,
         hexbin, HTSCluster, isatabr, MetabolSSMF, mi4p, Modeler,
-        MosaiClusteR, multiclassPairs, NACHO, omicsTools, ordinalbayes,
-        Patterns, rsconnect, Seurat, sigminer, SomaDataIO, tinyarray
+        MosaiClusteR, multiclassPairs, NACHO, ordinalbayes, Patterns,
+        rsconnect, Seurat, sigminer, SomaDataIO, tinyarray
 dependencyCount: 6
 
 Package: biobroom
@@ -18187,11 +18187,11 @@ git_last_commit: 75b255f
 git_last_commit_date: 2026-11-02
 Date/Publication: 2026-11-03
 source.ver: src/contrib/ChIPseeker_1.48.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/ChIPseeker_1.48.0.zip
+win.binary.ver: bin/windows/contrib/4.6/ChIPseeker_1.48.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/ChIPseeker_1.48.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/ChIPseeker_1.48.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/ChIPseeker_1.48.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/ChIPseeker_1.48.1.tgz
 vignettes: vignettes/ChIPseeker/inst/doc/ChIPseeker.html
 vignetteTitles: ChIPseeker: an R package for ChIP peak Annotation,,
         Comparison and Visualization
@@ -80280,12 +80280,12 @@ importsMe: ADAPT, benchdamic, combi, dar, DspikeIn, FinfoMDS, MBECS,
         SpiecEasi, SPsimSeq, zitools, HMP2Data, adaptiveGPCA, BRCore,
         breakaway, chem16S, eDNAfuns, FLORAL, holobiont,
         HybridMicrobiomes, microbial, mixKernel, multimedia, QsRutils,
-        Rsearch, speedytax, structSSI, TaxaNorm, treeDA
+        speedytax, structSSI, TaxaNorm, treeDA
 suggestsMe: ANCOMBC, CrcBiomeScreen, decontam, lefser, MeLSI, MGnifyR,
         mia, MicrobiotaProcess, MMUPHin, philr, HMP16SData, OMA,
         corncob, demulticoder, FAVA, fido, file2meco, hilldiv3, LorMe,
         metacoder, MIDASim, parafac4microbiome, pctax, phyloregion,
-        radEmu, readyomics, SQMtools, strollur
+        radEmu, readyomics, Rsearch, SQMtools, strollur
 dependencyCount: 66
 
 Package: piano
@@ -84081,7 +84081,6 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/pvca/inst/doc/pvca.R
 importsMe: proBatch, ExpressionNormalizationWorkflow
-suggestsMe: omicsTools
 dependencyCount: 49
 
 Package: Pviz
@@ -108108,13 +108107,13 @@ Rfiles: vignettes/strandCheckR/inst/doc/strandCheckR.R
 dependencyCount: 98
 
 Package: STRINGdb
-Version: 2.24.2
+Version: 2.24.3
 Depends: R (>= 2.14.0)
 Imports: png, sqldf, plyr, igraph, httr, methods, RColorBrewer, gplots,
         hash, plotrix
 Suggests: RUnit, BiocGenerics
 License: GPL-2
-MD5sum: 52a16cd1ada236eee53d2cc734e341ce
+MD5sum: fed28cbfa8b15d44f393b3d0ed0478c0
 NeedsCompilation: no
 Title: STRINGdb - Protein-Protein Interaction Networks and Functional
         Enrichment Analysis
@@ -108126,10 +108125,10 @@ Author: Andrea Franceschini <andrea.franceschini@isb-sib.ch>
 Maintainer: Damian Szklarczyk <damian.szklarczyk@imls.uzh.ch>
 git_url: https://git.bioconductor.org/packages/STRINGdb
 git_branch: RELEASE_3_23
-git_last_commit: 439ad6e
-git_last_commit_date: 2026-10-27
-Date/Publication: 2026-10-27
-source.ver: src/contrib/STRINGdb_2.24.2.tar.gz
+git_last_commit: a43eee5
+git_last_commit_date: 2026-11-04
+Date/Publication: 2026-11-04
+source.ver: src/contrib/STRINGdb_2.24.3.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.2.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.2.tgz
