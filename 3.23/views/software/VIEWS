@@ -108129,11 +108129,11 @@ git_last_commit: a43eee5
 git_last_commit_date: 2026-11-04
 Date/Publication: 2026-11-04
 source.ver: src/contrib/STRINGdb_2.24.3.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.2.zip
+win.binary.ver: bin/windows/contrib/4.6/STRINGdb_2.24.3.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.2.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/STRINGdb_2.24.3.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/STRINGdb_2.24.2.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/STRINGdb_2.24.3.tgz
 vignettes: vignettes/STRINGdb/inst/doc/STRINGdb.pdf
 vignetteTitles: STRINGdb Vignette
 hasREADME: FALSE
