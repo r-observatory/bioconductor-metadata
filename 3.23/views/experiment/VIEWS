@@ -804,7 +804,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/BioImageDbs/inst/doc/BioImageBbs_Datasets.R,
         vignettes/BioImageDbs/inst/doc/BioImageDbs.R
-dependencyCount: 101
+dependencyCount: 100
 
 Package: BioPlex
 Version: 1.18.0
@@ -2728,14 +2728,14 @@ Rfiles: vignettes/curatedCRCData/inst/doc/curatedCRCData_vignette.R
 dependencyCount: 7
 
 Package: curatedMetagenomicData
-Version: 3.20.0
+Version: 3.20.1
 Depends: R (>= 4.1.0), SummarizedExperiment, TreeSummarizedExperiment
 Imports: AnnotationHub, ExperimentHub, S4Vectors, dplyr, magrittr, mia,
         purrr, rlang, stringr, tibble, tidyr, tidyselect
 Suggests: BiocStyle, DT, knitr, readr, rmarkdown, scater, testthat,
         utils, uwot, vegan, OmicsMLRepoR, lefser
 License: Artistic-2.0
-MD5sum: db7043350ccdf0b83b5a7d8d3d858086
+MD5sum: 5573d754aaf6716247842834cc53a8d6
 NeedsCompilation: no
 Title: Curated Metagenomic Data of the Human Microbiome
 Description: The curatedMetagenomicData package provides standardized,
@@ -2763,10 +2763,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/waldronlab/curatedMetagenomicData/issues
 git_url: https://git.bioconductor.org/packages/curatedMetagenomicData
 git_branch: RELEASE_3_23
-git_last_commit: a97706c
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-05-05
-source.ver: src/contrib/curatedMetagenomicData_3.20.0.tar.gz
+git_last_commit: fd0d088
+git_last_commit_date: 2026-10-31
+Date/Publication: 2026-11-10
+source.ver: src/contrib/curatedMetagenomicData_3.20.1.tar.gz
 vignettes:
         vignettes/curatedMetagenomicData/inst/doc/curatedMetagenomicData.html
 vignetteTitles: curatedMetagenomicData
@@ -4058,7 +4058,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/EMTscoreData/inst/doc/EMTscoreData.R
-dependencyCount: 184
+dependencyCount: 132
 
 Package: eoPredData
 Version: 1.6.0
@@ -6827,13 +6827,13 @@ suggestsMe: CellMapper
 dependencyCount: 64
 
 Package: humanHippocampus2024
-Version: 1.4.0
+Version: 1.4.2
 Depends: R (>= 4.4)
 Imports: ExperimentHub, SummarizedExperiment,SpatialExperiment
 Suggests: testthat (>= 3.0.0), sessioninfo, rmarkdown, knitr,
         BiocStyle, ExperimentHubData, AnnotationHubData, RefManageR
-License: Artistic-2.0
-MD5sum: 7e2dc28ec2212d7341f339c458099b66
+License: file LICENSE
+MD5sum: 7cffb1a81974af9924a799e732017b0e
 NeedsCompilation: no
 Title: Access to SRT and snRNA-seq data from spatial_HPC project
 Description: This is an ExperimentHub Data package that helps to access
@@ -6847,7 +6847,8 @@ Description: This is an ExperimentHub Data package that helps to access
 biocViews: ExperimentHub, SequencingData, SpatialData, ExpressionData,
         Tissue, RNASeqData
 Author: Christine Hou [aut, cre] (ORCID:
-        <https://orcid.org/0009-0001-5350-0629>)
+        <https://orcid.org/0009-0001-5350-0629>), Stephanie C. Hicks
+        [aut, fnd] (ORCID: <https://orcid.org/0000-0002-7858-0231>)
 Maintainer: Christine Hou <chris2018hou@gmail.com>
 URL: https://github.com/LieberInstitute/spatial_hpc,
         https://christinehou11.github.io/humanHippocampus2024/
@@ -6855,10 +6856,10 @@ VignetteBuilder: knitr
 BugReports: https://support.bioconductor.org/t/humanHippocampus2024
 git_url: https://git.bioconductor.org/packages/humanHippocampus2024
 git_branch: RELEASE_3_23
-git_last_commit: 6535872
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-05-05
-source.ver: src/contrib/humanHippocampus2024_1.4.0.tar.gz
+git_last_commit: 5c43cac
+git_last_commit_date: 2026-11-04
+Date/Publication: 2026-11-10
+source.ver: src/contrib/humanHippocampus2024_1.4.2.tar.gz
 vignettes:
         vignettes/humanHippocampus2024/inst/doc/humanHippocampus2024.html
 vignetteTitles: humanHippocampus2024 Tutorial
@@ -11054,7 +11055,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: biscuiteer, QDNAseq
-dependencyCount: 49
+dependencyCount: 48
 
 Package: QDNAseq.mm10
 Version: 1.42.0
@@ -11081,7 +11082,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: biscuiteer, QDNAseq
-dependencyCount: 49
+dependencyCount: 48
 
 Package: qPLEXdata
 Version: 1.30.1
@@ -11292,7 +11293,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ReactomeGSA
-dependencyCount: 185
+dependencyCount: 132
 
 Package: RegParallel
 Version: 1.30.0
@@ -11778,7 +11779,7 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/RTCGA.clinical/inst/doc/downloading_clinical_datasets.R
 suggestsMe: RTCGA, TDbasedUFEadv
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.CNV
 Version: 1.40.0
@@ -11816,7 +11817,7 @@ hasLICENSE: FALSE
 Rfiles: vignettes/RTCGA.CNV/inst/doc/downloading_cnv_datasets.R,
         vignettes/RTCGA.CNV/inst/doc/frequency_of_cnv_for_mdm3.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.methylation
 Version: 1.40.0
@@ -11854,7 +11855,7 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/RTCGA.methylation/inst/doc/downloading_methylation_datasets.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.miRNASeq
 Version: 1.40.0
@@ -11891,7 +11892,7 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/RTCGA.miRNASeq/inst/doc/downloading_miRNASeq_datasets.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.mRNA
 Version: 1.40.0
@@ -11926,7 +11927,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RTCGA.mRNA/inst/doc/downloading_mRNA_datasets.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.mutations
 Version: 20151101.42.0
@@ -11965,7 +11966,7 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/RTCGA.mutations/inst/doc/downloading_mutations_datasets.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.PANCAN12
 Version: 1.40.0
@@ -11995,7 +11996,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RTCGA.PANCAN12/inst/doc/pancan12.R
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.rnaseq
 Version: 20151101.42.0
@@ -12033,7 +12034,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RTCGA.rnaseq/inst/doc/downloading_rnaseq_datasets.R
 suggestsMe: RTCGA, TDbasedUFEadv, FSelectorRcpp
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RTCGA.RPPA
 Version: 1.40.0
@@ -12068,7 +12069,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RTCGA.RPPA/inst/doc/downloading_RPPA_datasets.R
 suggestsMe: RTCGA
-dependencyCount: 133
+dependencyCount: 132
 
 Package: RUVnormalizeData
 Version: 1.32.0
