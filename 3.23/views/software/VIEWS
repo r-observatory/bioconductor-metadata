@@ -6086,7 +6086,8 @@ hasLICENSE: FALSE
 Rfiles: vignettes/AUCell/inst/doc/AUCell.R
 dependsOnMe: OSCA.basic
 importsMe: scFeatures, OSTA
-suggestsMe: decoupleR, escape, GSABenchmark, pathMED, scDiagnostics
+suggestsMe: decoupleR, escape, GSABenchmark, pathMED, scDiagnostics,
+        SeuratExplorer
 dependencyCount: 115
 
 Package: autonomics
@@ -11361,14 +11362,14 @@ Rfiles: vignettes/BioGA/inst/doc/Introduction.R
 dependencyCount: 80
 
 Package: biomaRt
-Version: 2.68.0
+Version: 2.68.6
 Depends: methods, R (>= 4.5.0)
 Imports: AnnotationDbi, BiocFileCache, curl, httr2, progress, stringr,
         utils, xml2
 Suggests: BiocStyle, httptest2, knitr, mockery, rmarkdown, testthat (>=
         3.0.0), withr
 License: Artistic-2.0
-MD5sum: 0f6a3394158133b0349f56617b48c6db
+MD5sum: dbab43a455daa120fb015bb2b5d41500
 NeedsCompilation: no
 Title: Interface to BioMart databases (i.e. Ensembl)
 Description: In recent years a wealth of biological data has become
@@ -11398,15 +11399,15 @@ VignetteBuilder: knitr
 BugReports: https://github.com/Huber-group-EMBL/biomaRt/issues
 git_url: https://git.bioconductor.org/packages/biomaRt
 git_branch: RELEASE_3_23
-git_last_commit: ff93209
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/biomaRt_2.68.0.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/biomaRt_2.68.0.zip
+git_last_commit: 0253b04
+git_last_commit_date: 2026-11-06
+Date/Publication: 2026-11-10
+source.ver: src/contrib/biomaRt_2.68.6.tar.gz
+win.binary.ver: bin/windows/contrib/4.6/biomaRt_2.68.6.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/biomaRt_2.68.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/biomaRt_2.68.6.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/biomaRt_2.68.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/biomaRt_2.68.6.tgz
 vignettes: vignettes/biomaRt/inst/doc/accessing_ensembl.html,
         vignettes/biomaRt/inst/doc/accessing_other_marts.html
 vignetteTitles: Accessing Ensembl annotation with biomaRt, Using a
@@ -12025,10 +12026,10 @@ importsMe: AllelicImbalance, AnnotationHubData, appreci8R, AssessORF,
         ASmiR, BASiNET, BASiNETEntropy, BIGr, biomartr, copyseparator,
         crispRdesignR, CSESA, cubar, DiPALM, DNAmotif, eDNAfuns,
         ensembleTax, EpiSemble, GB5mcPred, genBaRcode, GencoDymo2,
-        GenomicSig, iimi, kmeRtone, longreadvqs, metaCluster,
-        MiscMetabar, MitoHEAR, OpEnCAMeO, OpEnCAST, OpEnHiMR, PACVr,
-        piglet, QsRutils, refseqR, revert, SATS, seqmagick, SQMtools,
-        SVAlignR, tidyGenR, TmCalculator, vhcub, VIProDesign
+        GenomicSig, kmeRtone, longreadvqs, metaCluster, MiscMetabar,
+        MitoHEAR, OpEnCAMeO, OpEnCAST, OpEnHiMR, PACVr, piglet,
+        QsRutils, refseqR, revert, SATS, seqmagick, SQMtools, SVAlignR,
+        tidyGenR, TmCalculator, vhcub, VIProDesign
 suggestsMe: alabaster.files, annotate, AnnotationForge, AnnotationHub,
         autonomics, bambu, BANDITS, CSAR, DNAcycP2, eisaR,
         GenomicFiles, GenomicRanges, GenomicTuples, ggseqalign, ggtree,
@@ -42796,7 +42797,7 @@ importsMe: APAlyzer, ASpli, ATACseqQC, ATACseqTFEA, atena, BaalChIP,
         scPipe, scruff, seqsetvis, SGSeq, spiky, SPLINTER, srnadiff,
         strandCheckR, TAPseq, TCseq, trackViewer, transcriptR,
         UMI4Cats, VaSP, VplotR, ZygosityPredictor, leeBamViews,
-        alakazam, iimi, PACVr, VALERIE
+        alakazam, PACVr, VALERIE
 suggestsMe: amplican, BindingSiteFinder, BiocParallel, cigarillo, csaw,
         DEXSeq, EpiCompare, ExperimentHub, extraChIPs, gage,
         GenomeInfoDb, GenomicDataCommons, GenomicFeatures,
@@ -45395,7 +45396,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/gINTomics/inst/doc/gINTomics.R
-dependencyCount: 248
+dependencyCount: 246
 
 Package: GLAD
 Version: 2.76.0
@@ -54898,10 +54899,10 @@ importsMe: alabaster.bumpy, alabaster.ranges, alabaster.se, ALDEx2,
         sesameData, SomaticCancerAlterations, spatialLIBD, seqpac,
         AbSolution, ActiveDriverWGS, alakazam, cpp11bigwig,
         crispRdesignR, cubar, DESNP, GencoDymo2, geno2proteo, GenoPop,
-        hahmmr, iimi, karyotapR, lisat, locuszoomr, longreadvqs,
-        LoopRig, MitoHEAR, mSigSpectra, noisyr, numbat, oncoPredict,
-        PACVr, RapidoPGS, refseqR, revert, rnaCrosslinkOO, SATS,
-        Signac, TmCalculator, VALERIE
+        hahmmr, karyotapR, lisat, locuszoomr, longreadvqs, LoopRig,
+        MitoHEAR, mSigSpectra, noisyr, numbat, oncoPredict, PACVr,
+        RapidoPGS, refseqR, revert, rnaCrosslinkOO, SATS, Signac,
+        TmCalculator, VALERIE
 suggestsMe: annotate, AnnotationHub, BaseSpaceR, BiocGenerics,
         BREW3R.r, CCAFE, Chicago, Chromatograms, ClassifyR, DFplyr,
         easylift, epivizrChart, gDRcore, gDRutils, Glimma, GWASTools,
@@ -63590,7 +63591,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/MetaProViz/inst/doc/quick-start.R
-dependencyCount: 233
+dependencyCount: 231
 
 Package: metaSeq
 Version: 1.52.0
@@ -75941,7 +75942,7 @@ Rfiles: vignettes/OmnipathR/inst/doc/bioc_workshop.R,
         vignettes/OmnipathR/inst/doc/paths.R
 importsMe: gINTomics, MetaProViz, wppi
 suggestsMe: decoupleR, dorothea
-dependencyCount: 89
+dependencyCount: 86
 
 Package: ompBAM
 Version: 1.16.0
@@ -84606,11 +84607,11 @@ git_last_commit: 3fb75a3
 git_last_commit_date: 2026-11-05
 Date/Publication: 2026-11-08
 source.ver: src/contrib/QRscore_1.4.1.tar.gz
-win.binary.ver: bin/windows/contrib/4.6/QRscore_1.4.0.zip
+win.binary.ver: bin/windows/contrib/4.6/QRscore_1.4.1.zip
 mac.binary.big-sur-x86_64.ver:
-        bin/macosx/big-sur-x86_64/contrib/4.6/QRscore_1.4.0.tgz
+        bin/macosx/big-sur-x86_64/contrib/4.6/QRscore_1.4.1.tgz
 mac.binary.sonoma-arm64.ver:
-        bin/macosx/sonoma-arm64/contrib/4.6/QRscore_1.4.0.tgz
+        bin/macosx/sonoma-arm64/contrib/4.6/QRscore_1.4.1.tgz
 vignettes: vignettes/QRscore/inst/doc/QRscore.html
 vignetteTitles: QRscore
 hasREADME: FALSE
@@ -92724,7 +92725,7 @@ importsMe: alabaster.files, alabaster.vcf, AllelicImbalance, annmap,
         UMI4Cats, uncoverappLib, VariantFiltering, VariantTools, VaSP,
         VCFArray, VplotR, ZygosityPredictor, chipseqDBData,
         gDNAinRNAseqData, LungCancerLines, MetaScope, raerdata, BIGr,
-        GenoPop, iimi, ImprintCapASM, NGSToolKit, NIPTeR, noisyr,
+        GenoPop, ImprintCapASM, NGSToolKit, NIPTeR, noisyr,
         PlasmaMutationDetector, revert, scPloidy, Signac, umiAnalyzer,
         VALERIE
 suggestsMe: AnnotationHub, bamsignals, BaseSpaceR, BiocGenerics,
@@ -115928,7 +115929,7 @@ Rfiles: vignettes/updateObject/inst/doc/updateObject.R
 dependencyCount: 9
 
 Package: UPDhmm
-Version: 1.8.0
+Version: 1.8.1
 Depends: R (>= 4.1.0)
 Imports: HMM, utils, VariantAnnotation, GenomicRanges, S4Vectors,
         IRanges, SummarizedExperiment, stats, BiocParallel,
@@ -115936,7 +115937,7 @@ Imports: HMM, utils, VariantAnnotation, GenomicRanges, S4Vectors,
 Suggests: knitr, testthat (>= 2.1.0), BiocStyle, rmarkdown, markdown,
         karyoploteR, regioneR, dplyr, BiocManager
 License: MIT + file LICENSE
-MD5sum: ac0b721e63876841bfc5ec9b2a386cdc
+MD5sum: 8d86664f7076cdb7147f8e8c4829ded3
 NeedsCompilation: no
 Title: Detecting Uniparental Disomy through NGS trio data
 Description: Uniparental disomy (UPD) is a genetic condition where an
@@ -115946,7 +115947,8 @@ Description: Uniparental disomy (UPD) is a genetic condition where an
         Throughput Sequencing) data from trio assays. By analyzing the
         genotypes in the trio, the model infers a hidden state (normal,
         father isodisomy, mother isodisomy, father heterodisomy and
-        mother heterodisomy).
+        mother heterodisomy). For details see Sevilla-Porras et al.
+        (2026) <doi:10.1093/bioinformatics/btag062>.
 biocViews: Software, HiddenMarkovModel, Genetics
 Author: Marta Sevilla [aut, cre] (ORCID:
         <https://orcid.org/0009-0005-0179-920X>), Carlos Ruiz-Arenas
@@ -115957,10 +115959,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/martasevilla/UPDhmm/issues
 git_url: https://git.bioconductor.org/packages/UPDhmm
 git_branch: RELEASE_3_23
-git_last_commit: e972f8d
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-04-28
-source.ver: src/contrib/UPDhmm_1.8.0.tar.gz
+git_last_commit: bffe084
+git_last_commit_date: 2026-11-09
+Date/Publication: 2026-11-10
+source.ver: src/contrib/UPDhmm_1.8.1.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/UPDhmm_1.8.0.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/UPDhmm_1.8.0.tgz
@@ -118142,7 +118144,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/wppi/inst/doc/wppi_workflow.R
-dependencyCount: 92
+dependencyCount: 89
 
 Package: Wrench
 Version: 1.30.0
