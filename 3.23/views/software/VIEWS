@@ -8237,14 +8237,14 @@ Rfiles: vignettes/BEclear/inst/doc/BEclear.R
 dependencyCount: 31
 
 Package: bedbaser
-Version: 1.4.2
+Version: 1.4.4
 Depends: R (>= 4.5.0)
 Imports: AnVIL (>= 1.16.0), BiocFileCache, curl, dplyr, GenomeInfoDb,
         GenomicRanges, httr, methods, purrr, rtracklayer, rlang,
         R.utils, stats, stringr, tibble, tidyr, tools, utils
 Suggests: BiocStyle, knitr, liftOver, testthat (>= 3.0.0), withr
 License: Artistic License 2.0
-MD5sum: f7a0bfc21d419d5bf18c9d25e2fa1ab6
+MD5sum: 8545242b994e9b5324283055f0ab71f0
 NeedsCompilation: no
 Title: A BEDbase client
 Description: A client for BEDbase. bedbaser provides access to the API
@@ -8262,10 +8262,10 @@ VignetteBuilder: knitr
 BugReports: https://github.com/waldronlab/bedbaser/issues
 git_url: https://git.bioconductor.org/packages/bedbaser
 git_branch: RELEASE_3_23
-git_last_commit: 2c17a44
-git_last_commit_date: 2026-10-13
-Date/Publication: 2026-10-14
-source.ver: src/contrib/bedbaser_1.4.2.tar.gz
+git_last_commit: 0a03492
+git_last_commit_date: 2026-11-07
+Date/Publication: 2026-11-11
+source.ver: src/contrib/bedbaser_1.4.4.tar.gz
 win.binary.ver: bin/windows/contrib/4.6/bedbaser_1.4.2.zip
 mac.binary.big-sur-x86_64.ver:
         bin/macosx/big-sur-x86_64/contrib/4.6/bedbaser_1.4.2.tgz
