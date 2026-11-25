@@ -1,0 +1,2205 @@
+a4Classif#source#propagate: YES
+a4Core#source#propagate: YES
+a4Preproc#source#propagate: YES
+a4Reporting#source#propagate: YES
+ABarray#source#propagate: YES
+ABSSeq#source#propagate: YES
+acde#source#propagate: YES
+ACE#source#propagate: NO, package depends on 'QDNAseq' which is not available
+aCGH#source#propagate: YES
+ACME#source#propagate: YES
+ADAM#source#propagate: NO, package depends on 'KEGGREST' which is not available
+ADAMgui#source#propagate: NO, package depends on 'ADAM' which is not available
+ADAPT#source#propagate: NO, package depends on 'phyloseq' which is not available
+ADImpute#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+adSplit#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+adverSCarial#source#propagate: YES
+Aerith#source#propagate: YES
+AffiXcan#source#propagate: YES
+affxparser#source#propagate: YES
+affy#source#propagate: YES
+affycomp#source#propagate: YES
+affyContam#source#propagate: YES
+affycoretools#source#propagate: NO, package depends on 'GOstats' which is not available
+affyio#source#propagate: YES
+affylmGUI#source#propagate: NO, package depends on 'affyPLM' which is not available
+affyPLM#source#propagate: NO, package depends on 'gcrma' which is not available
+AffyRNADegradation#source#propagate: YES
+AGDEX#source#propagate: NO, package depends on 'GSEABase' which is not available
+aggregateBioVar#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+agilp#source#propagate: YES
+AgiMicroRna#source#propagate: NO, package depends on 'affycoretools' which is not available
+AIMS#source#propagate: YES
+airpart#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+alabaster#source#propagate: NO, package depends on 'alabaster.sce' which is not available
+alabaster.base#source#propagate: YES
+alabaster.bumpy#source#propagate: YES
+alabaster.files#source#propagate: NO, package depends on 'Rsamtools' which is not available
+alabaster.mae#source#propagate: YES
+alabaster.matrix#source#propagate: YES
+alabaster.ranges#source#propagate: YES
+alabaster.sce#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+alabaster.schemas#source#propagate: YES
+alabaster.se#source#propagate: YES
+alabaster.spatial#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+alabaster.string#source#propagate: NO, package depends on 'Biostrings' which is not available
+alabaster.treese#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+alabaster.vcf#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+ALDEx2#source#propagate: YES
+alevinQC#source#propagate: YES
+AlphaBeta#source#propagate: YES
+altcdfenvs#source#propagate: NO, package depends on 'Biostrings' which is not available
+AMOUNTAIN#source#propagate: YES
+Anaquin#source#propagate: YES
+ANCOMBC#source#propagate: YES
+ANF#source#propagate: YES
+anglemania#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+animalcules#source#propagate: YES
+annaffy#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+anndataR#source#propagate: YES
+annmap#source#propagate: NO, package depends on 'Rsamtools' which is not available
+annoLinker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+AnnotationFilter#source#propagate: YES
+AnnotationForge#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+AnnotationGx#source#propagate: YES
+annotationTools#source#propagate: YES
+annotatr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+anota#source#propagate: YES
+anota2seq#source#propagate: YES
+antiProfiles#source#propagate: YES
+AnVILAz#source#propagate: YES
+AnVILBase#source#propagate: YES
+AnVILBilling#source#propagate: YES
+AnVILGCP#source#propagate: YES
+AnVILPublish#source#propagate: YES
+AnVILVRS#source#propagate: YES
+AnVILWorkflow#source#propagate: YES
+apbCatalogR#source#propagate: YES
+apComplex#source#propagate: YES
+apeglm#source#propagate: YES
+APL#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+aroma.light#source#propagate: YES
+arrayMvout#source#propagate: NO, package depends on 'lumi' which is not available
+arrayQuality#source#propagate: YES
+arrayQualityMetrics#source#propagate: NO, package depends on 'affyPLM' which is not available
+ARRmNormalization#source#propagate: YES
+artMS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ASAFE#source#propagate: YES
+ASEB#source#propagate: YES
+ASGSCA#source#propagate: YES
+ASICS#source#propagate: YES
+ASpli#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+AssessORF#source#propagate: NO, package depends on 'DECIPHER' which is not available
+ASSET#source#propagate: YES
+ASSIGN#source#propagate: NO, package depends on 'sva' which is not available
+assorthead#source#propagate: YES
+ASURAT#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+asuri#source#propagate: YES
+atacInferCnv#source#propagate: NO, package depends on 'infercnv' which is not available
+ATACseqQC#source#propagate: NO, package depends on 'BSgenome' which is not available
+ATACseqTFEA#source#propagate: NO, package depends on 'cigarillo' which is not available
+atena#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+atSNP#source#propagate: NO, package depends on 'BSgenome' which is not available
+attract#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+AUCell#source#propagate: NO, package depends on 'GSEABase' which is not available
+augere.core#source#propagate: YES
+augere.de#source#propagate: YES
+augere.gsea#source#propagate: YES
+augere.screen#source#propagate: YES
+augere.solo#source#propagate: NO, package depends on 'scater' which is not available
+AWAggregator#source#propagate: YES
+AWFisher#source#propagate: YES
+awst#source#propagate: YES
+BaalChIP#source#propagate: NO, package depends on 'Rsamtools' which is not available
+bacon#source#propagate: YES
+BADER#source#propagate: YES
+ballgown#source#propagate: NO, package depends on 'sva' which is not available
+bambu#source#propagate: NO, package depends on 'BSgenome' which is not available
+BamScale#source#propagate: NO, package depends on 'Biostrings' which is not available
+bamsignals#source#propagate: YES
+BANDITS#source#propagate: YES
+bandle#source#propagate: NO, package depends on 'MSnbase' which is not available
+Banksy#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+barbieQ#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+barmixR#source#propagate: YES
+BaseSpaceR#source#propagate: YES
+Basic4Cseq#source#propagate: NO, package depends on 'Biostrings' which is not available
+BASiCS#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+BASiCStan#source#propagate: NO, package depends on 'BASiCS' which is not available
+BasicSTARRseq#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+basilisk#source#propagate: YES
+basilisk.utils#source#propagate: YES
+batchCorr#source#propagate: YES
+batchelor#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+BatchQC#source#propagate: NO, package depends on 'scran' which is not available
+BatchSVG#source#propagate: NO, package depends on 'scry' which is not available
+BatchVaria#source#propagate: NO, package depends on 'sva' which is not available
+Battlefield#source#propagate: YES
+BayesKnockdown#source#propagate: YES
+BayesSpace#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+bayNorm#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+baySeq#source#propagate: YES
+BBCAnalyzer#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+BCRANK#source#propagate: NO, package depends on 'Biostrings' which is not available
+beachmat#source#propagate: YES
+beachmat.hdf5#source#propagate: YES
+beachmat.tiledb#source#propagate: YES
+beadarray#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BeadDataPackR#source#propagate: YES
+BEAT#source#propagate: NO, package depends on 'ShortRead' which is not available
+BEclear#source#propagate: YES
+bedbaser#source#propagate: NO, package depends on 'rtracklayer' which is not available
+benchdamic#source#propagate: NO, package depends on 'phyloseq' which is not available
+BenchHub#source#propagate: YES
+BERT#source#propagate: NO, package depends on 'sva' which is not available
+betaHMM#source#propagate: YES
+betterChromVAR#source#propagate: NO, package depends on 'Biostrings' which is not available
+bettr#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+BG2#source#propagate: YES
+BgeeCall#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BgeeDB#source#propagate: NO, package depends on 'topGO' which is not available
+bHIVE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+BicARE#source#propagate: NO, package depends on 'GSEABase' which is not available
+BiFET#source#propagate: YES
+bigmelon#source#propagate: NO, package depends on 'wateRmelon' which is not available
+Biobase#source#propagate: YES
+bioCancer#source#propagate: NO, package depends on 'cBioPortalData' which is not available
+BioCartaImage#source#propagate: YES
+BiocAzul#source#propagate: YES
+BiocBaseUtils#source#propagate: YES
+BiocBook#source#propagate: YES
+BiocCheck#source#propagate: YES
+BiocDuckDB#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+BiocFHIR#source#propagate: YES
+BiocFileCache#source#propagate: YES
+BiocGenerics#source#propagate: YES
+biocGraph#source#propagate: NO, package depends on 'geneplotter' which is not available
+BiocHubsShiny#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+BiocIO#source#propagate: YES
+biocmake#source#propagate: YES
+BiocNeighbors#source#propagate: YES
+BioCor#source#propagate: NO, package depends on 'GSEABase' which is not available
+BiocParallel#source#propagate: YES
+BiocPkgDash#source#propagate: YES
+BiocPkgTools#source#propagate: YES
+biocroxytest#source#propagate: YES
+BiocSingular#source#propagate: YES
+BiocSklearn#source#propagate: YES
+BiocStyle#source#propagate: YES
+biocthis#source#propagate: YES
+BiocVersion#source#propagate: YES
+biocViews#source#propagate: YES
+BiocWorkflowTools#source#propagate: YES
+biodb#source#propagate: YES
+bioDist#source#propagate: YES
+BioGA#source#propagate: YES
+biomformat#source#propagate: YES
+BioMVCClass#source#propagate: YES
+biomvRCNS#source#propagate: NO, package depends on 'Gviz' which is not available
+BioNAR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BioNERO#source#propagate: NO, package depends on 'sva' which is not available
+BioNet#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BioQC#source#propagate: YES
+biosigner#source#propagate: YES
+BioTIP#source#propagate: NO, package depends on 'scran' which is not available
+biotmle#source#propagate: YES
+biovizBase#source#propagate: NO, package depends on 'Biostrings' which is not available
+biscuiteer#source#propagate: NO, package depends on 'bsseq' which is not available
+BiSeq#source#propagate: NO, package depends on 'rtracklayer' which is not available
+blacksheepr#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+blase#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+blima#source#propagate: NO, package depends on 'beadarray' which is not available
+BLMA#source#propagate: NO, package depends on 'ROntoTools' which is not available
+BloodGen3Module#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+bluster#source#propagate: YES
+bnbc#source#propagate: NO, package depends on 'sva' which is not available
+bnem#source#propagate: NO, package depends on 'sva' which is not available
+BOBaFIT#source#propagate: NO, package depends on 'ggbio' which is not available
+borealis#source#propagate: NO, package depends on 'bsseq' which is not available
+BRAIN#source#propagate: NO, package depends on 'Biostrings' which is not available
+branchpointer#source#propagate: NO, package depends on 'biomaRt' which is not available
+breakpointR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+BreastSubtypeR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+BreedingExperiment#source#propagate: YES
+brendaDb#source#propagate: YES
+BREW3R.r#source#propagate: YES
+BridgeDbR#source#propagate: YES
+broadSeq#source#propagate: NO, package depends on 'genefilter' which is not available
+BrowserViz#source#propagate: YES
+BSgenome#source#propagate: NO, package depends on 'Biostrings' which is not available
+BSgenomeForge#source#propagate: NO, package depends on 'Biostrings' which is not available
+bsseq#source#propagate: NO, package depends on 'BSgenome' which is not available
+BufferedMatrix#source#propagate: YES
+BufferedMatrixMethods#source#propagate: YES
+bugsigdbr#source#propagate: YES
+BulkSignalR#source#propagate: NO, package depends on 'orthogene' which is not available
+BUMHMM#source#propagate: NO, package depends on 'Biostrings' which is not available
+bumphunter#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+BumpyMatrix#source#propagate: YES
+BUS#source#propagate: YES
+BUScorrect#source#propagate: YES
+BUSseq#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CaDrA#source#propagate: YES
+CAEN#source#propagate: YES
+CAFE#source#propagate: NO, package depends on 'biovizBase' which is not available
+CAGEfightR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+cageminer#source#propagate: NO, package depends on 'ggbio' which is not available
+CAGEr#source#propagate: NO, package depends on 'Biostrings' which is not available
+CalibraCurve#source#propagate: YES
+calm#source#propagate: YES
+CAMERA#source#propagate: NO, package depends on 'xcms' which is not available
+CaMutQC#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+canceR#source#propagate: NO, package depends on 'cBioPortalData' which is not available
+cancerclass#source#propagate: YES
+CanvasXpressBio#source#propagate: YES
+cardelino#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+Cardinal#source#propagate: YES
+CardinalIO#source#propagate: YES
+CARDspa#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+carnation#source#propagate: NO, package depends on 'enrichplot' which is not available
+CARNIVAL#source#propagate: YES
+casper#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+Category#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+categoryCompare#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+CatsCradle#source#propagate: NO, package depends on 'EBImage' which is not available
+causalASCEND#source#propagate: YES
+CausalR#source#propagate: YES
+cbaf#source#propagate: NO, package depends on 'cBioPortalData' which is not available
+cBioPortalData#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+CBNplot#source#propagate: NO, package depends on 'graphite' which is not available
+cbpManager#source#propagate: YES
+CCAFE#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+ccfindR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ccImpute#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CCPlotR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+CCPROMISE#source#propagate: NO, package depends on 'PROMISE' which is not available
+CDI#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+celaref#source#propagate: NO, package depends on 'MAST' which is not available
+celda#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CellBarcode#source#propagate: NO, package depends on 'ShortRead' which is not available
+cellbaseR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+CellBench#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+cellchatr#source#propagate: YES
+cellity#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+CellMapper#source#propagate: YES
+CellMentor#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+cellmig#source#propagate: YES
+cellmigRation#source#propagate: YES
+CellMixS#source#propagate: NO, package depends on 'scater' which is not available
+cellNexus#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CellNOptR#source#propagate: YES
+cellscape#source#propagate: YES
+CellTrails#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+cellxgenedp#source#propagate: YES
+CEMiTool#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+censcyt#source#propagate: NO, package depends on 'diffcyt' which is not available
+ceRNAnetsim#source#propagate: YES
+CeTF#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+CexoR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+CFAssay#source#propagate: YES
+cfdnakit#source#propagate: NO, package depends on 'QDNAseq' which is not available
+cfDNAPro#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+cfTools#source#propagate: YES
+CGEN#source#propagate: YES
+CGHbase#source#propagate: YES
+CGHcall#source#propagate: YES
+cghMCR#source#propagate: NO, package depends on 'CNTools' which is not available
+CGHnormaliter#source#propagate: YES
+CGHregions#source#propagate: YES
+CGRphylo2#source#propagate: NO, package depends on 'Biostrings' which is not available
+ChAMP#source#propagate: NO, package depends on 'minfi' which is not available
+CHETAH#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+chevreulPlot#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+chevreulProcess#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+chevreulShiny#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+Chicago#source#propagate: YES
+chihaya#source#propagate: YES
+ChIPanalyser#source#propagate: NO, package depends on 'Biostrings' which is not available
+chipenrich#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ChIPexoQual#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+ChIPpeakAnno#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ChIPQC#source#propagate: NO, package depends on 'DiffBind' which is not available
+ChIPseeker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+chipseq#source#propagate: NO, package depends on 'ShortRead' which is not available
+ChIPseqR#source#propagate: NO, package depends on 'Biostrings' which is not available
+ChIPsim#source#propagate: NO, package depends on 'Biostrings' which is not available
+chopsticks#source#propagate: YES
+Chromatograms#source#propagate: YES
+chromDraw#source#propagate: YES
+ChromHeatMap#source#propagate: NO, package depends on 'annotate' which is not available
+chromPlot#source#propagate: NO, package depends on 'biomaRt' which is not available
+ChromSCape#source#propagate: NO, package depends on 'rtracklayer' which is not available
+chromVAR#source#propagate: NO, package depends on 'Biostrings' which is not available
+CHRONOS#source#propagate: NO, package depends on 'biomaRt' which is not available
+cicero#source#propagate: NO, package depends on 'Gviz' which is not available
+cigarillo#source#propagate: NO, package depends on 'Biostrings' which is not available
+CIMICE#source#propagate: YES
+circRNAprofiler#source#propagate: NO, package depends on 'rtracklayer' which is not available
+CircSeqAlignTk#source#propagate: NO, package depends on 'Biostrings' which is not available
+CiteFuse#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CLAMP#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+ClassifyR#source#propagate: NO, package depends on 'genefilter' which is not available
+cleanUpdTSeq#source#propagate: NO, package depends on 'BSgenome' which is not available
+CleanUpRNAseq#source#propagate: NO, package depends on 'Biostrings' which is not available
+cleaver#source#propagate: NO, package depends on 'Biostrings' which is not available
+clevRvis#source#propagate: YES
+clippda#source#propagate: YES
+cliProfiler#source#propagate: NO, package depends on 'rtracklayer' which is not available
+Clomial#source#propagate: YES
+ClonalSim#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+clst#source#propagate: YES
+clstutils#source#propagate: YES
+CluMSID#source#propagate: NO, package depends on 'MSnbase' which is not available
+ClustAll#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+clustComp#source#propagate: YES
+ClusterFoldSimilarity#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ClusterGVis#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ClusterJudge#source#propagate: YES
+clusterProfiler#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+clusterSeq#source#propagate: YES
+ClusterSignificance#source#propagate: YES
+clusterStab#source#propagate: YES
+clustifyr#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ClustIRR#source#propagate: NO, package depends on 'msa' which is not available
+clustSIGNAL#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+CMA#source#propagate: YES
+cn.farms#source#propagate: NO, package depends on 'oligoClasses' which is not available
+cn.mops#source#propagate: NO, package depends on 'Rsamtools' which is not available
+CNAnorm#source#propagate: YES
+CNEr#source#propagate: NO, package depends on 'Biostrings' which is not available
+CNORdt#source#propagate: YES
+CNORfeeder#source#propagate: YES
+CNORfuzzy#source#propagate: YES
+CNORode#source#propagate: YES
+CNTools#source#propagate: NO, package depends on 'genefilter' which is not available
+CNVfilteR#source#propagate: NO, package depends on 'regioneR' which is not available
+cnvGSA#source#propagate: YES
+CNViz#source#propagate: YES
+CNVMetrics#source#propagate: YES
+CNVPanelizer#source#propagate: NO, package depends on 'Rsamtools' which is not available
+CNVRanger#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+CNVrd2#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+CoCiteStats#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+COCOA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+codelink#source#propagate: NO, package depends on 'annotate' which is not available
+CODEX#source#propagate: NO, package depends on 'Rsamtools' which is not available
+CoGAPS#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+cogena#source#propagate: YES
+cogeqc#source#propagate: NO, package depends on 'Biostrings' which is not available
+Cogito#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+coGPS#source#propagate: YES
+comapr#source#propagate: NO, package depends on 'Gviz' which is not available
+combi#source#propagate: NO, package depends on 'phyloseq' which is not available
+coMethDMR#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+compcodeR#source#propagate: YES
+CompensAID#source#propagate: NO, package depends on 'flowCore' which is not available
+compEpiTools#source#propagate: NO, package depends on 'topGO' which is not available
+ComPrAn#source#propagate: YES
+compSPOT#source#propagate: YES
+CONCERTDR#source#propagate: YES
+concordexR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+condiments#source#propagate: NO, package depends on 'slingshot' which is not available
+CONFESS#source#propagate: NO, package depends on 'EBImage' which is not available
+consensus#source#propagate: YES
+ConsensusClusterPlus#source#propagate: YES
+consensusOV#source#propagate: NO, package depends on 'GSVA' which is not available
+consensusRegions#source#propagate: NO, package depends on 'Rsamtools' which is not available
+consensusSeekeR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+consICA#source#propagate: NO, package depends on 'topGO' which is not available
+conumee#source#propagate: NO, package depends on 'minfi' which is not available
+convert#source#propagate: YES
+copa#source#propagate: YES
+CopyNumberPlots#source#propagate: NO, package depends on 'karyoploteR' which is not available
+coRdon#source#propagate: NO, package depends on 'Biostrings' which is not available
+Cormotif#source#propagate: YES
+CorNetto#source#propagate: YES
+corral#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+coseq#source#propagate: YES
+CoSIA#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+cosmiq#source#propagate: NO, package depends on 'xcms' which is not available
+cosmosR#source#propagate: NO, package depends on 'GSEABase' which is not available
+COSNet#source#propagate: YES
+countsimQC#source#propagate: NO, package depends on 'genefilter' which is not available
+covEB#source#propagate: YES
+CoverageView#source#propagate: NO, package depends on 'Rsamtools' which is not available
+covRNA#source#propagate: NO, package depends on 'genefilter' which is not available
+CPSM#source#propagate: YES
+cpvSNP#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+cqn#source#propagate: YES
+CrcBiomeScreen#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+CRImage#source#propagate: NO, package depends on 'EBImage' which is not available
+CRISPRball#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+crisprBase#source#propagate: NO, package depends on 'Biostrings' which is not available
+crisprBowtie#source#propagate: NO, package depends on 'Biostrings' which is not available
+crisprBwa#source#propagate: NO, package depends on 'BSgenome' which is not available
+crisprDesign#source#propagate: NO, package depends on 'crisprBase' which is not available
+crisprScore#source#propagate: NO, package depends on 'Biostrings' which is not available
+CRISPRseek#source#propagate: NO, package depends on 'Biostrings' which is not available
+crisprShiny#source#propagate: NO, package depends on 'Biostrings' which is not available
+crisprViz#source#propagate: NO, package depends on 'crisprBase' which is not available
+crossarrayEWAS#source#propagate: YES
+crumblr#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+crupR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+csaw#source#propagate: NO, package depends on 'Rsamtools' which is not available
+csdR#source#propagate: YES
+CSOA#source#propagate: YES
+CSSQ#source#propagate: NO, package depends on 'rtracklayer' which is not available
+ctc#source#propagate: YES
+CTdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+CTDquerier#source#propagate: YES
+ctdR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+CTexploreR#source#propagate: NO, package depends on 'CTdata' which is not available
+ctsGE#source#propagate: YES
+CTSV#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+cyanoFilter#source#propagate: NO, package depends on 'flowCore' which is not available
+cycle#source#propagate: YES
+cydar#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+cypress#source#propagate: NO, package depends on 'TOAST' which is not available
+CySA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+CytoDx#source#propagate: NO, package depends on 'flowCore' which is not available
+CyTOFpower#source#propagate: NO, package depends on 'diffcyt' which is not available
+cytofQC#source#propagate: NO, package depends on 'CATALYST' which is not available
+CytoGLMM#source#propagate: YES
+cytoKernel#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+cytolib#source#propagate: YES
+cytomapper#source#propagate: NO, package depends on 'EBImage' which is not available
+CytoMDS#source#propagate: NO, package depends on 'flowCore' which is not available
+CytoPipeline#source#propagate: NO, package depends on 'ggcyto' which is not available
+CytoPipelineGUI#source#propagate: NO, package depends on 'CytoPipeline' which is not available
+cytoviewer#source#propagate: NO, package depends on 'EBImage' which is not available
+dada2#source#propagate: NO, package depends on 'Biostrings' which is not available
+dagLogo#source#propagate: NO, package depends on 'Biostrings' which is not available
+daMA#source#propagate: YES
+DAMEfinder#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+damidBind#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+DaMiRseq#source#propagate: NO, package depends on 'EDASeq' which is not available
+dandelionR#source#propagate: NO, package depends on 'destiny' which is not available
+DAPAR#source#propagate: NO, package depends on 'MSnbase' which is not available
+DaparToolshed#source#propagate: NO, package depends on 'QFeatures' which is not available
+dar#source#propagate: NO, package depends on 'mia' which is not available
+DART#source#propagate: YES
+DAssemble#source#propagate: YES
+daVis#source#propagate: YES
+dbSequence#source#propagate: NO, package depends on 'rtracklayer' which is not available
+dcanr#source#propagate: YES
+DCATS#source#propagate: YES
+dcGSA#source#propagate: YES
+ddCt#source#propagate: YES
+ddPCRclust#source#propagate: NO, package depends on 'flowCore' which is not available
+debrowser#source#propagate: NO, package depends on 'annotate' which is not available
+decemedip#source#propagate: NO, package depends on 'MEDIPS' which is not available
+DECIPHER#source#propagate: NO, package depends on 'Biostrings' which is not available
+decompTumor2Sig#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+decontam#source#propagate: YES
+DeconvoBuddies#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+deconvR#source#propagate: NO, package depends on 'methylKit' which is not available
+DeeDeeExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+DeepPINCS#source#propagate: YES
+deepSNV#source#propagate: NO, package depends on 'Biostrings' which is not available
+DeepTarget#source#propagate: YES
+DEFormats#source#propagate: YES
+DegCre#source#propagate: NO, package depends on 'InteractionSet' which is not available
+DegNorm#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+DEGraph#source#propagate: YES
+DEGreport#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+DEGseq#source#propagate: YES
+DelayedArray#source#propagate: YES
+DelayedDataFrame#source#propagate: YES
+DelayedMatrixStats#source#propagate: YES
+DelayedRandomArray#source#propagate: YES
+DelayedTensor#source#propagate: YES
+DELocal#source#propagate: YES
+deltaCaptureC#source#propagate: YES
+deltaGseg#source#propagate: YES
+DeMAND#source#propagate: YES
+DeMixT#source#propagate: NO, package depends on 'sva' which is not available
+demuxmix#source#propagate: YES
+demuxSNP#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+DenoIST#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+densvis#source#propagate: YES
+DEP#source#propagate: NO, package depends on 'MSnbase' which is not available
+DepecheR#source#propagate: YES
+DepInfeR#source#propagate: YES
+derfinder#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+derfinderHelper#source#propagate: YES
+DEScan2#source#propagate: NO, package depends on 'ChIPpeakAnno' which is not available
+DESeq2#source#propagate: YES
+DEsingle#source#propagate: YES
+DESpace#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+destiny#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+DEsubs#source#propagate: YES
+DEWSeq#source#propagate: YES
+DExMA#source#propagate: NO, package depends on 'sva' which is not available
+DEXSeq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+DFP#source#propagate: YES
+DFplyr#source#propagate: YES
+DiffBind#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+diffcoexp#source#propagate: YES
+diffcyt#source#propagate: NO, package depends on 'flowCore' which is not available
+DifferentialRegulation#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+diffGeneAnalysis#source#propagate: YES
+diffHic#source#propagate: NO, package depends on 'InteractionSet' which is not available
+DiffLogo#source#propagate: YES
+diffuStats#source#propagate: YES
+diffUTR#source#propagate: NO, package depends on 'DEXSeq' which is not available
+diggit#source#propagate: YES
+Dino#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+dinoR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+DiPPER#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+dir.expiry#source#propagate: YES
+DirichletMultinomial#source#propagate: YES
+discordant#source#propagate: YES
+DiscoRhythm#source#propagate: YES
+distinct#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+divergence#source#propagate: YES
+dks#source#propagate: YES
+DMCFB#source#propagate: NO, package depends on 'rtracklayer' which is not available
+DMCHMM#source#propagate: NO, package depends on 'rtracklayer' which is not available
+dmGsea#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+DMRcaller#source#propagate: NO, package depends on 'Rsamtools' which is not available
+DMRcate#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+DMRScan#source#propagate: YES
+dmrseq#source#propagate: NO, package depends on 'bsseq' which is not available
+DNABarcodeCompatibility#source#propagate: YES
+DNABarcodes#source#propagate: YES
+DNAcopy#source#propagate: YES
+DNAcycP2#source#propagate: YES
+dnaEPICO#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+DNAshapeR#source#propagate: NO, package depends on 'Biostrings' which is not available
+DNEA#source#propagate: YES
+dominatR#source#propagate: YES
+DominoEffect#source#propagate: NO, package depends on 'biomaRt' which is not available
+dominoSignal#source#propagate: NO, package depends on 'biomaRt' which is not available
+doppelgangR#source#propagate: NO, package depends on 'sva' which is not available
+Doscheda#source#propagate: YES
+DOSE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+doseR#source#propagate: YES
+DOTSeq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+doubletrouble#source#propagate: NO, package depends on 'syntenet' which is not available
+drawProteins#source#propagate: YES
+dreamlet#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+DRIMSeq#source#propagate: YES
+DriverNet#source#propagate: YES
+drugfindR#source#propagate: YES
+drugTargetInteractions#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+DrugVsDisease#source#propagate: NO, package depends on 'biomaRt' which is not available
+DSS#source#propagate: NO, package depends on 'bsseq' which is not available
+dStruct#source#propagate: YES
+DTA#source#propagate: YES
+DuckDBArray#source#propagate: YES
+DuckDBDataFrame#source#propagate: YES
+DuckDBGRanges#source#propagate: YES
+DuckDBSpatial#source#propagate: YES
+Dune#source#propagate: YES
+DuplexDiscovereR#source#propagate: NO, package depends on 'InteractionSet' which is not available
+dupRadar#source#propagate: YES
+dyebias#source#propagate: YES
+DynDoc#source#propagate: YES
+easier#source#propagate: NO, package depends on 'progeny' which is not available
+easylift#source#propagate: NO, package depends on 'rtracklayer' which is not available
+easyreporting#source#propagate: YES
+easyRNASeq#source#propagate: NO, package depends on 'biomaRt' which is not available
+EBarrays#source#propagate: YES
+EBcoexpress#source#propagate: YES
+EBSEA#source#propagate: YES
+EBSeq#source#propagate: YES
+ECLIPSE#source#propagate: NO, package depends on 'scRepertoire' which is not available
+ecolitk#source#propagate: YES
+EDASeq#source#propagate: NO, package depends on 'ShortRead' which is not available
+edge#source#propagate: NO, package depends on 'sva' which is not available
+edgeR#source#propagate: YES
+EDIRquery#source#propagate: NO, package depends on 'InteractionSet' which is not available
+eds#source#propagate: YES
+EGAD#source#propagate: YES
+EGSEA#source#propagate: NO, package depends on 'gage' which is not available
+eisaR#source#propagate: YES
+ELMER#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+ELViS#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+EMDomics#source#propagate: YES
+EMMA#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+EmpiricalBrownsMethod#source#propagate: YES
+enhancerHomologSearch#source#propagate: NO, package depends on 'Biostrings' which is not available
+EnMCB#source#propagate: YES
+ENmix#source#propagate: NO, package depends on 'geneplotter' which is not available
+EnrichDO#source#propagate: YES
+EnrichedHeatmap#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+enrichmet#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+enrichplot#source#propagate: NO, package depends on 'DOSE' which is not available
+enrichViewNet#source#propagate: NO, package depends on 'enrichplot' which is not available
+ensembldb#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+epialleleR#source#propagate: YES
+EpiCompare#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+epidecodeR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+EpiDISH#source#propagate: NO, package depends on 'genefilter' which is not available
+epigenomix#source#propagate: NO, package depends on 'Rsamtools' which is not available
+epigraHMM#source#propagate: NO, package depends on 'rtracklayer' which is not available
+epimutacions#source#propagate: NO, package depends on 'minfi' which is not available
+epiNEM#source#propagate: YES
+EpipwR#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+epiregulon#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+epiRomics#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+epiSeeker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+epistack#source#propagate: YES
+epistasisGA#source#propagate: YES
+EpiTxDb#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+epivizr#source#propagate: NO, package depends on 'epivizrData' which is not available
+epivizrChart#source#propagate: NO, package depends on 'epivizrData' which is not available
+epivizrData#source#propagate: NO, package depends on 'OrganismDbi' which is not available
+epivizrStandalone#source#propagate: NO, package depends on 'epivizr' which is not available
+erccdashboard#source#propagate: YES
+ERSSA#source#propagate: YES
+esATAC#source#propagate: NO, package depends on 'Rsamtools' which is not available
+escape#source#propagate: YES
+escheR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+esetVis#source#propagate: NO, package depends on 'MLP' which is not available
+eudysbiome#source#propagate: NO, package depends on 'Rsamtools' which is not available
+evaluomeR#source#propagate: YES
+EventPointer#source#propagate: NO, package depends on 'SGSeq' which is not available
+EWCE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ExCluster#source#propagate: NO, package depends on 'rtracklayer' which is not available
+ExiMiR#source#propagate: YES
+ExperimentHub#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+ExperimentHubData#source#propagate: NO, package depends on 'AnnotationHubData' which is not available
+ExperimentSubset#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ExploreModelMatrix#source#propagate: YES
+ExpoRiskR#source#propagate: YES
+ExpressionAtlas#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+extraChIPs#source#propagate: NO, package depends on 'csaw' which is not available
+fabia#source#propagate: YES
+factDesign#source#propagate: YES
+faers#source#propagate: YES
+FamAgg#source#propagate: YES
+famat#source#propagate: NO, package depends on 'KEGGREST' which is not available
+Fancy#source#propagate: YES
+fastLiquidAssociation#source#propagate: YES
+fastRanges#source#propagate: YES
+fastreeR#source#propagate: YES
+fastseg#source#propagate: YES
+fCCAC#source#propagate: NO, package depends on 'genomation' which is not available
+fCI#source#propagate: YES
+fcScan#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+fdrame#source#propagate: YES
+FEAST#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+FeatSeekR#source#propagate: YES
+fenr#source#propagate: YES
+ffpe#source#propagate: NO, package depends on 'lumi' which is not available
+fgga#source#propagate: YES
+FGNet#source#propagate: YES
+FilterFFPE#source#propagate: NO, package depends on 'Rsamtools' which is not available
+findIPs#source#propagate: YES
+FindIT2#source#propagate: NO, package depends on 'rtracklayer' which is not available
+FinfoMDS#source#propagate: NO, package depends on 'phyloseq' which is not available
+FISHalyseR#source#propagate: NO, package depends on 'EBImage' which is not available
+fishash#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+fishpond#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+FitHiC#source#propagate: YES
+flagme#source#propagate: NO, package depends on 'xcms' which is not available
+flowAI#source#propagate: NO, package depends on 'flowCore' which is not available
+flowBeads#source#propagate: NO, package depends on 'flowCore' which is not available
+flowBin#source#propagate: NO, package depends on 'flowCore' which is not available
+flowcatchR#source#propagate: NO, package depends on 'EBImage' which is not available
+flowCHIC#source#propagate: NO, package depends on 'flowCore' which is not available
+flowClean#source#propagate: NO, package depends on 'flowCore' which is not available
+flowCyBar#source#propagate: YES
+flowDensity#source#propagate: NO, package depends on 'flowCore' which is not available
+flowFP#source#propagate: NO, package depends on 'flowCore' which is not available
+flowGraph#source#propagate: YES
+flowMatch#source#propagate: NO, package depends on 'flowCore' which is not available
+flowMeans#source#propagate: NO, package depends on 'flowCore' which is not available
+flowMerge#source#propagate: NO, package depends on 'flowClust' which is not available
+flowPeaks#source#propagate: YES
+flowPlots#source#propagate: YES
+flowSpecs#source#propagate: NO, package depends on 'flowCore' which is not available
+flowTime#source#propagate: NO, package depends on 'flowCore' which is not available
+flowTrans#source#propagate: NO, package depends on 'flowCore' which is not available
+flowViz#source#propagate: NO, package depends on 'flowCore' which is not available
+flowVS#source#propagate: NO, package depends on 'flowCore' which is not available
+fmrs#source#propagate: YES
+fourSynergy#source#propagate: NO, package depends on 'karyoploteR' which is not available
+fRagmentomics#source#propagate: NO, package depends on 'Biostrings' which is not available
+fraq#source#propagate: NO, package depends on 'Biostrings' which is not available
+FRASER#source#propagate: NO, package depends on 'Rsamtools' which is not available
+frenchFISH#source#propagate: YES
+FRGEpistasis#source#propagate: YES
+frma#source#propagate: NO, package depends on 'oligo' which is not available
+frmaTools#source#propagate: YES
+funOmics#source#propagate: NO, package depends on 'KEGGREST' which is not available
+funtooNorm#source#propagate: NO, package depends on 'minfi' which is not available
+FuseSOM#source#propagate: YES
+G4SNVHunter#source#propagate: NO, package depends on 'Biostrings' which is not available
+GA4GHclient#source#propagate: NO, package depends on 'Biostrings' which is not available
+GA4GHshiny#source#propagate: NO, package depends on 'GA4GHclient' which is not available
+gaga#source#propagate: YES
+gage#source#propagate: NO, package depends on 'KEGGREST' which is not available
+GAprediction#source#propagate: YES
+garfield#source#propagate: YES
+GARS#source#propagate: NO, package depends on 'DaMiRseq' which is not available
+GateFinder#source#propagate: NO, package depends on 'flowCore' which is not available
+gatom#source#propagate: NO, package depends on 'BioNet' which is not available
+GBScleanR#source#propagate: NO, package depends on 'SeqArray' which is not available
+gcapc#source#propagate: NO, package depends on 'Biostrings' which is not available
+gcatest#source#propagate: YES
+GCPtools#source#propagate: YES
+gcrma#source#propagate: NO, package depends on 'Biostrings' which is not available
+GDCRNATools#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+gDNAx#source#propagate: NO, package depends on 'Biostrings' which is not available
+gDR#source#propagate: YES
+gDRimport#source#propagate: YES
+gDRplots#source#propagate: YES
+gDRstyle#source#propagate: YES
+gDRutils#source#propagate: YES
+GDSAnnotator#source#propagate: NO, package depends on 'SeqArray' which is not available
+GDSArray#source#propagate: NO, package depends on 'SeqArray' which is not available
+gdscloud#source#propagate: YES
+gdsfmt#source#propagate: YES
+GeDi#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+GEM#source#propagate: YES
+gemini#source#propagate: YES
+gemma.R#source#propagate: YES
+genArise#source#propagate: YES
+geneAttribution#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+GeneBreak#source#propagate: NO, package depends on 'QDNAseq' which is not available
+geneClassifiers#source#propagate: YES
+geneClusterPattern#source#propagate: NO, package depends on 'Biostrings' which is not available
+GeneExpressionSignature#source#propagate: YES
+genefilter#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+genefu#source#propagate: NO, package depends on 'biomaRt' which is not available
+GeneGA#source#propagate: YES
+GeneMeta#source#propagate: NO, package depends on 'genefilter' which is not available
+GeneNetworkBuilder#source#propagate: YES
+GeneOverlap#source#propagate: YES
+geneplast#source#propagate: YES
+geneplotter#source#propagate: NO, package depends on 'annotate' which is not available
+geneRecommender#source#propagate: YES
+GeneRegionScan#source#propagate: NO, package depends on 'Biostrings' which is not available
+geneRxCluster#source#propagate: YES
+GeneSelectMMD#source#propagate: YES
+GENESIS#source#propagate: NO, package depends on 'SeqArray' which is not available
+GeneStructureTools#source#propagate: NO, package depends on 'Biostrings' which is not available
+geNetClassifier#source#propagate: YES
+GeneticsPed#source#propagate: YES
+GeneTonic#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GENIE3#source#propagate: YES
+genomation#source#propagate: NO, package depends on 'Biostrings' which is not available
+GenomAutomorphism#source#propagate: NO, package depends on 'Biostrings' which is not available
+GenomeInfoDb#source#propagate: YES
+genomes#source#propagate: YES
+GenomicAlignments#source#propagate: NO, package depends on 'Biostrings' which is not available
+GenomicCoordinates#source#propagate: NO, package depends on 'InteractionSet' which is not available
+GenomicDataCommons#source#propagate: YES
+GenomicDistributions#source#propagate: NO, package depends on 'Biostrings' which is not available
+GenomicFeatures#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GenomicFiles#source#propagate: NO, package depends on 'Rsamtools' which is not available
+genomicInstability#source#propagate: YES
+GenomicInteractionNodes#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GenomicInteractions#source#propagate: NO, package depends on 'InteractionSet' which is not available
+GenomicOZone#source#propagate: NO, package depends on 'biomaRt' which is not available
+GenomicPlot#source#propagate: NO, package depends on 'Rsamtools' which is not available
+GenomicRanges#source#propagate: YES
+GenomicScores#source#propagate: NO, package depends on 'Biostrings' which is not available
+GenomicSuperSignature#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+GenomicTuples#source#propagate: YES
+GenProSeq#source#propagate: YES
+GeoDiff#source#propagate: NO, package depends on 'GeomxTools' which is not available
+GEOfastq#source#propagate: YES
+GEOmetadb#source#propagate: YES
+geomeTriD#source#propagate: NO, package depends on 'Biostrings' which is not available
+GeomxTools#source#propagate: NO, package depends on 'NanoStringNCTools' which is not available
+GEOquery#source#propagate: YES
+GEOsubmission#source#propagate: YES
+GeoTcgaData#source#propagate: YES
+gep2pep#source#propagate: NO, package depends on 'GSEABase' which is not available
+gesel#source#propagate: YES
+getDEE2#source#propagate: YES
+geva#source#propagate: YES
+GEWIST#source#propagate: YES
+GExPipe#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+geyser#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+gg4way#source#propagate: YES
+ggkegg#source#propagate: YES
+ggmanh#source#propagate: NO, package depends on 'SeqArray' which is not available
+ggmsa#source#propagate: NO, package depends on 'Biostrings' which is not available
+GGPA#source#propagate: YES
+ggsc#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ggseqalign#source#propagate: NO, package depends on 'pwalign' which is not available
+ggspavis#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+ggtree#source#propagate: YES
+ggtreeDendro#source#propagate: YES
+ggtreeExtra#source#propagate: YES
+ggtreeSpace#source#propagate: YES
+GIGSEA#source#propagate: YES
+ginmappeR#source#propagate: NO, package depends on 'KEGGREST' which is not available
+gINTomics#source#propagate: NO, package depends on 'biomaRt' which is not available
+GLAD#source#propagate: YES
+GladiaTOX#source#propagate: YES
+Glimma#source#propagate: YES
+glmGamPoi#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+glmSparseNet#source#propagate: NO, package depends on 'biomaRt' which is not available
+GlobalAncova#source#propagate: NO, package depends on 'globaltest' which is not available
+globalSeq#source#propagate: YES
+globaltest#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GloScope#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+glycoTraitR#source#propagate: YES
+gmapR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+GmicR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GMRP#source#propagate: YES
+GNOSIS#source#propagate: NO, package depends on 'cBioPortalData' which is not available
+GOaGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+goatea#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+GOexpress#source#propagate: NO, package depends on 'biomaRt' which is not available
+GOfan#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GOfuncR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GOpro#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+goProfiles#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GOSemSim#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+goseq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+goSorensen#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+GOstats#source#propagate: NO, package depends on 'Category' which is not available
+GOTHiC#source#propagate: NO, package depends on 'Biostrings' which is not available
+goTools#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GPA#source#propagate: YES
+GPlinksR#source#propagate: NO, package depends on 'ensembldb' which is not available
+gpls#source#propagate: YES
+GrafGen#source#propagate: YES
+GRaNIE#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+graper#source#propagate: YES
+graph#source#propagate: YES
+GraphAlignment#source#propagate: YES
+GraphAT#source#propagate: YES
+GraphExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+grayleafspotr#source#propagate: NO, package depends on 'EBImage' which is not available
+GRENITS#source#propagate: YES
+GreyListChIP#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+GRmetrics#source#propagate: YES
+groHMM#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+growkar#source#propagate: NO, package depends on 'tidySummarizedExperiment' which is not available
+GSABenchmark#source#propagate: NO, package depends on 'decoupleR' which is not available
+GSALightning#source#propagate: YES
+GSAR#source#propagate: YES
+gscreend#source#propagate: YES
+GSEABenchmarkeR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GSEAlens#source#propagate: NO, package depends on 'enrichplot' which is not available
+GSEAlm#source#propagate: YES
+GSEAmining#source#propagate: YES
+gsean#source#propagate: NO, package depends on 'PPInfer' which is not available
+GSgalgoR#source#propagate: YES
+GSReg#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+GSRI#source#propagate: NO, package depends on 'genefilter' which is not available
+GSVA#source#propagate: NO, package depends on 'GSEABase' which is not available
+GUIDEseq#source#propagate: NO, package depends on 'Biostrings' which is not available
+Guitar#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+GWAS.BAYES#source#propagate: YES
+gwascat#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+GWASTools#source#propagate: YES
+gwasurvivr#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+GWENA#source#propagate: YES
+gypsum#source#propagate: YES
+h5mread#source#propagate: YES
+h5vc#source#propagate: NO, package depends on 'Biostrings' which is not available
+hammers#source#propagate: NO, package depends on 'scLang' which is not available
+hapFabia#source#propagate: YES
+Harman#source#propagate: YES
+HarmonizR#source#propagate: NO, package depends on 'sva' which is not available
+HDF5Array#source#propagate: YES
+HDTD#source#propagate: YES
+hdxmsqc#source#propagate: NO, package depends on 'QFeatures' which is not available
+Heatplus#source#propagate: YES
+HELP#source#propagate: YES
+HEM#source#propagate: YES
+HERON#source#propagate: YES
+Herper#source#propagate: YES
+HGC#source#propagate: YES
+HIBAG#source#propagate: YES
+HiCaptuRe#source#propagate: NO, package depends on 'Biostrings' which is not available
+HiCBricks#source#propagate: YES
+HiCcompare#source#propagate: NO, package depends on 'InteractionSet' which is not available
+HiCDCPlus#source#propagate: NO, package depends on 'InteractionSet' which is not available
+HiCDOC#source#propagate: NO, package depends on 'InteractionSet' which is not available
+HiCParser#source#propagate: NO, package depends on 'InteractionSet' which is not available
+HiCPotts#source#propagate: NO, package depends on 'Biostrings' which is not available
+hicVennDiagram#source#propagate: NO, package depends on 'InteractionSet' which is not available
+hierGWAS#source#propagate: YES
+hierinf#source#propagate: YES
+HilbertCurve#source#propagate: YES
+HilbertVis#source#propagate: YES
+HiLDA#source#propagate: NO, package depends on 'Biostrings' which is not available
+hipathia#source#propagate: YES
+HIPPO#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+HIREewas#source#propagate: YES
+HistoImagePlot#source#propagate: NO, package depends on 'imageFeatureTCGA' which is not available
+HiTC#source#propagate: NO, package depends on 'Biostrings' which is not available
+HMMcopy#source#propagate: YES
+HoloFoodR#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+hoodscanR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+hopach#source#propagate: YES
+HPAanalyze#source#propagate: YES
+hpar#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+HPiP#source#propagate: YES
+HTAN#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+HTqPCR#source#propagate: YES
+HTSFilter#source#propagate: YES
+HuBMAPR#source#propagate: YES
+hummingbird#source#propagate: YES
+HVP#source#propagate: YES
+HybridExpress#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+HybridMTest#source#propagate: YES
+hyperdraw#source#propagate: YES
+hypergraph#source#propagate: YES
+iASeq#source#propagate: YES
+iasva#source#propagate: YES
+Ibex#source#propagate: NO, package depends on 'immApex' which is not available
+ibh#source#propagate: YES
+iBMQ#source#propagate: YES
+iCARE#source#propagate: YES
+Icens#source#propagate: YES
+icetea#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+iCheck#source#propagate: NO, package depends on 'lumi' which is not available
+iChip#source#propagate: YES
+iClusterPlus#source#propagate: YES
+iCNV#source#propagate: NO, package depends on 'CODEX' which is not available
+iCOBRA#source#propagate: YES
+iconic#source#propagate: YES
+ideal#source#propagate: NO, package depends on 'topGO' which is not available
+IdeoViz#source#propagate: NO, package depends on 'rtracklayer' which is not available
+idiogram#source#propagate: NO, package depends on 'annotate' which is not available
+idpr#source#propagate: NO, package depends on 'Biostrings' which is not available
+idr2d#source#propagate: YES
+IFAA#source#propagate: YES
+igblastr#source#propagate: NO, package depends on 'Biostrings' which is not available
+iGC#source#propagate: YES
+IgGeneUsage#source#propagate: YES
+igvR#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+igvShiny#source#propagate: YES
+IHW#source#propagate: YES
+illuminaio#source#propagate: YES
+ILoReg#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+imageFeatureTCGA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+imageTCGA#source#propagate: YES
+imageTCGAutils#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+imcRtools#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+IMMAN#source#propagate: NO, package depends on 'pwalign' which is not available
+immApex#source#propagate: NO, package depends on 'immReferent' which is not available
+immGLIPH#source#propagate: NO, package depends on 'immApex' which is not available
+immLynx#source#propagate: NO, package depends on 'immApex' which is not available
+immReferent#source#propagate: NO, package depends on 'Biostrings' which is not available
+immunoClust#source#propagate: NO, package depends on 'flowCore' which is not available
+immunogenViewer#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+IMPCdata#source#propagate: YES
+impute#source#propagate: YES
+INDEED#source#propagate: YES
+iNETgrate#source#propagate: NO, package depends on 'Pigengene' which is not available
+infercnv#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+inferRecom#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+infinityFlow#source#propagate: NO, package depends on 'flowCore' which is not available
+Informeasure#source#propagate: YES
+InPAS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+INPower#source#propagate: YES
+INSPEcT#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+INTACT#source#propagate: YES
+InTAD#source#propagate: NO, package depends on 'rtracklayer' which is not available
+intansv#source#propagate: NO, package depends on 'ggbio' which is not available
+IntegratedLearner#source#propagate: YES
+interacCircos#source#propagate: YES
+InteractiveComplexHeatmap#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+IntEREst#source#propagate: NO, package depends on 'Rsamtools' which is not available
+IntramiRExploreR#source#propagate: YES
+IntrinsicScan#source#propagate: YES
+iPath#source#propagate: YES
+ipdDb#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+IPO#source#propagate: NO, package depends on 'xcms' which is not available
+IRanges#source#propagate: YES
+ISAnalytics#source#propagate: YES
+iscream#source#propagate: YES
+iSEE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+iSEEde#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEfier#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEhex#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEid#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEindex#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+iSEEpathways#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEtree#source#propagate: NO, package depends on 'iSEE' which is not available
+iSEEu#source#propagate: NO, package depends on 'iSEE' which is not available
+iSeq#source#propagate: YES
+ISLET#source#propagate: YES
+islify#source#propagate: NO, package depends on 'RBioFormats' which is not available
+isobar#source#propagate: NO, package depends on 'biomaRt' which is not available
+IsoBayes#source#propagate: YES
+IsoCorrectoR#source#propagate: YES
+IsoCorrectoRGUI#source#propagate: YES
+IsoformSwitchAnalyzeR#source#propagate: NO, package depends on 'DEXSeq' which is not available
+ISoLDE#source#propagate: YES
+isomiRs#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+IsoNetAnalyzeR#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+ITALICS#source#propagate: NO, package depends on 'oligo' which is not available
+iterativeBMA#source#propagate: YES
+iterativeBMAsurv#source#propagate: YES
+IVAS#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+ivygapSE#source#propagate: YES
+IWTomics#source#propagate: YES
+jazzPanda#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+jvecfor#source#propagate: YES
+karioCaS#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+karyoploteR#source#propagate: NO, package depends on 'regioneR' which is not available
+katdetectr#source#propagate: NO, package depends on 'BSgenome' which is not available
+KBoost#source#propagate: YES
+KCsmart#source#propagate: YES
+kebabs#source#propagate: NO, package depends on 'Biostrings' which is not available
+KEGGemUP#source#propagate: NO, package depends on 'KEGGREST' which is not available
+KEGGgraph#source#propagate: YES
+KEGGlincs#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+keggorthology#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+KEGGREST#source#propagate: NO, package depends on 'Biostrings' which is not available
+KinSwingR#source#propagate: YES
+kissDE#source#propagate: NO, package depends on 'DSS' which is not available
+kmcut#source#propagate: YES
+koinar#source#propagate: YES
+LACE#source#propagate: NO, package depends on 'biomaRt' which is not available
+lantern#source#propagate: NO, package depends on 'SeqArray' which is not available
+LBE#source#propagate: YES
+ldblock#source#propagate: YES
+LEA#source#propagate: YES
+leapR#source#propagate: YES
+LedPred#source#propagate: YES
+lefser#source#propagate: NO, package depends on 'mia' which is not available
+lemur#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+les#source#propagate: YES
+levi#source#propagate: YES
+lfa#source#propagate: YES
+Lheuristic#source#propagate: YES
+limma#source#propagate: YES
+limmaGUI#source#propagate: YES
+limpa#source#propagate: YES
+limpca#source#propagate: YES
+LimROTS#source#propagate: YES
+lineagespot#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+LinkHD#source#propagate: YES
+Linnorm#source#propagate: YES
+lionessR#source#propagate: YES
+LIPIDIFy#source#propagate: YES
+lipidr#source#propagate: YES
+LipidTrend#source#propagate: YES
+LiquidAssociation#source#propagate: YES
+lisaClust#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+lmdme#source#propagate: YES
+lncRna#source#propagate: YES
+LOBSTAHS#source#propagate: NO, package depends on 'xcms' which is not available
+loci2path#source#propagate: YES
+logicFS#source#propagate: YES
+LOLA#source#propagate: YES
+looking4clusters#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+LoomExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+LPE#source#propagate: YES
+lpNet#source#propagate: YES
+lpsymphony#source#propagate: YES
+LRBaseDbi#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+LRDE#source#propagate: YES
+lumi#source#propagate: NO, package depends on 'methylumi' which is not available
+M3C#source#propagate: YES
+M3Drop#source#propagate: NO, package depends on 'scater' which is not available
+m6Aboost#source#propagate: NO, package depends on 'rtracklayer' which is not available
+Maaslin2#source#propagate: YES
+maaslin3#source#propagate: YES
+Macarron#source#propagate: YES
+maCorrPlot#source#propagate: YES
+MACSQuantifyR#source#propagate: YES
+MACSr#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+made4#source#propagate: YES
+maftools#source#propagate: YES
+MAGAR#source#propagate: NO, package depends on 'RnBeads' which is not available
+MagellanNTK#source#propagate: YES
+magpie#source#propagate: NO, package depends on 'rtracklayer' which is not available
+magrene#source#propagate: YES
+MAI#source#propagate: YES
+MAIT#source#propagate: NO, package depends on 'CAMERA' which is not available
+makecdfenv#source#propagate: YES
+MANOR#source#propagate: YES
+MantelCorr#source#propagate: YES
+MAPFX#source#propagate: NO, package depends on 'flowCore' which is not available
+maPredictDSC#source#propagate: NO, package depends on 'gcrma' which is not available
+mapscape#source#propagate: YES
+markeR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+marr#source#propagate: YES
+marray#source#propagate: YES
+martini#source#propagate: YES
+maSigPro#source#propagate: YES
+MassArray#source#propagate: YES
+massiR#source#propagate: YES
+MassSpecWavelet#source#propagate: YES
+MAST#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+mastR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+matchBox#source#propagate: YES
+MatrixGenerics#source#propagate: YES
+MatrixRider#source#propagate: NO, package depends on 'TFBSTools' which is not available
+matter#source#propagate: YES
+MBAmethyl#source#propagate: YES
+MBASED#source#propagate: YES
+MBCB#source#propagate: YES
+MBECS#source#propagate: NO, package depends on 'phyloseq' which is not available
+mbkmeans#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+mBPCR#source#propagate: NO, package depends on 'oligoClasses' which is not available
+MBQN#source#propagate: YES
+mbQTL#source#propagate: YES
+MBttest#source#propagate: YES
+MCbiclust#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+mCSEA#source#propagate: NO, package depends on 'biomaRt' which is not available
+mdp#source#propagate: YES
+mdqc#source#propagate: YES
+MDSvis#source#propagate: NO, package depends on 'CytoMDS' which is not available
+MDTS#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+MeasurementError.cor#source#propagate: YES
+MEAT#source#propagate: NO, package depends on 'minfi' which is not available
+MEB#source#propagate: NO, package depends on 'scater' which is not available
+MEDIPS#source#propagate: NO, package depends on 'BSgenome' which is not available
+MEDME#source#propagate: NO, package depends on 'Biostrings' which is not available
+MEIGOR#source#propagate: YES
+MeLSI#source#propagate: YES
+memes#source#propagate: NO, package depends on 'Biostrings' which is not available
+Mergeomics#source#propagate: YES
+mesa#source#propagate: NO, package depends on 'qsea' which is not available
+MeSHDbi#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+meshes#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+meshr#source#propagate: NO, package depends on 'MeSHDbi' which is not available
+MesKit#source#propagate: NO, package depends on 'Biostrings' which is not available
+messina#source#propagate: YES
+metabCombiner#source#propagate: YES
+metabinR#source#propagate: NO, package depends on 'Biostrings' which is not available
+MetaboCoreUtils#source#propagate: YES
+MetaboDynamics#source#propagate: NO, package depends on 'KEGGREST' which is not available
+metabolomicsWorkbenchR#source#propagate: YES
+metabom8#source#propagate: YES
+metabomxtr#source#propagate: YES
+MetaboSignal#source#propagate: NO, package depends on 'hpar' which is not available
+metaCCA#source#propagate: YES
+MetaCyto#source#propagate: NO, package depends on 'flowCore' which is not available
+MetaDICT#source#propagate: YES
+metagene2#source#propagate: NO, package depends on 'rtracklayer' which is not available
+metagenomeSeq#source#propagate: YES
+metaMS#source#propagate: NO, package depends on 'CAMERA' which is not available
+MetaPathNet#source#propagate: NO, package depends on 'KEGGREST' which is not available
+MetaPhOR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+metapod#source#propagate: YES
+metapone#source#propagate: YES
+MetaProViz#source#propagate: NO, package depends on 'cosmosR' which is not available
+metaSeq#source#propagate: YES
+metaseqR2#source#propagate: NO, package depends on 'biomaRt' which is not available
+MetCirc#source#propagate: YES
+methimpute#source#propagate: NO, package depends on 'Biostrings' which is not available
+methInheritSim#source#propagate: NO, package depends on 'methylKit' which is not available
+methodical#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+MethPed#source#propagate: YES
+methrix#source#propagate: NO, package depends on 'rtracklayer' which is not available
+MethTargetedNGS#source#propagate: NO, package depends on 'Biostrings' which is not available
+MethylAid#source#propagate: NO, package depends on 'minfi' which is not available
+methylCC#source#propagate: NO, package depends on 'minfi' which is not available
+methylclock#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+methylGSA#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+methyLImp2#source#propagate: NO, package depends on 'ChAMPdata' which is not available
+methylInheritance#source#propagate: NO, package depends on 'methylKit' which is not available
+methylKit#source#propagate: NO, package depends on 'Rsamtools' which is not available
+MethylMix#source#propagate: YES
+methylMnM#source#propagate: YES
+methylPipe#source#propagate: NO, package depends on 'Rsamtools' which is not available
+methylscaper#source#propagate: NO, package depends on 'Biostrings' which is not available
+MethylSeekR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+methylSig#source#propagate: NO, package depends on 'bsseq' which is not available
+methylTFR#source#propagate: YES
+methylumi#source#propagate: NO, package depends on 'minfi' which is not available
+MetNet#source#propagate: YES
+Mfuzz#source#propagate: YES
+MGFM#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MGFR#source#propagate: NO, package depends on 'biomaRt' which is not available
+MGnifyR#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+miaDash#source#propagate: NO, package depends on 'iSEE' which is not available
+miaSim#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+miaViz#source#propagate: NO, package depends on 'mia' which is not available
+MiCARA#source#propagate: YES
+MiChip#source#propagate: YES
+microbiomeDASim#source#propagate: NO, package depends on 'phyloseq' which is not available
+microbiomeExplorer#source#propagate: YES
+MicrobiomeProfiler#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+MicrobiotaProcess#source#propagate: NO, package depends on 'Biostrings' which is not available
+microRNA#source#propagate: NO, package depends on 'Biostrings' which is not available
+MICSQTL#source#propagate: NO, package depends on 'TOAST' which is not available
+midasHLA#source#propagate: YES
+miloR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+mimager#source#propagate: NO, package depends on 'affyPLM' which is not available
+mina#source#propagate: YES
+minet#source#propagate: YES
+minfi#source#propagate: NO, package depends on 'Biostrings' which is not available
+MinimumDistance#source#propagate: NO, package depends on 'VanillaICE' which is not available
+MiPP#source#propagate: YES
+miQC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+MIRA#source#propagate: NO, package depends on 'bsseq' which is not available
+MiRaGE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+miRBaseConverter#source#propagate: YES
+miRcomp#source#propagate: YES
+mirIntegrator#source#propagate: NO, package depends on 'ROntoTools' which is not available
+miRLAB#source#propagate: NO, package depends on 'TCGAbiolinks' which is not available
+miRNAmeConverter#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+miRNApath#source#propagate: YES
+miRNAtap#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+miRSM#source#propagate: NO, package depends on 'BicARE' which is not available
+miRspongeR#source#propagate: NO, package depends on 'SPONGE' which is not available
+mirTarRnaSeq#source#propagate: YES
+missMethyl#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+missRows#source#propagate: YES
+mist#source#propagate: NO, package depends on 'rtracklayer' which is not available
+mistyR#source#propagate: YES
+mitch#source#propagate: YES
+mitoClone2#source#propagate: NO, package depends on 'deepSNV' which is not available
+mitology#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+mixOmics#source#propagate: YES
+MLInterfaces#source#propagate: NO, package depends on 'annotate' which is not available
+MLP#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MMUPHin#source#propagate: YES
+mnem#source#propagate: YES
+mobileRNA#source#propagate: NO, package depends on 'rtracklayer' which is not available
+MODA#source#propagate: YES
+ModCon#source#propagate: YES
+Modstrings#source#propagate: NO, package depends on 'Biostrings' which is not available
+MoleculeExperiment#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+MOMA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+monaLisa#source#propagate: NO, package depends on 'Biostrings' which is not available
+monocle#source#propagate: YES
+mosaics#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+MOSClip#source#propagate: NO, package depends on 'graphite' which is not available
+mosdef#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MOSim#source#propagate: NO, package depends on 'scran' which is not available
+Motif2Site#source#propagate: NO, package depends on 'BSgenome' which is not available
+MotifDb#source#propagate: NO, package depends on 'Biostrings' which is not available
+motifmatchr#source#propagate: NO, package depends on 'TFBSTools' which is not available
+MotifPeeker#source#propagate: NO, package depends on 'universalmotif' which is not available
+motifTestR#source#propagate: NO, package depends on 'Biostrings' which is not available
+MouseFM#source#propagate: NO, package depends on 'biomaRt' which is not available
+MPAC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+MPFE#source#propagate: YES
+mpra#source#propagate: YES
+MPRAnalyze#source#propagate: YES
+MRCCC#source#propagate: YES
+MRManalyzeR#source#propagate: YES
+msa#source#propagate: NO, package depends on 'Biostrings' which is not available
+MSA2dist#source#propagate: NO, package depends on 'Biostrings' which is not available
+MsBackendMassbank#source#propagate: YES
+MsBackendMassIVE#source#propagate: YES
+MsBackendMetabolomicsWorkbench#source#propagate: YES
+MsBackendMgf#source#propagate: YES
+MsBackendMsp#source#propagate: YES
+MsBackendParquet#source#propagate: YES
+MsBackendRawFileReader#source#propagate: YES
+MsBackendSql#source#propagate: YES
+MsCoreUtils#source#propagate: YES
+MsDataHub#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+MsExperiment#source#propagate: NO, package depends on 'QFeatures' which is not available
+MsFeatures#source#propagate: YES
+msImpute#source#propagate: NO, package depends on 'scran' which is not available
+mslp#source#propagate: YES
+msmsEDA#source#propagate: NO, package depends on 'MSnbase' which is not available
+msmsTests#source#propagate: NO, package depends on 'MSnbase' which is not available
+mspms#source#propagate: NO, package depends on 'QFeatures' which is not available
+msqrob2#source#propagate: NO, package depends on 'QFeatures' which is not available
+MsQuality#source#propagate: NO, package depends on 'MsDataHub' which is not available
+MsStash#source#propagate: YES
+MSstatsBig#source#propagate: YES
+MSstatsBioNet#source#propagate: YES
+MSstatsConvert#source#propagate: YES
+MSstatsLiP#source#propagate: NO, package depends on 'Biostrings' which is not available
+MSstatsLOBD#source#propagate: YES
+MSstatsPTM#source#propagate: NO, package depends on 'Biostrings' which is not available
+MSstatsQC#source#propagate: NO, package depends on 'MSnbase' which is not available
+MSstatsQCgui#source#propagate: NO, package depends on 'MSstatsQC' which is not available
+MSstatsResponse#source#propagate: YES
+MSstatsShiny#source#propagate: NO, package depends on 'MSstatsPTM' which is not available
+MSstatsTMT#source#propagate: YES
+MSTree#source#propagate: YES
+MuData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+Mulcom#source#propagate: YES
+MultiAssayExperiment#source#propagate: YES
+MultiBaC#source#propagate: YES
+multiClust#source#propagate: YES
+MultiDataSet#source#propagate: YES
+multiHiCcompare#source#propagate: NO, package depends on 'HiCcompare' which is not available
+MultiMed#source#propagate: YES
+multiMiR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MultimodalExperiment#source#propagate: YES
+MultiOmicsBridge#source#propagate: YES
+MultipleAlignment#source#propagate: NO, package depends on 'Biostrings' which is not available
+multipletR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+multipointR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+MultiRNAflow#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+multiscan#source#propagate: YES
+multiWGCNA#source#propagate: YES
+multtest#source#propagate: YES
+mumosa#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+MungeSumstats#source#propagate: NO, package depends on 'BSgenome' which is not available
+musicatk#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+mutscan#source#propagate: NO, package depends on 'csaw' which is not available
+MVCClass#source#propagate: YES
+MWASTools#source#propagate: NO, package depends on 'KEGGREST' which is not available
+mygene#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+myvariant#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+mzID#source#propagate: YES
+mzR#source#propagate: YES
+NADfinder#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+NanoStringDiff#source#propagate: YES
+NanoStringNCTools#source#propagate: NO, package depends on 'Biostrings' which is not available
+NanoTube#source#propagate: YES
+NBAMSeq#source#propagate: NO, package depends on 'genefilter' which is not available
+ncdfFlow#source#propagate: NO, package depends on 'flowCore' which is not available
+ncGTW#source#propagate: NO, package depends on 'xcms' which is not available
+NCIgraph#source#propagate: YES
+ncRNAtools#source#propagate: YES
+ndexr#source#propagate: YES
+nempi#source#propagate: YES
+NetActivity#source#propagate: YES
+netboost#source#propagate: YES
+nethet#source#propagate: YES
+NetPathMiner#source#propagate: YES
+netresponse#source#propagate: YES
+NetSAM#source#propagate: NO, package depends on 'biomaRt' which is not available
+NewWave#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+nipalsMCIA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+nnNorm#source#propagate: YES
+nnSVG#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+NOISeq#source#propagate: YES
+nondetects#source#propagate: YES
+NoRCE#source#propagate: NO, package depends on 'KEGGREST' which is not available
+normalize450K#source#propagate: YES
+NormalyzerDE#source#propagate: YES
+NormqPCR#source#propagate: YES
+normr#source#propagate: NO, package depends on 'rtracklayer' which is not available
+normScore#source#propagate: YES
+notame#source#propagate: YES
+notameStats#source#propagate: YES
+NPARC#source#propagate: YES
+npGSEA#source#propagate: NO, package depends on 'GSEABase' which is not available
+NTW#source#propagate: YES
+nucleoSim#source#propagate: YES
+nucleR#source#propagate: NO, package depends on 'Biostrings' which is not available
+nuCpos#source#propagate: YES
+nullranges#source#propagate: NO, package depends on 'InteractionSet' which is not available
+NuPoP#source#propagate: YES
+OAtools#source#propagate: YES
+occugene#source#propagate: YES
+OCplus#source#propagate: YES
+octad#source#propagate: NO, package depends on 'RUVSeq' which is not available
+odseq#source#propagate: NO, package depends on 'msa' which is not available
+OGRE#source#propagate: NO, package depends on 'Gviz' which is not available
+oligo#source#propagate: NO, package depends on 'oligoClasses' which is not available
+oligoClasses#source#propagate: NO, package depends on 'Biostrings' which is not available
+OLIN#source#propagate: YES
+OLINgui#source#propagate: YES
+omada#source#propagate: YES
+OmaDB#source#propagate: NO, package depends on 'Biostrings' which is not available
+omicade4#source#propagate: YES
+OmicCircos#source#propagate: YES
+omicplotR#source#propagate: YES
+omicRexposome#source#propagate: NO, package depends on 'sva' which is not available
+omicsGMF#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+OmicsMLRepoR#source#propagate: YES
+omicsPrint#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+omicsViewer#source#propagate: YES
+Omixer#source#propagate: YES
+OmniCorr#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+OmnipathR#source#propagate: YES
+ompBAM#source#propagate: YES
+omXplore#source#propagate: NO, package depends on 'MSnbase' which is not available
+oncomix#source#propagate: YES
+oncoscanR#source#propagate: YES
+OncoScore#source#propagate: NO, package depends on 'biomaRt' which is not available
+OncoSimulR#source#propagate: YES
+onlineFDR#source#propagate: YES
+ontoProc2#source#propagate: YES
+OpenStats#source#propagate: YES
+oposSOM#source#propagate: NO, package depends on 'biomaRt' which is not available
+oppar#source#propagate: NO, package depends on 'GSEABase' which is not available
+optimalFlow#source#propagate: NO, package depends on 'flowMeans' which is not available
+OrderedList#source#propagate: YES
+ORFhunteR#source#propagate: NO, package depends on 'Biostrings' which is not available
+orthoRibbon#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+OSAT#source#propagate: YES
+Oscope#source#propagate: YES
+OTUbase#source#propagate: NO, package depends on 'ShortRead' which is not available
+OUTRIDER#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+OutSplice#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+OVESEG#source#propagate: YES
+PAA#source#propagate: NO, package depends on 'sva' which is not available
+PACE#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+packFinder#source#propagate: NO, package depends on 'Biostrings' which is not available
+padma#source#propagate: YES
+PADOG#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+pageRank#source#propagate: NO, package depends on 'motifmatchr' which is not available
+PAIRADISE#source#propagate: YES
+paircompviz#source#propagate: YES
+pairedGSEA#source#propagate: NO, package depends on 'DEXSeq' which is not available
+pandaR#source#propagate: YES
+panelcn.mops#source#propagate: NO, package depends on 'cn.mops' which is not available
+PanomiR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+panoramic#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+panp#source#propagate: YES
+panpathAudit#source#propagate: YES
+PANR#source#propagate: YES
+parati#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+parglms#source#propagate: YES
+parody#source#propagate: YES
+PAST#source#propagate: NO, package depends on 'rtracklayer' which is not available
+path2path#source#propagate: YES
+Path2PPI#source#propagate: YES
+pathifier#source#propagate: YES
+pathlinkR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+pathMED#source#propagate: NO, package depends on 'decoupleR' which is not available
+PathNet#source#propagate: YES
+PathoStat#source#propagate: NO, package depends on 'phyloseq' which is not available
+pathview#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+pathwayPCA#source#propagate: YES
+pcaExplorer#source#propagate: NO, package depends on 'mosdef' which is not available
+pcaMethods#source#propagate: YES
+PCAN#source#propagate: YES
+PDATK#source#propagate: NO, package depends on 'CoreGx' which is not available
+pdInfoBuilder#source#propagate: NO, package depends on 'oligo' which is not available
+PeacoQC#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+PECA#source#propagate: NO, package depends on 'genefilter' which is not available
+peco#source#propagate: NO, package depends on 'scater' which is not available
+Pedixplorer#source#propagate: YES
+pengls#source#propagate: YES
+PepSetTest#source#propagate: YES
+PepsNMR#source#propagate: YES
+pepVet#source#propagate: NO, package depends on 'Biostrings' which is not available
+pepXMLTab#source#propagate: YES
+periodicDNA#source#propagate: NO, package depends on 'Biostrings' which is not available
+pfamAnalyzeR#source#propagate: YES
+pgca#source#propagate: YES
+pgen2gds#source#propagate: NO, package depends on 'SeqArray' which is not available
+PharmacoGx#source#propagate: NO, package depends on 'CoreGx' which is not available
+PhenoGeneRanker#source#propagate: YES
+phenomis#source#propagate: YES
+phenopath#source#propagate: YES
+phenoTest#source#propagate: NO, package depends on 'annotate' which is not available
+philr#source#propagate: YES
+PhIPData#source#propagate: YES
+phosphonormalizer#source#propagate: YES
+PhosR#source#propagate: YES
+phylobar#source#propagate: YES
+PhyloProfile#source#propagate: NO, package depends on 'Biostrings' which is not available
+piano#source#propagate: YES
+PICB#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+pickgene#source#propagate: YES
+Pigengene#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+PinPath#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+pipeComp#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+Pirat#source#propagate: YES
+PIUMA#source#propagate: YES
+plaid#source#propagate: NO, package depends on 'GSVA' which is not available
+planet#source#propagate: YES
+planttfhunter#source#propagate: NO, package depends on 'Biostrings' which is not available
+plasmut#source#propagate: YES
+plgem#source#propagate: YES
+plier#source#propagate: YES
+PlinkMatrix#source#propagate: YES
+plotGrouper#source#propagate: YES
+PLPE#source#propagate: YES
+PLSDAbatch#source#propagate: YES
+plyranges#source#propagate: NO, package depends on 'rtracklayer' which is not available
+pmm#source#propagate: YES
+pmp#source#propagate: YES
+PMScanR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+PoDCall#source#propagate: YES
+podkat#source#propagate: NO, package depends on 'Rsamtools' which is not available
+poem#source#propagate: YES
+PolySTest#source#propagate: YES
+Polytect#source#propagate: YES
+POMA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+posDemux#source#propagate: NO, package depends on 'Biostrings' which is not available
+PostChicago#source#propagate: NO, package depends on 'rtracklayer' which is not available
+postNet#source#propagate: NO, package depends on 'Biostrings' which is not available
+powerTCR#source#propagate: YES
+POWSC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+ppcseq#source#propagate: YES
+PPInfer#source#propagate: NO, package depends on 'biomaRt' which is not available
+pqsfinder#source#propagate: NO, package depends on 'Biostrings' which is not available
+pram#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+prebs#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+preciseTAD#source#propagate: NO, package depends on 'rCGH' which is not available
+PREDA#source#propagate: NO, package depends on 'annotate' which is not available
+preprocessCore#source#propagate: YES
+primirTSS#source#propagate: NO, package depends on 'rtracklayer' which is not available
+PrInCE#source#propagate: NO, package depends on 'MSnbase' which is not available
+proActiv#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+proBAMr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+proBatch#source#propagate: NO, package depends on 'QFeatures' which is not available
+PROcess#source#propagate: YES
+procoil#source#propagate: NO, package depends on 'kebabs' which is not available
+proDA#source#propagate: YES
+progeny#source#propagate: NO, package depends on 'decoupleR' which is not available
+projectR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+prolfqua#source#propagate: YES
+pRoloc#source#propagate: NO, package depends on 'MSnbase' which is not available
+pRolocGUI#source#propagate: NO, package depends on 'pRoloc' which is not available
+PROMISE#source#propagate: NO, package depends on 'GSEABase' which is not available
+PRONE#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+PROPER#source#propagate: YES
+PROPS#source#propagate: NO, package depends on 'sva' which is not available
+Prostar#source#propagate: NO, package depends on 'DAPAR' which is not available
+ProteinBatcher#source#propagate: YES
+proteinProfiles#source#propagate: YES
+ProteoDisco#source#propagate: NO, package depends on 'Biostrings' which is not available
+ProteoMM#source#propagate: NO, package depends on 'biomaRt' which is not available
+protGear#source#propagate: NO, package depends on 'genefilter' which is not available
+ProtGenerics#source#propagate: YES
+PscanR#source#propagate: NO, package depends on 'Biostrings' which is not available
+PSMatch#source#propagate: NO, package depends on 'QFeatures' which is not available
+ptairMS#source#propagate: NO, package depends on 'MSnbase' which is not available
+PTMods#source#propagate: YES
+puma#source#propagate: NO, package depends on 'oligo' which is not available
+punKEGGer#source#propagate: NO, package depends on 'KEGGREST' which is not available
+PureCN#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+pvac#source#propagate: YES
+pvca#source#propagate: YES
+Pviz#source#propagate: NO, package depends on 'Gviz' which is not available
+pwalign#source#propagate: NO, package depends on 'Biostrings' which is not available
+PWMEnrich#source#propagate: NO, package depends on 'Biostrings' which is not available
+qcmetrics#source#propagate: YES
+QDNAseq#source#propagate: NO, package depends on 'Rsamtools' which is not available
+QFeaturesGUI#source#propagate: NO, package depends on 'QFeatures' which is not available
+qmtools#source#propagate: YES
+qpcrNorm#source#propagate: YES
+qpgraph#source#propagate: NO, package depends on 'annotate' which is not available
+qPLEXanalyzer#source#propagate: NO, package depends on 'MSnbase' which is not available
+QRscore#source#propagate: YES
+qsea#source#propagate: NO, package depends on 'Biostrings' which is not available
+qsmooth#source#propagate: NO, package depends on 'sva' which is not available
+qsvaR#source#propagate: NO, package depends on 'sva' which is not available
+QTLExperiment#source#propagate: YES
+Qtlizer#source#propagate: YES
+quantMSImageR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+quantsmooth#source#propagate: YES
+QuaternaryProd#source#propagate: YES
+QUBIC#source#propagate: YES
+queeems#source#propagate: NO, package depends on 'Biostrings' which is not available
+qusage#source#propagate: YES
+qvalue#source#propagate: YES
+R3CPET#source#propagate: NO, package depends on 'ggbio' which is not available
+r3Cseq#source#propagate: NO, package depends on 'Rsamtools' which is not available
+R453Plus1Toolbox#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+R4RNA#source#propagate: NO, package depends on 'Biostrings' which is not available
+RadioGx#source#propagate: NO, package depends on 'CoreGx' which is not available
+raer#source#propagate: NO, package depends on 'Rsamtools' which is not available
+RAIDS#source#propagate: NO, package depends on 'GENESIS' which is not available
+rain#source#propagate: YES
+RAMEN#source#propagate: YES
+ramr#source#propagate: YES
+randPack#source#propagate: YES
+RankMap#source#propagate: YES
+RankProd#source#propagate: YES
+RAREsim#source#propagate: YES
+RareVariantVis#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+Rarr#source#propagate: YES
+rawDiag#source#propagate: YES
+rawrr#source#propagate: YES
+RbcBook1#source#propagate: YES
+Rbec#source#propagate: NO, package depends on 'dada2' which is not available
+RBedMethyl#source#propagate: NO, package depends on 'bsseq' which is not available
+RBGL#source#propagate: YES
+RBioFormats#source#propagate: NO, package depends on 'EBImage' which is not available
+rBiopaxParser#source#propagate: YES
+rBLAST#source#propagate: NO, package depends on 'Biostrings' which is not available
+RBM#source#propagate: YES
+Rbowtie#source#propagate: YES
+Rbowtie2#source#propagate: NO, package depends on 'Rsamtools' which is not available
+RBPEqBind#source#propagate: NO, package depends on 'Biostrings' which is not available
+RBPSpecificity#source#propagate: NO, package depends on 'Biostrings' which is not available
+rbsurv#source#propagate: YES
+Rbwa#source#propagate: YES
+RCASPAR#source#propagate: YES
+rcellminer#source#propagate: YES
+rCGH#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+RcisTarget#source#propagate: NO, package depends on 'AUCell' which is not available
+RCM#source#propagate: NO, package depends on 'phyloseq' which is not available
+Rcollectl#source#propagate: YES
+Rcpi#source#propagate: NO, package depends on 'Biostrings' which is not available
+RCSL#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+Rcwl#source#propagate: YES
+RcwlPipelines#source#propagate: YES
+RCX#source#propagate: YES
+RCy3#source#propagate: YES
+RCyjs#source#propagate: YES
+Rdisop#source#propagate: YES
+RDRToolbox#source#propagate: YES
+ReactomeGSA#source#propagate: YES
+ReactomePA#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ReadqPCR#source#propagate: YES
+REBET#source#propagate: YES
+rebook#source#propagate: YES
+reconsi#source#propagate: NO, package depends on 'phyloseq' which is not available
+recountmethylation#source#propagate: NO, package depends on 'minfi' which is not available
+recoup#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+RedeR#source#propagate: YES
+RedisParam#source#propagate: YES
+REDseq#source#propagate: NO, package depends on 'Biostrings' which is not available
+Rega#source#propagate: YES
+RegEnrich#source#propagate: NO, package depends on 'BiocSet' which is not available
+regionalpcs#source#propagate: NO, package depends on 'PCAtools' which is not available
+RegionalST#source#propagate: NO, package depends on 'scater' which is not available
+regioneR#source#propagate: NO, package depends on 'BSgenome' which is not available
+regioneReloaded#source#propagate: NO, package depends on 'regioneR' which is not available
+reglScatterplotR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+regsplice#source#propagate: YES
+regutools#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+REMP#source#propagate: NO, package depends on 'minfi' which is not available
+RepViz#source#propagate: NO, package depends on 'Rsamtools' which is not available
+ResidualMatrix#source#propagate: YES
+RESOLVE#source#propagate: NO, package depends on 'Biostrings' which is not available
+retrofit#source#propagate: YES
+ReUseData#source#propagate: YES
+rexposome#source#propagate: YES
+Rfastp#source#propagate: YES
+RFLOMICS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+rfPred#source#propagate: NO, package depends on 'Rsamtools' which is not available
+rGenomeTracks#source#propagate: YES
+rgoslin#source#propagate: YES
+RGraph2js#source#propagate: YES
+Rgraphviz#source#propagate: YES
+rGREAT#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+rhdf5#source#propagate: YES
+rhdf5client#source#propagate: YES
+rhdf5filters#source#propagate: YES
+Rhdf5lib#source#propagate: YES
+rhinotypeR#source#propagate: NO, package depends on 'MultipleAlignment' which is not available
+Rhisat2#source#propagate: NO, package depends on 'txdbmaker' which is not available
+Rhtslib#source#propagate: YES
+RhyME#source#propagate: YES
+RiboDiPA#source#propagate: NO, package depends on 'Rsamtools' which is not available
+ribor#source#propagate: YES
+riboSeqR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+ribosomeProfilingQC#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+rifiComparative#source#propagate: NO, package depends on 'rtracklayer' which is not available
+Rigraphlib#source#propagate: YES
+rigvf#source#propagate: YES
+RImmPort#source#propagate: YES
+RITAN#source#propagate: NO, package depends on 'BgeeDB' which is not available
+RIVER#source#propagate: YES
+RJMCMCNucleosomes#source#propagate: NO, package depends on 'consensusSeekeR' which is not available
+RLassoCox#source#propagate: YES
+RLMM#source#propagate: YES
+Rmagpie#source#propagate: YES
+Rmmquant#source#propagate: YES
+rmspc#source#propagate: NO, package depends on 'rtracklayer' which is not available
+RmzTabM#source#propagate: YES
+RNAAgeCalc#source#propagate: NO, package depends on 'recount' which is not available
+RNAdecay#source#propagate: YES
+rnaEditr#source#propagate: NO, package depends on 'bumphunter' which is not available
+RNAmodR#source#propagate: NO, package depends on 'Modstrings' which is not available
+RNAmodR.AlkAnilineSeq#source#propagate: NO, package depends on 'RNAmodR' which is not available
+RNAmodR.ML#source#propagate: NO, package depends on 'RNAmodR' which is not available
+RNAmodR.RiboMethSeq#source#propagate: NO, package depends on 'RNAmodR' which is not available
+RNAsense#source#propagate: YES
+rnaSentry#source#propagate: YES
+rnaseqcomp#source#propagate: YES
+RNAseqCovarImpute#source#propagate: YES
+RNASeqPower#source#propagate: YES
+RnaSeqSampleSize#source#propagate: NO, package depends on 'biomaRt' which is not available
+RNAshapeQC#source#propagate: NO, package depends on 'Rsamtools' which is not available
+RnBeads#source#propagate: NO, package depends on 'methylumi' which is not available
+roar#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+ROC#source#propagate: YES
+ROCpAI#source#propagate: YES
+RolDE#source#propagate: YES
+rols#source#propagate: YES
+ROntoTools#source#propagate: NO, package depends on 'KEGGREST' which is not available
+ropls#source#propagate: YES
+ROSeq#source#propagate: YES
+ROTS#source#propagate: YES
+RPA#source#propagate: NO, package depends on 'phyloseq' which is not available
+RPBC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+rprimer#source#propagate: NO, package depends on 'Biostrings' which is not available
+RProtoBufLib#source#propagate: YES
+rpx#source#propagate: YES
+Rqc#source#propagate: NO, package depends on 'ShortRead' which is not available
+rqt#source#propagate: YES
+RRHO#source#propagate: YES
+rrvgo#source#propagate: NO, package depends on 'GOSemSim' which is not available
+rsbml#source#propagate: YES
+rScudo#source#propagate: YES
+rsemmed#source#propagate: YES
+RSeqAn#source#propagate: YES
+Rsubread#source#propagate: YES
+RSVSim#source#propagate: NO, package depends on 'Biostrings' which is not available
+rSWeeP#source#propagate: NO, package depends on 'Biostrings' which is not available
+RTCA#source#propagate: YES
+RTCGAToolbox#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+RTN#source#propagate: YES
+RTNduals#source#propagate: YES
+RTNsurvival#source#propagate: YES
+RTopper#source#propagate: YES
+Rtpca#source#propagate: YES
+rTRM#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+rTRMui#source#propagate: NO, package depends on 'rTRM' which is not available
+RUCova#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+RUVcorr#source#propagate: YES
+RUVnormalize#source#propagate: YES
+RUVSeq#source#propagate: NO, package depends on 'EDASeq' which is not available
+Rvisdiff#source#propagate: YES
+RVS#source#propagate: YES
+rWikiPathways#source#propagate: YES
+S4Arrays#source#propagate: YES
+S4Cartographer#source#propagate: YES
+S4Vectors#source#propagate: YES
+safe#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+sagenhaft#source#propagate: YES
+SAIGEgds#source#propagate: NO, package depends on 'SeqArray' which is not available
+sampleClassifier#source#propagate: NO, package depends on 'MGFM' which is not available
+SamSPECTRAL#source#propagate: YES
+sangeranalyseR#source#propagate: NO, package depends on 'Biostrings' which is not available
+sangerseqR#source#propagate: NO, package depends on 'Biostrings' which is not available
+SanityR#source#propagate: NO, package depends on 'scuttle' which is not available
+SANTA#source#propagate: YES
+sarks#source#propagate: NO, package depends on 'Biostrings' which is not available
+satuRn#source#propagate: YES
+sbivar#source#propagate: NO, package depends on 'smoppix' which is not available
+SBMLR#source#propagate: YES
+SC3#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scafari#source#propagate: NO, package depends on 'ggbio' which is not available
+Scale4C#source#propagate: YES
+ScaledMatrix#source#propagate: YES
+SCAN.UPC#source#propagate: NO, package depends on 'oligo' which is not available
+scanMiR#source#propagate: NO, package depends on 'Biostrings' which is not available
+scanMiRApp#source#propagate: NO, package depends on 'scanMiR' which is not available
+SCANVIS#source#propagate: NO, package depends on 'rtracklayer' which is not available
+SCArray#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SCArray.sat#source#propagate: NO, package depends on 'SCArray' which is not available
+scatterHatch#source#propagate: YES
+scBatchQC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scBFA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SCBN#source#propagate: YES
+scBubbletree#source#propagate: YES
+scCB2#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scCertify#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+sccomp#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scCompoundDE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scConform#source#propagate: YES
+scDataviz#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDblFinder#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDD#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDDboost#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDesign3#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDiagnostics#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scDotPlot#source#propagate: NO, package depends on 'scater' which is not available
+scds#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scECODA#source#propagate: YES
+SCFA#source#propagate: YES
+scFastDE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scFeatureFilter#source#propagate: YES
+scFeatures#source#propagate: NO, package depends on 'GSVA' which is not available
+scGPS#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scGraphVerse#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+schex#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scHiCcompare#source#propagate: NO, package depends on 'HiCcompare' which is not available
+scHOT#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scider#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+scifer#source#propagate: NO, package depends on 'Biostrings' which is not available
+scLang#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scmap#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scMerge#source#propagate: NO, package depends on 'M3Drop' which is not available
+scmeth#source#propagate: NO, package depends on 'bsseq' which is not available
+scMitoMut#source#propagate: YES
+scMultiSim#source#propagate: YES
+SCnorm#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scone#source#propagate: NO, package depends on 'RUVSeq' which is not available
+Sconify#source#propagate: NO, package depends on 'flowCore' which is not available
+SCOPE#source#propagate: NO, package depends on 'Rsamtools' which is not available
+scoreInvHap#source#propagate: NO, package depends on 'Biostrings' which is not available
+scoup#source#propagate: NO, package depends on 'Biostrings' which is not available
+scp#source#propagate: NO, package depends on 'QFeatures' which is not available
+scPassport#source#propagate: YES
+scPCA#source#propagate: YES
+scPipe#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scProkaR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scQTLtools#source#propagate: NO, package depends on 'biomaRt' which is not available
+scrapper#source#propagate: YES
+scReClassify#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+screenCounter#source#propagate: YES
+ScreenR#source#propagate: YES
+scRepertoire#source#propagate: NO, package depends on 'immApex' which is not available
+scRNAseqApp#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+scruff#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+scry#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scShapes#source#propagate: YES
+scTGIF#source#propagate: NO, package depends on 'GSEABase' which is not available
+scTHI#source#propagate: YES
+scToppR#source#propagate: YES
+scTreeViz#source#propagate: NO, package depends on 'epivizr' which is not available
+scTypeEval#source#propagate: NO, package depends on 'scran' which is not available
+scuttle#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SDAMS#source#propagate: YES
+seahtrue#source#propagate: YES
+sechm#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+segmenter#source#propagate: NO, package depends on 'ChIPseeker' which is not available
+segmentSeq#source#propagate: NO, package depends on 'ShortRead' which is not available
+selectKSigs#source#propagate: NO, package depends on 'HiLDA' which is not available
+SELEX#source#propagate: NO, package depends on 'Biostrings' which is not available
+selexprepR#source#propagate: NO, package depends on 'Biostrings' which is not available
+SemDist#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+semisup#source#propagate: YES
+seq.hotSPOT#source#propagate: YES
+seq2pathway#source#propagate: NO, package depends on 'biomaRt' which is not available
+SeqArray#source#propagate: NO, package depends on 'Biostrings' which is not available
+seqCAT#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+seqcombo#source#propagate: YES
+SeqGSEA#source#propagate: NO, package depends on 'biomaRt' which is not available
+Seqinfo#source#propagate: YES
+seqLogo#source#propagate: YES
+seqPattern#source#propagate: NO, package depends on 'Biostrings' which is not available
+seqRdna#source#propagate: NO, package depends on 'methylKit' which is not available
+seqsetvis#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+SeqSQC#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+Seqtometry#source#propagate: YES
+SeqVarTools#source#propagate: NO, package depends on 'SeqArray' which is not available
+SEraster#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+sesame#source#propagate: YES
+SETA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SEtools#source#propagate: NO, package depends on 'sechm' which is not available
+sevenC#source#propagate: NO, package depends on 'InteractionSet' which is not available
+sfi#source#propagate: YES
+SGSeq#source#propagate: NO, package depends on 'Rsamtools' which is not available
+SharedObject#source#propagate: YES
+shinybiocloader#source#propagate: YES
+shinyDSP#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+shinyepico#source#propagate: NO, package depends on 'minfi' which is not available
+shinyMethyl#source#propagate: NO, package depends on 'minfi' which is not available
+ShortRead#source#propagate: NO, package depends on 'Biostrings' which is not available
+SICtools#source#propagate: NO, package depends on 'Rsamtools' which is not available
+SigCheck#source#propagate: NO, package depends on 'MLInterfaces' which is not available
+sigFeature#source#propagate: YES
+siggenes#source#propagate: YES
+sights#source#propagate: YES
+signatureSearch#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+signeR#source#propagate: NO, package depends on 'Biostrings' which is not available
+signifinder#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+SigsPack#source#propagate: NO, package depends on 'BSgenome' which is not available
+sigsquared#source#propagate: YES
+sigvar#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+SIM#source#propagate: NO, package depends on 'globaltest' which is not available
+SIMAT#source#propagate: YES
+SimBu#source#propagate: NO, package depends on 'phyloseq' which is not available
+SIMD#source#propagate: YES
+SimFFPE#source#propagate: NO, package depends on 'Biostrings' which is not available
+SimiCviz#source#propagate: YES
+similaRpeak#source#propagate: YES
+SIMLR#source#propagate: YES
+simona#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+simPIC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+simpleSeg#source#propagate: NO, package depends on 'EBImage' which is not available
+simplifyEnrichment#source#propagate: NO, package depends on 'simona' which is not available
+sincell#source#propagate: YES
+singIST#source#propagate: NO, package depends on 'GSEABase' which is not available
+SingleCellAlleleExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SingleCellSignalR#source#propagate: NO, package depends on 'BulkSignalR' which is not available
+singleCellTK#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SingleR#source#propagate: YES
+singscore#source#propagate: NO, package depends on 'GSEABase' which is not available
+SiPSiC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+sitadela#source#propagate: NO, package depends on 'biomaRt' which is not available
+Site2Target#source#propagate: YES
+sitePath#source#propagate: YES
+sizepower#source#propagate: YES
+sketchR#source#propagate: YES
+skewr#source#propagate: NO, package depends on 'methylumi' which is not available
+slalom#source#propagate: NO, package depends on 'GSEABase' which is not available
+slingshot#source#propagate: NO, package depends on 'TrajectoryUtils' which is not available
+SLqPCR#source#propagate: YES
+SMAD#source#propagate: YES
+smartid#source#propagate: YES
+SmartPhos#source#propagate: NO, package depends on 'decoupleR' which is not available
+SMITE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+smoothclust#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+smoppix#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SMTrackR#source#propagate: NO, package depends on 'rtracklayer' which is not available
+SNAGEE#source#propagate: YES
+snapcount#source#propagate: YES
+snifter#source#propagate: YES
+snm#source#propagate: YES
+SNPRelate#source#propagate: YES
+snpStats#source#propagate: YES
+SomaticSignatures#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+SOMNiBUS#source#propagate: NO, package depends on 'rtracklayer' which is not available
+sosta#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpaceMarkers#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpaceTrooper#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+spacexr#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+Spaniel#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SpaNorm#source#propagate: NO, package depends on 'scran' which is not available
+spARI#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+sparrow#source#propagate: NO, package depends on 'BiocSet' which is not available
+SparseArray#source#propagate: YES
+sparseMatrixStats#source#propagate: YES
+sparsenetgls#source#propagate: YES
+SparseSignatures#source#propagate: NO, package depends on 'Biostrings' which is not available
+spaSim#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpatialArtifacts#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpatialCPie#source#propagate: YES
+SpatialData.data#source#propagate: NO, package depends on 'spatialdataR' which is not available
+SpatialData.plot#source#propagate: NO, package depends on 'spatialdataR' which is not available
+spatialdataR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+spatialDE#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpatialDecon#source#propagate: NO, package depends on 'GeomxTools' which is not available
+SpatialExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SpatialExperimentIO#source#propagate: NO, package depends on 'DropletUtils' which is not available
+spatialFDA#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+spatialSimGP#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+speckle#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+specL#source#propagate: YES
+SpeCond#source#propagate: YES
+Spectra#source#propagate: YES
+SpectralTAD#source#propagate: NO, package depends on 'HiCcompare' which is not available
+SpectraQL#source#propagate: YES
+SpectraStash#source#propagate: YES
+SPEM#source#propagate: YES
+SPIA#source#propagate: YES
+SPIAT#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SPICEY#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+SpiecEasi#source#propagate: NO, package depends on 'phyloseq' which is not available
+spikeLI#source#propagate: YES
+spiky#source#propagate: NO, package depends on 'Rsamtools' which is not available
+spillR#source#propagate: NO, package depends on 'CATALYST' which is not available
+spkTools#source#propagate: YES
+splatter#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SpliceImpactR#source#propagate: NO, package depends on 'Biostrings' which is not available
+splicelogic#source#propagate: NO, package depends on 'plyranges' which is not available
+SplicingFactory#source#propagate: YES
+SplicingGraphs#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+SplineDV#source#propagate: NO, package depends on 'scuttle' which is not available
+splineTimeR#source#propagate: NO, package depends on 'GSEABase' which is not available
+splots#source#propagate: YES
+SpNeigh#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SPONGE#source#propagate: NO, package depends on 'biomaRt' which is not available
+spoon#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SpotClean#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+SPOTlight#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SpotSweeper#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+spqn#source#propagate: YES
+SPsimSeq#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+sRACIPE#source#propagate: YES
+SRAdb#source#propagate: YES
+srnadiff#source#propagate: NO, package depends on 'rtracklayer' which is not available
+sscu#source#propagate: NO, package depends on 'Biostrings' which is not available
+sSeq#source#propagate: YES
+ssize#source#propagate: YES
+sSNAPPY#source#propagate: NO, package depends on 'graphite' which is not available
+ssPATHS#source#propagate: YES
+ssrch#source#propagate: YES
+ssviz#source#propagate: NO, package depends on 'Rsamtools' which is not available
+StabMap#source#propagate: YES
+STADyUM#source#propagate: NO, package depends on 'rtracklayer' which is not available
+standR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+STATegRa#source#propagate: YES
+StatescopeR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+Statial#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+statTarget#source#propagate: YES
+stepNorm#source#propagate: YES
+strainspy#source#propagate: YES
+strandCheckR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+STRINGdb#source#propagate: YES
+STRprofilerR#source#propagate: YES
+struct#source#propagate: YES
+Structstrings#source#propagate: NO, package depends on 'Biostrings' which is not available
+StructuralVariantAnnotation#source#propagate: NO, package depends on 'rtracklayer' which is not available
+SubCellBarCode#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+subSeq#source#propagate: YES
+SUITOR#source#propagate: YES
+SummarizedExperiment#source#propagate: YES
+SummarizedHeatmap#source#propagate: YES
+Summix#source#propagate: YES
+SuperCellCyto#source#propagate: YES
+surfaltr#source#propagate: NO, package depends on 'biomaRt' which is not available
+SurfR#source#propagate: NO, package depends on 'SPsimSeq' which is not available
+survClust#source#propagate: YES
+survcomp#source#propagate: YES
+survtype#source#propagate: YES
+svaNUMT#source#propagate: NO, package depends on 'rtracklayer' which is not available
+svaRetro#source#propagate: NO, package depends on 'rtracklayer' which is not available
+SVP#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SwarnSeq#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+SWATH2stats#source#propagate: NO, package depends on 'biomaRt' which is not available
+switchBox#source#propagate: YES
+switchde#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+synapsis#source#propagate: NO, package depends on 'EBImage' which is not available
+synlet#source#propagate: YES
+SynMut#source#propagate: NO, package depends on 'Biostrings' which is not available
+syntenet#source#propagate: NO, package depends on 'Biostrings' which is not available
+systemPipeR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+systemPipeShiny#source#propagate: YES
+tadar#source#propagate: NO, package depends on 'Gviz' which is not available
+TADCompare#source#propagate: NO, package depends on 'HiCcompare' which is not available
+tanggle#source#propagate: YES
+TAPseq#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+target#source#propagate: YES
+TargetDecoy#source#propagate: YES
+TargetScore#source#propagate: YES
+TargetSearch#source#propagate: YES
+TBSignatureProfiler#source#propagate: NO, package depends on 'ASSIGN' which is not available
+TCC#source#propagate: YES
+TCGAbiolinks#source#propagate: NO, package depends on 'biomaRt' which is not available
+TCGAutils#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+TCseq#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+TDbasedUFE#source#propagate: YES
+TDbasedUFEadv#source#propagate: YES
+TENET#source#propagate: NO, package depends on 'Biostrings' which is not available
+tenXplore#source#propagate: NO, package depends on 'ontoProc' which is not available
+TEQC#source#propagate: NO, package depends on 'Rsamtools' which is not available
+terapadog#source#propagate: NO, package depends on 'KEGGREST' which is not available
+ternarynet#source#propagate: YES
+terraTCGAdata#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+TFARM#source#propagate: YES
+TFBSTools#source#propagate: NO, package depends on 'Biostrings' which is not available
+TFEA.ChIP#source#propagate: NO, package depends on 'biomaRt' which is not available
+TFHAZ#source#propagate: NO, package depends on 'ORFik' which is not available
+TFutils#source#propagate: NO, package depends on 'Rsamtools' which is not available
+thyroidBRS#source#propagate: YES
+TiDEomics#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+tidybulk#source#propagate: YES
+tidyexposomics#source#propagate: YES
+tidyFlowCore#source#propagate: NO, package depends on 'flowCore' which is not available
+tidyomics#source#propagate: NO, package depends on 'tidySummarizedExperiment' which is not available
+tidyprint#source#propagate: YES
+tidysbml#source#propagate: YES
+tidySingleCellExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+tidySpatialExperiment#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+tidySummarizedExperiment#source#propagate: NO, package depends on 'plyxp' which is not available
+tigre#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+TileDBArray#source#propagate: YES
+tilingArray#source#propagate: NO, package depends on 'genefilter' which is not available
+timecourse#source#propagate: YES
+timeOmics#source#propagate: YES
+timescape#source#propagate: YES
+TIN#source#propagate: YES
+TissueEnrich#source#propagate: NO, package depends on 'GSEABase' which is not available
+tkWidgets#source#propagate: YES
+TMSig#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+TnT#source#propagate: YES
+TOAST#source#propagate: NO, package depends on 'EpiDISH' which is not available
+tomoda#source#propagate: YES
+tomoseqr#source#propagate: YES
+TOP#source#propagate: NO, package depends on 'ClassifyR' which is not available
+topconfects#source#propagate: YES
+topdownr#source#propagate: NO, package depends on 'Biostrings' which is not available
+topGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+toppgene#source#propagate: YES
+ToxicoGx#source#propagate: NO, package depends on 'CoreGx' which is not available
+TPP#source#propagate: YES
+TPP2D#source#propagate: YES
+tpSVG#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+tracktables#source#propagate: NO, package depends on 'Rsamtools' which is not available
+trackViewer#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+tradeSeq#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TraianProt#source#propagate: NO, package depends on 'DOSE' which is not available
+TrajectoryGeometry#source#propagate: YES
+TrajectoryUtils#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+transcriptogramer#source#propagate: NO, package depends on 'biomaRt' which is not available
+transcriptR#source#propagate: NO, package depends on 'chipseq' which is not available
+transformGamPoi#source#propagate: NO, package depends on 'glmGamPoi' which is not available
+transite#source#propagate: NO, package depends on 'Biostrings' which is not available
+tRanslatome#source#propagate: NO, package depends on 'topGO' which is not available
+transmogR#source#propagate: NO, package depends on 'Biostrings' which is not available
+transomics2cytoscape#source#propagate: NO, package depends on 'KEGGREST' which is not available
+TreeAndLeaf#source#propagate: YES
+treeclimbR#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+treeio#source#propagate: YES
+treekoR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TreeSummarizedExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TREG#source#propagate: YES
+Trendy#source#propagate: YES
+TRESS#source#propagate: NO, package depends on 'rtracklayer' which is not available
+tricycle#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TrIdent#source#propagate: YES
+trio#source#propagate: YES
+triplex#source#propagate: NO, package depends on 'Biostrings' which is not available
+tripr#source#propagate: YES
+tRNA#source#propagate: NO, package depends on 'Structstrings' which is not available
+tRNAdbImport#source#propagate: NO, package depends on 'Modstrings' which is not available
+tRNAscanImport#source#propagate: NO, package depends on 'tRNA' which is not available
+TRONCO#source#propagate: YES
+TSCAN#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TSENAT#source#propagate: YES
+tTEscanR#source#propagate: NO, package depends on 'Biostrings' which is not available
+ttgsea#source#propagate: YES
+TTMap#source#propagate: YES
+TurboNorm#source#propagate: YES
+TVTB#source#propagate: NO, package depends on 'Biostrings' which is not available
+tweeDEseq#source#propagate: YES
+twilight#source#propagate: YES
+twoddpcr#source#propagate: YES
+txcutr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+tximeta#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+tximport#source#propagate: YES
+UCell#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+UCSC.utils#source#propagate: YES
+Ularcirc#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+UMI4Cats#source#propagate: NO, package depends on 'ShortRead' which is not available
+uncoverappLib#source#propagate: NO, package depends on 'Gviz' which is not available
+UNDO#source#propagate: YES
+unifiedWMWqPCR#source#propagate: YES
+UniProt.ws#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+Uniquorn#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+updateObject#source#propagate: YES
+UPDhmm#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+uSORT#source#propagate: YES
+VAExprs#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+VanillaICE#source#propagate: NO, package depends on 'oligoClasses' which is not available
+VarCon#source#propagate: NO, package depends on 'Biostrings' which is not available
+variancePartition#source#propagate: YES
+VariantExperiment#source#propagate: NO, package depends on 'GDSArray' which is not available
+VariantFiltering#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+VariantTools#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+VaSP#source#propagate: NO, package depends on 'ballgown' which is not available
+vbmp#source#propagate: YES
+VCFArray#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+VDJdive#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+VegaMC#source#propagate: NO, package depends on 'biomaRt' which is not available
+velociraptor#source#propagate: NO, package depends on 'zellkonverter' which is not available
+veloviz#source#propagate: YES
+VennDetail#source#propagate: YES
+VERSO#source#propagate: YES
+vidger#source#propagate: YES
+viper#source#propagate: YES
+ViSEAGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+VisiumIO#source#propagate: NO, package depends on 'TENxIO' which is not available
+visiumStitched#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+vissE#source#propagate: NO, package depends on 'GSEABase' which is not available
+vmrseq#source#propagate: NO, package depends on 'bumphunter' which is not available
+Voyager#source#propagate: NO, package depends on 'SpatialFeatureExperiment' which is not available
+VplotR#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+vsclust#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+vsn#source#propagate: YES
+vtpnet#source#propagate: NO, package depends on 'gwascat' which is not available
+vulcan#source#propagate: NO, package depends on 'ChIPpeakAnno' which is not available
+waddR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+wateRmelon#source#propagate: NO, package depends on 'methylumi' which is not available
+wavClusteR#source#propagate: NO, package depends on 'Rsamtools' which is not available
+wavFeatExt#source#propagate: YES
+weaver#source#propagate: YES
+webbioc#source#propagate: NO, package depends on 'annaffy' which is not available
+weitrix#source#propagate: YES
+widgetTools#source#propagate: YES
+WithinHostExperiment#source#propagate: NO, package depends on 'Biostrings' which is not available
+woven#source#propagate: YES
+wpm#source#propagate: YES
+wppi#source#propagate: YES
+Wrench#source#propagate: YES
+wSIR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+XAItest#source#propagate: YES
+xCell2#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+xcore#source#propagate: YES
+XDE#source#propagate: NO, package depends on 'genefilter' which is not available
+xenLite#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+Xeva#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+XINA#source#propagate: YES
+xmapbridge#source#propagate: YES
+XVector#source#propagate: YES
+yamss#source#propagate: NO, package depends on 'EBImage' which is not available
+yarn#source#propagate: NO, package depends on 'biomaRt' which is not available
+ZarrArray#source#propagate: YES
+zellkonverter#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+zenith#source#propagate: NO, package depends on 'EnrichmentBrowser' which is not available
+zFPKM#source#propagate: YES
+zinbwave#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+zitools#source#propagate: NO, package depends on 'phyloseq' which is not available
+ZygosityPredictor#source#propagate: NO, package depends on 'GenomicAlignments' which is not available

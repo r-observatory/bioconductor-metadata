@@ -1,24 +1,25 @@
-arrays#source#propagate: UNNEEDED, same version is already published
-BP4RNAseq#source#propagate: UNNEEDED, same version is already published
-CAGEWorkflow#source#propagate: UNNEEDED, same version is already published
-chipseqDB#source#propagate: UNNEEDED, same version is already published
-csawUsersGuide#source#propagate: UNNEEDED, same version is already published
-cytofWorkflow#source#propagate: UNNEEDED, same version is already published
-EGSEA123#source#propagate: UNNEEDED, same version is already published
-ExpHunterSuite#source#propagate: UNNEEDED, same version is already published
-ExpressionNormalizationWorkflow#source#propagate: UNNEEDED, same version is already published
-generegulation#source#propagate: UNNEEDED, same version is already published
-GeoMxWorkflows#source#propagate: UNNEEDED, same version is already published
-highthroughputassays#source#propagate: UNNEEDED, same version is already published
-liftOver#source#propagate: UNNEEDED, same version is already published
-maEndToEnd#source#propagate: UNNEEDED, same version is already published
-recountWorkflow#source#propagate: UNNEEDED, same version is already published
-RNAseq123#source#propagate: UNNEEDED, same version is already published
-rnaseqDTU#source#propagate: UNNEEDED, same version is already published
-rnaseqGene#source#propagate: UNNEEDED, same version is already published
-RnaSeqGeneEdgeRQL#source#propagate: UNNEEDED, same version is already published
-savingBiocObjects#source#propagate: UNNEEDED, same version is already published
+arrays#source#propagate: YES
+BP4RNAseq#source#propagate: YES
+CAGEWorkflow#source#propagate: YES
+chipseqDB#source#propagate: YES
+csawUsersGuide#source#propagate: YES
+cytofWorkflow#source#propagate: YES
+EGSEA123#source#propagate: YES
+ExpHunterSuite#source#propagate: YES
+ExpressionNormalizationWorkflow#source#propagate: YES
+fluentGenomics#source#propagate: YES
+generegulation#source#propagate: YES
+GeoMxWorkflows#source#propagate: YES
+highthroughputassays#source#propagate: YES
+liftOver#source#propagate: YES
+maEndToEnd#source#propagate: YES
+recountWorkflow#source#propagate: YES
+RNAseq123#source#propagate: YES
+rnaseqDTU#source#propagate: YES
+rnaseqGene#source#propagate: YES
+RnaSeqGeneEdgeRQL#source#propagate: YES
+savingBiocObjects#source#propagate: YES
 seqpac#source#propagate: YES
-sequencing#source#propagate: UNNEEDED, same version is already published
-simpleSingleCell#source#propagate: UNNEEDED, same version is already published
-variants#source#propagate: UNNEEDED, same version is already published
+sequencing#source#propagate: YES
+simpleSingleCell#source#propagate: YES
+variants#source#propagate: YES

@@ -19,7 +19,7 @@ ExpHunterSuite#nebbiolo2#buildsrc: OK
 ExpressionNormalizationWorkflow#nebbiolo2#install: OK
 ExpressionNormalizationWorkflow#nebbiolo2#buildsrc: OK
 fluentGenomics#nebbiolo2#install: OK
-fluentGenomics#nebbiolo2#buildsrc: ERROR
+fluentGenomics#nebbiolo2#buildsrc: OK
 generegulation#nebbiolo2#install: OK
 generegulation#nebbiolo2#buildsrc: OK
 GeoMxWorkflows#nebbiolo2#install: OK
