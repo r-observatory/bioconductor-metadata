@@ -22,7 +22,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ag.db
 Version: 3.13.0
@@ -48,7 +48,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: agcdf
 Version: 2.18.0
@@ -70,7 +70,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: agprobe
 Version: 2.18.0
@@ -93,7 +93,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: AHCytoBands
 Version: 0.99.1
@@ -151,7 +151,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/AHEnsDbs/inst/doc/creating-EnsDbs.R
-dependencyCount: 122
+dependencyCount: 112
 
 Package: AHLRBaseDbs
 Version: 1.8.0
@@ -495,7 +495,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: arabidopsis.db0
 Version: 3.22.0
@@ -517,7 +517,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ath1121501.db
 Version: 3.13.0
@@ -545,7 +545,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ath1121501frmavecs
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ath1121501cdf
 Version: 2.18.0
@@ -568,7 +568,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: XhybCasneuf
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ath1121501frmavecs
 Version: 1.0.0
@@ -621,7 +621,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: barley1cdf
 Version: 2.18.0
@@ -643,7 +643,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: barley1probe
 Version: 2.18.0
@@ -666,7 +666,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: BioMartGOGeneSets
 Version: 0.99.12
@@ -733,7 +733,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: bovine.db0
 Version: 3.22.0
@@ -754,7 +754,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: bovinecdf
 Version: 2.18.0
@@ -775,7 +775,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: bovineprobe
 Version: 2.18.0
@@ -797,7 +797,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: BSgenome.Alyrata.JGI.v1
 Version: 1.0.1
@@ -820,7 +820,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Amellifera.BeeBase.assembly4
 Version: 1.4.0
@@ -844,7 +844,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Amellifera.NCBI.AmelHAv3.1
 Version: 1.5.0
@@ -868,7 +868,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Amellifera.UCSC.apiMel2
 Version: 1.4.0
@@ -893,7 +893,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Amellifera.UCSC.apiMel2.masked
 importsMe: BSgenome.Amellifera.UCSC.apiMel2.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Amellifera.UCSC.apiMel2.masked
 Version: 1.3.99
@@ -923,7 +923,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Aofficinalis.NCBI.V1
 Version: 1.0.0
@@ -946,7 +946,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Athaliana.TAIR.04232008
 Version: 1.3.1000
@@ -971,7 +971,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Athaliana.TAIR.TAIR9
 Version: 1.3.1000
@@ -995,7 +995,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+suggestsMe: PscanR, universalmotif
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau3
 Version: 1.4.0
@@ -1020,7 +1021,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Btaurus.UCSC.bosTau3.masked
 importsMe: BSgenome.Btaurus.UCSC.bosTau3.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau3.masked
 Version: 1.3.99
@@ -1051,7 +1052,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Btaurus.UCSC.bosTau4
 Version: 1.4.0
@@ -1076,7 +1077,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Btaurus.UCSC.bosTau4.masked
 importsMe: BSgenome.Btaurus.UCSC.bosTau4.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau4.masked
 Version: 1.3.99
@@ -1107,7 +1108,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Btaurus.UCSC.bosTau6
 Version: 1.4.0
@@ -1132,7 +1133,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Btaurus.UCSC.bosTau6.masked
 importsMe: BSgenome.Btaurus.UCSC.bosTau6.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau6.masked
 Version: 1.3.99
@@ -1164,7 +1165,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: CNVRanger
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Btaurus.UCSC.bosTau8
 Version: 1.4.2
@@ -1187,7 +1188,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau9
 Version: 1.4.2
@@ -1212,7 +1213,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Btaurus.UCSC.bosTau9.masked
 importsMe: BSgenome.Btaurus.UCSC.bosTau9.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Btaurus.UCSC.bosTau9.masked
 Version: 1.4.4
@@ -1244,7 +1245,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Carietinum.NCBI.v1
 Version: 1.0.0
@@ -1266,7 +1267,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Celegans.UCSC.ce10
 Version: 1.4.0
@@ -1292,7 +1293,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ChIPpeakAnno, triplex
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Celegans.UCSC.ce11
 Version: 1.4.2
@@ -1318,7 +1319,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicFeatures, periodicDNA
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Celegans.UCSC.ce2
 Version: 1.4.0
@@ -1346,7 +1347,7 @@ hasLICENSE: FALSE
 dependsOnMe: REDseq
 suggestsMe: Biostrings, BSgenome, BSgenomeForge, GenomeInfoDb, IRanges,
         Seqinfo
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Celegans.UCSC.ce6
 Version: 1.4.0
@@ -1371,7 +1372,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Cfamiliaris.UCSC.canFam2
 Version: 1.4.0
@@ -1398,7 +1399,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Cfamiliaris.UCSC.canFam2.masked
 importsMe: BSgenome.Cfamiliaris.UCSC.canFam2.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Cfamiliaris.UCSC.canFam2.masked
 Version: 1.3.99
@@ -1429,7 +1430,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Cfamiliaris.UCSC.canFam3
 Version: 1.4.0
@@ -1456,7 +1457,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Cfamiliaris.UCSC.canFam3.masked
 importsMe: BSgenome.Cfamiliaris.UCSC.canFam3.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Cfamiliaris.UCSC.canFam3.masked
 Version: 1.3.99
@@ -1487,7 +1488,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Cjacchus.UCSC.calJac3
 Version: 1.4.2
@@ -1511,7 +1512,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Cjacchus.UCSC.calJac4
 Version: 1.5.0
@@ -1535,7 +1536,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.CneoformansVarGrubiiKN99.NCBI.ASM221672v1
 Version: 1.0.0
@@ -1560,7 +1561,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Creinhardtii.JGI.v5.6
 Version: 1.5.0
@@ -1586,7 +1587,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Dmelanogaster.UCSC.dm2
 Version: 1.4.0
@@ -1613,7 +1614,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Dmelanogaster.UCSC.dm2.masked
 importsMe: BSgenome.Dmelanogaster.UCSC.dm2.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Dmelanogaster.UCSC.dm2.masked
 Version: 1.3.99
@@ -1644,7 +1645,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Dmelanogaster.UCSC.dm3
 Version: 1.4.0
@@ -1673,7 +1674,7 @@ dependsOnMe: BSgenome.Dmelanogaster.UCSC.dm3.masked
 importsMe: BSgenome.Dmelanogaster.UCSC.dm3.masked
 suggestsMe: Biostrings, CAGEr, easyRNASeq, GenomicAlignments,
         GenomicFeatures, gmapR, memes, PWMEnrich
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Dmelanogaster.UCSC.dm3.masked
 Version: 1.3.99
@@ -1704,7 +1705,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Dmelanogaster.UCSC.dm6
 Version: 1.4.1
@@ -1730,7 +1731,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: Damsel, GRaNIE, HiCPotts, memes, periodicDNA, PICB
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer10
 Version: 1.4.2
@@ -1756,7 +1757,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ATACseqTFEA, CNEr, enhancerHomologSearch, periodicDNA,
         ribosomeProfilingQC
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer11
 Version: 1.4.2
@@ -1780,7 +1781,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer5
 Version: 1.4.0
@@ -1806,7 +1807,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Drerio.UCSC.danRer5.masked
 importsMe: BSgenome.Drerio.UCSC.danRer5.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer5.masked
 Version: 1.3.99
@@ -1837,7 +1838,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Drerio.UCSC.danRer6
 Version: 1.4.0
@@ -1863,7 +1864,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Drerio.UCSC.danRer6.masked
 importsMe: BSgenome.Drerio.UCSC.danRer6.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer6.masked
 Version: 1.3.99
@@ -1894,7 +1895,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Drerio.UCSC.danRer7
 Version: 1.4.0
@@ -1921,7 +1922,7 @@ hasLICENSE: FALSE
 dependsOnMe: cleanUpdTSeq, BSgenome.Drerio.UCSC.danRer7.masked
 importsMe: BSgenome.Drerio.UCSC.danRer7.masked
 suggestsMe: CAGEr, ChIPpeakAnno, heatmaps, motifbreakR, seqPattern
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Drerio.UCSC.danRer7.masked
 Version: 1.3.99
@@ -1952,7 +1953,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Dvirilis.Ensembl.dvircaf1
 Version: 1.4.3
@@ -1976,7 +1977,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ecoli.NCBI.20080805
 Version: 1.3.1000
@@ -2001,7 +2002,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: Basic4Cseq
 suggestsMe: ChIPpeakAnno, diffHic, Motif2Site, ramwas
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Gaculeatus.UCSC.gasAcu1
 Version: 1.4.0
@@ -2028,7 +2029,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Gaculeatus.UCSC.gasAcu1.masked
 importsMe: BSgenome.Gaculeatus.UCSC.gasAcu1.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Gaculeatus.UCSC.gasAcu1.masked
 Version: 1.3.99
@@ -2059,7 +2060,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Ggallus.UCSC.galGal3
 Version: 1.4.0
@@ -2086,7 +2087,7 @@ hasLICENSE: FALSE
 dependsOnMe: BSgenome.Ggallus.UCSC.galGal3.masked
 importsMe: BSgenome.Ggallus.UCSC.galGal3.masked
 suggestsMe: CNEr
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ggallus.UCSC.galGal3.masked
 Version: 1.3.99
@@ -2117,7 +2118,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Ggallus.UCSC.galGal4
 Version: 1.4.0
@@ -2143,7 +2144,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Ggallus.UCSC.galGal4.masked
 importsMe: BSgenome.Ggallus.UCSC.galGal4.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ggallus.UCSC.galGal4.masked
 Version: 1.3.99
@@ -2174,7 +2175,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Ggallus.UCSC.galGal5
 Version: 1.4.2
@@ -2197,7 +2198,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ggallus.UCSC.galGal6
 Version: 1.4.2
@@ -2220,7 +2221,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Gmax.NCBI.Gmv40
 Version: 4.0
@@ -2243,7 +2244,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.1000genomes.hs37d5
 Version: 0.99.1
@@ -2267,7 +2268,7 @@ hasLICENSE: FALSE
 importsMe: RESOLVE
 suggestsMe: FRASER, motifbreakR, MungeSumstats, SomaticSignatures,
         SparseSignatures, VariantFiltering, mSigSpectra
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.NCBI.GRCh38
 Version: 1.3.1000
@@ -2293,7 +2294,7 @@ importsMe: cfDNAPro
 suggestsMe: bambu, BSgenome, ensembldb, FRASER, GenomeInfoDb, h5vc,
         HiCaptuRe, motifbreakR, MungeSumstats, raer, scmeth,
         NanoporeRNASeq
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.NCBI.T2T.CHM13v2.0
 Version: 1.5.0
@@ -2320,7 +2321,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg17
 Version: 1.3.1001
@@ -2346,7 +2347,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Hsapiens.UCSC.hg17.masked
 importsMe: BSgenome.Hsapiens.UCSC.hg17.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg17.masked
 Version: 1.3.999
@@ -2378,7 +2379,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Hsapiens.UCSC.hg18
 Version: 1.3.1000
@@ -2405,7 +2406,7 @@ dependsOnMe: BSgenome.Hsapiens.UCSC.hg18.masked
 importsMe: VanillaICE, BSgenome.Hsapiens.UCSC.hg18.masked
 suggestsMe: Biostrings, CAGEr, HiTC, MEDME, methylPipe,
         MinimumDistance, oligo, ListerEtAlBSseq
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg18.masked
 Version: 1.3.99
@@ -2437,7 +2438,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: r3Cseq, gkmSVM
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Hsapiens.UCSC.hg19
 Version: 1.4.3
@@ -2462,30 +2463,30 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: CODEX, SCOPE, traseR, BSgenome.Hsapiens.UCSC.hg19.masked,
-        annotation, sequencing, variants
-importsMe: appreci8R, cfDNAPro, circRNAprofiler, decompTumor2Sig,
-        epiregulon, HiLDA, katdetectr, musicatk, RareVariantVis, RCAS,
-        YAPSA, BSgenome.Hsapiens.UCSC.hg19.masked
+        sequencing, variants
+importsMe: appreci8R, cfDNAPro, circRNAprofiler, epiregulon, HiLDA,
+        katdetectr, musicatk, RareVariantVis, RCAS, YAPSA,
+        BSgenome.Hsapiens.UCSC.hg19.masked
 suggestsMe: ATACseqQC, BadRegionFinder, Basic4Cseq, BBCAnalyzer,
         biovizBase, bnbc, CAGEr, ChIPpeakAnno, chromVAR, cigarillo,
-        CNEr, CNVfilteR, CRISPRseek, customProDB, DAMEfinder,
-        DNAshapeR, EpiCompare, epigraHMM, esATAC, FRASER, G4SNVHunter,
-        gcapc, GenomicAlignments, GenomicFeatures, GenVisR, geomeTriD,
-        ggbio, gmapR, GRaNIE, GreyListChIP, GUIDEseq, Gviz, h5vc,
-        HiCDCPlus, InPAS, IntEREst, IsoformSwitchAnalyzeR, karyoploteR,
-        LACHESIS, maftools, MEDIPS, MesKit, MethReg, methrix,
-        MinimumDistance, MiRaGE, motifbreakR, motifmatchr, MotifPeeker,
-        motifTestR, MutationalPatterns, ORFik, OrganismDbi, pageRank,
-        pipeFrame, plotgardener, plyranges, ProteoDisco, qsea,
-        R453Plus1Toolbox, REMP, RiboCrypt, Rsamtools, RSVSim,
-        rtracklayer, SEMPLR, SGSeq, signeR, SigsPack, supersigs,
-        svaNUMT, UMI4Cats, VariantAnnotation, wavClusteR,
-        FDb.FANTOM4.promoters.hg19, FDb.UCSC.snp135common.hg19,
-        FDb.UCSC.snp137common.hg19, SNPlocs.Hsapiens.dbSNP144.GRCh37,
+        CMEnt, CNEr, CNVfilteR, CRISPRseek, DAMEfinder, DNAshapeR,
+        EpiCompare, epigraHMM, esATAC, FRASER, G4SNVHunter, gcapc,
+        GenomicAlignments, GenomicFeatures, GenVisR, geomeTriD, ggbio,
+        gmapR, GRaNIE, GreyListChIP, GUIDEseq, h5vc, HiCDCPlus, InPAS,
+        IntEREst, IsoformSwitchAnalyzeR, karyoploteR, LACHESIS,
+        maftools, MEDIPS, MesKit, methrix, MinimumDistance, MiRaGE,
+        motifbreakR, motifmatchr, MotifPeeker, motifTestR,
+        MutationalPatterns, ORFik, OrganismDbi, pageRank, pipeFrame,
+        plotgardener, plyranges, ProteoDisco, qsea, R453Plus1Toolbox,
+        REMP, RiboCrypt, Rsamtools, RSVSim, rtracklayer, SEMPLR, SGSeq,
+        signeR, SigsPack, svaNUMT, UMI4Cats, VariantAnnotation,
+        wavClusteR, FDb.FANTOM4.promoters.hg19,
+        FDb.UCSC.snp135common.hg19, FDb.UCSC.snp137common.hg19,
+        SNPlocs.Hsapiens.dbSNP144.GRCh37,
         SNPlocs.Hsapiens.dbSNP155.GRCh37,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh37, ActiveDriverWGS, revert,
         SATS, sigminer
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg19.masked
 Version: 1.3.993
@@ -2519,7 +2520,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: CNVfilteR, CopyNumberPlots, karyoploteR, motifbreakR,
         r3Cseq, regioneR, RSVSim, gkmSVM
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Hsapiens.UCSC.hg38
 Version: 1.4.5
@@ -2542,17 +2543,18 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Hsapiens.UCSC.hg38.masked
-importsMe: branchpointer, cfDNAPro, epiregulon, katdetectr, musicatk,
-        ORFhunteR, primirTSS, TENET, OHCA
+importsMe: branchpointer, cfDNAPro, decompTumor2Sig, epiregulon,
+        katdetectr, musicatk, ORFhunteR, primirTSS, RAIDS, TENET, OHCA
 suggestsMe: BSgenome, bsseq, BUSpaRse, ChIPpeakAnno, circRNAprofiler,
-        CleanUpRNAseq, CNEr, crisprBowtie, crisprBwa, crisprDesign,
-        CRISPRseek, crisprShiny, crisprViz, DegCre, DMRcaller, DOTSeq,
-        eisaR, enhancerHomologSearch, EpiCompare, epiSeeker, EpiTxDb,
-        FRASER, GenomicRanges, GenomicScores, GenVisR, GRaNIE,
-        GUIDEseq, HiCDCPlus, MethReg, MethylSeekR, MIRit, Motif2Site,
-        motifbreakR, MotifPeeker, multicrispr, MutSeqR, nullranges,
-        periodicDNA, pqsfinder, RAIDS, REMP, scanMiRApp, SCOPE, SEMPLR,
-        Seqinfo, signeR, supersigs, TAPseq, transmogR,
+        CleanUpRNAseq, CMEnt, CNEr, crisprBowtie, crisprBwa,
+        crisprDesign, CRISPRseek, crisprShiny, crisprViz, DegCre,
+        DMRcaller, DOTSeq, eisaR, enhancerHomologSearch, EpiCompare,
+        epiSeeker, EpiTxDb, FRASER, GenomicRanges, GenomicScores,
+        GenVisR, GRaNIE, GUIDEseq, Gviz, HiCDCPlus, MethylSeekR, MIRit,
+        Motif2Site, motifbreakR, MotifPeeker, multicrispr, MutSeqR,
+        nullranges, periodicDNA, pqsfinder, PscanR, RBPSpecificity,
+        REMP, scanMiRApp, SCOPE, SEMPLR, Seqinfo, signeR, sigvar,
+        splicelogic, TAPseq, transmogR, Ularcirc,
         BSgenome.Hsapiens.UCSC.hg38.dbSNP151.major,
         BSgenome.Hsapiens.UCSC.hg38.dbSNP151.minor,
         SNPlocs.Hsapiens.dbSNP144.GRCh38,
@@ -2561,7 +2563,7 @@ suggestsMe: BSgenome, bsseq, BUSpaRse, ChIPpeakAnno, circRNAprofiler,
         SNPlocs.Hsapiens.dbSNP155.GRCh38,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh38, ActiveDriverWGS,
         GencoDymo2, gwas2crispr, mSigSpectra, revert, SATS
-dependencyCount: 60
+dependencyCount: 51
 
 Package: BSgenome.Hsapiens.UCSC.hg38.dbSNP151.major
 Version: 0.0.9999
@@ -2590,7 +2592,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome.Hsapiens.UCSC.hg38.dbSNP151.minor
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg38.dbSNP151.minor
 Version: 0.0.9999
@@ -2623,7 +2625,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome.Hsapiens.UCSC.hg38.dbSNP151.major
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Hsapiens.UCSC.hg38.masked
 Version: 1.4.5
@@ -2655,7 +2657,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome, motifbreakR, podkat, spiky
-dependencyCount: 61
+dependencyCount: 52
 
 Package: BSgenome.Hsapiens.UCSC.hs1
 Version: 1.4.4
@@ -2679,7 +2681,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+suggestsMe: CMEnt
+dependencyCount: 49
 
 Package: BSgenome.Mdomestica.UCSC.monDom5
 Version: 1.4.2
@@ -2703,7 +2706,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mfascicularis.NCBI.5.0
 Version: 1.4.2
@@ -2727,7 +2730,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mfascicularis.NCBI.6.0
 Version: 1.5.0
@@ -2752,7 +2755,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mfuro.UCSC.musFur1
 Version: 1.4.1
@@ -2776,7 +2779,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmulatta.UCSC.rheMac10
 Version: 1.4.2
@@ -2800,7 +2803,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GRaNIE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmulatta.UCSC.rheMac2
 Version: 1.4.0
@@ -2826,7 +2829,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Mmulatta.UCSC.rheMac2.masked
 importsMe: BSgenome.Mmulatta.UCSC.rheMac2.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmulatta.UCSC.rheMac2.masked
 Version: 1.3.99
@@ -2861,7 +2864,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Mmulatta.UCSC.rheMac3
 Version: 1.4.0
@@ -2887,7 +2890,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Mmulatta.UCSC.rheMac3.masked
 importsMe: BSgenome.Mmulatta.UCSC.rheMac3.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmulatta.UCSC.rheMac3.masked
 Version: 1.3.99
@@ -2918,7 +2921,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Mmulatta.UCSC.rheMac8
 Version: 1.4.2
@@ -2941,7 +2944,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmusculus.UCSC.mm10
 Version: 1.4.3
@@ -2967,13 +2970,13 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Mmusculus.UCSC.mm10.masked
 importsMe: epiregulon, musicatk, BSgenome.Mmusculus.UCSC.mm10.masked
-suggestsMe: BSgenome, circRNAprofiler, cliProfiler, crisprDesign,
-        CRISPRseek, enhancerHomologSearch, EpiCompare, factR, gcapc,
-        GenomicRanges, GRaNIE, HiCDCPlus, InPAS, m6Aboost, MiRaGE,
-        monaLisa, Motif2Site, MotifPeeker, multicrispr, MutSeqR,
-        NADfinder, periodicDNA, plyinteractions, scanMiRApp, scmeth,
-        SCOPE, SingleMoleculeFootprinting, ActiveDriverWGS, mSigSpectra
-dependencyCount: 58
+suggestsMe: BSgenome, circRNAprofiler, cliProfiler, CMEnt,
+        crisprDesign, CRISPRseek, enhancerHomologSearch, EpiCompare,
+        factR, gcapc, GenomicRanges, GRaNIE, HiCDCPlus, InPAS,
+        m6Aboost, MiRaGE, monaLisa, Motif2Site, MotifPeeker,
+        multicrispr, MutSeqR, NADfinder, periodicDNA, plyinteractions,
+        PscanR, scanMiRApp, scmeth, SCOPE, ActiveDriverWGS, mSigSpectra
+dependencyCount: 49
 
 Package: BSgenome.Mmusculus.UCSC.mm10.masked
 Version: 1.4.3
@@ -3003,7 +3006,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: podkat, r3Cseq, spiky
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Mmusculus.UCSC.mm39
 Version: 1.4.3
@@ -3027,8 +3030,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: GRaNIE, MotifPeeker, scanMiRApp
-dependencyCount: 58
+suggestsMe: CMEnt, GRaNIE, MotifPeeker, scanMiRApp
+dependencyCount: 49
 
 Package: BSgenome.Mmusculus.UCSC.mm8
 Version: 1.4.0
@@ -3053,7 +3056,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Mmusculus.UCSC.mm8.masked
 importsMe: BSgenome.Mmusculus.UCSC.mm8.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmusculus.UCSC.mm8.masked
 Version: 1.3.99
@@ -3084,7 +3087,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: rTRM
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Mmusculus.UCSC.mm9
 Version: 1.4.0
@@ -3112,7 +3115,7 @@ importsMe: musicatk, SPLINTER, BSgenome.Mmusculus.UCSC.mm9.masked
 suggestsMe: CAGEr, chipseq, circRNAprofiler, compEpiTools, EpiCompare,
         GRaNIE, HiCDCPlus, MEDME, methrix, MMDiff2, CAGEWorkflow,
         ActiveDriverWGS
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Mmusculus.UCSC.mm9.masked
 Version: 1.3.99
@@ -3143,7 +3146,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: r3Cseq
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Osativa.MSU.MSU7
 Version: 0.99.2
@@ -3164,7 +3167,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ppaniscus.UCSC.panPan1
 Version: 1.4.3
@@ -3187,7 +3190,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ppaniscus.UCSC.panPan2
 Version: 1.4.3
@@ -3210,7 +3213,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro2
 Version: 1.4.0
@@ -3236,7 +3239,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Ptroglodytes.UCSC.panTro2.masked
 importsMe: BSgenome.Ptroglodytes.UCSC.panTro2.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro2.masked
 Version: 1.3.99
@@ -3267,7 +3270,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro3
 Version: 1.4.0
@@ -3293,7 +3296,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Ptroglodytes.UCSC.panTro3.masked
 importsMe: BSgenome.Ptroglodytes.UCSC.panTro3.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro3.masked
 Version: 1.3.99
@@ -3324,7 +3327,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro5
 Version: 1.4.2
@@ -3347,7 +3350,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Ptroglodytes.UCSC.panTro6
 Version: 1.4.2
@@ -3370,7 +3373,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Rnorvegicus.UCSC.rn4
 Version: 1.4.0
@@ -3396,7 +3399,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Rnorvegicus.UCSC.rn4.masked
 importsMe: BSgenome.Rnorvegicus.UCSC.rn4.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Rnorvegicus.UCSC.rn4.masked
 Version: 1.3.99
@@ -3427,7 +3430,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Rnorvegicus.UCSC.rn5
 Version: 1.4.0
@@ -3454,7 +3457,7 @@ hasLICENSE: FALSE
 dependsOnMe: BSgenome.Rnorvegicus.UCSC.rn5.masked
 importsMe: BSgenome.Rnorvegicus.UCSC.rn5.masked
 suggestsMe: BSgenome
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Rnorvegicus.UCSC.rn5.masked
 Version: 1.3.99
@@ -3486,7 +3489,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: r3Cseq
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Rnorvegicus.UCSC.rn6
 Version: 1.4.1
@@ -3511,7 +3514,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GRaNIE, msgbsR, scanMiRApp
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Rnorvegicus.UCSC.rn7
 Version: 1.4.3
@@ -3534,7 +3537,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GRaNIE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Scerevisiae.UCSC.sacCer1
 Version: 1.4.0
@@ -3558,7 +3561,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome, multicrispr
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Scerevisiae.UCSC.sacCer2
 Version: 1.4.0
@@ -3582,7 +3585,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomeInfoDb, GenomicRanges, R453Plus1Toolbox
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Scerevisiae.UCSC.sacCer3
 Version: 1.4.0
@@ -3607,8 +3610,9 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: generegulation
 suggestsMe: DNAshapeR, EpiTxDb, gmapR, HiContacts, Motif2Site,
-        periodicDNA, tRNAscanImport, txcutr, crispRdesignR
-dependencyCount: 58
+        periodicDNA, PscanR, tRNAscanImport, TSSr, txcutr,
+        crispRdesignR
+dependencyCount: 49
 
 Package: BSgenome.Sscrofa.UCSC.susScr11
 Version: 1.4.2
@@ -3630,7 +3634,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Sscrofa.UCSC.susScr3
 Version: 1.4.0
@@ -3654,7 +3658,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Sscrofa.UCSC.susScr3.masked
 importsMe: BSgenome.Sscrofa.UCSC.susScr3.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Sscrofa.UCSC.susScr3.masked
 Version: 1.3.99
@@ -3685,7 +3689,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Tgondii.ToxoDB.7.0
 Version: 0.99.1
@@ -3707,7 +3711,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Tguttata.UCSC.taeGut1
 Version: 1.4.0
@@ -3733,7 +3737,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: BSgenome.Tguttata.UCSC.taeGut1.masked
 importsMe: BSgenome.Tguttata.UCSC.taeGut1.masked
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Tguttata.UCSC.taeGut1.masked
 Version: 1.3.99
@@ -3762,7 +3766,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 59
+dependencyCount: 50
 
 Package: BSgenome.Tguttata.UCSC.taeGut2
 Version: 1.4.2
@@ -3786,7 +3790,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Vvinifera.URGI.IGGP12Xv0
 Version: 0.1
@@ -3810,7 +3814,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Vvinifera.URGI.IGGP12Xv2
 Version: 0.1
@@ -3834,7 +3838,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: BSgenome.Vvinifera.URGI.IGGP8X
 Version: 0.1
@@ -3859,7 +3863,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 58
+dependencyCount: 49
 
 Package: bsubtiliscdf
 Version: 2.18.0
@@ -3881,7 +3885,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: bsubtilisprobe
 Version: 2.18.0
@@ -3904,7 +3908,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: cadd.v1.6.hg19
 Version: 3.18.1
@@ -4002,7 +4006,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: canine.db0
 Version: 3.22.0
@@ -4023,7 +4027,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: canine2.db
 Version: 3.13.0
@@ -4050,7 +4054,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: canine2cdf
 Version: 2.18.0
@@ -4072,7 +4076,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: canine2probe
 Version: 2.18.0
@@ -4095,7 +4099,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: caninecdf
 Version: 2.18.0
@@ -4117,7 +4121,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: canineprobe
 Version: 2.18.0
@@ -4140,7 +4144,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: celegans.db
 Version: 3.13.0
@@ -4167,7 +4171,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: celeganscdf
 Version: 2.18.0
@@ -4189,7 +4193,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: celegansprobe
 Version: 2.18.0
@@ -4212,7 +4216,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: CENTREannotation
 Version: 0.99.1
@@ -4299,7 +4303,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: chicken.db0
 Version: 3.22.0
@@ -4320,7 +4324,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: chickencdf
 Version: 2.18.0
@@ -4341,7 +4345,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: chickenprobe
 Version: 2.18.0
@@ -4364,7 +4368,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: chimp.db0
 Version: 3.22.0
@@ -4385,7 +4389,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: chromhmmData
 Version: 0.99.2
@@ -4436,7 +4440,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: citrusprobe
 Version: 2.18.0
@@ -4458,7 +4462,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: clariomdhumanprobeset.db
 Version: 8.8.0
@@ -4485,7 +4489,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomdhumantranscriptcluster.db
 Version: 8.8.0
@@ -4512,7 +4516,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomshumanhttranscriptcluster.db
 Version: 8.8.0
@@ -4540,7 +4544,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomshumantranscriptcluster.db
 Version: 8.8.0
@@ -4567,7 +4571,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomsmousehttranscriptcluster.db
 Version: 8.8.0
@@ -4595,7 +4599,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomsmousetranscriptcluster.db
 Version: 8.8.0
@@ -4622,7 +4626,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomsrathttranscriptcluster.db
 Version: 8.8.0
@@ -4649,7 +4653,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: clariomsrattranscriptcluster.db
 Version: 8.8.0
@@ -4676,7 +4680,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: cMAP
 Version: 1.15.1
@@ -4719,7 +4723,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: cottonprobe
 Version: 2.18.0
@@ -4743,7 +4747,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: CTCF
 Version: 0.99.14
@@ -4814,7 +4818,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: DO.db
 Version: 2.9
@@ -4837,8 +4841,8 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/DO.db/inst/doc/DO.db.R
-suggestsMe: gwascat
-dependencyCount: 42
+suggestsMe: BenchHub, gwascat
+dependencyCount: 43
 
 Package: drosgenome1.db
 Version: 3.13.0
@@ -4867,7 +4871,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: tigre
-dependencyCount: 43
+dependencyCount: 44
 
 Package: drosgenome1cdf
 Version: 2.18.0
@@ -4889,7 +4893,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: drosgenome1probe
 Version: 2.18.0
@@ -4912,7 +4916,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: drosophila2.db
 Version: 3.13.0
@@ -4940,7 +4944,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: drosophila2cdf
 Version: 2.18.0
@@ -4962,7 +4966,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: drosophila2probe
 Version: 2.18.0
@@ -4986,7 +4990,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: Biostrings, XVector
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoli2.db
 Version: 3.13.0
@@ -5013,7 +5017,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ecoli2cdf
 Version: 2.18.0
@@ -5035,7 +5039,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoli2probe
 Version: 2.18.0
@@ -5058,7 +5062,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoliasv2cdf
 Version: 2.18.0
@@ -5080,7 +5084,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoliasv2probe
 Version: 2.18.0
@@ -5103,7 +5107,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecolicdf
 Version: 2.18.0
@@ -5126,7 +5130,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: ecoliLeucine
 suggestsMe: ecolitk
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoliK12.db0
 Version: 3.22.0
@@ -5148,7 +5152,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoliprobe
 Version: 2.18.0
@@ -5171,7 +5175,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ecoliSakai.db0
 Version: 3.22.0
@@ -5193,7 +5197,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ENCODExplorerData
 Version: 0.99.5
@@ -5243,7 +5247,7 @@ hasLICENSE: FALSE
 importsMe: MetaboSignal, uncoverappLib
 suggestsMe: AnnotationDbi, biovizBase, ChIPpeakAnno, ggbio, ldblock,
         TFutils, TVTB, gaawr2, locuszoomr, pQTLdata, revert
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EnsDb.Hsapiens.v79
 Version: 2.99.0
@@ -5264,7 +5268,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: scFeatures
 suggestsMe: ChIPpeakAnno, recount
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EnsDb.Hsapiens.v86
 Version: 2.99.0
@@ -5284,11 +5288,13 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: OSCA.workflows
-importsMe: chevreulPlot, chevreulProcess, RITAN, uncoverappLib
-suggestsMe: BUSpaRse, chevreulShiny, ChIPpeakAnno, CleanUpRNAseq,
-        demuxSNP, drugTargetInteractions, ensembldb, fishpond, InPAS,
-        nullranges, RAIDS, weitrix, wiggleplotr, craftgrn, revert
-dependencyCount: 81
+importsMe: chevreulPlot, chevreulProcess, GPlinksR, RITAN,
+        uncoverappLib
+suggestsMe: BenchHub, BUSpaRse, chevreulShiny, ChIPpeakAnno,
+        CleanUpRNAseq, demuxSNP, drugTargetInteractions, ensembldb,
+        fishpond, InPAS, nullranges, RAIDS, weitrix, wiggleplotr,
+        craftgrn, revert
+dependencyCount: 72
 
 Package: EnsDb.Mmusculus.v75
 Version: 2.99.0
@@ -5307,7 +5313,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EnsDb.Mmusculus.v79
 Version: 2.99.0
@@ -5328,7 +5334,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: scFeatures
 suggestsMe: chevreulShiny, epivizrData, InPAS, craftgrn
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EnsDb.Rnorvegicus.v75
 Version: 2.99.0
@@ -5347,7 +5353,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EnsDb.Rnorvegicus.v79
 Version: 2.99.0
@@ -5366,7 +5372,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 81
+dependencyCount: 72
 
 Package: EPICv2manifest
 Version: 0.99.7
@@ -5434,7 +5440,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EpiTxDb.Hs.hg38/inst/doc/EpiTxDb.Hs.hg38.R
 suggestsMe: EpiTxDb
-dependencyCount: 118
+dependencyCount: 109
 
 Package: EpiTxDb.Mm.mm10
 Version: 0.99.6
@@ -5463,7 +5469,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EpiTxDb.Mm.mm10/inst/doc/EpiTxDb.Mm.mm10.R
-dependencyCount: 118
+dependencyCount: 109
 
 Package: EpiTxDb.Sc.sacCer3
 Version: 0.99.5
@@ -5495,7 +5501,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EpiTxDb.Sc.sacCer3/inst/doc/EpiTxDb.Sc.sacCer3.R
-dependencyCount: 118
+dependencyCount: 109
 
 Package: EuPathDB
 Version: 1.0.1
@@ -5525,7 +5531,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/EuPathDB/inst/doc/EuPathDB.R
-dependencyCount: 119
+dependencyCount: 109
 
 Package: excluderanges
 Version: 0.99.11
@@ -5588,7 +5594,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: FDb.InfiniumMethylation.hg18
 Version: 2.2.0
@@ -5611,7 +5617,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: methylumi
-dependencyCount: 77
+dependencyCount: 68
 
 Package: FDb.InfiniumMethylation.hg19
 Version: 2.2.0
@@ -5636,7 +5642,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: methylumi
 suggestsMe: omicsPrint
-dependencyCount: 77
+dependencyCount: 68
 
 Package: FDb.UCSC.snp135common.hg19
 Version: 1.0.0
@@ -5659,7 +5665,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: FDb.InfiniumMethylation.hg19
-dependencyCount: 75
+dependencyCount: 66
 
 Package: FDb.UCSC.snp137common.hg19
 Version: 1.0.0
@@ -5681,7 +5687,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: FDb.UCSC.tRNAs
 Version: 1.0.1
@@ -5703,7 +5709,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicFeatures, OrganismDbi
-dependencyCount: 75
+dependencyCount: 66
 
 Package: fitCons.UCSC.hg19
 Version: 3.7.1
@@ -5724,7 +5730,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: fly.db0
 Version: 3.22.0
@@ -5745,7 +5751,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: geneplast.data
 Version: 0.99.9
@@ -5806,6 +5812,55 @@ hasLICENSE: FALSE
 suggestsMe: geneplast
 dependencyCount: 0
 
+Package: geneslator
+Version: 0.99.16
+Depends: R (>= 4.6.0)
+Imports: AnnotationDbi, methods, IRanges, utils, jsonlite, DBI, curl,
+        zen4R, BiocFileCache, KEGGREST
+Suggests: testthat, knitr, rmarkdown, BiocStyle
+License: Artistic-2.0
+MD5sum: 26bcd2b13b92aef0c4e22cb69f339c2f
+NeedsCompilation: no
+Title: Geneslator, a tool for accurate gene name conversion
+Description: Geneslator is a comprehensive R package that performs gene
+        identifier conversion and ortholog mapping. The tool integrates
+        multiple cross-organism databases (NCBI, Ensembl, UniProt, GO,
+        KEGG, Reactome, Wikipathways) and organism-specific resources
+        within a single, coherent framework. Geneslator supports many
+        organisms, including human, mouse, rat, yeast, worm, fly,
+        zebrafish and arabidopsis.
+biocViews: OrgDb, OrganismDb, AnnotationData, Homo_sapiens,
+        Mus_musculus, Rattus_norvegicus, Caenorhabditis_elegans,
+        Saccharomyces_cerevisiae, Drosophila_melanogaster, Danio_rerio,
+        Arabidopsis_thaliana, Organism, zebrafish, PackageType
+Author: Giovanni Micale [aut, cre] (ORCID:
+        <https://orcid.org/0000-0002-4953-026X>), Giulia Cavallaro
+        [aut] (ORCID: <https://orcid.org/0009-0000-1212-8368>), Grete
+        Francesca Privitera [aut] (ORCID:
+        <https://orcid.org/0000-0003-1807-4780>), Alfredo Pulvirenti
+        [aut] (ORCID: <https://orcid.org/0000-0002-9764-0295>), Stefano
+        Forte [aut] (ORCID: <https://orcid.org/0000-0001-5746-7451>),
+        Salvatore Alaimo [aut] (ORCID:
+        <https://orcid.org/0000-0003-4825-7617>)
+Maintainer: Giovanni Micale <giovanni.micale@unict.it>
+URL: https://github.com/knowmics-lab/geneslator
+VignetteBuilder: knitr
+BugReports: https://github.com/knowmics-lab/geneslator/issues
+git_url: https://git.bioconductor.org/packages/geneslator
+git_branch: devel
+git_last_commit: e7b7161
+git_last_commit_date: 2026-10-20
+Date/Publication: 2026-10-21
+source.ver: src/contrib/geneslator_0.99.16.tar.gz
+vignettes: vignettes/geneslator/inst/doc/geneslator.html
+vignetteTitles: Geneslator R package for gene annotation
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles: vignettes/geneslator/inst/doc/geneslator.R
+dependencyCount: 65
+
 Package: GeneSummary
 Version: 0.99.7
 Depends: R (>= 4.0)
@@ -5859,7 +5914,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: EuPathDB
-importsMe: countsimQC, DOTSeq, igvShiny, multiHiCcompare
+importsMe: countsimQC, DOTSeq, igvShiny, multiHiCcompare, Ularcirc
 suggestsMe: AnnotationHubData, Bioc.gff, GenomeInfoDb, HubPub, ORFik,
         OrganismDbi, orthogene, proActiv, proBAMr, QuasR,
         ribosomeProfilingQC, systemPipeR, txcutr, txdbmaker,
@@ -5973,30 +6028,30 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 47
+dependencyCount: 48
 
 Package: GO.db
-Version: 3.23.1
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.73.0)
+Version: 3.24.0
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI
 License: Artistic-2.0
-MD5sum: b9848764614f05b19038754dc6baa78d
+MD5sum: 75dd686e4eaffd59852a89e947da3fe8
 NeedsCompilation: no
 Title: A set of annotation maps describing the entire Gene Ontology
 Description: A set of annotation maps describing the entire Gene
-        Ontology assembled using data from GO
-biocViews: AnnotationData, FunctionalAnnotation
-Author: Marc Carlson
+        Ontology assembled using data from GO (2026-10-19).
+biocViews: GO, Annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
-source.ver: src/contrib/GO.db_3.23.1.tar.gz
+source.ver: src/contrib/GO.db_3.24.0.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: annaffy, BicARE, geneXtendeR, goProfiles, goTools,
-        SemDist, topGO, Homo.sapiens, Mus.musculus, Rattus.norvegicus,
-        davidTiling, RnaSeqGeneEdgeRQL, OSCA.basic
+dependsOnMe: annaffy, BicARE, goProfiles, goTools, SemDist, topGO,
+        Homo.sapiens, Mus.musculus, Rattus.norvegicus, davidTiling,
+        RnaSeqGeneEdgeRQL, OSCA.basic
 importsMe: ADAM, ADAMgui, adSplit, bioCancer, BioNAR, clusterProfiler,
         CNEr, compEpiTools, consICA, EnrichmentBrowser, famat, gage,
         GeneTonic, GenomicInteractionNodes, GOfan, GOpro, GOSemSim,
@@ -6005,16 +6060,16 @@ importsMe: ADAM, ADAMgui, adSplit, bioCancer, BioNAR, clusterProfiler,
         rGREAT, rgsepd, rrvgo, signatureSearch, simplifyEnrichment,
         ViSEAGO, ExpHunterSuite
 suggestsMe: annotate, AnnotationDbi, AnnotationForge, appreci8R,
-        BiocSet, Category, categoryCompare, ChIPpeakAnno, dmGsea,
-        esetVis, fgga, FGNet, GlobalAncova, globaltest, goSorensen,
-        GSEABase, hpar, InteractiveComplexHeatmap, iSEEpathways, iSEEu,
-        limma, MetMashR, mgsa, MLP, oppar, phenoTest, pRoloc, rols,
-        RTopper, safe, scde, simona, sparrow, SpliceWiz, systemPipeR,
-        TFutils, BioMartGOGeneSets, SomaScan.db, chipenrich.data,
-        msigdb, RforProteomics, yeastExpData, BaseSet, CALANGO,
-        clValid, conos, DSGEr, goat, maGUI, pagoda2, PathwayVote,
-        randomGODB, sand
-dependencyCount: 42
+        augere.gsea, Category, categoryCompare, ChIPpeakAnno, dmGsea,
+        EMMA, esetVis, fgga, FGNet, GlobalAncova, globaltest,
+        goSorensen, GSEABase, hpar, InteractiveComplexHeatmap,
+        iSEEpathways, iSEEu, limma, MetMashR, mgsa, MLP, ontoProc2,
+        oppar, phenoTest, pRoloc, rols, RTopper, safe, scde, simona,
+        SpliceWiz, systemPipeR, TFutils, BioMartGOGeneSets,
+        SomaScan.db, chipenrich.data, msigdb, RforProteomics,
+        yeastExpData, BaseSet, CALANGO, clValid, conos, DSGEr, goat,
+        maGUI, pagoda2, PathwayVote, randomGODB, sand
+dependencyCount: 43
 
 Package: gp53cdf
 Version: 2.18.0
@@ -6035,7 +6090,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: grasp2db
 Version: 1.1.1
@@ -6120,7 +6175,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: h20kcod.db
 Version: 3.4.0
@@ -6145,7 +6200,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hapmap370k
 Version: 1.0.1
@@ -6189,7 +6244,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hcg110cdf
 Version: 2.18.0
@@ -6210,7 +6265,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hcg110probe
 Version: 2.18.0
@@ -6232,7 +6287,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: HDO.db
 Version: 1.0.0
@@ -6261,7 +6316,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/HDO.db/inst/doc/HDO_vignette.R
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgfocus.db
 Version: 3.13.0
@@ -6288,7 +6343,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgfocuscdf
 Version: 2.18.0
@@ -6310,7 +6365,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: affycoretools, arrays
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgfocusprobe
 Version: 2.18.0
@@ -6333,7 +6388,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: affyILM
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133a.db
 Version: 3.13.0
@@ -6364,7 +6419,7 @@ dependsOnMe: KEGGlincs, Neve2006
 importsMe: DrugVsDisease, PADOG, phenoTest
 suggestsMe: AIMS, altcdfenvs, gage, geneplotter, goTools, MGFM,
         PCAtools, safe, sampleClassifier, topGO, metaMA
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu133a2.db
 Version: 3.13.0
@@ -6393,7 +6448,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: DrugVsDisease
 suggestsMe: RUVcorr
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu133a2cdf
 Version: 2.18.0
@@ -6414,7 +6469,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133a2frmavecs
 Version: 1.2.0
@@ -6457,7 +6512,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133acdf
 Version: 2.18.0
@@ -6480,7 +6535,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: AffyRNADegradation, altcdfenvs, frmaTools, affydata,
         AmpAffyExample
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133afrmavecs
 Version: 1.5.0
@@ -6524,7 +6579,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: altcdfenvs, Biostrings, frmaTools
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133atagcdf
 Version: 2.18.0
@@ -6547,7 +6602,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: arrayMvout, frmaTools
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133atagprobe
 Version: 2.18.0
@@ -6571,7 +6626,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: frmaTools
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133b.db
 Version: 3.13.0
@@ -6598,7 +6653,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu133bcdf
 Version: 2.18.0
@@ -6619,7 +6674,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133bprobe
 Version: 2.18.0
@@ -6641,7 +6696,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133plus2.db
 Version: 3.13.0
@@ -6674,7 +6729,7 @@ importsMe: DrugVsDisease, PADOG, DeSousa2013
 suggestsMe: BioQC, epivizr, epivizrChart, epivizrData, graphite,
         KEGGgraph, rtracklayer, sampleClassifier, SPIA,
         PREDAsampledata, rheumaticConditionWOLLBOLD, metaMA, RCPA
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu133plus2cdf
 Version: 2.18.0
@@ -6697,7 +6752,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: frmaTools, prebs, PREDAsampledata
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu133plus2frmavecs
 Version: 1.5.0
@@ -6743,7 +6798,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: frmaTools, prebs
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu219.db
 Version: 3.2.3
@@ -6768,7 +6823,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu219cdf
 Version: 2.18.0
@@ -6789,7 +6844,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu219probe
 Version: 2.18.0
@@ -6811,7 +6866,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95a.db
 Version: 3.13.0
@@ -6837,7 +6892,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95acdf
 Version: 2.18.0
@@ -6859,7 +6914,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: altcdfenvs
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95aprobe
 Version: 2.18.0
@@ -6881,7 +6936,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95av2
 Version: 2.2.0
@@ -6903,7 +6958,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: BicARE, tkWidgets
+suggestsMe: BicARE
 dependencyCount: 0
 
 Package: hgu95av2.db
@@ -6940,7 +6995,7 @@ suggestsMe: a4, a4Base, a4Classif, a4Preproc, affycoretools, annaffy,
         Heatplus, idiogram, MLInterfaces, npGSEA, pathRender,
         ReportingTools, SNAGEE, SummarizedExperiment, topGO, estrogen,
         SNAGEEdata, metaMA
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95av2cdf
 Version: 2.18.0
@@ -6964,7 +7019,7 @@ hasLICENSE: FALSE
 suggestsMe: affy, affyContam, affyPLM, Biostrings, gcrma, maskBAD,
         mimager, TurboNorm, vsn, affydata, ChimpHumanBrainData,
         estrogen
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95av2probe
 Version: 2.18.0
@@ -6988,7 +7043,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: Biostrings, BSgenome, gcrma, GenomicRanges, maskBAD
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95b.db
 Version: 3.13.0
@@ -7014,7 +7069,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95bcdf
 Version: 2.18.0
@@ -7035,7 +7090,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95bprobe
 Version: 2.18.0
@@ -7057,7 +7112,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95c.db
 Version: 3.13.0
@@ -7083,7 +7138,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95ccdf
 Version: 2.18.0
@@ -7104,7 +7159,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95cprobe
 Version: 2.18.0
@@ -7126,7 +7181,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95d.db
 Version: 3.13.0
@@ -7152,7 +7207,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95dcdf
 Version: 2.18.0
@@ -7173,7 +7228,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95dprobe
 Version: 2.18.0
@@ -7195,7 +7250,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95e.db
 Version: 3.13.0
@@ -7221,7 +7276,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgu95ecdf
 Version: 2.18.0
@@ -7242,7 +7297,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hgu95eprobe
 Version: 2.18.0
@@ -7264,7 +7319,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hguatlas13k.db
 Version: 3.2.3
@@ -7292,7 +7347,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgubeta7.db
 Version: 3.2.3
@@ -7317,7 +7372,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hguDKFZ31.db
 Version: 3.2.3
@@ -7342,7 +7397,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4100a.db
 Version: 3.2.3
@@ -7368,7 +7423,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4101a.db
 Version: 3.2.3
@@ -7394,7 +7449,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4110b.db
 Version: 3.2.3
@@ -7419,7 +7474,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4111a.db
 Version: 3.2.3
@@ -7444,7 +7499,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4112a.db
 Version: 3.2.3
@@ -7470,7 +7525,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: RmiR.Hs.miRNA, RmiR.hsa
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hgug4845a.db
 Version: 0.0.3
@@ -7494,7 +7549,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hguqiagenv3.db
 Version: 3.2.3
@@ -7520,7 +7575,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hi16cod.db
 Version: 3.4.0
@@ -7545,7 +7600,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hivprtplus2cdf
 Version: 2.18.0
@@ -7567,7 +7622,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Homo.sapiens
 Version: 1.3.1
@@ -7591,55 +7646,12 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: GSReg, mCSEA, annotation, liftOver
-importsMe: appreci8R, biscuiteer, epimutacions, iNETgrate,
-        uncoverappLib
-suggestsMe: AnnotationForge, epivizrChart, GenomicFiles, ggbio,
-        GOfuncR, methylumi, NanoMethViz, OrganismDbi, RTCGAToolbox,
-        scTensor, emtdata
-dependencyCount: 82
-
-Package: hpAnnot
-Version: 1.1.3
-Depends: R (>= 3.5), AnnotationHub
-Suggests: BiocStyle, knitr, rmarkdown
-License: GPL-2
-MD5sum: be07cd84379d23514b469cf32c3c9ad4
-NeedsCompilation: no
-Title: Anotation package for Hipathia package
-Description: Package containing example and annotation data for
-        Hipathia package. Hipathia is a method for the computation of
-        signal transduction along signaling pathways from
-        transcriptomic data. The method is based on an iterative
-        algorithm which is able to compute the signal intensity passing
-        through the nodes of a network by taking into account the level
-        of expression of each gene and the intensity of the signal
-        arriving to it. It also provides a new approach to functional
-        analysis allowing to compute the signal arriving to the
-        functions annotated to each pathway. Hipathia depends on this
-        package to be functional.
-biocViews: FunctionalAnnotation, PackageType, CustomDBSchema,
-        AnnotationHub
-Author: Marta R. Hidalgo [aut, cre], José Carbonell-Caballero [ctb],
-        Francisco Salavert [ctb], Alicia Amadoz [ctb], Çankut Cubuk
-        [ctb], Joaquin Dopazo [ctb]
-Maintainer: Marta R. Hidalgo <marta.hidalgo@outlook.es>
-VignetteBuilder: knitr
-PackageStatus: Deprecated
-git_url: https://git.bioconductor.org/packages/hpAnnot
-git_branch: devel
-git_last_commit: c6a0578
-git_last_commit_date: 2026-04-03
-Date/Publication: 2026-04-08
-source.ver: src/contrib/hpAnnot_1.1.3.tar.gz
-vignettes: vignettes/hpAnnot/inst/doc/hpAnnot-vignette.pdf
-vignetteTitles: hpAnnot
-hasREADME: FALSE
-hasNEWS: TRUE
-hasINSTALL: FALSE
-hasLICENSE: FALSE
-Rfiles: vignettes/hpAnnot/inst/doc/hpAnnot-vignette.R
-dependencyCount: 63
+dependsOnMe: GSReg, mCSEA, liftOver
+importsMe: appreci8R, biscuiteer, iNETgrate, uncoverappLib
+suggestsMe: AnnotationForge, epimutacions, epivizrChart, GenomicFiles,
+        ggbio, GOfuncR, methylumi, NanoMethViz, OrganismDbi,
+        RTCGAToolbox, scTensor, emtdata
+dependencyCount: 73
 
 Package: HPO.db
 Version: 0.99.2
@@ -7710,7 +7722,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: Hs6UG171.db
 Version: 3.2.3
@@ -7735,7 +7747,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: HsAgilentDesign026652.db
 Version: 3.2.3
@@ -7763,7 +7775,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: Hspec
 Version: 0.99.1
@@ -7783,7 +7795,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hspeccdf
 Version: 0.99.1
@@ -7803,7 +7815,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hta20probeset.db
 Version: 8.8.0
@@ -7828,7 +7840,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hta20transcriptcluster.db
 Version: 8.8.0
@@ -7854,7 +7866,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133a.db
 Version: 3.13.0
@@ -7881,7 +7893,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133acdf
 Version: 2.18.0
@@ -7902,7 +7914,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hthgu133afrmavecs
 Version: 1.3.0
@@ -7946,7 +7958,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hthgu133b.db
 Version: 3.13.0
@@ -7973,7 +7985,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133bcdf
 Version: 2.18.0
@@ -7994,7 +8006,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hthgu133bprobe
 Version: 2.18.0
@@ -8017,7 +8029,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hthgu133plusa.db
 Version: 3.13.0
@@ -8045,7 +8057,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133plusb.db
 Version: 3.13.0
@@ -8073,7 +8085,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133pluspm.db
 Version: 3.13.0
@@ -8101,7 +8113,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hthgu133pluspmcdf
 Version: 2.18.0
@@ -8123,7 +8135,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hthgu133pluspmprobe
 Version: 2.18.0
@@ -8146,7 +8158,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430a.db
 Version: 3.13.0
@@ -8173,7 +8185,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: htmg430acdf
 Version: 2.18.0
@@ -8194,7 +8206,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430aprobe
 Version: 2.18.0
@@ -8217,7 +8229,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430b.db
 Version: 3.13.0
@@ -8244,7 +8256,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: htmg430bcdf
 Version: 2.18.0
@@ -8265,7 +8277,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430bprobe
 Version: 2.18.0
@@ -8288,7 +8300,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430pm.db
 Version: 3.13.0
@@ -8315,7 +8327,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: htmg430pmcdf
 Version: 2.18.0
@@ -8336,7 +8348,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htmg430pmprobe
 Version: 2.18.0
@@ -8359,7 +8371,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htrat230pm.db
 Version: 3.13.0
@@ -8386,7 +8398,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: htrat230pmcdf
 Version: 2.18.0
@@ -8408,7 +8420,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htrat230pmprobe
 Version: 2.18.0
@@ -8431,7 +8443,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htratfocus.db
 Version: 3.13.0
@@ -8458,7 +8470,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: htratfocuscdf
 Version: 2.18.0
@@ -8480,7 +8492,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: htratfocusprobe
 Version: 2.18.0
@@ -8503,7 +8515,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksuba.db
 Version: 3.13.0
@@ -8530,7 +8542,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hu35ksubacdf
 Version: 2.18.0
@@ -8551,7 +8563,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubaprobe
 Version: 2.18.0
@@ -8574,7 +8586,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubb.db
 Version: 3.13.0
@@ -8601,7 +8613,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hu35ksubbcdf
 Version: 2.18.0
@@ -8622,7 +8634,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubbprobe
 Version: 2.18.0
@@ -8645,7 +8657,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubc.db
 Version: 3.13.0
@@ -8672,7 +8684,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hu35ksubccdf
 Version: 2.18.0
@@ -8693,7 +8705,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubcprobe
 Version: 2.18.0
@@ -8716,7 +8728,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubd.db
 Version: 3.13.0
@@ -8743,7 +8755,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hu35ksubdcdf
 Version: 2.18.0
@@ -8764,7 +8776,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu35ksubdprobe
 Version: 2.18.0
@@ -8787,7 +8799,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800.db
 Version: 3.13.0
@@ -8814,7 +8826,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: adSplit, biosigner, cola, geneplotter, GlobalAncova,
         globaltest, idiogram, MLInterfaces, simplifyEnrichment
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hu6800cdf
 Version: 2.18.0
@@ -8835,7 +8847,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800probe
 Version: 2.18.0
@@ -8857,7 +8869,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800subacdf
 Version: 2.18.0
@@ -8879,7 +8891,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800subbcdf
 Version: 2.18.0
@@ -8901,7 +8913,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800subccdf
 Version: 2.18.0
@@ -8923,7 +8935,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hu6800subdcdf
 Version: 2.18.0
@@ -8945,7 +8957,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: huex.1.0.st.v2frmavecs
 Version: 1.1.0
@@ -8990,7 +9002,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: huex10sttranscriptcluster.db
 Version: 8.8.0
@@ -9017,7 +9029,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: HuExExonProbesetLocation
 Version: 1.15.0
@@ -9037,7 +9049,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: HuExExonProbesetLocationHg18
 Version: 0.0.2
@@ -9060,7 +9072,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: HuExExonProbesetLocationHg19
 Version: 0.0.3
@@ -9083,7 +9095,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hugene.1.0.st.v1frmavecs
 Version: 1.1.0
@@ -9130,7 +9142,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene10sttranscriptcluster.db
 Version: 8.8.0
@@ -9157,7 +9169,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependsOnMe: maEndToEnd
+dependencyCount: 44
 
 Package: hugene10stv1cdf
 Version: 2.18.0
@@ -9179,7 +9192,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hugene10stv1probe
 Version: 2.18.0
@@ -9202,7 +9215,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: hugene11stprobeset.db
 Version: 8.8.0
@@ -9228,7 +9241,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene11sttranscriptcluster.db
 Version: 8.8.0
@@ -9255,7 +9268,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene20stprobeset.db
 Version: 8.8.0
@@ -9281,7 +9294,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene20sttranscriptcluster.db
 Version: 8.8.0
@@ -9308,7 +9321,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene21stprobeset.db
 Version: 8.8.0
@@ -9334,7 +9347,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hugene21sttranscriptcluster.db
 Version: 8.8.0
@@ -9361,7 +9374,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: human.db0
 Version: 3.22.0
@@ -9383,7 +9396,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: AnnotationForge
-dependencyCount: 42
+dependencyCount: 43
 
 Package: human1mduov3bCrlmm
 Version: 1.0.4
@@ -9539,28 +9552,6 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependencyCount: 1
 
-Package: humanCHRLOC
-Version: 2.1.6
-Depends: R(>= 2.7.0)
-License: The Artistic License, Version 2.0
-MD5sum: 113450c0822000c9b4e8a0141cf4b819
-NeedsCompilation: no
-Title: A data package containing annotation data for humanCHRLOC
-Description: Annotation data file for humanCHRLOC assembled using data
-        from public data repositories
-biocViews: FunctionalAnnotation, Homo_sapiens
-Author: Ting-Yuan Liu, ChenWei Lin, Seth Falcon, Jianhua Zhang, James
-        W. MacDonald
-Maintainer: Biocore Data Team <biocannotation@lists.fhcrc.org>
-organism: Homo sapiens
-source.ver: src/contrib/humanCHRLOC_2.1.6.tar.gz
-hasREADME: FALSE
-hasNEWS: FALSE
-hasINSTALL: FALSE
-hasLICENSE: FALSE
-suggestsMe: annotate
-dependencyCount: 0
-
 Package: humancytosnp12v2p1hCrlmm
 Version: 1.0.1
 Imports: utils
@@ -9680,7 +9671,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: hwgcod.db
 Version: 3.4.0
@@ -9706,7 +9697,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: IlluminaHumanMethylation27k.db
 Version: 1.4.8
@@ -9732,7 +9723,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: IlluminaHumanMethylation27kanno.ilmn12.hg19
 Version: 0.6.0
@@ -9752,7 +9743,8 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 144
+suggestsMe: CMEnt
+dependencyCount: 145
 
 Package: IlluminaHumanMethylation27kmanifest
 Version: 0.4.0
@@ -9771,7 +9763,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylation450kanno.ilmn12.hg19
 Version: 0.6.1
@@ -9792,12 +9784,13 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: conumee, missMethyl, wateRmelon, minfiData,
         methylationArrayAnalysis
-importsMe: epimutacions, funtooNorm, methylCC, methylGSA, DMRcatedata,
+importsMe: funtooNorm, methylCC, methylGSA, DMRcatedata,
         FlowSorted.CordBloodCombined.450k
-suggestsMe: bigmelon, coMethDMR, dmGsea, DMRcate, GeoTcgaData,
-        iNETgrate, MEAL, methylumi, minfi, mitch, REMP, RnBeads,
-        shinyepico, TCGAutils, FlowSorted.Blood.EPIC
-dependencyCount: 144
+suggestsMe: bigmelon, CMEnt, coMethDMR, crossarrayEWAS, dmGsea,
+        DMRcate, dnaEPICO, epimutacions, GeoTcgaData, iNETgrate, MEAL,
+        methylumi, minfi, mitch, RAMEN, REMP, RnBeads, shinyepico,
+        TCGAutils, FlowSorted.Blood.EPIC
+dependencyCount: 145
 
 Package: IlluminaHumanMethylation450kmanifest
 Version: 0.4.0
@@ -9817,10 +9810,11 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: conumee, skewr, minfiData, methylationArrayAnalysis
-importsMe: epimutacions, funtooNorm, methylCC, missMethyl
-suggestsMe: minfi, RnBeads, shinyepico, FlowSorted.Blood.EPIC,
-        FlowSorted.CordBloodCombined.450k, HiBED, MLML2R
-dependencyCount: 144
+importsMe: funtooNorm, methylCC, missMethyl
+suggestsMe: dnaEPICO, epimutacions, minfi, RnBeads, shinyepico,
+        FlowSorted.Blood.EPIC, FlowSorted.CordBloodCombined.450k,
+        HiBED, MLML2R
+dependencyCount: 145
 
 Package: IlluminaHumanMethylation450kprobe
 Version: 2.0.6
@@ -9840,7 +9834,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: IlluminaHumanMethylationEPICanno.ilm10b2.hg19
 Version: 0.6.0
@@ -9864,10 +9858,9 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: conumee, minfiDataEPIC
-importsMe: epimutacions
-suggestsMe: bigmelon, MEAL, REMP, wateRmelon,
+suggestsMe: bigmelon, epimutacions, MEAL, REMP, wateRmelon,
         FlowSorted.CordBloodCombined.450k
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationEPICanno.ilm10b3.hg19
 Version: 0.6.0
@@ -9890,7 +9883,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationEPICanno.ilm10b4.hg19
 Version: 0.6.0
@@ -9914,11 +9907,13 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: missMethyl
-importsMe: methylGSA, DMRcatedata, FlowSorted.CordBloodCombined.450k
-suggestsMe: coMethDMR, dmGsea, DMRcate, mitch, shinyepico,
+importsMe: methylGSA, RAMEN, DMRcatedata,
+        FlowSorted.CordBloodCombined.450k
+suggestsMe: CMEnt, coMethDMR, crossarrayEWAS, dmGsea, DMRcate,
+        dnaEPICO, mitch, shinyepico,
         IlluminaHumanMethylationEPICv2anno.20a1.hg38,
         FlowSorted.Blood.EPIC
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationEPICmanifest
 Version: 0.3.0
@@ -9941,10 +9936,10 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: conumee, minfiDataEPIC
-importsMe: epimutacions, missMethyl
-suggestsMe: shinyepico, wateRmelon,
+importsMe: missMethyl
+suggestsMe: dnaEPICO, epimutacions, shinyepico, wateRmelon,
         IlluminaHumanMethylationEPICv2manifest, FlowSorted.Blood.EPIC
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationEPICv2anno.20a1.hg38
 Version: 1.0.1
@@ -9978,8 +9973,8 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/IlluminaHumanMethylationEPICv2anno.20a1.hg38/inst/doc/IlluminaHumanMethylationEPICv2anno.20a1.hg38.R
 dependsOnMe: missMethyl
-suggestsMe: DMRcate
-dependencyCount: 144
+suggestsMe: CMEnt, DMRcate, dnaEPICO, RAMEN
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationEPICv2manifest
 Version: 1.0.1
@@ -10013,7 +10008,8 @@ hasLICENSE: FALSE
 Rfiles:
         vignettes/IlluminaHumanMethylationEPICv2manifest/inst/doc/IlluminaHumanMethylationEPICv2manifest.R
 importsMe: missMethyl
-dependencyCount: 144
+suggestsMe: dnaEPICO
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationMSAanno.ilm10a1.hg38
 Version: 0.1.0
@@ -10037,7 +10033,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 144
+dependencyCount: 145
 
 Package: IlluminaHumanMethylationMSAmanifest
 Version: 0.1.1
@@ -10068,7 +10064,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles:
         vignettes/IlluminaHumanMethylationMSAmanifest/inst/doc/IlluminaHumanMethylationMSAmanifest.R
-dependencyCount: 144
+dependencyCount: 145
 
 Package: illuminaHumanv1.db
 Version: 1.26.0
@@ -10094,7 +10090,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: attract, BeadArrayUseCases
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanv2.db
 Version: 1.26.0
@@ -10120,7 +10116,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BeadArrayUseCases
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanv2BeadID.db
 Version: 1.8.0
@@ -10153,7 +10149,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanv3.db
 Version: 1.26.0
@@ -10179,7 +10175,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: beadarray, BeadArrayUseCases
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanv4.db
 Version: 1.26.0
@@ -10205,7 +10201,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: blima, blimaTestingData
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanWGDASLv3.db
 Version: 1.26.0
@@ -10232,7 +10228,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaHumanWGDASLv4.db
 Version: 1.26.0
@@ -10259,7 +10255,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaMousev1.db
 Version: 1.26.0
@@ -10284,7 +10280,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaMousev1p1.db
 Version: 1.26.0
@@ -10310,7 +10306,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaMousev2.db
 Version: 1.26.0
@@ -10335,7 +10331,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: illuminaRatv1.db
 Version: 1.26.0
@@ -10360,7 +10356,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: indac.db
 Version: 3.2.3
@@ -10387,7 +10383,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: JASPAR2018
 Version: 1.1.1
@@ -10435,7 +10431,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/JASPAR2020/inst/doc/JASPAR2020.R
-suggestsMe: monaLisa, motifStack
+suggestsMe: monaLisa, motifStack, PscanR
 dependencyCount: 1
 
 Package: JASPAR2022
@@ -10473,7 +10469,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/JASPAR2022/inst/doc/JASPAR2022.R
-suggestsMe: GRaNIE
+suggestsMe: GRaNIE, PscanR
 dependencyCount: 42
 
 Package: JASPAR2024
@@ -10527,8 +10523,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/JASPAR2024/inst/doc/JASPAR2024.R
-importsMe: MethReg
-suggestsMe: epiSeeker, GRaNIE, monaLisa
+suggestsMe: CMEnt, epiSeeker, GRaNIE, monaLisa, PscanR
 dependencyCount: 42
 
 Package: JazaeriMetaData.db
@@ -10555,7 +10550,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: LAPOINTE.db
 Version: 3.2.3
@@ -10580,7 +10575,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: LowMACAAnnotation
 Version: 0.99.3
@@ -10632,7 +10627,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: lumi
-dependencyCount: 43
+dependencyCount: 44
 
 Package: lumiHumanIDMapping
 Version: 1.10.1
@@ -10658,7 +10653,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: lumi
-dependencyCount: 166
+dependencyCount: 167
 
 Package: lumiMouseAll.db
 Version: 1.22.0
@@ -10685,7 +10680,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: lumiMouseIDMapping
 Version: 1.10.0
@@ -10710,7 +10705,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 166
+dependencyCount: 167
 
 Package: lumiRatAll.db
 Version: 1.22.0
@@ -10737,7 +10732,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: lumiRatIDMapping
 Version: 1.10.0
@@ -10762,7 +10757,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 166
+dependencyCount: 167
 
 Package: LymphoSeqDB
 Version: 0.99.2
@@ -10808,7 +10803,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: m20kcod.db
 Version: 3.4.0
@@ -10833,7 +10828,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: MafDb.1Kgenomes.phase1.GRCh38
 Version: 3.10.0
@@ -10855,7 +10850,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.1Kgenomes.phase1.hs37d5
 Version: 3.10.0
@@ -10878,7 +10873,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicScores, VariantFiltering
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.1Kgenomes.phase3.GRCh38
 Version: 3.10.0
@@ -10901,7 +10896,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: methrix
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.1Kgenomes.phase3.hs37d5
 Version: 3.10.0
@@ -10925,7 +10920,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: appreci8R
 suggestsMe: methrix
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.ExAC.r1.0.GRCh38
 Version: 3.10.0
@@ -10948,7 +10943,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.ExAC.r1.0.hs37d5
 Version: 3.10.0
@@ -10972,7 +10967,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: appreci8R
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.ExAC.r1.0.nonTCGA.GRCh38
 Version: 3.10.0
@@ -10996,7 +10991,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.ExAC.r1.0.nonTCGA.hs37d5
 Version: 3.10.0
@@ -11020,7 +11015,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.gnomAD.r2.1.GRCh38
 Version: 3.10.0
@@ -11043,7 +11038,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.gnomAD.r2.1.hs37d5
 Version: 3.10.0
@@ -11066,7 +11061,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.gnomADex.r2.1.GRCh38
 Version: 3.10.0
@@ -11090,7 +11085,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.gnomADex.r2.1.hs37d5
 Version: 3.10.0
@@ -11115,7 +11110,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: appreci8R
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.TOPMed.freeze5.hg19
 Version: 3.10.0
@@ -11137,7 +11132,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafDb.TOPMed.freeze5.hg38
 Version: 3.10.0
@@ -11159,7 +11154,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: MafH5.gnomAD.v4.0.GRCh38
 Version: 3.19.0
@@ -11183,7 +11178,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicScores
-dependencyCount: 105
+dependencyCount: 104
 
 Package: maizecdf
 Version: 2.18.0
@@ -11204,7 +11199,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: maizeprobe
 Version: 2.18.0
@@ -11226,7 +11221,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: malaria.db0
 Version: 3.22.0
@@ -11247,7 +11242,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: medicagocdf
 Version: 2.18.0
@@ -11269,7 +11264,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: medicagoprobe
 Version: 2.18.0
@@ -11292,7 +11287,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: metaboliteIDmapping
 Version: 1.0.0
@@ -11326,7 +11321,101 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/metaboliteIDmapping/inst/doc/metaboliteIDmapping.R
 importsMe: multiGSEA
+suggestsMe: PinPath
 dependencyCount: 63
+
+Package: methylTFRAnnotationHg38
+Version: 0.99.12
+Depends: R (>= 4.6.0)
+Imports: AnnotationHub, GenomicRanges, stats
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0), BiocStyle
+License: Artistic-2.0
+MD5sum: 6cfeaf594527ea3d733e28aecd45b138
+NeedsCompilation: no
+Title: methylTFR Annotations for hg38
+Description: Precomputed transcription factor binding sites, motif GC
+        frequency tables and a genome-wide GC distribution for use with
+        the methylTFR package. Binding sites are genome-wide motif
+        matches extended to the footprint window methylTFR reads
+        across; the GC tables record how each motif's sites distribute
+        over genome-wide GC quintiles, which is what allows a deviation
+        score to be corrected for sequence composition. The data are
+        hosted on AnnotationHub and retrieved on first use; this
+        package provides the accessors and the documentation.
+biocViews: AnnotationData, AnnotationHub, FunctionalAnnotation,
+        SequenceAnnotation, Homo_sapiens
+Author: Irem B. Gündüz [aut, cre] (ORCID:
+        <https://orcid.org/0000-0003-2641-0916>), Fabian Mueller [aut]
+        (ORCID: <https://orcid.org/0000-0001-5809-2321>), ERA-NET
+        Transcan-Neu III - EPILUNAR [fnd] (Grant 01KT2409), Saarland
+        University [fnd] (NanoBioMed Young Investigator Grant)
+Maintainer: Irem B. Gündüz <irembgunduz@gmail.com>
+URL: https://github.com/EpigenomeInformatics/methylTFRAnnotationHg38
+VignetteBuilder: knitr
+BugReports:
+        https://github.com/EpigenomeInformatics/methylTFRAnnotationHg38/issues
+git_url: https://git.bioconductor.org/packages/methylTFRAnnotationHg38
+git_branch: devel
+git_last_commit: 5696758
+git_last_commit_date: 2026-11-05
+Date/Publication: 2026-11-11
+source.ver: src/contrib/methylTFRAnnotationHg38_0.99.12.tar.gz
+vignettes:
+        vignettes/methylTFRAnnotationHg38/inst/doc/methylTFRAnnotationHg38.html
+vignetteTitles: methylTFRAnnotationHg38
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles:
+        vignettes/methylTFRAnnotationHg38/inst/doc/methylTFRAnnotationHg38.R
+dependencyCount: 64
+
+Package: methylTFRAnnotationMm10
+Version: 0.99.13
+Depends: R (>= 4.6.0)
+Imports: AnnotationHub, GenomicRanges, stats
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0), BiocStyle
+License: Artistic-2.0
+MD5sum: b259dcc5fa8dbab8bdf8fb06bb7e76bc
+NeedsCompilation: no
+Title: methylTFR Annotations for mm10
+Description: Precomputed transcription factor binding sites, motif GC
+        frequency tables and a genome-wide GC distribution for use with
+        the methylTFR package. Binding sites are genome-wide motif
+        matches extended to the footprint window methylTFR reads
+        across; the GC tables record how each motif's sites distribute
+        over genome-wide GC quintiles, which is what allows a deviation
+        score to be corrected for sequence composition. The data are
+        hosted on AnnotationHub and retrieved on first use; this
+        package provides the accessors and the documentation.
+biocViews: AnnotationData, AnnotationHub, FunctionalAnnotation,
+        SequenceAnnotation, Mus_musculus
+Author: Irem B. Gunduz [aut, cre] (ORCID:
+        <https://orcid.org/0000-0003-2641-0916>), ERA-NET Transcan-Neu
+        III - EPILUNAR [fnd] (Grant 01KT2409), Saarland University
+        [fnd] (NanoBioMed Young Investigator Grant)
+Maintainer: Irem B. Gunduz <irembgunduz@gmail.com>
+URL: https://github.com/EpigenomeInformatics/methylTFRAnnotationMm10
+VignetteBuilder: knitr
+BugReports:
+        https://github.com/EpigenomeInformatics/methylTFRAnnotationMm10/issues
+git_url: https://git.bioconductor.org/packages/methylTFRAnnotationMm10
+git_branch: devel
+git_last_commit: 217b6f9
+git_last_commit_date: 2026-11-05
+Date/Publication: 2026-11-11
+source.ver: src/contrib/methylTFRAnnotationMm10_0.99.13.tar.gz
+vignettes:
+        vignettes/methylTFRAnnotationMm10/inst/doc/methylTFRAnnotationMm10.html
+vignetteTitles: methylTFRAnnotationMm10
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles:
+        vignettes/methylTFRAnnotationMm10/inst/doc/methylTFRAnnotationMm10.R
+dependencyCount: 64
 
 Package: mgu74a.db
 Version: 3.13.0
@@ -11352,7 +11441,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74acdf
 Version: 2.18.0
@@ -11373,7 +11462,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74aprobe
 Version: 2.18.0
@@ -11395,7 +11484,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74av2.db
 Version: 3.13.0
@@ -11422,7 +11511,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74av2cdf
 Version: 2.18.0
@@ -11443,7 +11532,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74av2probe
 Version: 2.18.0
@@ -11466,7 +11555,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74b.db
 Version: 3.13.0
@@ -11492,7 +11581,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74bcdf
 Version: 2.18.0
@@ -11513,7 +11602,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74bprobe
 Version: 2.18.0
@@ -11535,7 +11624,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74bv2.db
 Version: 3.13.0
@@ -11562,7 +11651,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74bv2cdf
 Version: 2.18.0
@@ -11583,7 +11672,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74bv2probe
 Version: 2.18.0
@@ -11606,7 +11695,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74c.db
 Version: 3.13.0
@@ -11632,7 +11721,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74ccdf
 Version: 2.18.0
@@ -11653,7 +11742,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74cprobe
 Version: 2.18.0
@@ -11675,7 +11764,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74cv2.db
 Version: 3.13.0
@@ -11702,7 +11791,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgu74cv2cdf
 Version: 2.18.0
@@ -11723,7 +11812,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mgu74cv2probe
 Version: 2.18.0
@@ -11746,7 +11835,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mguatlas5k.db
 Version: 3.2.3
@@ -11773,7 +11862,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgug4104a.db
 Version: 3.2.3
@@ -11798,7 +11887,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgug4120a.db
 Version: 3.2.3
@@ -11823,7 +11912,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgug4121a.db
 Version: 3.2.3
@@ -11848,7 +11937,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mgug4122a.db
 Version: 3.2.3
@@ -11873,7 +11962,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mi16cod.db
 Version: 3.4.0
@@ -11898,7 +11987,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: miRBaseVersions.db
 Version: 1.1.0
@@ -11927,7 +12016,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: miRNAmeConverter
 importsMe: ExpHunterSuite
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mirna102xgaincdf
 Version: 2.18.0
@@ -11949,7 +12038,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mirna10cdf
 Version: 2.18.0
@@ -11971,7 +12060,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ExiMiR
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mirna10probe
 Version: 2.18.0
@@ -11993,7 +12082,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mirna20cdf
 Version: 2.18.0
@@ -12014,7 +12103,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: miRNAtap.db
 Version: 0.99.10
@@ -12037,7 +12126,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/miRNAtap.db/inst/doc/miRNAtap.db.R
 suggestsMe: miRNAtap
-dependencyCount: 52
+dependencyCount: 53
 
 Package: mm24kresogen.db
 Version: 2.5.0
@@ -12062,7 +12151,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: MmAgilentDesign026655.db
 Version: 3.2.3
@@ -12090,7 +12179,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: moe430a.db
 Version: 3.13.0
@@ -12118,7 +12207,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: clValid
-dependencyCount: 43
+dependencyCount: 44
 
 Package: moe430acdf
 Version: 2.18.0
@@ -12139,7 +12228,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: moe430aprobe
 Version: 2.18.0
@@ -12161,7 +12250,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: moe430b.db
 Version: 3.13.0
@@ -12188,7 +12277,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: moe430bcdf
 Version: 2.18.0
@@ -12209,7 +12298,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: moe430bprobe
 Version: 2.18.0
@@ -12231,7 +12320,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: moex10stprobeset.db
 Version: 8.8.0
@@ -12256,7 +12345,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: moex10sttranscriptcluster.db
 Version: 8.8.0
@@ -12283,7 +12372,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: MoExExonProbesetLocation
 Version: 1.15.0
@@ -12303,7 +12392,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mogene.1.0.st.v1frmavecs
 Version: 1.1.0
@@ -12350,7 +12439,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene10sttranscriptcluster.db
 Version: 8.8.0
@@ -12377,7 +12466,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene10stv1cdf
 Version: 2.18.0
@@ -12399,7 +12488,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mogene10stv1probe
 Version: 2.18.0
@@ -12422,7 +12511,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mogene11stprobeset.db
 Version: 8.8.0
@@ -12448,7 +12537,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene11sttranscriptcluster.db
 Version: 8.8.0
@@ -12475,7 +12564,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene20stprobeset.db
 Version: 8.8.0
@@ -12501,7 +12590,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene20sttranscriptcluster.db
 Version: 8.8.0
@@ -12528,7 +12617,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene21stprobeset.db
 Version: 8.8.0
@@ -12554,7 +12643,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mogene21sttranscriptcluster.db
 Version: 8.8.0
@@ -12581,7 +12670,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mouse.db0
 Version: 3.22.0
@@ -12602,7 +12691,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mouse4302.db
 Version: 3.13.0
@@ -12630,7 +12719,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ChIPXpress, MLP, Hiiragi2013
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mouse4302cdf
 Version: 2.18.0
@@ -12652,7 +12741,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: ChIPXpress
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mouse4302frmavecs
 Version: 1.5.0
@@ -12697,7 +12786,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mouse430a2.db
 Version: 3.13.0
@@ -12724,7 +12813,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mouse430a2cdf
 Version: 2.18.0
@@ -12746,7 +12835,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mouse430a2frmavecs
 Version: 1.3.0
@@ -12790,28 +12879,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
-
-Package: mouseCHRLOC
-Version: 2.1.6
-Depends: R(>= 2.7.0)
-License: The Artistic License, Version 2.0
-MD5sum: 0b81d7391e628cc355af4de3c5585a5f
-NeedsCompilation: no
-Title: A data package containing annotation data for mouseCHRLOC
-Description: Annotation data file for mouseCHRLOC assembled using data
-        from public data repositories
-biocViews: FunctionalAnnotation, Mus_musculus
-Author: Ting-Yuan Liu, ChenWei Lin, Seth Falcon, Jianhua Zhang, James
-        W. MacDonald
-Maintainer: Biocore Data Team <biocannotation@lists.fhcrc.org>
-organism: Mus musculus
-source.ver: src/contrib/mouseCHRLOC_2.1.6.tar.gz
-hasREADME: FALSE
-hasNEWS: FALSE
-hasINSTALL: FALSE
-hasLICENSE: FALSE
-dependencyCount: 0
+dependencyCount: 43
 
 Package: mpedbarray.db
 Version: 3.2.3
@@ -12837,7 +12905,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: MPO.db
 Version: 0.99.8
@@ -12910,7 +12978,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mta10transcriptcluster.db
 Version: 8.8.0
@@ -12936,7 +13004,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu11ksuba.db
 Version: 3.13.0
@@ -12963,7 +13031,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu11ksubacdf
 Version: 2.18.0
@@ -12984,7 +13052,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu11ksubaprobe
 Version: 2.18.0
@@ -13007,7 +13075,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu11ksubb.db
 Version: 3.13.0
@@ -13034,7 +13102,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu11ksubbcdf
 Version: 2.18.0
@@ -13055,7 +13123,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu11ksubbprobe
 Version: 2.18.0
@@ -13078,7 +13146,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Mu15v1.db
 Version: 3.2.3
@@ -13104,7 +13172,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu19ksuba.db
 Version: 3.13.0
@@ -13131,7 +13199,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu19ksubacdf
 Version: 2.18.0
@@ -13152,7 +13220,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu19ksubb.db
 Version: 3.13.0
@@ -13179,7 +13247,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu19ksubbcdf
 Version: 2.18.0
@@ -13200,7 +13268,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu19ksubc.db
 Version: 3.13.0
@@ -13227,7 +13295,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu19ksubccdf
 Version: 2.18.0
@@ -13248,7 +13316,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Mu22v3.db
 Version: 3.2.3
@@ -13274,7 +13342,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: mu6500subacdf
 Version: 2.18.0
@@ -13296,7 +13364,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu6500subbcdf
 Version: 2.18.0
@@ -13318,7 +13386,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu6500subccdf
 Version: 2.18.0
@@ -13340,7 +13408,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: mu6500subdcdf
 Version: 2.18.0
@@ -13362,7 +13430,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Mus.musculus
 Version: 1.3.1
@@ -13390,7 +13458,7 @@ dependsOnMe: RNAseq123
 importsMe: biscuiteer
 suggestsMe: epivizr, epivizrChart, epivizrData, epivizrStandalone,
         NanoMethViz
-dependencyCount: 82
+dependencyCount: 73
 
 Package: mwgcod.db
 Version: 3.4.0
@@ -13416,7 +13484,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: Norway981.db
 Version: 3.2.3
@@ -13443,7 +13511,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: nugohs1a520180.db
 Version: 3.4.0
@@ -13468,7 +13536,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: nugohs1a520180cdf
 Version: 3.4.0
@@ -13489,7 +13557,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: nugohs1a520180probe
 Version: 3.4.0
@@ -13510,7 +13578,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: nugomm1a520177.db
 Version: 3.4.0
@@ -13535,7 +13603,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: nugomm1a520177cdf
 Version: 3.4.0
@@ -13556,7 +13624,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: nugomm1a520177probe
 Version: 3.4.0
@@ -13577,7 +13645,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: oligoData
 Version: 1.8.0
@@ -13663,7 +13731,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: org.Ag.eg.db
 Version: 3.22.0
@@ -13685,8 +13753,8 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-suggestsMe: geneXtendeR, goSorensen, rrvgo
-dependencyCount: 42
+suggestsMe: goSorensen, rrvgo
+dependencyCount: 43
 
 Package: org.At.tair.db
 Version: 3.22.0
@@ -13712,32 +13780,32 @@ dependsOnMe: ag.db, ath1121501.db
 importsMe: RFLOMICS
 suggestsMe: AnnotationDbi, goSorensen, NetSAM, rrvgo, scQTLtools,
         spatialHeatmap, topconfects, SRscore, venny
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Bt.eg.db
-Version: 3.22.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.71.1)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: 7198a14bed07de18efd8669f5ffb6da6
+MD5sum: f7ccd7df8b4594447a4e19aa673ba1d2
 NeedsCompilation: no
 Title: Genome wide annotation for Bovine
 Description: Genome wide annotation for Bovine, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Bos_taurus
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Bos taurus
-source.ver: src/contrib/org.Bt.eg.db_3.22.0.tar.gz
+source.ver: src/contrib/org.Bt.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: bovine.db
 importsMe: bioCancer
-suggestsMe: geneXtendeR, goSorensen, multiGSEA, rrvgo
-dependencyCount: 42
+suggestsMe: goSorensen, multiGSEA, rrvgo
+dependencyCount: 43
 
 Package: org.Ce.eg.db
 Version: 3.22.0
@@ -13761,33 +13829,33 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: celegans.db
 importsMe: CoSIA, goatea
-suggestsMe: ChIPpeakAnno, geneXtendeR, goSorensen, multiGSEA, NetSAM,
-        rrvgo, scQTLtools, goat
-dependencyCount: 42
+suggestsMe: ChIPpeakAnno, goSorensen, multiGSEA, NetSAM, rrvgo,
+        scQTLtools, goat
+dependencyCount: 43
 
 Package: org.Cf.eg.db
-Version: 3.22.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.71.1)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: ff81e6c05b1e847002ed8b7d368c8d43
+MD5sum: cffe377610d316e1b7d726e7c9979a76
 NeedsCompilation: no
 Title: Genome wide annotation for Canine
 Description: Genome wide annotation for Canine, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Canis_familiaris
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Canis familiaris
-source.ver: src/contrib/org.Cf.eg.db_3.22.0.tar.gz
+source.ver: src/contrib/org.Cf.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: canine.db, canine2.db
-suggestsMe: geneXtendeR, goSorensen, MLP, multiGSEA, NetSAM, rrvgo
-dependencyCount: 42
+suggestsMe: goSorensen, MLP, multiGSEA, NetSAM, rrvgo
+dependencyCount: 43
 
 Package: org.Dm.eg.db
 Version: 3.22.0
@@ -13811,36 +13879,37 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: drosgenome1.db, drosophila2.db, indac.db
 importsMe: chipenrich, CoSIA, goatea
-suggestsMe: annotatr, damidBind, Damsel, geneXtendeR, goSorensen,
-        GRaNIE, gsean, IntramiRExploreR, multiGSEA, NetSAM, rrvgo,
-        spatialHeatmap, tximeta, chipenrich.data, goat
-dependencyCount: 42
+suggestsMe: annotatr, damidBind, Damsel, goSorensen, GRaNIE, gsean,
+        IntramiRExploreR, multiGSEA, NetSAM, rrvgo, spatialHeatmap,
+        tximeta, chipenrich.data, goat
+dependencyCount: 43
 
 Package: org.Dr.eg.db
-Version: 3.22.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.71.1)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: ddff2cc35e8630c4964d2c7765006624
+MD5sum: 01bc27ea3e86975c53e11952bfb90041
 NeedsCompilation: no
 Title: Genome wide annotation for Zebrafish
 Description: Genome wide annotation for Zebrafish, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Danio_rerio
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Danio rerio
-source.ver: src/contrib/org.Dr.eg.db_3.22.0.tar.gz
+source.ver: src/contrib/org.Dr.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: zebrafish.db
 importsMe: chipenrich, CoSIA, goatea
-suggestsMe: annoLinker, geneXtendeR, GOfan, goSorensen, multiGSEA,
-        NetSAM, rrvgo, spatialHeatmap, chipenrich.data, goat, pagoda2
-dependencyCount: 42
+suggestsMe: annoLinker, annotatr, geneClusterPattern, GOfan,
+        goSorensen, multiGSEA, NetSAM, rrvgo, spatialHeatmap,
+        chipenrich.data, goat, pagoda2
+dependencyCount: 43
 
 Package: org.EcK12.eg.db
 Version: 3.22.0
@@ -13864,7 +13933,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: ecoli2.db
 suggestsMe: goSorensen, qpgraph, rrvgo
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.EcSakai.eg.db
 Version: 3.22.0
@@ -13887,31 +13956,31 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: goSorensen, rrvgo
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Gg.eg.db
-Version: 3.22.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.71.1)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: 618f860cbe7933f94b13e7d6b7c4148b
+MD5sum: ccdc212dd33eb7434d19a569a343822d
 NeedsCompilation: no
 Title: Genome wide annotation for Chicken
 Description: Genome wide annotation for Chicken, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Gallus_gallus
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Gallus gallus
-source.ver: src/contrib/org.Gg.eg.db_3.22.0.tar.gz
+source.ver: src/contrib/org.Gg.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: chicken.db
-suggestsMe: annotatr, geneXtendeR, goSorensen, multiGSEA, rrvgo
-dependencyCount: 42
+suggestsMe: annotatr, goSorensen, multiGSEA, rrvgo
+dependencyCount: 43
 
 Package: org.Hbacteriophora.eg.db
 Version: 0.99.1
@@ -13954,24 +14023,24 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles:
         vignettes/org.Hbacteriophora.eg.db/inst/doc/Hbacteriophora_annotation_vignette.R
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Hs.eg.db
-Version: 3.23.1
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.73.0)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: 813be1921e7bc08c1348dbce9d244d0a
+MD5sum: 0454b5641aa9191fa25d39cc330744a0
 NeedsCompilation: no
 Title: Genome wide annotation for Human
 Description: Genome wide annotation for Human, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Homo_sapiens, humanLLMappings
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Homo sapiens
-source.ver: src/contrib/org.Hs.eg.db_3.23.1.tar.gz
+source.ver: src/contrib/org.Hs.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
@@ -14006,46 +14075,46 @@ dependsOnMe: CoCiteStats, GSReg, KEGGlincs, signatureSearch,
         lumiHumanAll.db, Norway981.db, nugohs1a520180.db,
         OperonHumanV3.db, PartheenMetaData.db, pedbarrayv10.db,
         pedbarrayv9.db, POCRCannotation.db, Roberts2005Annotation.db,
-        SHDZ.db, u133x3p.db, annotation, rnaseqGene, variants,
-        OSCA.workflows
-importsMe: APL, artMS, attract, bioCancer, BioNAR, CaMutQC, CBNplot,
-        cellity, chimeraviz, chipenrich, consICA, CoSIA, debrowser,
-        DegCre, EasyCellType, EGSEA, famat, fourSynergy, funOmics,
-        GDCRNATools, geneAttribution, gINTomics, GmicR, goatea, GOpro,
-        goSorensen, mastR, MCbiclust, MetaboSignal, methylGSA,
-        mirIntegrator, miRLAB, miRSM, miRspongeR, missMethyl, mitology,
-        Moonlight2R, MOSClip, mslp, OutSplice, PanomiR, pathview,
-        postNet, REMP, rGREAT, rgsepd, RNAAgeCalc, rTRMui, scafari,
-        scPipe, signifinder, SMITE, sSNAPPY, SubCellBarCode, SVMDO,
-        TFEA.ChIP, TFutils, uncoverappLib, GenomicState, SomaScan.db,
-        msigdb, recountWorkflow
+        SHDZ.db, u133x3p.db, rnaseqGene, variants, OSCA.workflows
+importsMe: APL, attract, bioCancer, BioNAR, CaMutQC, CBNplot, cellity,
+        chimeraviz, chipenrich, consICA, CoSIA, ctdR, debrowser,
+        DegCre, EGSEA, exploreSE, famat, fourSynergy, funOmics,
+        GDCRNATools, geneAttribution, GExPipe, gINTomics, GmicR,
+        goatea, GOpro, goSorensen, mastR, MCbiclust, MetaboSignal,
+        methylGSA, mirIntegrator, miRLAB, miRSM, miRspongeR,
+        missMethyl, mitology, Moonlight2R, MOSClip, mslp, OutSplice,
+        PanomiR, pathview, postNet, REMP, rGREAT, rgsepd, RNAAgeCalc,
+        rTRMui, scafari, scPipe, signifinder, SMITE, sSNAPPY,
+        SubCellBarCode, TFEA.ChIP, TFutils, uncoverappLib,
+        GenomicState, SomaScan.db, msigdb, recountWorkflow
 suggestsMe: AllelicImbalance, annotate, AnnotationDbi,
         AnnotationFilter, AnnotationForge, annotatr, appreci8R, ASURAT,
-        autonomics, BioCor, BiocSet, BioQC, borealis, bumphunter,
+        augere.gsea, autonomics, BioCor, BioQC, borealis, bumphunter,
         carnation, categoryCompare, CeTF, ChIPpeakAnno, ChIPseeker,
-        clusterProfiler, cnvGSA, CNVRanger, CRISPRseek,
+        CLAMP, clusterProfiler, CMEnt, cnvGSA, CNVRanger, CRISPRseek,
         DeeDeeExperiment, derfinderPlot, dmGsea, dmrseq, DOSE, DOTSeq,
-        edgeR, EnhancedVolcano, enhancerHomologSearch, enrichplot,
-        EpiCompare, EpiMix, epiRomics, epiSeeker, esATAC, FELLA,
-        fishpond, FRASER, GA4GHclient, GA4GHshiny, gage, gCrisprTools,
-        GeDi, GeneNetworkBuilder, GeneTonic, geneXtendeR,
+        edgeR, EMMA, EnhancedVolcano, enhancerHomologSearch,
+        enrichplot, EpiCompare, EpiMix, epiRomics, epiSeeker, esATAC,
+        FELLA, fishpond, FRASER, GA4GHclient, GA4GHshiny, gage,
+        gCrisprTools, GeDi, GeneNetworkBuilder, GeneTonic,
         GenomicFeatures, GenomicInteractionNodes, geomeTriD,
         GeoTcgaData, gg4way, globaltest, gmapR, GOaGO, goProfiles,
         GOSemSim, goseq, GOstats, GRaNIE, graphite, groHMM, GSAR,
-        GSEABase, GSVA, GUIDEseq, gwascat, hpar, ideal, iNETgrate,
-        InteractiveComplexHeatmap, iSEEde, iSEEpathways, iSEEu,
-        karyoploteR, KEGGgraph, limma, MesKit, MIRit, miRNAtap, MLP,
-        mogsa, mosdef, multiGSEA, NanoMethViz, NetActivity, NetSAM,
-        ontoProc, oppar, OUTRIDER, pageRank, pathlinkR, pcaExplorer,
-        PCAtools, phantasus, Pigengene, plotgardener, ProteoDisco,
-        PureCN, quantiseqr, R3CPET, ramr, ReactomePA, recount,
-        RFGeneRank, RFLOMICS, rigvf, RnBeads, rrvgo, RTopper,
-        rtracklayer, rTRM, scde, scFeatures, scGPS, scGraphVerse,
-        scmeth, scQTLtools, SEMPLR, simona, SingleCellAlleleExperiment,
-        spatialHeatmap, SPICEY, SpliceImpactR, svaRetro, TCGAutils,
-        tenXplore, tidybulk, trackViewer, tricycle, UMI4Cats,
-        VariantFiltering, VariantTools, vissE, VISTA, wiggleplotr,
-        BloodCancerMultiOmics2017, chipenrich.data,
+        GSEABase, GSVA, GUIDEseq, gwascat, hpar, ideal, immLynx,
+        iNETgrate, InteractiveComplexHeatmap, iSEEde, iSEEpathways,
+        iSEEu, karyoploteR, KEGGgraph, levi, limma, MesKit, mgcca,
+        MIRit, miRNAtap, MLP, mogsa, mosdef, multiGSEA, NanoMethViz,
+        NetActivity, NetSAM, ontoProc, oppar, OUTRIDER, pageRank,
+        pathlinkR, pcaExplorer, PCAtools, phantasus, Pigengene,
+        PinPath, plotgardener, ProteoDisco, PscanR, PureCN, quantiseqr,
+        R3CPET, ramr, ReactomePA, recount, RFGeneRank, RFLOMICS, rigvf,
+        RnBeads, rrvgo, RTopper, rtracklayer, rTRM, scde, scFeatures,
+        scGPS, scGraphVerse, scmeth, scQTLtools, SEMPLR, simona,
+        SingleCellAlleleExperiment, spatialHeatmap, SPICEY,
+        SpliceImpactR, svaRetro, TCGAutils, tenXplore, TiDEomics,
+        tidybulk, tidySummarizedExperiment, trackViewer, tricycle,
+        Ularcirc, UMI4Cats, VariantFiltering, VariantTools, vissE,
+        VISTA, wiggleplotr, BloodCancerMultiOmics2017, chipenrich.data,
         prostateCancerTaylor, RforProteomics, ExpHunterSuite, BaseSet,
         conos, convertid, coreheat, diffwrap, DIscBIO, driveR,
         easyEWAS, easylabel, goat, IOBR, ivolcano, kernscr, lisat,
@@ -14054,24 +14123,24 @@ suggestsMe: AllelicImbalance, annotate, AnnotationDbi,
         pQTLdata, protr, RCPA, rliger, scPairs, SCpubr, SEMgraph,
         SNPassoc, SurprisalAnalysis, UKBAnalytica, WayFindR,
         wikiprofiler, XYomics
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Mm.eg.db
-Version: 3.23.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.73.0)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: 11676c785e37acda4f807b4be60671c0
+MD5sum: 3133bea5dfb158ed398cadc2f0951705
 NeedsCompilation: no
 Title: Genome wide annotation for Mouse
 Description: Genome wide annotation for Mouse, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Mus_musculus, mouseLLMappings
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Mus musculus
-source.ver: src/contrib/org.Mm.eg.db_3.23.0.tar.gz
+source.ver: src/contrib/org.Mm.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
@@ -14092,26 +14161,25 @@ dependsOnMe: clariomsmousehttranscriptcluster.db,
         mouse4302.db, mouse430a2.db, mpedbarray.db, mta10probeset.db,
         mta10transcriptcluster.db, mu11ksuba.db, mu11ksubb.db,
         Mu15v1.db, mu19ksuba.db, mu19ksubb.db, mu19ksubc.db, Mu22v3.db,
-        Mus.musculus, mwgcod.db, nugomm1a520177.db, annotation,
-        RnaSeqGeneEdgeRQL, csawBook, OSCA.advanced, OSCA.basic,
-        OSCA.workflows
-importsMe: APL, cellity, chimeraviz, chipenrich, CoSIA, debrowser,
-        EasyCellType, EGSEA, fourSynergy, gINTomics, GmicR, goatea,
-        postNet, Rmmquant, rTRMui, scPipe, tenXplore, TFEA.ChIP, msigdb
-suggestsMe: annotate, annotatr, APAlyzer, artMS, autonomics,
-        CAGEfightR, CellTrails, ClusterGVis, compEpiTools, CRISPRseek,
-        csaw, destiny, dmGsea, enhancerHomologSearch, epiRomics, FELLA,
-        fgsea, gatom, gCrisprTools, geneXtendeR, GenomicFeatures,
+        Mus.musculus, mwgcod.db, nugomm1a520177.db, RnaSeqGeneEdgeRQL,
+        csawBook, OSCA.basic, OSCA.workflows
+importsMe: APL, cellity, chimeraviz, chipenrich, CoSIA, EGSEA,
+        exploreSE, fourSynergy, gINTomics, GmicR, goatea, postNet,
+        Rmmquant, rTRMui, scPipe, tenXplore, TFEA.ChIP, msigdb
+suggestsMe: annotate, annotatr, autonomics, CAGEfightR, CellTrails,
+        ClusterGVis, CMEnt, compEpiTools, CRISPRseek, csaw, daVis,
+        debrowser, destiny, dmGsea, DOSE, enhancerHomologSearch,
+        epiRomics, FELLA, fgsea, gatom, gCrisprTools, GenomicFeatures,
         goSorensen, GRaNIE, iNETgrate, iSEEfier, isomiRs, karyoploteR,
         MLP, multiGSEA, NanoMethViz, NetSAM, NoRCE, ontoProc, pathview,
-        phantasus, PhosR, Pigengene, ReportingTools, rGREAT, RnBeads,
-        rrvgo, rTRM, scGraphVerse, scQTLtools, scrapper, singleCellTK,
-        spatialHeatmap, SpliceImpactR, tidybulk, tricycle, ViSEAGO,
-        vissE, VISTA, chipenrich.data, CAGEWorkflow, chipseqDB,
-        ExpHunterSuite, simpleSingleCell, conos, convertid, coreheat,
-        diffwrap, goat, IOBR, limorhyde, pagoda2, scPairs,
-        SurprisalAnalysis
-dependencyCount: 42
+        phantasus, PhosR, Pigengene, PscanR, ReportingTools, rGREAT,
+        RnBeads, rrvgo, rTRM, scGraphVerse, scQTLtools, scrapper,
+        singleCellTK, spatialHeatmap, SpliceImpactR, TiDEomics,
+        tidybulk, tricycle, ViSEAGO, vissE, VISTA, chipenrich.data,
+        CAGEWorkflow, chipseqDB, ExpHunterSuite, simpleSingleCell,
+        conos, convertid, coreheat, diffwrap, goat, IOBR, limorhyde,
+        pagoda2, scPairs, SurprisalAnalysis
+dependencyCount: 43
 
 Package: org.Mmu.eg.db
 Version: 3.23.0
@@ -14135,7 +14203,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: goatea
 suggestsMe: goSorensen, GRaNIE, MLP, rrvgo, goat
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Mxanthus.db
 Version: 1.0.27
@@ -14190,48 +14258,48 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Pt.eg.db
-Version: 3.23.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.73.0)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: ba4f96b8aee701327db00d963977caef
+MD5sum: f18a8feb4501c1b93135363b144c1438
 NeedsCompilation: no
 Title: Genome wide annotation for Chimp
 Description: Genome wide annotation for Chimp, primarily based on
         mapping using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Pan_troglodytes
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Pan troglodytes
-source.ver: src/contrib/org.Pt.eg.db_3.23.0.tar.gz
+source.ver: src/contrib/org.Pt.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: goatea
-suggestsMe: geneXtendeR, goSorensen, rrvgo, goat
-dependencyCount: 42
+suggestsMe: goSorensen, rrvgo, goat
+dependencyCount: 43
 
 Package: org.Rn.eg.db
-Version: 3.23.0
-Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.73.0)
+Version: 3.24.6
+Depends: R (>= 2.7.0), methods, AnnotationDbi (>= 1.75.2)
 Suggests: DBI, annotate, RUnit
 License: Artistic-2.0
-MD5sum: 4a04c36b51c846fe13e1dbb71a31079b
+MD5sum: 5dc1e94df179801fa6c5d1251bc67f1a
 NeedsCompilation: no
 Title: Genome wide annotation for Rat
 Description: Genome wide annotation for Rat, primarily based on mapping
         using Entrez Gene identifiers.
-biocViews: OrgDb, AnnotationData, Rattus_norvegicus, ratLLMappings
-Author: Marc Carlson
+biocViews: OrgDb, annotation
+Author: Bioconductor Core Team
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Rattus norvegicus
-source.ver: src/contrib/org.Rn.eg.db_3.23.0.tar.gz
+source.ver: src/contrib/org.Rn.eg.db_3.24.6.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
@@ -14249,10 +14317,10 @@ dependsOnMe: adme16cod.db, clariomsrathttranscriptcluster.db,
         ri16cod.db, RnAgilentDesign028282.db, rnu34.db,
         rta10probeset.db, rta10transcriptcluster.db, rtu34.db,
         rwgcod.db
-importsMe: chipenrich, CoSIA, EGSEA, geneXtendeR, goatea
+importsMe: chipenrich, CoSIA, EGSEA, goatea
 suggestsMe: annotatr, goSorensen, GRaNIE, MLP, multiGSEA, NetSAM,
         PhosR, RnBeads, rrvgo, chipenrich.data, goat
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Sc.sgd.db
 Version: 3.22.0
@@ -14277,10 +14345,10 @@ hasLICENSE: FALSE
 dependsOnMe: LiquidAssociation, yeast2.db, ygs98.db, generegulation
 importsMe: apComplex
 suggestsMe: AnnotationDbi, Category, DAPAR, epiNEM,
-        fastLiquidAssociation, FGNet, geneXtendeR, goSorensen, NetSAM,
-        NoRCE, ReportingTools, rrvgo, SANTA, weitrix, leeBamViews,
+        fastLiquidAssociation, FGNet, goSorensen, NetSAM, NoRCE,
+        PscanR, ReportingTools, rrvgo, SANTA, weitrix, leeBamViews,
         yeastExpData, sand
-dependencyCount: 42
+dependencyCount: 43
 
 Package: org.Ss.eg.db
 Version: 3.23.0
@@ -14303,8 +14371,8 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: porcine.db
-suggestsMe: geneXtendeR, goSorensen, multiGSEA, rrvgo
-dependencyCount: 42
+suggestsMe: goSorensen, multiGSEA, rrvgo
+dependencyCount: 43
 
 Package: org.Xl.eg.db
 Version: 3.23.0
@@ -14327,8 +14395,8 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: xlaevis.db
-suggestsMe: geneXtendeR, goSorensen, multiGSEA, rrvgo
-dependencyCount: 42
+suggestsMe: goSorensen, multiGSEA, rrvgo
+dependencyCount: 43
 
 Package: Orthology.eg.db
 Version: 3.23.0
@@ -14349,7 +14417,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: paeg1acdf
 Version: 2.18.0
@@ -14371,7 +14439,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: paeg1aprobe
 Version: 2.18.0
@@ -14394,31 +14462,31 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: PANTHER.db
-Version: 1.0.12
+Version: 1.0.13
 Depends: AnnotationDbi,AnnotationHub,utils,methods,RSQLite
 Imports: BiocFileCache (>= 1.10.1)
-Suggests: RUnit,knitr,BiocStyle,rmarkdown
+Suggests: RUnit,knitr,BiocStyle,rmarkdown,DBI
 License: Artistic-2.0
-MD5sum: edafd1c94f2f1cf3975f525fae7a9b83
+MD5sum: 6887475415320b1a66c87841f24ed90c
 NeedsCompilation: no
 Title: A set of annotation maps describing the entire PANTHER Gene
         Ontology
 Description: A set of annotation maps describing the entire Gene
         Ontology assembled using data from PANTHER.
 biocViews: FunctionalAnnotation,AnnotationHub,AnnotationData
-Author: Julius Muller [aut, cre]
-        (<https://orcid.org/0000-0002-1046-2968>)
+Author: Julius Muller [aut, cre] (ORCID:
+        <https://orcid.org/0000-0002-1046-2968>)
 Maintainer: Julius Muller <mail@jmuller.eu>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/PANTHER.db
 git_branch: devel
-git_last_commit: 4549c6b
-git_last_commit_date: 2023-10-02
-Date/Publication: 2023-10-11
-source.ver: src/contrib/PANTHER.db_1.0.12.tar.gz
+git_last_commit: 1510380
+git_last_commit_date: 2026-09-19
+Date/Publication: 2026-09-23
+source.ver: src/contrib/PANTHER.db_1.0.13.tar.gz
 vignettes: vignettes/PANTHER.db/inst/doc/PANTHER.db.html
 vignetteTitles: PANTHER.db: An annotation package to access the PANTHER
         Classification System
@@ -14427,7 +14495,6 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/PANTHER.db/inst/doc/PANTHER.db.R
-suggestsMe: sparrow
 dependencyCount: 63
 
 Package: PartheenMetaData.db
@@ -14456,7 +14523,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: pd.081229.hg18.promoter.medip.hx1
 Version: 0.99.4
@@ -16103,6 +16170,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
+dependsOnMe: maEndToEnd
 suggestsMe: frmaTools, mimager, oligo, oligoData
 dependencyCount: 53
 
@@ -17906,7 +17974,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: pedbarrayv9.db
 Version: 3.2.3
@@ -17932,7 +18000,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: PFAM.db
 Version: 3.22.0
@@ -17956,7 +18024,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: SpliceImpactR
 suggestsMe: safe
-dependencyCount: 42
+dependencyCount: 43
 
 Package: phastCons100way.UCSC.hg19
 Version: 3.7.2
@@ -17980,7 +18048,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: RareVariantVis
 suggestsMe: ATACseqQC, VariantFiltering
-dependencyCount: 105
+dependencyCount: 104
 
 Package: phastCons100way.UCSC.hg38
 Version: 3.7.1
@@ -18004,7 +18072,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: primirTSS
 suggestsMe: GenomicScores
-dependencyCount: 105
+dependencyCount: 104
 
 Package: phastCons30way.UCSC.hg38
 Version: 3.13.1
@@ -18092,7 +18160,7 @@ hasREADME: FALSE
 hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 105
+dependencyCount: 104
 
 Package: phyloP35way.UCSC.mm39
 Version: 3.16.0
@@ -18145,7 +18213,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: plasmodiumanophelescdf
 Version: 2.18.0
@@ -18168,7 +18236,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: altcdfenvs
-dependencyCount: 42
+dependencyCount: 43
 
 Package: plasmodiumanophelesprobe
 Version: 2.18.0
@@ -18191,7 +18259,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: POCRCannotation.db
 Version: 3.2.3
@@ -18217,7 +18285,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: PolyPhen.Hsapiens.dbSNP131
 Version: 1.0.2
@@ -18241,7 +18309,7 @@ hasLICENSE: FALSE
 dependsOnMe: variants
 importsMe: appreci8R
 suggestsMe: VariantAnnotation, VariantFiltering
-dependencyCount: 77
+dependencyCount: 78
 
 Package: poplarcdf
 Version: 2.18.0
@@ -18262,7 +18330,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: poplarprobe
 Version: 2.18.0
@@ -18284,7 +18352,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: porcine.db
 Version: 3.13.0
@@ -18310,7 +18378,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: porcinecdf
 Version: 2.18.0
@@ -18331,7 +18399,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: porcineprobe
 Version: 2.18.0
@@ -18353,7 +18421,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: primeviewcdf
 Version: 2.18.0
@@ -18374,7 +18442,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: primeviewprobe
 Version: 2.18.0
@@ -18397,7 +18465,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: r10kcod.db
 Version: 3.4.0
@@ -18424,7 +18492,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rae230a.db
 Version: 3.13.0
@@ -18452,7 +18520,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotate
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rae230acdf
 Version: 2.18.0
@@ -18474,7 +18542,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rae230aprobe
 Version: 2.18.0
@@ -18498,7 +18566,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotate
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rae230b.db
 Version: 3.13.0
@@ -18525,7 +18593,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rae230bcdf
 Version: 2.18.0
@@ -18547,7 +18615,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rae230bprobe
 Version: 2.18.0
@@ -18570,7 +18638,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: raex10stprobeset.db
 Version: 8.8.0
@@ -18595,7 +18663,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: raex10sttranscriptcluster.db
 Version: 8.8.0
@@ -18622,7 +18690,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: RaExExonProbesetLocation
 Version: 1.15.0
@@ -18643,7 +18711,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ragene10stprobeset.db
 Version: 8.8.0
@@ -18669,7 +18737,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene10sttranscriptcluster.db
 Version: 8.8.0
@@ -18696,7 +18764,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene10stv1cdf
 Version: 2.18.0
@@ -18718,7 +18786,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ragene10stv1probe
 Version: 2.18.0
@@ -18741,7 +18809,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ragene11stprobeset.db
 Version: 8.8.0
@@ -18767,7 +18835,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene11sttranscriptcluster.db
 Version: 8.8.0
@@ -18794,7 +18862,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene20stprobeset.db
 Version: 8.8.0
@@ -18820,7 +18888,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene20sttranscriptcluster.db
 Version: 8.8.0
@@ -18847,7 +18915,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene21stprobeset.db
 Version: 8.8.0
@@ -18873,7 +18941,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ragene21sttranscriptcluster.db
 Version: 8.8.0
@@ -18900,7 +18968,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rat.db0
 Version: 3.22.0
@@ -18921,7 +18989,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rat2302.db
 Version: 3.13.0
@@ -18948,7 +19016,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rat2302cdf
 Version: 2.18.0
@@ -18970,7 +19038,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rat2302frmavecs
 Version: 0.99.11
@@ -19021,28 +19089,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
-
-Package: ratCHRLOC
-Version: 2.1.6
-Depends: R(>= 2.7.0)
-License: The Artistic License, Version 2.0
-MD5sum: 6fecff4821a5a47e3bd38a2ff78173d5
-NeedsCompilation: no
-Title: A data package containing annotation data for ratCHRLOC
-Description: Annotation data file for ratCHRLOC assembled using data
-        from public data repositories
-biocViews: FunctionalAnnotation, Rattus_norvegicus
-Author: Ting-Yuan Liu, ChenWei Lin, Seth Falcon, Jianhua Zhang, James
-        W. MacDonald
-Maintainer: Biocore Data Team <biocannotation@lists.fhcrc.org>
-organism: Rattus norvegicus
-source.ver: src/contrib/ratCHRLOC_2.1.6.tar.gz
-hasREADME: FALSE
-hasNEWS: FALSE
-hasINSTALL: FALSE
-hasLICENSE: FALSE
-dependencyCount: 0
+dependencyCount: 43
 
 Package: rattoxfxcdf
 Version: 2.18.0
@@ -19064,7 +19111,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rattoxfxprobe
 Version: 2.18.0
@@ -19087,7 +19134,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Rattus.norvegicus
 Version: 1.3.1
@@ -19112,7 +19159,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: OrganismDbi
-dependencyCount: 82
+dependencyCount: 73
 
 Package: reactome.db
 Version: 1.96.0
@@ -19139,9 +19186,8 @@ hasLICENSE: FALSE
 importsMe: attract, bioCancer, famat, methylGSA, ReactomePA, scTensor,
         signatureSearch, SMITE
 suggestsMe: AnnotationDbi, BioCor, ChIPpeakAnno, FGNet, fgsea, gatom,
-        MLP, PCAN, PhosR, rGREAT, safe, sparrow, BaseSet, PathwayVote,
-        rliger
-dependencyCount: 42
+        MLP, PCAN, PhosR, rGREAT, safe, BaseSet, PathwayVote, rliger
+dependencyCount: 43
 
 Package: rGenomeTracksData
 Version: 0.99.0
@@ -19197,7 +19243,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgu34acdf
 Version: 2.18.0
@@ -19219,7 +19265,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rgu34aprobe
 Version: 2.18.0
@@ -19242,7 +19288,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rgu34b.db
 Version: 3.13.0
@@ -19269,7 +19315,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgu34bcdf
 Version: 2.18.0
@@ -19291,7 +19337,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rgu34bprobe
 Version: 2.18.0
@@ -19314,7 +19360,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rgu34c.db
 Version: 3.13.0
@@ -19341,7 +19387,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgu34ccdf
 Version: 2.18.0
@@ -19363,7 +19409,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rgu34cprobe
 Version: 2.18.0
@@ -19386,7 +19432,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rguatlas4k.db
 Version: 3.2.3
@@ -19413,7 +19459,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgug4105a.db
 Version: 3.2.3
@@ -19439,7 +19485,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgug4130a.db
 Version: 3.2.3
@@ -19465,7 +19511,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rgug4131a.db
 Version: 3.2.3
@@ -19491,7 +19537,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rhesus.db0
 Version: 3.22.0
@@ -19512,7 +19558,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rhesuscdf
 Version: 2.18.0
@@ -19533,7 +19579,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rhesusprobe
 Version: 2.18.0
@@ -19556,7 +19602,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ri16cod.db
 Version: 3.4.0
@@ -19582,7 +19628,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ricecdf
 Version: 2.18.0
@@ -19603,7 +19649,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: riceprobe
 Version: 2.18.0
@@ -19625,7 +19671,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: RmiR.Hs.miRNA
 Version: 1.0.7
@@ -19653,7 +19699,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RmiR.Hs.miRNA/inst/doc/RmiR.Hs.miRNA.R
-dependencyCount: 42
+dependencyCount: 43
 
 Package: RmiR.hsa
 Version: 1.0.5
@@ -19681,7 +19727,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/RmiR.hsa/inst/doc/RmiR.hsa.R
-dependencyCount: 42
+dependencyCount: 43
 
 Package: RnAgilentDesign028282.db
 Version: 3.2.3
@@ -19709,7 +19755,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rnu34.db
 Version: 3.13.0
@@ -19735,7 +19781,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rnu34cdf
 Version: 2.18.0
@@ -19757,7 +19803,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rnu34probe
 Version: 2.18.0
@@ -19780,7 +19826,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: Roberts2005Annotation.db
 Version: 3.2.3
@@ -19807,7 +19853,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rta10probeset.db
 Version: 8.8.0
@@ -19832,7 +19878,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rta10transcriptcluster.db
 Version: 8.8.0
@@ -19858,7 +19904,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rtu34.db
 Version: 3.13.0
@@ -19884,7 +19930,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: rtu34cdf
 Version: 2.18.0
@@ -19906,7 +19952,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rtu34probe
 Version: 2.18.0
@@ -19929,7 +19975,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: rwgcod.db
 Version: 3.4.0
@@ -19956,7 +20002,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: saureuscdf
 Version: 2.18.0
@@ -19978,7 +20024,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: saureusprobe
 Version: 2.18.0
@@ -20001,7 +20047,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: scAnnotatR.models
 Version: 0.99.10
@@ -20054,7 +20100,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: SIFT.Hsapiens.dbSNP132
 Version: 1.0.2
@@ -20076,7 +20122,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: VariantAnnotation
-dependencyCount: 77
+dependencyCount: 78
 
 Package: SIFT.Hsapiens.dbSNP137
 Version: 1.0.0
@@ -20099,7 +20145,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: appreci8R
 suggestsMe: VariantAnnotation, VariantFiltering
-dependencyCount: 77
+dependencyCount: 78
 
 Package: SNPlocs.Hsapiens.dbSNP144.GRCh37
 Version: 0.99.20
@@ -20138,7 +20184,7 @@ suggestsMe: AllelicImbalance, GenomicScores, MungeSumstats,
         MafDb.ExAC.r1.0.hs37d5, MafDb.ExAC.r1.0.nonTCGA.hs37d5,
         MafDb.gnomAD.r2.1.hs37d5, MafDb.gnomADex.r2.1.hs37d5,
         MafDb.TOPMed.freeze5.hg19, XtraSNPlocs.Hsapiens.dbSNP144.GRCh37
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SNPlocs.Hsapiens.dbSNP144.GRCh38
 Version: 0.99.20
@@ -20169,7 +20215,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome, GenomicFeatures, MungeSumstats, raer,
         XtraSNPlocs.Hsapiens.dbSNP144.GRCh38
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SNPlocs.Hsapiens.dbSNP149.GRCh38
 Version: 0.99.21
@@ -20203,7 +20249,7 @@ suggestsMe: MafDb.1Kgenomes.phase1.GRCh38,
         MafDb.ExAC.r1.0.nonTCGA.GRCh38, MafDb.gnomAD.r2.1.GRCh38,
         MafDb.gnomADex.r2.1.GRCh38, MafDb.TOPMed.freeze5.hg38,
         MafH5.gnomAD.v4.0.GRCh38
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SNPlocs.Hsapiens.dbSNP150.GRCh38
 Version: 0.99.21
@@ -20232,7 +20278,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SNPlocs.Hsapiens.dbSNP155.GRCh37
 Version: 0.99.24
@@ -20260,7 +20306,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: motifbreakR, MungeSumstats
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SNPlocs.Hsapiens.dbSNP155.GRCh38
 Version: 0.99.24
@@ -20289,7 +20335,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: MungeSumstats
-dependencyCount: 60
+dependencyCount: 51
 
 Package: SomaScan.db
 Version: 0.99.10
@@ -20333,7 +20379,7 @@ hasLICENSE: TRUE
 Rfiles: vignettes/SomaScan.db/inst/doc/advanced_usage_examples.R,
         vignettes/SomaScan.db/inst/doc/example_adat_workflow.R,
         vignettes/SomaScan.db/inst/doc/SomaScan-db.R
-dependencyCount: 43
+dependencyCount: 44
 
 Package: soybeancdf
 Version: 2.18.0
@@ -20355,7 +20401,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: soybeanprobe
 Version: 2.18.0
@@ -20378,7 +20424,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: sugarcanecdf
 Version: 2.18.0
@@ -20400,7 +20446,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: sugarcaneprobe
 Version: 2.18.0
@@ -20423,7 +20469,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: synaptome.data
 Version: 0.99.6
@@ -20568,7 +20614,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: test2cdf
 Version: 2.18.0
@@ -20589,7 +20635,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: test3cdf
 Version: 2.18.0
@@ -20610,7 +20656,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: test3probe
 Version: 2.18.0
@@ -20632,7 +20678,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: tomatocdf
 Version: 2.18.0
@@ -20654,7 +20700,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: tomatoprobe
 Version: 2.18.0
@@ -20677,14 +20723,14 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: TxDb.Athaliana.BioMart.plantsmart22
-Version: 3.0.1
+Version: 3.0.2
 Depends: GenomicFeatures (>= 1.17.17)
 Imports: GenomicFeatures, AnnotationDbi
 License: Artistic-2.0
-MD5sum: 3bab54295e300fedba99eef521220e50
+MD5sum: 62f55fdc90eb7a467c2f2334b5da9c28
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from BioMart by
@@ -20694,21 +20740,21 @@ Author: Marc Carlson
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Arabidopsis thaliana
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Athaliana.BioMart.plantsmart22_3.0.1.tar.gz
+        src/contrib/TxDb.Athaliana.BioMart.plantsmart22_3.0.2.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: annotation
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Athaliana.BioMart.plantsmart25
-Version: 3.1.3
+Version: 3.1.4
 Depends: GenomicFeatures (>= 1.19.32)
 Imports: GenomicFeatures, AnnotationDbi
 License: Artistic-2.0
-MD5sum: eb007c07317b9717c76949e5ed999978
+MD5sum: ac44ff6baaf71da7012fc722be9b92d4
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from BioMart by
@@ -20718,13 +20764,14 @@ Author: Marc Carlson
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Arabidopsis thaliana
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Athaliana.BioMart.plantsmart25_3.1.3.tar.gz
+        src/contrib/TxDb.Athaliana.BioMart.plantsmart25_3.1.4.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Athaliana.BioMart.plantsmart28
 Version: 3.2.2
@@ -20749,7 +20796,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: FindIT2
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Athaliana.BioMart.plantsmart51
 Version: 0.99.0
@@ -20775,7 +20822,53 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicRanges
-dependencyCount: 75
+dependencyCount: 66
+
+Package: TxDb.Athaliana.Ensembl.TAIR10
+Version: 0.99.7
+Depends: R (>= 4.6.0)
+Imports: stats, GenomicFeatures, GenomicRanges, AnnotationHub
+Suggests: BiocManager, BiocStyle, knitr, rmarkdown, testthat (>= 3.0.0)
+License: Artistic-2.0
+MD5sum: 7bcfd5768fbba733982d42ef6bbf1db6
+NeedsCompilation: no
+Title: Transcripts Annotation Database for Arabidopsis thaliana
+Description: TxDb.Athaliana.Ensembl.TAIR10 provides transcript, exon,
+        CDS, and gene annotations for Arabidopsis thaliana based on the
+        TAIR10 reference genome and Ensembl Plants release 63. The TxDb
+        object is built from the official Ensembl Plants GFF3
+        annotation and distributed through AnnotationHub. Standard
+        GenomicFeatures accessors such as genes(), transcripts(),
+        exonsBy(), and cdsBy() can be used to query and extract gene
+        models.
+biocViews: AnnotationData, TxDb, Arabidopsis_thaliana,
+        SequenceAnnotation, AnnotationHub
+Author: Dwijesh Chandra Mishra [aut] (ORCID:
+        <https://orcid.org/0000-0002-3327-6156>), Kabilan S [aut, cre]
+        (ORCID: <https://orcid.org/0009-0002-9422-0938>), ICAR-IARI
+        [fnd]
+Maintainer: Kabilan S <kabilan151414@gmail.com>
+URL: https://github.com/kabilanbio/TxDb.Athaliana.Ensembl.TAIR10
+VignetteBuilder: knitr
+BugReports:
+        https://github.com/kabilanbio/TxDb.Athaliana.Ensembl.TAIR10/issues
+git_url:
+        https://git.bioconductor.org/packages/TxDb.Athaliana.Ensembl.TAIR10
+git_branch: devel
+git_last_commit: fefcc8d
+git_last_commit_date: 2026-11-09
+Date/Publication: 2026-11-11
+source.ver: src/contrib/TxDb.Athaliana.Ensembl.TAIR10_0.99.7.tar.gz
+vignettes:
+        vignettes/TxDb.Athaliana.Ensembl.TAIR10/inst/doc/TxDb.Athaliana.Ensembl.TAIR10.html
+vignetteTitles: TxDb.Athaliana.Ensembl.TAIR10
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles:
+        vignettes/TxDb.Athaliana.Ensembl.TAIR10/inst/doc/TxDb.Athaliana.Ensembl.TAIR10.R
+dependencyCount: 85
 
 Package: TxDb.Btaurus.UCSC.bosTau8.refGene
 Version: 3.12.0
@@ -20798,7 +20891,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Btaurus.UCSC.bosTau9.refGene
 Version: 3.10.0
@@ -20821,7 +20914,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Celegans.UCSC.ce11.ensGene
 Version: 3.15.0
@@ -20845,7 +20938,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicFeatures
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Celegans.UCSC.ce11.refGene
 Version: 3.4.6
@@ -20868,7 +20961,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Celegans.UCSC.ce6.ensGene
 Version: 3.2.2
@@ -20893,14 +20986,14 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: ChIPQC
 suggestsMe: BSgenome.Celegans.UCSC.ce6
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Cfamiliaris.UCSC.canFam3.refGene
-Version: 3.11.0
+Version: 3.11.1
 Depends: GenomicFeatures (>= 1.39.7)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: bf6af84c14a30ad5d01f3678246b1180
+MD5sum: 2a46b6e5f30ed35a0f8be5f975cb2e25
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -20911,20 +21004,21 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Canis familiaris
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Cfamiliaris.UCSC.canFam3.refGene_3.11.0.tar.gz
+        src/contrib/TxDb.Cfamiliaris.UCSC.canFam3.refGene_3.11.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Cfamiliaris.UCSC.canFam4.refGene
-Version: 3.14.0
+Version: 3.14.1
 Depends: GenomicFeatures (>= 1.45.2)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 0b47072fa79cf8e99f8563002a0998cb
+MD5sum: 385a9206052a5e8b6d643530691b47d4
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -20935,13 +21029,14 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Canis familiaris
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Cfamiliaris.UCSC.canFam4.refGene_3.14.0.tar.gz
+        src/contrib/TxDb.Cfamiliaris.UCSC.canFam4.refGene_3.14.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Cfamiliaris.UCSC.canFam5.refGene
 Version: 3.14.0
@@ -20965,7 +21060,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Cfamiliaris.UCSC.canFam6.refGene
 Version: 3.17.0
@@ -20989,7 +21084,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Dmelanogaster.UCSC.dm3.ensGene
 Version: 3.2.2
@@ -21017,7 +21112,7 @@ importsMe: ChIPQC
 suggestsMe: annotatr, DOTSeq, GenomeInfoDb, GenomicAlignments,
         GenomicFeatures, GenomicRanges, Rsamtools, Seqinfo,
         BSgenome.Dmelanogaster.UCSC.dm3, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Dmelanogaster.UCSC.dm6.ensGene
 Version: 3.12.0
@@ -21043,7 +21138,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: icetea
 suggestsMe: annotatr, atena, Damsel, GRaNIE, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Drerio.UCSC.danRer10.refGene
 Version: 3.4.6
@@ -21067,7 +21162,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annoLinker, annotatr, CNEr, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Drerio.UCSC.danRer11.refGene
 Version: 3.4.6
@@ -21091,14 +21186,14 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotatr
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Ggallus.UCSC.galGal4.refGene
-Version: 3.12.0
+Version: 3.12.1
 Depends: GenomicFeatures (>= 1.41.3)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: d50eb467227cd9077a7a690ae6934d11
+MD5sum: 3ff95eb6f609b069ff4157b7c6762bc1
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21109,12 +21204,13 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Gallus gallus
-source.ver: src/contrib/TxDb.Ggallus.UCSC.galGal4.refGene_3.12.0.tar.gz
+PackageStatus: Deprecated
+source.ver: src/contrib/TxDb.Ggallus.UCSC.galGal4.refGene_3.12.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Ggallus.UCSC.galGal5.refGene
 Version: 3.12.0
@@ -21138,7 +21234,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotatr
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Ggallus.UCSC.galGal6.refGene
 Version: 3.10.0
@@ -21161,14 +21257,14 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.BioMart.igis
-Version: 2.3.2
+Version: 2.3.3
 Depends: GenomicFeatures (>= 1.17.22)
 Imports: GenomicFeatures, AnnotationDbi
 License: Artistic-2.0
-MD5sum: 75b793928d29bcd3f069b5986bc2cfae
+MD5sum: 5d2b4b14cff1ddcebd7be7adc9e4e857
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from BioMart by
@@ -21177,12 +21273,13 @@ biocViews: AnnotationData, Genetics, TxDb, Homo_sapiens
 Author: person
 Maintainer: Gabriel Becker <becker.gabriel@gene.com>
 organism: Homo sapiens
-source.ver: src/contrib/TxDb.Hsapiens.BioMart.igis_2.3.2.tar.gz
+PackageStatus: Deprecated
+source.ver: src/contrib/TxDb.Hsapiens.BioMart.igis_2.3.3.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg18.knownGene
 Version: 3.2.2
@@ -21206,17 +21303,17 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: FDb.InfiniumMethylation.hg18
-importsMe: ChIPQC, epimutacions
-suggestsMe: ChIPpeakAnno, methylPipe, Rsamtools, segmenter, TCGAutils,
-        BSgenome.Hsapiens.UCSC.hg18
-dependencyCount: 75
+importsMe: ChIPQC
+suggestsMe: ChIPpeakAnno, epimutacions, methylPipe, Rsamtools,
+        segmenter, TCGAutils, BSgenome.Hsapiens.UCSC.hg18
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg19.knownGene
-Version: 3.22.1
+Version: 3.24.0
 Depends: GenomicFeatures
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 0372510d8a078f427b6ea3644ac4ec89
+MD5sum: 39d7d891ebbb3fcc35496eee0f248508
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21227,41 +21324,40 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Homo sapiens
-source.ver: src/contrib/TxDb.Hsapiens.UCSC.hg19.knownGene_3.22.1.tar.gz
+source.ver: src/contrib/TxDb.Hsapiens.UCSC.hg19.knownGene_3.24.0.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: FDb.InfiniumMethylation.hg19, Homo.sapiens, annotation,
-        variants
-importsMe: appreci8R, ChIPQC, ChIPseeker, crupR, decompTumor2Sig,
-        epimutacions, fourSynergy, HiLDA, musicatk, nearBynding,
-        OutSplice, RareVariantVis, rGREAT, signifinder, uncoverappLib
+dependsOnMe: FDb.InfiniumMethylation.hg19, Homo.sapiens, variants
+importsMe: appreci8R, ChIPQC, ChIPseeker, crupR, fourSynergy, HiLDA,
+        musicatk, OutSplice, RareVariantVis, rGREAT, signifinder,
+        uncoverappLib
 suggestsMe: AllelicImbalance, AnnotationDbi, annotatr, ATACseqQC,
         beadarray, Bioc.gff, BiocParallel, biomvRCNS, biovizBase,
-        borealis, bumphunter, ChIPpeakAnno, chromPlot, CNVRanger,
-        cpvSNP, CRISPRseek, derfinder, derfinderPlot, dmrseq,
-        EpiCompare, EpiMix, esATAC, FRASER, GA4GHclient, GA4GHshiny,
-        gage, geneAttribution, GENESIS, GenomicAlignments,
-        GenomicFeatures, GenomicInteractionNodes, GenVisR, geomeTriD,
-        ggbio, gmapR, GOaGO, GRaNIE, groHMM, GUIDEseq, gwascat,
-        HelloRanges, karyoploteR, MAST, MesKit, methylumi,
-        MutationalPatterns, NanoMethViz, OUTRIDER, pageRank,
-        plotgardener, ProteoDisco, PureCN, R3CPET, ramr, regionalpcs,
-        regionReport, rtracklayer, SGSeq, SOMNiBUS,
+        borealis, bumphunter, ChIPpeakAnno, chromPlot, CMEnt,
+        CNVRanger, cpvSNP, CRISPRseek, derfinder, derfinderPlot,
+        dmrseq, EpiCompare, EpiMix, epimutacions, esATAC, FRASER,
+        GA4GHclient, GA4GHshiny, gage, geneAttribution, GENESIS,
+        GenomicAlignments, GenomicFeatures, GenomicInteractionNodes,
+        GenVisR, geomeTriD, ggbio, gmapR, GOaGO, GRaNIE, groHMM,
+        GUIDEseq, gwascat, HelloRanges, karyoploteR, MAST, MesKit,
+        methylumi, mgcca, MutationalPatterns, NanoMethViz, OUTRIDER,
+        pageRank, plotgardener, ProteoDisco, PureCN, R3CPET, ramr,
+        regionalpcs, regionReport, rtracklayer, SGSeq, SOMNiBUS,
         StructuralVariantAnnotation, SummarizedExperiment, svaNUMT,
         svaRetro, TCGAutils, TFEA.ChIP, trackViewer, transcriptR,
         tximport, UMI4Cats, VariantAnnotation, VariantFiltering,
         VariantTools, chipenrich.data, cinaR, driveR, oncoPredict,
         SNPassoc
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg19.lincRNAsTranscripts
-Version: 3.2.2
+Version: 3.2.3
 Depends: GenomicFeatures (>= 1.21.30)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: a0d61cd90639c40b3d0bb6bdb043cf12
+MD5sum: 554f4a2a91b84605fc22ff1fe8adcbc6
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21272,14 +21368,15 @@ Author: Marc Carlson, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Homo sapiens
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Hsapiens.UCSC.hg19.lincRNAsTranscripts_3.2.2.tar.gz
+        src/contrib/TxDb.Hsapiens.UCSC.hg19.lincRNAsTranscripts_3.2.3.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GenomicFeatures
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg19.refGene
 Version: 3.22.0
@@ -21303,14 +21400,14 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: SplicingGraphs
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg38.knownGene
-Version: 3.22.0
+Version: 3.24.0
 Depends: GenomicFeatures
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 64fea411d71ab36262bf87a9bee33d6b
+MD5sum: 004d1318ad322caca3978241c7120deb
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21321,25 +21418,24 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Homo sapiens
-source.ver: src/contrib/TxDb.Hsapiens.UCSC.hg38.knownGene_3.22.0.tar.gz
+source.ver: src/contrib/TxDb.Hsapiens.UCSC.hg38.knownGene_3.24.0.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: annotation
-importsMe: crupR, DegCre, DNAfusion, epimutacions, gINTomics, musicatk,
-        nearBynding, OutSplice, rGREAT, signifinder, strandCheckR,
+importsMe: crupR, decompTumor2Sig, DegCre, DNAfusion, gINTomics,
+        musicatk, OutSplice, rGREAT, signifinder, sigvar, strandCheckR,
         uncoverappLib
-suggestsMe: annotatr, bambu, BSgenome, BUSpaRse, ChIPpeakAnno,
-        ChIPseeker, CRISPRseek, DOTSeq, enhancerHomologSearch,
-        EpiCompare, epiRomics, epiSeeker, EpiTxDb, gDNAx,
-        geneAttribution, GenomicDataCommons, GenomicFeatures,
-        GenomicRanges, GenomicScores, GenVisR, GRaNIE, hicVennDiagram,
-        ideal, mariner, mosdef, NanoMethViz, plotgardener, podkat,
-        raer, rigvf, scmeth, SEMPLR, Seqinfo, SOMNiBUS, SPICEY,
-        TFEA.ChIP, wiggleplotr, chipenrich.data, xcoredata, cinaR,
-        driveR, lisat
-dependencyCount: 75
+suggestsMe: annotate, annotatr, bambu, BSgenome, BUSpaRse,
+        ChIPpeakAnno, ChIPseeker, CMEnt, CRISPRseek, DOTSeq,
+        DuckDBGRanges, enhancerHomologSearch, EpiCompare, epimutacions,
+        epiRomics, epiSeeker, EpiTxDb, gDNAx, geneAttribution,
+        GenomicDataCommons, GenomicFeatures, GenomicRanges,
+        GenomicScores, GenVisR, GRaNIE, hicVennDiagram, ideal, mariner,
+        mosdef, NanoMethViz, plotgardener, podkat, raer, rigvf, scmeth,
+        SEMPLR, Seqinfo, SOMNiBUS, SPICEY, TFEA.ChIP, Ularcirc,
+        wiggleplotr, chipenrich.data, xcoredata, cinaR, driveR, lisat
+dependencyCount: 66
 
 Package: TxDb.Hsapiens.UCSC.hg38.refGene
 Version: 3.19.0
@@ -21362,7 +21458,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmulatta.UCSC.rheMac10.refGene
 Version: 3.14.0
@@ -21387,14 +21483,14 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: GRaNIE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmulatta.UCSC.rheMac3.refGene
-Version: 3.12.0
+Version: 3.12.1
 Depends: GenomicFeatures (>= 1.41.3)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: db84a9e85d613635d74002f11df41e1f
+MD5sum: c0a76e6a2c3e708735366cfbef4f9514
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21405,13 +21501,14 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Macaca mulatta
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Mmulatta.UCSC.rheMac3.refGene_3.12.0.tar.gz
+        src/contrib/TxDb.Mmulatta.UCSC.rheMac3.refGene_3.12.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmulatta.UCSC.rheMac8.refGene
 Version: 3.12.0
@@ -21435,14 +21532,14 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmusculus.UCSC.mm10.ensGene
-Version: 3.4.0
+Version: 3.4.1
 Depends: GenomicFeatures (>= 1.25.17)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 88d65b714d1f86b456aee2b8524e9d84
+MD5sum: 1a695ae47715ad5ba75dafbd9920b7f9
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21453,13 +21550,13 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Mus musculus
-source.ver: src/contrib/TxDb.Mmusculus.UCSC.mm10.ensGene_3.4.0.tar.gz
+PackageStatus: Deprecated
+source.ver: src/contrib/TxDb.Mmusculus.UCSC.mm10.ensGene_3.4.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependsOnMe: annotation
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmusculus.UCSC.mm10.knownGene
 Version: 3.10.0
@@ -21484,20 +21581,20 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: Mus.musculus, csawBook
-importsMe: ChIPQC, crupR, fourSynergy, gINTomics
+importsMe: ChIPQC, crupR, fourSynergy, gINTomics, sigvar
 suggestsMe: annotatr, BSgenome, CRISPRseek, csaw, DegCre,
         enhancerHomologSearch, EpiCompare, epiRomics, epivizrData,
         GenomicFeatures, GenomicRanges, GRaNIE, karyoploteR, monaLisa,
         multicrispr, NanoMethViz, tidyCoverage, chipenrich.data,
         chipseqDB, cinaR
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmusculus.UCSC.mm39.knownGene
-Version: 3.22.0
+Version: 3.24.0
 Depends: GenomicFeatures
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: b827a6f514666708631d1207d2f10335
+MD5sum: 89129e4738d5489ef4b6a74c7d87fa1f
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21509,13 +21606,13 @@ Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Mus musculus
 source.ver:
-        src/contrib/TxDb.Mmusculus.UCSC.mm39.knownGene_3.22.0.tar.gz
+        src/contrib/TxDb.Mmusculus.UCSC.mm39.knownGene_3.24.0.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotatr, GRaNIE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmusculus.UCSC.mm39.refGene
 Version: 3.19.0
@@ -21539,7 +21636,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: NanoMethViz
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Mmusculus.UCSC.mm9.knownGene
 Version: 3.2.2
@@ -21566,14 +21663,62 @@ importsMe: ChIPQC, Cogito, crupR, INSPEcT, Rmmquant
 suggestsMe: annotatr, CAGEfightR, chipseq, compEpiTools, EpiCompare,
         ggbio, GRaNIE, BSgenome.Mmusculus.UCSC.mm9, chipenrich.data,
         CAGEWorkflow
-dependencyCount: 75
+dependencyCount: 66
+
+Package: TxDb.Osativa.MSU.RGAP7
+Version: 0.99.10
+Depends: R (>= 4.6.0)
+Imports: GenomicFeatures
+Suggests: AnnotationDbi, AnnotationHub, BiocManager, BiocStyle,
+        Biostrings, GenomicRanges, GenomeInfoDb, knitr,
+        riceidconverter, rmarkdown, testthat (>= 3.0.0), txdbmaker
+License: Artistic-2.0
+MD5sum: de2bd203ff22ed312b58ad3b5660e9db
+NeedsCompilation: no
+Title: Transcript Annotation Database for Rice
+Description: Provides transcript, exon, and CDS annotations for Oryza
+        sativa (rice) as a Bioconductor TxDb object, generated from the
+        Rice Genome Annotation Project (RGAP) Release 7 / MSU7 GFF3
+        file (genome assembly IRGSP-1.0). The TxDb object is
+        distributed through AnnotationHub and can be retrieved directly
+        with the AnnotationHub package. Standard GenomicFeatures
+        accessors such as genes(), transcripts(), exonsBy(), and
+        cdsBy() can be used to obtain gene models keyed by MSU locus
+        identifiers. The package also provides msu_to_rap() for
+        translating MSU locus identifiers into RAP-DB identifiers.
+biocViews: AnnotationData, TxDb, Oryza_sativa, SequenceAnnotation,
+        AnnotationHub
+Author: Dwijesh Chandra Mishra [aut] (ORCID:
+        <https://orcid.org/0000-0002-3327-6156>), Kabilan S [aut, cre]
+        (ORCID: <https://orcid.org/0009-0002-9422-0938>), ICAR-IARI
+        [fnd]
+Maintainer: Kabilan S <kabilan151414@gmail.com>
+URL: https://github.com/kabilanbio/TxDb.Osativa.MSU.RGAP7
+VignetteBuilder: knitr
+BugReports: https://github.com/kabilanbio/TxDb.Osativa.MSU.RGAP7/issues
+git_url: https://git.bioconductor.org/packages/TxDb.Osativa.MSU.RGAP7
+git_branch: devel
+git_last_commit: ed5d97e
+git_last_commit_date: 2026-11-06
+Date/Publication: 2026-11-11
+source.ver: src/contrib/TxDb.Osativa.MSU.RGAP7_0.99.10.tar.gz
+vignettes:
+        vignettes/TxDb.Osativa.MSU.RGAP7/inst/doc/TxDb.Osativa.MSU.RGAP7.html
+vignetteTitles: TxDb.Osativa.MSU.RGAP7
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles:
+        vignettes/TxDb.Osativa.MSU.RGAP7/inst/doc/TxDb.Osativa.MSU.RGAP7.R
+dependencyCount: 66
 
 Package: TxDb.Ptroglodytes.UCSC.panTro4.refGene
-Version: 3.12.0
+Version: 3.12.1
 Depends: GenomicFeatures (>= 1.41.3)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 9bdd3ba81561550f50250368d7d52eaa
+MD5sum: d57fffc1fe46fc07763528716371d459
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21584,13 +21729,14 @@ Author: Bioconductor Core Team, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Pan troglodytes
+PackageStatus: Deprecated
 source.ver:
-        src/contrib/TxDb.Ptroglodytes.UCSC.panTro4.refGene_3.12.0.tar.gz
+        src/contrib/TxDb.Ptroglodytes.UCSC.panTro4.refGene_3.12.1.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Ptroglodytes.UCSC.panTro5.refGene
 Version: 3.12.0
@@ -21614,7 +21760,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Ptroglodytes.UCSC.panTro6.refGene
 Version: 3.10.0
@@ -21638,14 +21784,14 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.BioMart.igis
-Version: 2.3.2
+Version: 2.3.3
 Depends: GenomicFeatures (>= 1.17.22)
 Imports: GenomicFeatures, AnnotationDbi
 License: Artistic-2.0
-MD5sum: eaf695f63cd021074d68c76d148cdfb7
+MD5sum: b76b54a2ccfe6444211c2c509126dd9b
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from BioMart by
@@ -21654,19 +21800,20 @@ biocViews: AnnotationData, Genetics, TxDb, Rattus_norvegicus
 Author: Gabriel Becker
 Maintainer: Gabriel Becker <gabriel.becker@gene.com>
 organism: Rattus norvegicus
-source.ver: src/contrib/TxDb.Rnorvegicus.BioMart.igis_2.3.2.tar.gz
+PackageStatus: Deprecated
+source.ver: src/contrib/TxDb.Rnorvegicus.BioMart.igis_2.3.3.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.UCSC.rn4.ensGene
-Version: 3.2.2
+Version: 3.2.3
 Depends: GenomicFeatures (>= 1.21.30)
 Imports: AnnotationDbi
 License: Artistic-2.0
-MD5sum: 6bf2ebc522c2828c036e52b2028792c1
+MD5sum: f4352dacf8eebea3f2c809fbc2c133d9
 NeedsCompilation: no
 Title: Annotation package for TxDb object(s)
 Description: Exposes an annotation databases generated from UCSC by
@@ -21677,14 +21824,15 @@ Author: Marc Carlson, Bioconductor Package Maintainer
 Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 organism: Rattus norvegicus
-source.ver: src/contrib/TxDb.Rnorvegicus.UCSC.rn4.ensGene_3.2.2.tar.gz
+PackageStatus: Deprecated
+source.ver: src/contrib/TxDb.Rnorvegicus.UCSC.rn4.ensGene_3.2.3.tar.gz
 hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: ChIPQC
 suggestsMe: annotatr, BSgenome.Rnorvegicus.UCSC.rn4, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.UCSC.rn5.refGene
 Version: 3.12.0
@@ -21709,7 +21857,7 @@ hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: Rattus.norvegicus
 suggestsMe: annotatr, BSgenome.Rnorvegicus.UCSC.rn5, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.UCSC.rn6.ncbiRefSeq
 Version: 3.12.0
@@ -21733,7 +21881,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.UCSC.rn6.refGene
 Version: 3.4.6
@@ -21757,7 +21905,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotatr, GRaNIE, chipenrich.data
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Rnorvegicus.UCSC.rn7.refGene
 Version: 3.15.0
@@ -21781,7 +21929,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: annotatr, GRaNIE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Scerevisiae.UCSC.sacCer2.sgdGene
 Version: 3.2.2
@@ -21805,7 +21953,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Scerevisiae.UCSC.sacCer3.sgdGene
 Version: 3.2.2
@@ -21830,8 +21978,8 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 dependsOnMe: generegulation
-suggestsMe: txcutr, VplotR
-dependencyCount: 75
+suggestsMe: PscanR, txcutr, VplotR
+dependencyCount: 66
 
 Package: TxDb.Sscrofa.UCSC.susScr11.refGene
 Version: 3.12.0
@@ -21855,7 +22003,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: TxDb.Sscrofa.UCSC.susScr3.refGene
 Version: 3.12.0
@@ -21878,7 +22026,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 75
+dependencyCount: 66
 
 Package: u133aaofav2cdf
 Version: 2.18.0
@@ -21900,7 +22048,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: u133x3p.db
 Version: 3.2.3
@@ -21926,7 +22074,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: u133x3pcdf
 Version: 2.18.0
@@ -21947,7 +22095,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: u133x3pprobe
 Version: 2.18.0
@@ -21969,7 +22117,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: UCSCRepeatMasker
 Version: 3.22.0
@@ -22060,7 +22208,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: vitisviniferaprobe
 Version: 2.18.0
@@ -22083,7 +22231,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: wheatcdf
 Version: 2.18.0
@@ -22105,7 +22253,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: wheatprobe
 Version: 2.18.0
@@ -22128,7 +22276,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: worm.db0
 Version: 3.22.0
@@ -22149,7 +22297,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xenopus.db0
 Version: 3.22.0
@@ -22170,7 +22318,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xenopuslaeviscdf
 Version: 2.18.0
@@ -22192,7 +22340,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xenopuslaevisprobe
 Version: 2.18.0
@@ -22215,7 +22363,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xlaevis.db
 Version: 3.2.3
@@ -22241,7 +22389,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: xlaevis2cdf
 Version: 2.18.0
@@ -22263,7 +22411,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xlaevis2probe
 Version: 2.18.0
@@ -22286,7 +22434,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: XtraSNPlocs.Hsapiens.dbSNP144.GRCh37
 Version: 0.99.12
@@ -22320,7 +22468,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 importsMe: appreci8R
-dependencyCount: 60
+dependencyCount: 51
 
 Package: XtraSNPlocs.Hsapiens.dbSNP144.GRCh38
 Version: 0.99.12
@@ -22354,7 +22502,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: BSgenome
-dependencyCount: 60
+dependencyCount: 51
 
 Package: xtropicaliscdf
 Version: 2.18.0
@@ -22376,7 +22524,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: xtropicalisprobe
 Version: 2.18.0
@@ -22399,7 +22547,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ye6100subacdf
 Version: 2.18.0
@@ -22421,7 +22569,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ye6100subbcdf
 Version: 2.18.0
@@ -22443,7 +22591,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ye6100subccdf
 Version: 2.18.0
@@ -22465,7 +22613,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ye6100subdcdf
 Version: 2.18.0
@@ -22487,7 +22635,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: yeast.db0
 Version: 3.22.0
@@ -22508,7 +22656,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: yeast2.db
 Version: 3.13.0
@@ -22536,7 +22684,7 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 suggestsMe: piano
-dependencyCount: 43
+dependencyCount: 44
 
 Package: yeast2cdf
 Version: 2.18.0
@@ -22558,7 +22706,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: yeast2probe
 Version: 2.18.0
@@ -22581,7 +22729,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ygs98.db
 Version: 3.13.0
@@ -22607,7 +22755,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: ygs98cdf
 Version: 2.18.0
@@ -22629,7 +22777,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: ygs98frmavecs
 Version: 1.3.0
@@ -22672,7 +22820,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: zebrafish.db
 Version: 3.13.0
@@ -22699,7 +22847,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 43
+dependencyCount: 44
 
 Package: zebrafish.db0
 Version: 3.22.0
@@ -22721,7 +22869,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: zebrafishcdf
 Version: 2.18.0
@@ -22742,7 +22890,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 
 Package: zebrafishprobe
 Version: 2.18.0
@@ -22765,5 +22913,5 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 42
+dependencyCount: 43
 

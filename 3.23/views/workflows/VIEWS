@@ -1,54 +1,9 @@
-Package: annotation
-Version: 1.36.0
-Depends: R (>= 3.3.0), GenomeInfoDb, VariantAnnotation, AnnotationHub,
-        TxDb.Hsapiens.UCSC.hg19.knownGene,
-        TxDb.Hsapiens.UCSC.hg38.knownGene,
-        TxDb.Mmusculus.UCSC.mm10.ensGene, org.Hs.eg.db, org.Mm.eg.db,
-        Homo.sapiens, BSgenome.Hsapiens.UCSC.hg19, biomaRt, BSgenome,
-        TxDb.Athaliana.BioMart.plantsmart22
-Suggests: knitr, rmarkdown, BiocStyle
-License: Artistic-2.0
-MD5sum: c52783f74448c5c6d09164b9228b3c68
-NeedsCompilation: no
-Title: Genomic Annotation Resources
-Description: Annotation resources make up a significant proportion of
-        the Bioconductor project. And there are also a diverse set of
-        online resources available which are accessed using specific
-        packages.  This walkthrough will describe the most popular of
-        these resources and give some high level examples on how to use
-        them.
-biocViews: AnnotationWorkflow, Workflow
-Author: Marc RJ Carlson [aut], Hervé Pagès [aut], Sonali Arora [aut],
-        Valerie Obenchain [aut], Martin Morgan [aut], Lori Shepherd
-        [ctb], Bioconductor Package Maintainer [cre]
-Maintainer: Bioconductor Package Maintainer
-        <maintainer@bioconductor.org>
-URL: http://bioconductor.org/packages/annotation
-VignetteBuilder: knitr
-git_url: https://git.bioconductor.org/packages/annotation
-git_branch: RELEASE_3_23
-git_last_commit: 8db2159
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-09
-source.ver: src/contrib/annotation_1.36.0.tar.gz
-vignettes:
-        vignettes/annotation/inst/doc/Annotating_Genomic_Ranges.html,
-        vignettes/annotation/inst/doc/Annotation_Resources.html
-vignetteTitles: Annotating Genomic Ranges, Genomic Annotation Resources
-hasREADME: FALSE
-hasNEWS: FALSE
-hasINSTALL: FALSE
-hasLICENSE: FALSE
-Rfiles: vignettes/annotation/inst/doc/Annotating_Genomic_Ranges.R,
-        vignettes/annotation/inst/doc/Annotation_Resources.R
-dependencyCount: 116
-
 Package: arrays
-Version: 1.38.0
+Version: 1.40.0
 Depends: R (>= 3.0.0)
 Suggests: affy, limma, hgfocuscdf, knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: a0b6d306a1887d4fdb5712b543164add
+MD5sum: 91e11e5e052bfcf188cfe294e1093099
 NeedsCompilation: no
 Title: Using Bioconductor for Microarray Analysis
 Description: Using Bioconductor for Microarray Analysis workflow
@@ -58,11 +13,11 @@ Maintainer: Bioconductor Package Maintainer
         <maintainer@bioconductor.org>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/arrays
-git_branch: RELEASE_3_23
-git_last_commit: 365214b
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/arrays_1.38.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 36a8716
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/arrays_1.40.0.tar.gz
 vignettes: vignettes/arrays/inst/doc/arrays.html
 vignetteTitles: Using Bioconductor for Microarray Analysis
 hasREADME: FALSE
@@ -73,13 +28,13 @@ Rfiles: vignettes/arrays/inst/doc/arrays.R
 dependencyCount: 0
 
 Package: BP4RNAseq
-Version: 1.22.0
+Version: 1.24.0
 Depends: R (>= 4.0.0)
 Imports: dplyr, fastqcr, stringr, tidyr, stats, utils, magrittr,
         reticulate
 Suggests: knitr, rmarkdown, testthat
 License: GPL-2
-MD5sum: e4391ccc6552e306fc3f3670304d7661
+MD5sum: de9c33c4c9c470811e0ded4ff2dcd725
 NeedsCompilation: no
 Title: A babysitter's package for reproducible RNA-seq analysis
 Description: An automated pipe for reproducible RNA-seq analysis with
@@ -98,11 +53,11 @@ SystemRequirements: UNIX, SRA Toolkit=2.10.3, Entrez Direct=13.3,
         HISAT2=2.2.0, StringTie=2.1.1, Salmon=1.2.1
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/BP4RNAseq
-git_branch: RELEASE_3_23
-git_last_commit: 3f2d201
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/BP4RNAseq_1.22.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: efd173b
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/BP4RNAseq_1.24.0.tar.gz
 vignettes: vignettes/BP4RNAseq/inst/doc/vignette.html
 vignetteTitles: BP4RNAseq vignette
 hasREADME: FALSE
@@ -113,7 +68,7 @@ Rfiles: vignettes/BP4RNAseq/inst/doc/vignette.R
 dependencyCount: 85
 
 Package: CAGEWorkflow
-Version: 1.28.0
+Version: 1.30.0
 Depends: R (>= 3.6.0), CAGEfightR, nanotubes
 Suggests: knitr, magick, rmarkdown, BiocStyle, BiocWorkflowTools,
         pheatmap, ggseqlogo, viridis, magrittr, ggforce, ggthemes,
@@ -124,7 +79,7 @@ Suggests: knitr, magick, rmarkdown, BiocStyle, BiocWorkflowTools,
         TxDb.Mmusculus.UCSC.mm9.knownGene, org.Mm.eg.db, JASPAR2016,
         png
 License: GPL-3
-MD5sum: 98ad733f2211076d532730b21fc803e7
+MD5sum: 508109dc1d2a7ffd186df90a59603072
 NeedsCompilation: no
 Title: A step-by-step guide to analyzing CAGE data using R/Bioconductor
 Description: Workflow for analyzing Cap Analysis of Gene Expression
@@ -134,11 +89,11 @@ Author: Malte Thodberg [aut, cre]
 Maintainer: Malte Thodberg <maltethodberg@gmail.com>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/CAGEWorkflow
-git_branch: RELEASE_3_23
-git_last_commit: c85bab8
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/CAGEWorkflow_1.28.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 9141dac
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/CAGEWorkflow_1.30.0.tar.gz
 vignettes: vignettes/CAGEWorkflow/inst/doc/CAGEWorkflow.html
 vignetteTitles: CAGEWorkflow
 hasREADME: FALSE
@@ -149,12 +104,12 @@ Rfiles: vignettes/CAGEWorkflow/inst/doc/CAGEWorkflow.R
 dependencyCount: 160
 
 Package: chipseqDB
-Version: 1.36.0
+Version: 1.38.0
 Suggests: chipseqDBData, BiocStyle, BiocFileCache, ChIPpeakAnno, Gviz,
         Rsamtools, TxDb.Mmusculus.UCSC.mm10.knownGene, csaw, edgeR,
         knitr, org.Mm.eg.db, rtracklayer, rmarkdown
 License: Artistic-2.0
-MD5sum: 935c395367617758db5743ee6f27b85d
+MD5sum: 6d90486b358a9660618f33210997014a
 NeedsCompilation: no
 Title: A Bioconductor Workflow to Detect Differential Binding in
         ChIP-seq Data
@@ -175,11 +130,11 @@ Maintainer: Aaron Lun <infinite.monkeys.with.keyboards@gmail.com>
 URL: https://www.bioconductor.org/help/workflows/chipseqDB/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/chipseqDB
-git_branch: RELEASE_3_23
-git_last_commit: 1721b4e
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/chipseqDB_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: a61dca2
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/chipseqDB_1.38.0.tar.gz
 vignettes: vignettes/chipseqDB/inst/doc/cbp.html,
         vignettes/chipseqDB/inst/doc/h3k27me3.html,
         vignettes/chipseqDB/inst/doc/h3k9ac.html,
@@ -195,10 +150,10 @@ Rfiles: vignettes/chipseqDB/inst/doc/cbp.R
 dependencyCount: 0
 
 Package: csawUsersGuide
-Version: 1.28.0
+Version: 1.30.0
 Suggests: knitr, BiocStyle, BiocManager
 License: GPL-3
-MD5sum: fcf1b6368f96850d71c5ccaf61663d0e
+MD5sum: 0d20aa7defc519d1e1ad1deb8cd6dd3e
 NeedsCompilation: no
 Title: csaw User's Guide
 Description: A user's guide for the csaw package for detecting
@@ -214,11 +169,11 @@ Author: Aaron Lun [aut, cre]
 Maintainer: Aaron Lun <infinite.monkeys.with.keyboards@gmail.com>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/csawUsersGuide
-git_branch: RELEASE_3_23
-git_last_commit: 6e76902
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/csawUsersGuide_1.28.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 7abd135
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/csawUsersGuide_1.30.0.tar.gz
 vignettes: vignettes/csawUsersGuide/inst/doc/csaw.pdf
 vignetteTitles: User's guide
 hasREADME: FALSE
@@ -229,12 +184,12 @@ Rfiles: vignettes/csawUsersGuide/inst/doc/csaw.R
 dependencyCount: 0
 
 Package: cytofWorkflow
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.6.0), BiocStyle, knitr, readxl, CATALYST, diffcyt,
         HDCytoData, uwot, cowplot
 Suggests: knitcitations, markdown, rmarkdown
 License: Artistic-2.0
-MD5sum: b9c908690a91089323d62b04354e3b51
+MD5sum: ce629427c7702bba39f4ffa7962e692b
 NeedsCompilation: no
 Title: CyTOF workflow: differential discovery in high-throughput
         high-dimensional cytometry datasets
@@ -272,11 +227,11 @@ URL: https://github.com/markrobinsonuzh/cytofWorkflow
 VignetteBuilder: knitr
 BugReports: https://github.com/markrobinsonuzh/cytofWorkflow/issues
 git_url: https://git.bioconductor.org/packages/cytofWorkflow
-git_branch: RELEASE_3_23
-git_last_commit: e14ca4e
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/cytofWorkflow_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: ea467f5
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/cytofWorkflow_1.38.0.tar.gz
 vignettes: vignettes/cytofWorkflow/inst/doc/cytofWorkflow.html
 vignetteTitles: A workflow for differential discovery in
         high-throughput high-dimensional cytometry datasets
@@ -287,12 +242,12 @@ hasLICENSE: FALSE
 dependencyCount: 230
 
 Package: EGSEA123
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.4.0), EGSEA (>= 1.5.2), limma (>= 3.49.2), edgeR,
         illuminaio
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: c285b8d39d5bfe744ee52e9ae587bbab
+MD5sum: e2705fd54c8e39436439f9057ab2d364
 NeedsCompilation: no
 Title: Easy and efficient ensemble gene set testing with EGSEA
 Description: R package that supports the workflow article `Easy and
@@ -305,11 +260,11 @@ Maintainer: Matthew Ritchie <mritchie@wehi.edu.au>
 URL: https://f1000research.com/articles/6-2010
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/EGSEA123
-git_branch: RELEASE_3_23
-git_last_commit: e9e3659
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/EGSEA123_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: b47d818
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/EGSEA123_1.38.0.tar.gz
 vignettes: vignettes/EGSEA123/inst/doc/EGSEAWorkflow.html
 vignetteTitles: Easy and efficient ensemble gene set testing with EGSEA
 hasREADME: FALSE
@@ -320,7 +275,7 @@ Rfiles: vignettes/EGSEA123/inst/doc/EGSEAWorkflow.R
 dependencyCount: 195
 
 Package: ExpHunterSuite
-Version: 1.20.0
+Version: 1.22.0
 Depends: R (>= 4.1.0)
 Imports: AnnotationDbi, annotatr, Biobase, BiocParallel,
         clusterProfiler, data.table, DESeq2, diffcoexp, DOSE, dplyr,
@@ -335,7 +290,7 @@ Suggests: BiocGenerics, biomaRt, EnhancedVolcano, ggupset, naivebayes,
         optparse, org.Hs.eg.db, org.Mm.eg.db, PerformanceAnalytics,
         reshape2, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: a9e17cbc6e82446eec59268a07417734
+MD5sum: c6fb9c413a616e9bae67aa3b952429f6
 NeedsCompilation: no
 Title: Package for the Comprehensive Analysis of Transcriptomic Data
 Description: The ExpHunterSuite implements a comprehensive protocol for
@@ -350,11 +305,11 @@ Author: James Perkins
 Maintainer: James Perkins <jimrperkins@gmail.com>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/ExpHunterSuite
-git_branch: RELEASE_3_23
-git_last_commit: 1960a2c
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/ExpHunterSuite_1.20.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 2e481f2
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/ExpHunterSuite_1.22.0.tar.gz
 vignettes: vignettes/ExpHunterSuite/inst/doc/hunter.html
 vignetteTitles: The Expression Hunter Suite
 hasREADME: FALSE
@@ -365,13 +320,13 @@ Rfiles: vignettes/ExpHunterSuite/inst/doc/hunter.R
 dependencyCount: 313
 
 Package: ExpressionNormalizationWorkflow
-Version: 1.38.0
+Version: 1.40.0
 Imports: Biobase (>= 2.24.0), limma (>= 3.20.9), lme4 (>= 1.1.7),
         matrixStats (>= 0.10.3), pvca (>= 1.4.0), snm (>= 1.12.0), sva
         (>= 3.10.0), vsn (>= 3.32.0)
 Suggests: knitr, BiocStyle
 License: GPL (>=3)
-MD5sum: b9c6b37bc1da82e22912df5a0c3a7eb2
+MD5sum: 2fc04493d1c6b6471884c1cec67c3ea6
 NeedsCompilation: no
 Title: Gene Expression Normalization Workflow
 Description: An extensive, customized expression normalization workflow
@@ -387,11 +342,11 @@ VignetteBuilder: knitr
 BugReports: https://github.com/
 git_url:
         https://git.bioconductor.org/packages/ExpressionNormalizationWorkflow
-git_branch: RELEASE_3_23
-git_last_commit: 20396c3
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/ExpressionNormalizationWorkflow_1.38.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: d12d912
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/ExpressionNormalizationWorkflow_1.40.0.tar.gz
 vignettes:
         vignettes/ExpressionNormalizationWorkflow/inst/doc/genExpNrm.html
 vignetteTitles: Gene Expression Normalization Workflow
@@ -403,15 +358,15 @@ Rfiles: vignettes/ExpressionNormalizationWorkflow/inst/doc/genExpNrm.R
 dependencyCount: 97
 
 Package: fluentGenomics
-Version: 1.24.0
+Version: 1.26.0
 Depends: R (>= 4.0)
 Imports: plyranges (>= 1.7.7), dplyr, SummarizedExperiment, readr,
         stats, utils
 Suggests: knitr, rmarkdown, bookdown, rappdirs, BiocFileCache, DESeq2,
         limma, ggplot2, tidyr, tximeta (>= 1.4.2), macrophage (>=
-        1.2.0),
+        1.29.1),
 License: MIT + file LICENSE
-MD5sum: 46b42007e9d303c2e7ebc314586d78bc
+MD5sum: 3b3dd4c14eb8bdce44086faeb356b9db
 NeedsCompilation: no
 Title: A plyranges and tximeta workflow
 Description: An extended workflow using the plyranges and tximeta
@@ -427,14 +382,14 @@ Author: Stuart Lee [aut, cre] (ORCID:
         ctb]
 Maintainer: Stuart Lee <stuart.andrew.lee@gmail.com>
 URL: https://github.com/sa-lee/fluentGenomics
-VignetteBuilder: knitr, rmarkdown
+VignetteBuilder: knitr
 BugReports: https://github.com/sa-lee/fluentGenomics/issues
 git_url: https://git.bioconductor.org/packages/fluentGenomics
-git_branch: RELEASE_3_23
-git_last_commit: ab4340d
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/fluentGenomics_1.24.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 19d5162
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/fluentGenomics_1.26.0.tar.gz
 vignettes: vignettes/fluentGenomics/inst/doc/fluentGenomics.html
 vignetteTitles: fluentGenomics
 hasREADME: FALSE
@@ -445,14 +400,14 @@ Rfiles: vignettes/fluentGenomics/inst/doc/fluentGenomics.R
 dependencyCount: 80
 
 Package: generegulation
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), BSgenome.Scerevisiae.UCSC.sacCer3, Biostrings,
         GenomicFeatures, MotifDb, S4Vectors,
         TxDb.Scerevisiae.UCSC.sacCer3.sgdGene, motifStack,
         org.Sc.sgd.db, seqLogo
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 186e023b6c4f40a605b983ff91f603db
+MD5sum: cf01e5d136616661b176cd3ea727414e
 NeedsCompilation: no
 Title: Finding Candidate Binding Sites for Known Transcription Factors
         via Sequence Matching
@@ -475,11 +430,11 @@ Maintainer: Bioconductor Package Maintainer
 URL: https://www.bioconductor.org/help/workflows/generegulation/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/generegulation
-git_branch: RELEASE_3_23
-git_last_commit: bccda2d
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/generegulation_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: b055050
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/generegulation_1.38.0.tar.gz
 vignettes: vignettes/generegulation/inst/doc/generegulation.html
 vignetteTitles: Finding Candidate Binding Sites for Known Transcription
         Factors via Sequence Matching
@@ -491,7 +446,7 @@ Rfiles: vignettes/generegulation/inst/doc/generegulation.R
 dependencyCount: 122
 
 Package: GeoMxWorkflows
-Version: 1.18.0
+Version: 1.20.0
 Depends: R (>= 4.0), NanoStringNCTools, GeomxTools
 Imports: Biobase, S4Vectors, rjson, readxl, EnvStats, dplyr, reshape2,
         methods, utils, stats, data.table, outliers, BiocGenerics,
@@ -499,7 +454,7 @@ Imports: Biobase, S4Vectors, rjson, readxl, EnvStats, dplyr, reshape2,
         pheatmap, BiocStyle, networkD3
 Suggests: rmarkdown, knitr
 License: MIT
-MD5sum: d4a59afe1345bcdbb9716855057b0a7f
+MD5sum: 2ae3d650ce5b7cf314b847427210c2f2
 NeedsCompilation: no
 Title: GeoMx Digital Spatial Profiler (DSP) data analysis workflows
 Description: Workflows for use with NanoString Technologies GeoMx
@@ -514,11 +469,11 @@ Author: Maddy Griswold [cre, aut], Jason Reeves [aut], Prajan Divakar
 Maintainer: Maddy Griswold <mgriswold@nanostring.com>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/GeoMxWorkflows
-git_branch: RELEASE_3_23
-git_last_commit: 3d45faa
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/GeoMxWorkflows_1.18.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 320e50f
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/GeoMxWorkflows_1.20.0.tar.gz
 vignettes:
         vignettes/GeoMxWorkflows/inst/doc/GeomxTools_RNA-NGS_Analysis.html
 vignetteTitles: Analyzing GeoMx-NGS Data with GeomxTools
@@ -530,11 +485,11 @@ Rfiles: vignettes/GeoMxWorkflows/inst/doc/GeomxTools_RNA-NGS_Analysis.R
 dependencyCount: 147
 
 Package: highthroughputassays
-Version: 1.36.0
-Depends: R (>= 3.3.0), flowCore, flowStats, flowWorkspace
+Version: 1.38.0
+Depends: R (>= 3.3.0), flowCore, flowStats, flowWorkspace, ggcyto
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 336019ef8da4108bda33ae2dea9fc75d
+MD5sum: 04dbbf6b62bf2ce7b6025f7c6cbfd780
 NeedsCompilation: no
 Title: Using Bioconductor with High Throughput Assays
 Description: The workflow illustrates use of the flow cytometry
@@ -551,11 +506,11 @@ Maintainer: Bioconductor Package Maintainer
 URL: https://www.bioconductor.org/help/workflows/highthroughputassays/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/highthroughputassays
-git_branch: RELEASE_3_23
-git_last_commit: 7606d87
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/highthroughputassays_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 424f19a
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/highthroughputassays_1.38.0.tar.gz
 vignettes:
         vignettes/highthroughputassays/inst/doc/high-throughput-assays.html
 vignetteTitles: Using Bioconductor with High Throughput Assays
@@ -568,12 +523,12 @@ Rfiles:
 dependencyCount: 108
 
 Package: liftOver
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), gwascat, GenomeInfoDb, GenomicRanges,
         rtracklayer, Homo.sapiens, BiocGenerics
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 873bac5a76eca9f83034799af8608a7f
+MD5sum: 81d6d6c8103968648aa9e83452ac365d
 NeedsCompilation: no
 Title: Changing genomic coordinate systems with rtracklayer::liftOver
 Description: The liftOver facilities developed in conjunction with the
@@ -589,11 +544,11 @@ Maintainer: Bioconductor Package Maintainer
 URL: https://www.bioconductor.org/help/workflows/liftOver/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/liftOver
-git_branch: RELEASE_3_23
-git_last_commit: 94d91af
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/liftOver_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: f6e64f6
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/liftOver_1.38.0.tar.gz
 vignettes: vignettes/liftOver/inst/doc/liftov.html
 vignetteTitles: Changing genomic coordinate systems with
         rtracklayer::liftOver
@@ -605,15 +560,62 @@ Rfiles: vignettes/liftOver/inst/doc/liftov.R
 suggestsMe: bedbaser
 dependencyCount: 118
 
+Package: maEndToEnd
+Version: 2.34.0
+Depends: R (>= 3.5.0), Biobase, oligoClasses, ArrayExpress,
+        pd.hugene.1.0.st.v1, hugene10sttranscriptcluster.db, oligo,
+        arrayQualityMetrics, limma, topGO, ReactomePA, clusterProfiler,
+        gplots, ggplot2, geneplotter, pheatmap, RColorBrewer, dplyr,
+        tidyr, stringr, matrixStats, genefilter, openxlsx, Rgraphviz,
+        enrichplot
+Suggests: BiocStyle, knitr, devtools, rmarkdown
+License: MIT + file LICENSE
+MD5sum: 17ba84464ac12add002b2317a56862d1
+NeedsCompilation: no
+Title: An end to end workflow for differential gene expression using
+        Affymetrix microarrays
+Description: In this article, we walk through an end-to-end Affymetrix
+        microarray differential expression workflow using Bioconductor
+        packages. This workflow is directly applicable to current
+        "Gene" type arrays, e.g. the HuGene or MoGene arrays, but can
+        easily be adapted to similar platforms. The data analyzed here
+        is a typical clinical microarray data set that compares
+        inflamed and non-inflamed colon tissue in two disease subtypes.
+        For each disease, the differential gene expression between
+        inflamed- and non-inflamed colon tissue was analyzed. We will
+        start from the raw data CEL files, show how to import them into
+        a Bioconductor ExpressionSet, perform quality control and
+        normalization and finally differential gene expression (DE)
+        analysis, followed by some enrichment analysis.
+biocViews: GeneExpressionWorkflow
+Author: Bernd Klaus [aut], Stefanie Reisenauer [aut, cre]
+Maintainer: Stefanie Reisenauer <steffi.reisenauer@tum.de>
+URL: https://www.bioconductor.org/help/workflows/
+VignetteBuilder: knitr
+git_url: https://git.bioconductor.org/packages/maEndToEnd
+git_branch: RELEASE_3_24
+git_last_commit: ab80910
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/maEndToEnd_2.34.0.tar.gz
+vignettes: vignettes/maEndToEnd/inst/doc/MA-Workflow.html
+vignetteTitles: An end to end workflow for differential gene expression
+        using Affymetrix microarrays
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: FALSE
+Rfiles: vignettes/maEndToEnd/inst/doc/MA-Workflow.R
+
 Package: methylationArrayAnalysis
-Version: 1.36.0
+Version: 1.37.0
 Depends: R (>= 3.3.0), knitr, rmarkdown, BiocStyle, limma, minfi,
         IlluminaHumanMethylation450kanno.ilmn12.hg19,
         IlluminaHumanMethylation450kmanifest, RColorBrewer, missMethyl,
         matrixStats, minfiData, Gviz, DMRcate, stringr,
         FlowSorted.Blood.450k
 License: Artistic-2.0
-MD5sum: a3de242a9f3525a4db2fd0c929b9001a
+MD5sum: 0521ad930bf349f2bd13006037ced387
 NeedsCompilation: no
 Title: A cross-package Bioconductor workflow for analysing methylation
         array data
@@ -635,11 +637,11 @@ Author: Jovana Maksimovic [aut, cre]
 Maintainer: Jovana Maksimovic <jovana.maksimovic@petermac.org>
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/methylationArrayAnalysis
-git_branch: RELEASE_3_23
-git_last_commit: 7b3cc9e
+git_branch: devel
+git_last_commit: ef5c023
 git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-05
-source.ver: src/contrib/methylationArrayAnalysis_1.36.0.tar.gz
+Date/Publication: 2026-05-26
+source.ver: src/contrib/methylationArrayAnalysis_1.37.0.tar.gz
 vignettes:
         vignettes/methylationArrayAnalysis/inst/doc/methylationArrayAnalysis.html
 vignetteTitles: A cross-package Bioconductor workflow for analysing
@@ -653,7 +655,7 @@ Rfiles:
 dependencyCount: 229
 
 Package: recountWorkflow
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.6.0)
 Imports: recount, GenomicRanges, limma, edgeR, DESeq2, pheatmap,
         regionReport, clusterProfiler, org.Hs.eg.db, gplots, derfinder,
@@ -661,7 +663,7 @@ Imports: recount, GenomicRanges, limma, edgeR, DESeq2, pheatmap,
 Suggests: BiocStyle, BiocWorkflowTools, knitr, magick, sessioninfo,
         rmarkdown
 License: Artistic-2.0
-MD5sum: 344ba33c70467f8ea016c87886f47bec
+MD5sum: 733fbf38136ce76b352415310c4bc1e0
 NeedsCompilation: no
 Title: recount workflow: accessing over 70,000 human RNA-seq samples
         with Bioconductor
@@ -689,11 +691,11 @@ URL: https://github.com/LieberInstitute/recountWorkflow
 VignetteBuilder: knitr
 BugReports: https://support.bioconductor.org/t/recountWorkflow/
 git_url: https://git.bioconductor.org/packages/recountWorkflow
-git_branch: RELEASE_3_23
-git_last_commit: 6ce0aaf
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/recountWorkflow_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 1b0a973
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/recountWorkflow_1.38.0.tar.gz
 vignettes: vignettes/recountWorkflow/inst/doc/recount-workflow.html
 vignetteTitles: recount workflow: accessing over 70,,000 human RNA-seq
         samples with Bioconductor
@@ -705,13 +707,13 @@ Rfiles: vignettes/recountWorkflow/inst/doc/recount-workflow.R
 dependencyCount: 243
 
 Package: RNAseq123
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), Glimma (>= 1.1.9), limma, edgeR, gplots,
         RColorBrewer, Mus.musculus, R.utils, TeachingDemos, statmod,
         BiocWorkflowTools
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 2dded60a84918b569c14b8b1bd23cb9b
+MD5sum: bd18b6087440f3683e516878041671d6
 NeedsCompilation: no
 Title: RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR
 Description: R package that supports the F1000Research workflow article
@@ -724,11 +726,11 @@ Maintainer: Matthew Ritchie <mritchie@wehi.edu.au>
 URL: https://f1000research.com/articles/5-1408/v3
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/RNAseq123
-git_branch: RELEASE_3_23
-git_last_commit: 09a5145
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/RNAseq123_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 83ea77b
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/RNAseq123_1.38.0.tar.gz
 vignettes: vignettes/RNAseq123/inst/doc/designmatrices.html,
         vignettes/RNAseq123/inst/doc/limmaWorkflow_CHN.html,
         vignettes/RNAseq123/inst/doc/limmaWorkflow.html
@@ -747,12 +749,12 @@ Rfiles: vignettes/RNAseq123/inst/doc/designmatrices.R,
 dependencyCount: 147
 
 Package: rnaseqDTU
-Version: 1.32.0
+Version: 1.34.0
 Depends: R (>= 3.5.0), DRIMSeq, DEXSeq, stageR, DESeq2, edgeR, rafalib,
         devtools
 Suggests: knitr, rmarkdown
 License: Artistic-2.0
-MD5sum: 27f61850d41813603183c677382918a5
+MD5sum: f27666a69cefb4e37304178e9e402360
 NeedsCompilation: no
 Title: RNA-seq workflow for differential transcript usage following
         Salmon quantification
@@ -770,11 +772,11 @@ Maintainer: Michael Love <michaelisaiahlove@gmail.com>
 URL: https://github.com/thelovelab/rnaseqDTU/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/rnaseqDTU
-git_branch: RELEASE_3_23
-git_last_commit: b3617c9
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/rnaseqDTU_1.32.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: ab68a0a
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/rnaseqDTU_1.34.0.tar.gz
 vignettes: vignettes/rnaseqDTU/inst/doc/rnaseqDTU.html
 vignetteTitles: RNA-seq workflow for differential transcript usage
         following Salmon quantification
@@ -783,17 +785,17 @@ hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/rnaseqDTU/inst/doc/rnaseqDTU.R
-dependencyCount: 182
+dependencyCount: 183
 
 Package: rnaseqGene
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), BiocStyle, airway (>= 1.5.3), tximeta, magrittr,
         DESeq2, apeglm, vsn, dplyr, ggplot2, hexbin, pheatmap,
         RColorBrewer, PoiClaClu, glmpca, ggbeeswarm, genefilter,
         AnnotationDbi, org.Hs.eg.db, Gviz, sva, RUVSeq, fission
 Suggests: knitr, rmarkdown
 License: Artistic-2.0
-MD5sum: 458b658840468a2c7bfae4a30c11a62f
+MD5sum: 968734e07fb80ca725a5c0a971db7e06
 NeedsCompilation: no
 Title: RNA-seq workflow: gene-level exploratory analysis and
         differential expression
@@ -812,11 +814,11 @@ Maintainer: Michael Love <michaelisaiahlove@gmail.com>
 URL: https://github.com/thelovelab/rnaseqGene/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/rnaseqGene
-git_branch: RELEASE_3_23
-git_last_commit: 19d2ab9
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/rnaseqGene_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: d0c63c7
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/rnaseqGene_1.38.0.tar.gz
 vignettes: vignettes/rnaseqGene/inst/doc/rnaseqGene.html
 vignetteTitles: RNA-seq workflow at the gene level
 hasREADME: FALSE
@@ -827,12 +829,12 @@ Rfiles: vignettes/rnaseqGene/inst/doc/rnaseqGene.R
 dependencyCount: 206
 
 Package: RnaSeqGeneEdgeRQL
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), edgeR (>= 4.3.6), gplots, org.Mm.eg.db, GO.db,
         BiocStyle
 Suggests: knitr, knitcitations, rmarkdown
 License: Artistic-2.0
-MD5sum: b42898689b412e74b1b031aef2053d91
+MD5sum: 153ae6296c1cd270f0ed82c349543c93
 NeedsCompilation: no
 Title: Gene-level RNA-seq differential expression and pathway analysis
         using Rsubread and the edgeR quasi-likelihood pipeline
@@ -850,11 +852,11 @@ Maintainer: Yunshun Chen <yuchen@wehi.edu.au>
 URL: http://f1000research.com/articles/5-1438/v2
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/RnaSeqGeneEdgeRQL
-git_branch: RELEASE_3_23
-git_last_commit: 3c21563
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/RnaSeqGeneEdgeRQL_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: a3773c9
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/RnaSeqGeneEdgeRQL_1.38.0.tar.gz
 vignettes: vignettes/RnaSeqGeneEdgeRQL/inst/doc/edgeRQL.html
 vignetteTitles: From reads to genes to pathways: differential
         expression analysis of RNA-Seq experiments using Rsubread and
@@ -866,23 +868,60 @@ hasLICENSE: FALSE
 Rfiles: vignettes/RnaSeqGeneEdgeRQL/inst/doc/edgeRQL.R
 dependencyCount: 74
 
+Package: savingBiocObjects
+Version: 1.0.0
+Suggests: SummarizedExperiment, SingleCellExperiment, GenomicRanges,
+        HDF5Array, anndataR, alabaster.base, alabaster.se, rtracklayer,
+        plyranges, jsonlite, BiocManager, knitr, quarto
+License: MIT + file LICENSE
+MD5sum: db15018af10750fefad7a25a90423e2f
+NeedsCompilation: no
+Title: Saving Bioconductor Objects for Sharing
+Description: Documentation and guidance on strategies for saving and
+        sharing Bioconductor objects, covering RDS serialization,
+        HDF5-backed storage, the alabaster ecosystem for cross-language
+        interoperability, exporting genomic ranges to standard formats,
+        and preserving object metadata.
+biocViews: BasicWorkflow
+Author: Michael Love [aut, cre] (ORCID:
+        <https://orcid.org/0000-0001-8401-0545>)
+Maintainer: Michael Love <michaelisaiahlove@gmail.com>
+URL: https://mikelove.github.io/savingBiocObjects,
+        https://bioconductor.org/packages/savingBiocObjects/
+SystemRequirements: Quarto (https://quarto.org)
+VignetteBuilder: quarto
+BugReports: https://github.com/mikelove/savingBiocObjects/issues
+git_url: https://git.bioconductor.org/packages/savingBiocObjects
+git_branch: RELEASE_3_24
+git_last_commit: 6cfa18d
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/savingBiocObjects_1.0.0.tar.gz
+vignettes: vignettes/savingBiocObjects/inst/doc/savingBiocObjects.html
+vignetteTitles: savingBiocObjects.html
+hasREADME: FALSE
+hasNEWS: TRUE
+hasINSTALL: FALSE
+hasLICENSE: TRUE
+Rfiles: vignettes/savingBiocObjects/inst/doc/savingBiocObjects.R
+
 Package: seqpac
-Version: 1.12.0
-Depends: R (>= 4.5.0)
+Version: 1.14.0
+Depends: R (>= 4.6.0)
 Imports: Biostrings (>= 2.46.0), foreach (>= 1.5.1), GenomicRanges (>=
         1.30.3), Rbowtie (>= 1.18.0), ShortRead (>= 1.36.1), tibble (>=
         3.1.2), BiocParallel (>= 1.12.0), cowplot (>= 0.9.4),
-        data.table (>= 1.14.0), digest (>= 0.6.27), doParallel (>=
-        1.0.16), dplyr (>= 1.0.6), factoextra (>= 1.0.7), FactoMineR
-        (>= 1.41), ggplot2 (>= 4.0.2), IRanges (>= 2.12.0), parallel
-        (>= 3.4.4), reshape2 (>= 1.4.4), rtracklayer (>= 1.38.3),
-        stringr (>= 1.4.0), stats (>= 3.4.4), methods, S4Vectors, readr
+        data.table (>= 1.14.0), doParallel (>= 1.0.16), dplyr (>=
+        1.0.6), factoextra (>= 1.0.7), FactoMineR (>= 1.41), ggplot2
+        (>= 4.0.2), IRanges (>= 2.12.0), parallel (>= 3.4.4), reshape2
+        (>= 1.4.4), rtracklayer (>= 1.38.3), stringr (>= 1.4.0), stats
+        (>= 3.4.4), methods, S4Vectors, readr
 Suggests: benchmarkme (>= 0.6.0), DESeq2 (>= 1.18.1), GenomeInfoDb (>=
         1.14.0), gginnards (>= 0.0.2), qqman (>= 0.1.8), rmarkdown,
         BiocStyle, knitr, testthat, UpSetR (>= 1.4.0), venneuler,
         R.utils, bigreadr, vroom
 License: GPL-3
-MD5sum: 4b21bc5b6a078c8ed52685cc8ddee60b
+MD5sum: 29ea4b5c262b761f75545cddbc96d14c
 NeedsCompilation: no
 Title: Seqpac: A Framework for smallRNA analysis in R using
         Sequence-Based Counts
@@ -919,11 +958,11 @@ URL: https://github.com/Oestlab/seqpac
 VignetteBuilder: knitr
 BugReports: https://github.com/OestLab/seqpac/issues
 git_url: https://git.bioconductor.org/packages/seqpac
-git_branch: RELEASE_3_23
-git_last_commit: 3232735
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/seqpac_1.12.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 492dc13
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/seqpac_1.14.0.tar.gz
 vignettes:
         vignettes/seqpac/inst/doc/seqpac_-_A_guide_to_sRNA_analysis_using_sequence-based_counts.html
 vignetteTitles: A guide to small RNA analysis using Seqpac
@@ -936,14 +975,14 @@ Rfiles:
 dependencyCount: 195
 
 Package: sequencing
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), GenomicRanges, GenomicAlignments, Biostrings,
         Rsamtools, ShortRead, BiocParallel, rtracklayer,
         VariantAnnotation, AnnotationHub, BSgenome.Hsapiens.UCSC.hg19,
         RNAseqData.HNRNPC.bam.chr14
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 31b46140205be877f5366e2165cfac4c
+MD5sum: 7c1abfdf248ca3d83ed528f16411b350
 NeedsCompilation: no
 Title: Introduction to Bioconductor for Sequence Data
 Description: Bioconductor enables the analysis and comprehension of
@@ -971,11 +1010,11 @@ Maintainer: Bioconductor Package Maintainer
 URL: https://www.bioconductor.org/help/workflows/sequencing/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/sequencing
-git_branch: RELEASE_3_23
-git_last_commit: 68f9b36
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/sequencing_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: eaafc0c
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/sequencing_1.38.0.tar.gz
 vignettes: vignettes/sequencing/inst/doc/sequencing.html
 vignetteTitles: Introduction to Bioconductor for Sequence Data
 hasREADME: FALSE
@@ -986,13 +1025,13 @@ Rfiles: vignettes/sequencing/inst/doc/sequencing.R
 dependencyCount: 110
 
 Package: simpleSingleCell
-Version: 1.36.0
+Version: 1.38.0
 Imports: utils, methods, knitr, callr, rmarkdown, CodeDepends,
         BiocStyle
 Suggests: readxl, R.utils, SingleCellExperiment, scater, scran, limma,
         BiocFileCache, org.Mm.eg.db
 License: Artistic-2.0
-MD5sum: ad0b1e822b6197a1f95bedbbc871f1ca
+MD5sum: 7cee6a3ba5d657ae548538710cc38262
 NeedsCompilation: no
 Title: A step-by-step workflow for low-level analysis of single-cell
         RNA-seq data with Bioconductor
@@ -1009,11 +1048,11 @@ Maintainer: Aaron Lun <infinite.monkeys.with.keyboards@gmail.com>
 URL: https://www.bioconductor.org/help/workflows/simpleSingleCell/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/simpleSingleCell
-git_branch: RELEASE_3_23
-git_last_commit: 7f14a9f
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/simpleSingleCell_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: 058c4c6
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/simpleSingleCell_1.38.0.tar.gz
 vignettes: vignettes/simpleSingleCell/inst/doc/batch.html,
         vignettes/simpleSingleCell/inst/doc/bigdata.html,
         vignettes/simpleSingleCell/inst/doc/de.html,
@@ -1041,13 +1080,13 @@ Rfiles: vignettes/simpleSingleCell/inst/doc/misc.R
 dependencyCount: 45
 
 Package: variants
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.3.0), GenomeInfoDb, VariantAnnotation, org.Hs.eg.db,
         TxDb.Hsapiens.UCSC.hg19.knownGene, BSgenome.Hsapiens.UCSC.hg19,
         PolyPhen.Hsapiens.dbSNP131
 Suggests: knitr, rmarkdown, BiocStyle
 License: Artistic-2.0
-MD5sum: 9204295578b18a10b2ab03b7327c45f7
+MD5sum: a93015df9159e2a015ba73659d2b06e4
 NeedsCompilation: no
 Title: Annotating Genomic Variants
 Description: Read and write VCF files. Identify structural location of
@@ -1062,11 +1101,11 @@ Maintainer: Bioconductor Package Maintainer
 URL: https://bioconductor.org/help/workflows/variants/
 VignetteBuilder: knitr
 git_url: https://git.bioconductor.org/packages/variants
-git_branch: RELEASE_3_23
-git_last_commit: 97d5b9a
-git_last_commit_date: 2026-04-28
-Date/Publication: 2026-06-02
-source.ver: src/contrib/variants_1.36.0.tar.gz
+git_branch: RELEASE_3_24
+git_last_commit: d0866c9
+git_last_commit_date: 2026-11-23
+Date/Publication: 2026-11-24
+source.ver: src/contrib/variants_1.38.0.tar.gz
 vignettes: vignettes/variants/inst/doc/Annotating_Genomic_Variants.html
 vignetteTitles: Annotating Genomic Variants
 hasREADME: FALSE
@@ -1076,8 +1115,35 @@ hasLICENSE: FALSE
 Rfiles: vignettes/variants/inst/doc/Annotating_Genomic_Variants.R
 dependencyCount: 83
 
+Package: annotation
+Version: 1.38.0
+Depends: R (>= 3.3.0), GenomeInfoDb, VariantAnnotation, AnnotationHub,
+        TxDb.Hsapiens.UCSC.hg19.knownGene,
+        TxDb.Hsapiens.UCSC.hg38.knownGene,
+        TxDb.Mmusculus.UCSC.mm10.ensGene, org.Hs.eg.db, org.Mm.eg.db,
+        Homo.sapiens, BSgenome.Hsapiens.UCSC.hg19, biomaRt, BSgenome,
+        TxDb.Athaliana.BioMart.plantsmart22
+Suggests: knitr, rmarkdown, BiocStyle
+License: Artistic-2.0
+NeedsCompilation: no
+Title: Genomic Annotation Resources
+Description: Annotation resources make up a significant proportion of
+        the Bioconductor project. And there are also a diverse set of
+        online resources available which are accessed using specific
+        packages.  This walkthrough will describe the most popular of
+        these resources and give some high level examples on how to use
+        them.
+biocViews: AnnotationWorkflow, Workflow
+Author: Marc RJ Carlson [aut], Hervé Pagès [aut], Sonali Arora [aut],
+        Valerie Obenchain [aut], Martin Morgan [aut], Lori Shepherd
+        [ctb], Bioconductor Package Maintainer [cre]
+Maintainer: Bioconductor Package Maintainer
+        <maintainer@bioconductor.org>
+URL: http://bioconductor.org/packages/annotation
+VignetteBuilder: knitr
+
 Package: TCGAWorkflow
-Version: 1.36.0
+Version: 1.38.0
 Depends: R (>= 3.4.0)
 Imports: AnnotationHub, knitr, ELMER, biomaRt,
         BSgenome.Hsapiens.UCSC.hg19, circlize, c3net, ChIPseeker,
@@ -1128,40 +1194,8 @@ URL: https://f1000research.com/articles/5-1542/v2
 VignetteBuilder: knitr
 BugReports: https://github.com/BioinformaticsFMRP/TCGAWorkflow/issues
 
-Package: maEndToEnd
-Version: 2.32.0
-Depends: R (>= 3.5.0), Biobase, oligoClasses, ArrayExpress,
-        pd.hugene.1.0.st.v1, hugene10sttranscriptcluster.db, oligo,
-        arrayQualityMetrics, limma, topGO, ReactomePA, clusterProfiler,
-        gplots, ggplot2, geneplotter, pheatmap, RColorBrewer, dplyr,
-        tidyr, stringr, matrixStats, genefilter, openxlsx, Rgraphviz,
-        enrichplot
-Suggests: BiocStyle, knitr, devtools, rmarkdown
-License: MIT + file LICENSE
-NeedsCompilation: no
-Title: An end to end workflow for differential gene expression using
-        Affymetrix microarrays
-Description: In this article, we walk through an end-to-end Affymetrix
-        microarray differential expression workflow using Bioconductor
-        packages. This workflow is directly applicable to current
-        "Gene" type arrays, e.g. the HuGene or MoGene arrays, but can
-        easily be adapted to similar platforms. The data analyzed here
-        is a typical clinical microarray data set that compares
-        inflamed and non-inflamed colon tissue in two disease subtypes.
-        For each disease, the differential gene expression between
-        inflamed- and non-inflamed colon tissue was analyzed. We will
-        start from the raw data CEL files, show how to import them into
-        a Bioconductor ExpressionSet, perform quality control and
-        normalization and finally differential gene expression (DE)
-        analysis, followed by some enrichment analysis.
-biocViews: GeneExpressionWorkflow
-Author: Bernd Klaus [aut], Stefanie Reisenauer [aut, cre]
-Maintainer: Stefanie Reisenauer <steffi.reisenauer@tum.de>
-URL: https://www.bioconductor.org/help/workflows/
-VignetteBuilder: knitr
-
 Package: SingscoreAMLMutations
-Version: 1.28.0
+Version: 1.30.0
 Title: ERROR
 Maintainer: ERROR
 

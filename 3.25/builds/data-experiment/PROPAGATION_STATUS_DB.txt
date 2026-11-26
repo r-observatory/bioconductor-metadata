@@ -1,4 +1,4 @@
-adductData#source#propagate: YES
+adductData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 affycompData#source#propagate: YES
 affydata#source#propagate: YES
 Affyhgu133A2Expr#source#propagate: YES
@@ -13,20 +13,19 @@ aracne.networks#source#propagate: YES
 ARRmData#source#propagate: YES
 AshkenazimSonChr21#source#propagate: YES
 ASICSdata#source#propagate: YES
-AssessORFData#source#propagate: YES
-AWAggregatorData#source#propagate: YES
+AssessORFData#source#propagate: NO, package depends on 'DECIPHER' which is not available
+AWAggregatorData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 bcellViper#source#propagate: YES
-beadarrayExampleData#source#propagate: YES
-BeadSorted.Saliva.EPIC#source#propagate: YES
+beadarrayExampleData#source#propagate: NO, package depends on 'beadarray' which is not available
+BeadSorted.Saliva.EPIC#source#propagate: NO, package depends on 'minfi' which is not available
 beta7#source#propagate: YES
-BioImageDbs#source#propagate: YES
-BioPlex#source#propagate: YES
+BioImageDbs#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 biotmleData#source#propagate: YES
-biscuiteerData#source#propagate: YES
+biscuiteerData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 bladderbatch#source#propagate: YES
 blimaTestingData#source#propagate: YES
 BloodCancerMultiOmics2017#source#propagate: YES
-bodymapRat#source#propagate: YES
+bodymapRat#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 breakpointRdata#source#propagate: YES
 breastCancerMAINZ#source#propagate: YES
 breastCancerNKI#source#propagate: YES
@@ -36,25 +35,25 @@ breastCancerUPP#source#propagate: YES
 breastCancerVDX#source#propagate: YES
 brgedata#source#propagate: YES
 bronchialIL13#source#propagate: YES
-bsseqData#source#propagate: YES
+bsseqData#source#propagate: NO, package depends on 'bsseq' which is not available
 bugphyzz#source#propagate: YES
 cancerdata#source#propagate: YES
-CardinalWorkflows#source#propagate: YES
 CCl4#source#propagate: YES
 celarefData#source#propagate: YES
-CellMapperData#source#propagate: YES
-CENTREprecomputed#source#propagate: YES
-cfToolsData#source#propagate: YES
+CellMapperData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+CENTREprecomputed#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+cfToolsData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+ChAMPdata#source#propagate: YES
 ChimpHumanBrainData#source#propagate: YES
-ChIPDBData#source#propagate: YES
-chipenrich.data#source#propagate: YES
+ChIPDBData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+chipenrich.data#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
 ChIPexoQualExample#source#propagate: YES
-chipseqDBData#source#propagate: YES
-CLAMPData#source#propagate: YES
+chipseqDBData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+CLAMPData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 CLL#source#propagate: YES
-CLLmethylation#source#propagate: YES
+CLLmethylation#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 CluMSIDdata#source#propagate: YES
-clustifyrdatahub#source#propagate: YES
+clustifyrdatahub#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 cMap2data#source#propagate: YES
 cnvGSAdata#source#propagate: YES
 COHCAPanno#source#propagate: YES
@@ -62,82 +61,82 @@ colonCA#source#propagate: YES
 CONFESSdata#source#propagate: YES
 COPDSexualDimorphism.data#source#propagate: YES
 CopyhelpeR#source#propagate: YES
-CopyNeutralIMA#source#propagate: YES
-CoSIAdata#source#propagate: YES
-COSMIC.67#source#propagate: YES
+CopyNeutralIMA#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+CoSIAdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+COSMIC.67#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 CRCL18#source#propagate: YES
-crisprScoreData#source#propagate: YES
+crisprScoreData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 curatedAdipoArray#source#propagate: YES
-curatedAdipoChIP#source#propagate: YES
+curatedAdipoChIP#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 curatedAdipoRNA#source#propagate: YES
 curatedBladderData#source#propagate: YES
 curatedBreastData#source#propagate: YES
 curatedCRCData#source#propagate: YES
-curatedMetagenomicData#source#propagate: YES
+curatedMetagenomicData#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
 curatedOvarianData#source#propagate: YES
-curatedPCaData#source#propagate: YES
-curatedTBData#source#propagate: YES
-curatedTCGAData#source#propagate: YES
-DAPARdata#source#propagate: YES
-DaparToolshedData#source#propagate: YES
-davidTiling#source#propagate: YES
-depmap#source#propagate: YES
+curatedPCaData#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
+curatedTBData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+curatedTCGAData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+DAPARdata#source#propagate: NO, package depends on 'MSnbase' which is not available
+DaparToolshedData#source#propagate: NO, package depends on 'QFeatures' which is not available
+davidTiling#source#propagate: NO, package depends on 'tilingArray' which is not available
+depmap#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 derfinderData#source#propagate: YES
+DeSousa2013#source#propagate: NO, package depends on 'frma' which is not available
 DExMAdata#source#propagate: YES
 diffloopdata#source#propagate: YES
 diggitdata#source#propagate: YES
 DLBCL#source#propagate: YES
-DMRcatedata#source#propagate: YES
-DMRsegaldata#source#propagate: YES
-DNAZooData#source#propagate: YES
+DMRcatedata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+DMRsegaldata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+DNAZooData#source#propagate: NO, package depends on 'HiCExperiment' which is not available
 dominatRData#source#propagate: YES
-DonaPLLP2013#source#propagate: YES
-DoReMiTra#source#propagate: YES
+DonaPLLP2013#source#propagate: NO, package depends on 'EBImage' which is not available
+DoReMiTra#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 dressCheck#source#propagate: YES
-DropletTestFiles#source#propagate: YES
+DropletTestFiles#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 DrugVsDiseasedata#source#propagate: YES
-DuoClustering2018#source#propagate: YES
+DuoClustering2018#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 DvDdata#source#propagate: YES
 dyebiasexamples#source#propagate: YES
-easierData#source#propagate: YES
-EatonEtAlChIPseq#source#propagate: YES
+easierData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+EatonEtAlChIPseq#source#propagate: NO, package depends on 'ShortRead' which is not available
 ecoliLeucine#source#propagate: YES
 EGSEAdata#source#propagate: YES
-ELMER.data#source#propagate: YES
-emtdata#source#propagate: YES
-EMTscoreData#source#propagate: YES
-eoPredData#source#propagate: YES
-EpiMix.data#source#propagate: YES
+ELMER.data#source#propagate: NO, package depends on 'Biostrings' which is not available
+EMTscoreData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+eoPredData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+EpiMix.data#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 epimutacionsData#source#propagate: YES
-EpipwR.data#source#propagate: YES
+EpipwR.data#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 estrogen#source#propagate: YES
 etec16s#source#propagate: YES
-ewceData#source#propagate: YES
-faahKO#source#propagate: YES
+ewceData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+faahKO#source#propagate: NO, package depends on 'xcms' which is not available
 fabiaData#source#propagate: YES
 FANTOM3and4CAGE#source#propagate: YES
-ffpeExampleData#source#propagate: YES
+ffpeExampleData#source#propagate: NO, package depends on 'lumi' which is not available
 fibroEset#source#propagate: YES
-FieldEffectCrc#source#propagate: YES
+FieldEffectCrc#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 FIs#source#propagate: YES
 fission#source#propagate: YES
 flowPloidyData#source#propagate: YES
-FlowSorted.Blood.450k#source#propagate: YES
-FlowSorted.Blood.EPIC#source#propagate: YES
-FlowSorted.CordBloodCombined.450k#source#propagate: YES
-FlowSorted.CordBloodNorway.450k#source#propagate: YES
-FlowSorted.DLPFC.450k#source#propagate: YES
+FlowSorted.Blood.450k#source#propagate: NO, package depends on 'minfi' which is not available
+FlowSorted.Blood.EPIC#source#propagate: NO, package depends on 'genefilter' which is not available
+FlowSorted.CordBloodCombined.450k#source#propagate: NO, package depends on 'minfi' which is not available
+FlowSorted.CordBloodNorway.450k#source#propagate: NO, package depends on 'minfi' which is not available
+FlowSorted.DLPFC.450k#source#propagate: NO, package depends on 'minfi' which is not available
 flowWorkspaceData#source#propagate: YES
-fourDNData#source#propagate: YES
+fourDNData#source#propagate: NO, package depends on 'HiCExperiment' which is not available
 frmaExampleData#source#propagate: YES
 gageData#source#propagate: YES
 gaschYHS#source#propagate: YES
 gcspikelite#source#propagate: YES
-gDNAinRNAseqData#source#propagate: YES
+gDNAinRNAseqData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 gDRtestData#source#propagate: YES
-geneLenDataBase#source#propagate: YES
+geneLenDataBase#source#propagate: NO, package depends on 'rtracklayer' which is not available
 genomationData#source#propagate: YES
-GenomicDistributionsData#source#propagate: YES
+GenomicDistributionsData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 GIGSEAdata#source#propagate: YES
 golubEsets#source#propagate: YES
 gpaExample#source#propagate: YES
@@ -145,11 +144,11 @@ grndata#source#propagate: YES
 GSBenchMark#source#propagate: YES
 GSE103322#source#propagate: YES
 GSE13015#source#propagate: YES
-GSE142512#source#propagate: YES
+GSE142512#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 GSE159526#source#propagate: YES
-GSE280465#source#propagate: YES
+GSE280465#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 GSE62944#source#propagate: YES
-GSVAdata#source#propagate: YES
+GSVAdata#source#propagate: NO, package depends on 'GSEABase' which is not available
 GWASdata#source#propagate: YES
 h5vcData#source#propagate: YES
 hapmap100khind#source#propagate: YES
@@ -157,154 +156,155 @@ hapmap100kxba#source#propagate: YES
 hapmap500knsp#source#propagate: YES
 hapmap500ksty#source#propagate: YES
 hapmapsnp5#source#propagate: YES
-hapmapsnp6#source#propagate: YES
-harbChIP#source#propagate: YES
+hapmapsnp6#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+harbChIP#source#propagate: NO, package depends on 'Biostrings' which is not available
 HarmanData#source#propagate: YES
-HarmonizedTCGAData#source#propagate: YES
-HCAData#source#propagate: YES
-HCATonsilData#source#propagate: YES
-HD2013SGI#source#propagate: YES
-HDCytoData#source#propagate: YES
-healthyFlowData#source#propagate: YES
+HarmonizedTCGAData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+HCAData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+HCATonsilData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+HD2013SGI#source#propagate: NO, package depends on 'geneplotter' which is not available
+HDCytoData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+healthyFlowData#source#propagate: NO, package depends on 'flowCore' which is not available
 HEEBOdata#source#propagate: YES
 HelloRangesData#source#propagate: YES
 hgu133abarcodevecs#source#propagate: YES
 hgu133plus2barcodevecs#source#propagate: YES
 hgu133plus2CellScore#source#propagate: YES
 hgu2beta7#source#propagate: YES
-HiBED#source#propagate: YES
+HiBED#source#propagate: NO, package depends on 'minfi' which is not available
 HiCDataHumanIMR90#source#propagate: YES
 HiCDataLymphoblast#source#propagate: YES
-HiContactsData#source#propagate: YES
-HighlyReplicatedRNASeq#source#propagate: YES
-Hiiragi2013#source#propagate: YES
+HiContactsData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+HighlyReplicatedRNASeq#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+Hiiragi2013#source#propagate: NO, package depends on 'genefilter' which is not available
 HIVcDNAvantWout03#source#propagate: YES
-HMP16SData#source#propagate: YES
+HMP16SData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 HSMMSingleCell#source#propagate: YES
-HumanAffyData#source#propagate: YES
-humanHippocampus2024#source#propagate: YES
+HumanAffyData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+humanHippocampus2024#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 HumanRetinaLRSData#source#propagate: YES
 humanStemCell#source#propagate: YES
-HuMMANet#source#propagate: YES
+HuMMANet#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+IHWpaper#source#propagate: NO, package depends on 'genefilter' which is not available
 Illumina450ProbeVariants.db#source#propagate: YES
 IlluminaDataTestFiles#source#propagate: YES
-imcdatasets#source#propagate: YES
+imcdatasets#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ITALICSData#source#propagate: YES
 Iyer517#source#propagate: YES
-JASPAR2014#source#propagate: YES
+JASPAR2014#source#propagate: NO, package depends on 'Biostrings' which is not available
 JASPAR2016#source#propagate: YES
-JohnsonKinaseData#source#propagate: YES
+JohnsonKinaseData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 KEGGandMetacoreDzPathwaysGEO#source#propagate: YES
 KEGGdzPathwaysGEO#source#propagate: YES
 kidpack#source#propagate: YES
 KOdata#source#propagate: YES
-leeBamViews#source#propagate: YES
+leeBamViews#source#propagate: NO, package depends on 'Rsamtools' which is not available
 LegATo#source#propagate: YES
 leukemiasEset#source#propagate: YES
 LiebermanAidenHiC2009#source#propagate: YES
-LRcellTypeMarkers#source#propagate: YES
-lumiBarnes#source#propagate: YES
+LRcellTypeMarkers#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+lumiBarnes#source#propagate: NO, package depends on 'lumi' which is not available
 LungCancerACvsSCCGEO#source#propagate: YES
-LungCancerLines#source#propagate: YES
+LungCancerLines#source#propagate: NO, package depends on 'Rsamtools' which is not available
 lungExpression#source#propagate: YES
 lydata#source#propagate: YES
 M3DExampleData#source#propagate: YES
 macrophage#source#propagate: YES
 MACSdata#source#propagate: YES
 maqcExpression4plex#source#propagate: YES
-MAQCsubset#source#propagate: YES
-marinerData#source#propagate: YES
+MAQCsubset#source#propagate: NO, package depends on 'lumi' which is not available
+marinerData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 mCSEAdata#source#propagate: YES
-mcsurvdata#source#propagate: YES
+mcsurvdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 MEDIPSData#source#propagate: YES
 MEEBOdata#source#propagate: YES
-MerfishData#source#propagate: YES
-MetaGxBreast#source#propagate: YES
-MetaGxOvarian#source#propagate: YES
-MetaGxPancreas#source#propagate: YES
+MerfishData#source#propagate: NO, package depends on 'EBImage' which is not available
+MetaGxBreast#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+MetaGxOvarian#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+MetaGxPancreas#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 metaMSdata#source#propagate: YES
-MetaScope#source#propagate: YES
-MethylAidData#source#propagate: YES
-methylclockData#source#propagate: YES
-MethylSeqData#source#propagate: YES
-MicrobiomeBenchmarkData#source#propagate: YES
-microbiomeDataSets#source#propagate: YES
+MetaScope#source#propagate: NO, package depends on 'Biostrings' which is not available
+MethylAidData#source#propagate: NO, package depends on 'MethylAid' which is not available
+methylclockData#source#propagate: NO, package depends on 'ExperimentHubData' which is not available
+MethylSeqData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+MicrobiomeBenchmarkData#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+microbiomeDataSets#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
 microRNAome#source#propagate: YES
-minfiData#source#propagate: YES
-minfiDataEPIC#source#propagate: YES
+minfiData#source#propagate: NO, package depends on 'minfi' which is not available
+minfiDataEPIC#source#propagate: NO, package depends on 'minfi' which is not available
 minionSummaryData#source#propagate: YES
 miRcompData#source#propagate: YES
 miRNATarget#source#propagate: YES
 MOFAdata#source#propagate: YES
 mosaicsExample#source#propagate: YES
 mouse4302barcodevecs#source#propagate: YES
-MouseAgingData#source#propagate: YES
-MouseGastrulationData#source#propagate: YES
-MouseThymusAgeing#source#propagate: YES
+MouseAgingData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+MouseGastrulationData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+MouseThymusAgeing#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 msd16s#source#propagate: YES
-msigdb#source#propagate: YES
 MSMB#source#propagate: YES
 msPurityData#source#propagate: YES
 msqc1#source#propagate: YES
 mtbls2#source#propagate: YES
 MUGAExampleData#source#propagate: YES
-multiWGCNAdata#source#propagate: YES
-muscData#source#propagate: YES
-muSpaData#source#propagate: YES
+multiWGCNAdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+muscData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+muSpaData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 MutSeqRData#source#propagate: YES
-mvoutData#source#propagate: YES
-NanoporeRNASeq#source#propagate: YES
+mvoutData#source#propagate: NO, package depends on 'lumi' which is not available
+NanoporeRNASeq#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 nanotubes#source#propagate: YES
 NCIgraphData#source#propagate: YES
-NestLink#source#propagate: YES
+NestLink#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 NetActivityData#source#propagate: YES
-Neve2006#source#propagate: YES
+Neve2006#source#propagate: NO, package depends on 'annotate' which is not available
 NGScopyData#source#propagate: YES
-nmrdata#source#propagate: YES
-nullrangesData#source#propagate: YES
-NxtIRFdata#source#propagate: YES
-ObMiTi#source#propagate: YES
+nmrdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+nullrangesData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+NxtIRFdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+ObMiTi#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 oct4#source#propagate: YES
-octad.db#source#propagate: YES
+octad.db#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 OMICsPCAdata#source#propagate: YES
 OnassisJavaLibs#source#propagate: YES
 optimalFlowData#source#propagate: YES
-orthosData#source#propagate: YES
-pasilla#source#propagate: YES
+orthosData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+pasilla#source#propagate: NO, package depends on 'DEXSeq' which is not available
 pasillaBamSubset#source#propagate: YES
 PathNetData#source#propagate: YES
 PCHiCdata#source#propagate: YES
 pepDat#source#propagate: YES
 PepsNMRData#source#propagate: YES
-PhyloProfileData#source#propagate: YES
+PhyloProfileData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 plotgardenerData#source#propagate: YES
 prebsdata#source#propagate: YES
-preciseTADhub#source#propagate: YES
-PREDAsampledata#source#propagate: YES
+preciseTADhub#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+PREDAsampledata#source#propagate: NO, package depends on 'PREDA' which is not available
 ProData#source#propagate: YES
-pRolocdata#source#propagate: YES
+pRolocdata#source#propagate: NO, package depends on 'MSnbase' which is not available
 prostateCancerCamcap#source#propagate: YES
 prostateCancerGrasso#source#propagate: YES
 prostateCancerStockholm#source#propagate: YES
 prostateCancerTaylor#source#propagate: YES
 prostateCancerVarambally#source#propagate: YES
-ProteinGymR#source#propagate: YES
-PscanRBackgrounds#source#propagate: YES
+ProteinGymR#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+PscanRBackgrounds#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 ptairData#source#propagate: YES
-PtH2O2lipids#source#propagate: YES
-PWMEnrich.Dmelanogaster.background#source#propagate: YES
-PWMEnrich.Hsapiens.background#source#propagate: YES
-PWMEnrich.Mmusculus.background#source#propagate: YES
-QDNAseq.hg19#source#propagate: YES
-QDNAseq.mm10#source#propagate: YES
-qPLEXdata#source#propagate: YES
+PtH2O2lipids#source#propagate: NO, package depends on 'xcms' which is not available
+pumadata#source#propagate: NO, package depends on 'puma' which is not available
+PWMEnrich.Dmelanogaster.background#source#propagate: NO, package depends on 'PWMEnrich' which is not available
+PWMEnrich.Hsapiens.background#source#propagate: NO, package depends on 'PWMEnrich' which is not available
+PWMEnrich.Mmusculus.background#source#propagate: NO, package depends on 'PWMEnrich' which is not available
+QDNAseq.hg19#source#propagate: NO, package depends on 'QDNAseq' which is not available
+QDNAseq.mm10#source#propagate: NO, package depends on 'QDNAseq' which is not available
+qPLEXdata#source#propagate: NO, package depends on 'qPLEXanalyzer' which is not available
 QUBICdata#source#propagate: YES
-raerdata#source#propagate: YES
+raerdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 rcellminerData#source#propagate: YES
 ReactomeGSA.data#source#propagate: YES
 rheumaticConditionWOLLBOLD#source#propagate: YES
 RITANdata#source#propagate: YES
-RNAmodR.Data#source#propagate: YES
+RNAmodR.Data#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 RNAseqData.HNRNPC.bam.chr14#source#propagate: YES
 RnaSeqSampleSizeData#source#propagate: YES
 RnBeads.hg19#source#propagate: YES
@@ -312,75 +312,67 @@ RnBeads.hg38#source#propagate: YES
 RnBeads.mm10#source#propagate: YES
 RnBeads.mm9#source#propagate: YES
 RnBeads.rn5#source#propagate: YES
-RRBSdata#source#propagate: YES
+RRBSdata#source#propagate: NO, package depends on 'BiSeq' which is not available
 RUVnormalizeData#source#propagate: YES
 sampleClassifierData#source#propagate: YES
 SBGNview.data#source#propagate: YES
-scaeData#source#propagate: YES
-scanMiRData#source#propagate: YES
-scATAC.Explorer#source#propagate: YES
+scaeData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+scanMiRData#source#propagate: NO, package depends on 'scanMiR' which is not available
+scATAC.Explorer#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 SCLCBam#source#propagate: YES
-scMultiome#source#propagate: YES
-scpdata#source#propagate: YES
+scMultiome#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+scpdata#source#propagate: NO, package depends on 'QFeatures' which is not available
 scTHI.data#source#propagate: YES
 seq2pathway.data#source#propagate: YES
 seqc#source#propagate: YES
 serumStimulation#source#propagate: YES
-sesameData#source#propagate: YES
+sesameData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 seventyGeneData#source#propagate: YES
-SFEData#source#propagate: YES
+SFEData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 shinyMethylData#source#propagate: YES
-signatureSearchData#source#propagate: YES
-SimBenchData#source#propagate: YES
+signatureSearchData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+SimBenchData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 simpIntLists#source#propagate: YES
-SingleMoleculeFootprintingData#source#propagate: YES
+SingleMoleculeFootprintingData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 SNAData#source#propagate: YES
 SNAGEEdata#source#propagate: YES
 SNPhoodData#source#propagate: YES
 SomatiCAData#source#propagate: YES
 SomaticCancerAlterations#source#propagate: YES
-SpaMTPData#source#propagate: YES
-SpatialDatasets#source#propagate: YES
-spatialDmelxsim#source#propagate: YES
+SpaMTPData#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+spatialDmelxsim#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 SpikeIn#source#propagate: YES
 SpikeInSubset#source#propagate: YES
 spqnData#source#propagate: YES
 stemHypoxia#source#propagate: YES
-STexampleData#source#propagate: YES
-SubcellularSpatialData#source#propagate: YES
-systemPipeRdata#source#propagate: YES
-TabulaMurisData#source#propagate: YES
-TabulaMurisSenisData#source#propagate: YES
+STexampleData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+SubcellularSpatialData#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+systemPipeRdata#source#propagate: NO, package depends on 'Biostrings' which is not available
 TargetScoreData#source#propagate: YES
 TargetSearchData#source#propagate: YES
-tartare#source#propagate: YES
-TBX20BamSubset#source#propagate: YES
+tartare#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+TBX20BamSubset#source#propagate: NO, package depends on 'Rsamtools' which is not available
 TCGAbiolinksGUI.data#source#propagate: YES
 TCGAcrcmiRNA#source#propagate: YES
 TCGAcrcmRNA#source#propagate: YES
 TCGAMethylation450k#source#propagate: YES
 TCGAWorkflowData#source#propagate: YES
-TENET.ExperimentHub#source#propagate: YES
-TENxBUSData#source#propagate: YES
-TENxVisiumData#source#propagate: YES
-TENxXeniumData#source#propagate: YES
+TENET.ExperimentHub#source#propagate: NO, package depends on 'ExperimentHub' which is not available
+TENxBUSData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 timecoursedata#source#propagate: YES
 tinesath1cdf#source#propagate: YES
-tinesath1probe#source#propagate: YES
-tissueTreg#source#propagate: YES
-TMExplorer#source#propagate: YES
-topdownrdata#source#propagate: YES
+tinesath1probe#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+TMExplorer#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+topdownrdata#source#propagate: NO, package depends on 'topdownr' which is not available
 TransOmicsData#source#propagate: YES
-tuberculosis#source#propagate: YES
-TumourMethData#source#propagate: YES
 tweeDEseqCountData#source#propagate: YES
 tximportData#source#propagate: YES
-VectraPolarisData#source#propagate: YES
+VariantToolsData#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+VectraPolarisData#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 vulcandata#source#propagate: YES
-WeberDivechaLCdata#source#propagate: YES
+WeberDivechaLCdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 WES.1KG.WUGSC#source#propagate: YES
 WGSmapp#source#propagate: YES
-xcoredata#source#propagate: YES
 XhybCasneuf#source#propagate: YES
 yeastCC#source#propagate: YES
 yeastExpData#source#propagate: YES
