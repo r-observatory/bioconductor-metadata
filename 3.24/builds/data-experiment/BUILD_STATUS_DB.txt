@@ -1233,7 +1233,7 @@ TENxBUSData#nebbiolo2#buildsrc: OK
 TENxBUSData#nebbiolo2#checksrc: OK
 TENxPBMCData#nebbiolo2#install: OK
 TENxPBMCData#nebbiolo2#buildsrc: OK
-TENxPBMCData#nebbiolo2#checksrc: OK
+TENxPBMCData#nebbiolo2#checksrc: ERROR
 TENxVisiumData#nebbiolo2#install: OK
 TENxVisiumData#nebbiolo2#buildsrc: OK
 TENxVisiumData#nebbiolo2#checksrc: OK

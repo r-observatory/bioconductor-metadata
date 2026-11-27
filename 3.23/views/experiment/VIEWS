@@ -4055,7 +4055,7 @@ source.ver: src/contrib/ELMER.data_2.38.0.tar.gz
 vignettes: vignettes/ELMER.data/inst/doc/vignettes.html
 vignetteTitles: ELMER.data: Supporting data for the ELMER package
 hasREADME: FALSE
-hasNEWS: FALSE
+hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/ELMER.data/inst/doc/vignettes.R
@@ -8632,7 +8632,7 @@ Rfiles: vignettes/MicrobiomeBenchmarkData/inst/doc/datasets.R,
         vignettes/MicrobiomeBenchmarkData/inst/doc/MicrobiomeBenchmarkData.R,
         vignettes/MicrobiomeBenchmarkData/inst/doc/recalibrare_spikein_data.R
 suggestsMe: bugphyzz
-dependencyCount: 84
+dependencyCount: 83
 
 Package: microbiomeDataSets
 Version: 1.22.0

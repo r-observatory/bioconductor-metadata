@@ -303,7 +303,7 @@ aroma.light#nebbiolo2#buildsrc: OK
 aroma.light#nebbiolo2#checksrc: OK
 ArrayExpress#nebbiolo2#install: OK
 ArrayExpress#nebbiolo2#buildsrc: OK
-ArrayExpress#nebbiolo2#checksrc: OK
+ArrayExpress#nebbiolo2#checksrc: ERROR
 arrayMvout#nebbiolo2#install: OK
 arrayMvout#nebbiolo2#buildsrc: OK
 arrayMvout#nebbiolo2#checksrc: OK
@@ -431,8 +431,8 @@ BANDITS#nebbiolo2#install: OK
 BANDITS#nebbiolo2#buildsrc: OK
 BANDITS#nebbiolo2#checksrc: OK
 bandle#nebbiolo2#install: OK
-bandle#nebbiolo2#buildsrc: OK
-bandle#nebbiolo2#checksrc: OK
+bandle#nebbiolo2#buildsrc: ERROR
+bandle#nebbiolo2#checksrc: skipped
 Banksy#nebbiolo2#install: OK
 Banksy#nebbiolo2#buildsrc: OK
 Banksy#nebbiolo2#checksrc: WARNINGS
@@ -560,8 +560,8 @@ BgeeCall#nebbiolo2#install: OK
 BgeeCall#nebbiolo2#buildsrc: OK
 BgeeCall#nebbiolo2#checksrc: OK
 BgeeDB#nebbiolo2#install: OK
-BgeeDB#nebbiolo2#buildsrc: OK
-BgeeDB#nebbiolo2#checksrc: ERROR
+BgeeDB#nebbiolo2#buildsrc: ERROR
+BgeeDB#nebbiolo2#checksrc: skipped
 bHIVE#nebbiolo2#install: OK
 bHIVE#nebbiolo2#buildsrc: OK
 bHIVE#nebbiolo2#checksrc: OK
@@ -603,7 +603,7 @@ BiocBaseUtils#nebbiolo2#buildsrc: OK
 BiocBaseUtils#nebbiolo2#checksrc: OK
 BiocBook#nebbiolo2#install: OK
 BiocBook#nebbiolo2#buildsrc: OK
-BiocBook#nebbiolo2#checksrc: OK
+BiocBook#nebbiolo2#checksrc: ERROR
 BiocBuildReporter#nebbiolo2#install: OK
 BiocBuildReporter#nebbiolo2#buildsrc: OK
 BiocBuildReporter#nebbiolo2#checksrc: ERROR
@@ -1052,8 +1052,8 @@ CGRphylo2#nebbiolo2#install: OK
 CGRphylo2#nebbiolo2#buildsrc: OK
 CGRphylo2#nebbiolo2#checksrc: OK
 ChAMP#nebbiolo2#install: OK
-ChAMP#nebbiolo2#buildsrc: OK
-ChAMP#nebbiolo2#checksrc: WARNINGS
+ChAMP#nebbiolo2#buildsrc: ERROR
+ChAMP#nebbiolo2#checksrc: skipped
 ChemmineOB#nebbiolo2#install: OK
 ChemmineOB#nebbiolo2#buildsrc: OK
 ChemmineOB#nebbiolo2#checksrc: WARNINGS
@@ -1551,7 +1551,7 @@ CTexploreR#nebbiolo2#buildsrc: OK
 CTexploreR#nebbiolo2#checksrc: OK
 cTRAP#nebbiolo2#install: OK
 cTRAP#nebbiolo2#buildsrc: OK
-cTRAP#nebbiolo2#checksrc: OK
+cTRAP#nebbiolo2#checksrc: ERROR
 ctsGE#nebbiolo2#install: OK
 ctsGE#nebbiolo2#buildsrc: OK
 ctsGE#nebbiolo2#checksrc: OK
@@ -1794,7 +1794,7 @@ DepInfeR#nebbiolo2#buildsrc: OK
 DepInfeR#nebbiolo2#checksrc: OK
 DEqMS#nebbiolo2#install: OK
 DEqMS#nebbiolo2#buildsrc: OK
-DEqMS#nebbiolo2#checksrc: ERROR
+DEqMS#nebbiolo2#checksrc: OK
 derfinder#nebbiolo2#install: OK
 derfinder#nebbiolo2#buildsrc: OK
 derfinder#nebbiolo2#checksrc: OK
@@ -2139,7 +2139,7 @@ EnrichedHeatmap#nebbiolo2#buildsrc: OK
 EnrichedHeatmap#nebbiolo2#checksrc: OK
 EnrichmentBrowser#nebbiolo2#install: OK
 EnrichmentBrowser#nebbiolo2#buildsrc: OK
-EnrichmentBrowser#nebbiolo2#checksrc: ERROR
+EnrichmentBrowser#nebbiolo2#checksrc: OK
 enrichmet#nebbiolo2#install: OK
 enrichmet#nebbiolo2#buildsrc: OK
 enrichmet#nebbiolo2#checksrc: OK
@@ -2247,7 +2247,7 @@ EventPointer#nebbiolo2#buildsrc: OK
 EventPointer#nebbiolo2#checksrc: OK
 EWCE#nebbiolo2#install: OK
 EWCE#nebbiolo2#buildsrc: OK
-EWCE#nebbiolo2#checksrc: ERROR
+EWCE#nebbiolo2#checksrc: OK
 ExCluster#nebbiolo2#install: OK
 ExCluster#nebbiolo2#buildsrc: OK
 ExCluster#nebbiolo2#checksrc: OK
@@ -2565,7 +2565,7 @@ gDR#nebbiolo2#buildsrc: OK
 gDR#nebbiolo2#checksrc: OK
 gDRcore#nebbiolo2#install: OK
 gDRcore#nebbiolo2#buildsrc: OK
-gDRcore#nebbiolo2#checksrc: ERROR
+gDRcore#nebbiolo2#checksrc: OK
 gDRimport#nebbiolo2#install: OK
 gDRimport#nebbiolo2#buildsrc: OK
 gDRimport#nebbiolo2#checksrc: OK
@@ -2813,8 +2813,8 @@ ggseqalign#nebbiolo2#install: OK
 ggseqalign#nebbiolo2#buildsrc: OK
 ggseqalign#nebbiolo2#checksrc: OK
 ggspavis#nebbiolo2#install: OK
-ggspavis#nebbiolo2#buildsrc: OK
-ggspavis#nebbiolo2#checksrc: WARNINGS
+ggspavis#nebbiolo2#buildsrc: ERROR
+ggspavis#nebbiolo2#checksrc: skipped
 ggtree#nebbiolo2#install: OK
 ggtree#nebbiolo2#buildsrc: OK
 ggtree#nebbiolo2#checksrc: OK
@@ -3330,7 +3330,7 @@ ImageArray#nebbiolo2#buildsrc: OK
 ImageArray#nebbiolo2#checksrc: OK
 imageFeatureTCGA#nebbiolo2#install: OK
 imageFeatureTCGA#nebbiolo2#buildsrc: OK
-imageFeatureTCGA#nebbiolo2#checksrc: OK
+imageFeatureTCGA#nebbiolo2#checksrc: ERROR
 imageTCGA#nebbiolo2#install: OK
 imageTCGA#nebbiolo2#buildsrc: OK
 imageTCGA#nebbiolo2#checksrc: OK
@@ -3471,7 +3471,7 @@ iSEEid#nebbiolo2#buildsrc: OK
 iSEEid#nebbiolo2#checksrc: OK
 iSEEindex#nebbiolo2#install: OK
 iSEEindex#nebbiolo2#buildsrc: OK
-iSEEindex#nebbiolo2#checksrc: OK
+iSEEindex#nebbiolo2#checksrc: ERROR
 iSEEpathways#nebbiolo2#install: OK
 iSEEpathways#nebbiolo2#buildsrc: OK
 iSEEpathways#nebbiolo2#checksrc: OK
@@ -3585,7 +3585,7 @@ KnowSeq#nebbiolo2#buildsrc: OK
 KnowSeq#nebbiolo2#checksrc: ERROR
 knowYourCG#nebbiolo2#install: OK
 knowYourCG#nebbiolo2#buildsrc: OK
-knowYourCG#nebbiolo2#checksrc: OK
+knowYourCG#nebbiolo2#checksrc: ERROR
 koinar#nebbiolo2#install: OK
 koinar#nebbiolo2#buildsrc: OK
 koinar#nebbiolo2#checksrc: OK
@@ -4370,8 +4370,8 @@ MsBackendMassbank#nebbiolo2#install: OK
 MsBackendMassbank#nebbiolo2#buildsrc: OK
 MsBackendMassbank#nebbiolo2#checksrc: OK
 MsBackendMassIVE#nebbiolo2#install: OK
-MsBackendMassIVE#nebbiolo2#buildsrc: ERROR
-MsBackendMassIVE#nebbiolo2#checksrc: skipped
+MsBackendMassIVE#nebbiolo2#buildsrc: OK
+MsBackendMassIVE#nebbiolo2#checksrc: OK
 MsBackendMetaboLights#nebbiolo2#install: OK
 MsBackendMetaboLights#nebbiolo2#buildsrc: ERROR
 MsBackendMetaboLights#nebbiolo2#checksrc: skipped
@@ -4425,7 +4425,7 @@ msmsTests#nebbiolo2#buildsrc: OK
 msmsTests#nebbiolo2#checksrc: OK
 MSnbase#nebbiolo2#install: OK
 MSnbase#nebbiolo2#buildsrc: OK
-MSnbase#nebbiolo2#checksrc: TIMEOUT
+MSnbase#nebbiolo2#checksrc: OK
 MSnID#nebbiolo2#install: OK
 MSnID#nebbiolo2#buildsrc: ERROR
 MSnID#nebbiolo2#checksrc: skipped
@@ -4509,7 +4509,7 @@ MultiDataSet#nebbiolo2#buildsrc: OK
 MultiDataSet#nebbiolo2#checksrc: WARNINGS
 multiGSEA#nebbiolo2#install: OK
 multiGSEA#nebbiolo2#buildsrc: OK
-multiGSEA#nebbiolo2#checksrc: ERROR
+multiGSEA#nebbiolo2#checksrc: OK
 multiHiCcompare#nebbiolo2#install: OK
 multiHiCcompare#nebbiolo2#buildsrc: OK
 multiHiCcompare#nebbiolo2#checksrc: OK
@@ -4781,8 +4781,8 @@ omicsGMF#nebbiolo2#install: OK
 omicsGMF#nebbiolo2#buildsrc: OK
 omicsGMF#nebbiolo2#checksrc: WARNINGS
 OmicsMLRepoR#nebbiolo2#install: OK
-OmicsMLRepoR#nebbiolo2#buildsrc: OK
-OmicsMLRepoR#nebbiolo2#checksrc: ERROR
+OmicsMLRepoR#nebbiolo2#buildsrc: ERROR
+OmicsMLRepoR#nebbiolo2#checksrc: skipped
 OMICsPCA#nebbiolo2#install: OK
 OMICsPCA#nebbiolo2#buildsrc: ERROR
 OMICsPCA#nebbiolo2#checksrc: skipped
@@ -4824,7 +4824,7 @@ onlineFDR#nebbiolo2#buildsrc: OK
 onlineFDR#nebbiolo2#checksrc: OK
 ontoProc#nebbiolo2#install: OK
 ontoProc#nebbiolo2#buildsrc: OK
-ontoProc#nebbiolo2#checksrc: TIMEOUT
+ontoProc#nebbiolo2#checksrc: OK
 ontoProc2#nebbiolo2#install: OK
 ontoProc2#nebbiolo2#buildsrc: OK
 ontoProc2#nebbiolo2#checksrc: WARNINGS
@@ -4877,8 +4877,8 @@ Oscope#nebbiolo2#install: OK
 Oscope#nebbiolo2#buildsrc: OK
 Oscope#nebbiolo2#checksrc: OK
 OSTA.data#nebbiolo2#install: OK
-OSTA.data#nebbiolo2#buildsrc: OK
-OSTA.data#nebbiolo2#checksrc: OK
+OSTA.data#nebbiolo2#buildsrc: ERROR
+OSTA.data#nebbiolo2#checksrc: skipped
 OTUbase#nebbiolo2#install: OK
 OTUbase#nebbiolo2#buildsrc: OK
 OTUbase#nebbiolo2#checksrc: OK
@@ -5169,7 +5169,7 @@ pmm#nebbiolo2#buildsrc: OK
 pmm#nebbiolo2#checksrc: OK
 pmp#nebbiolo2#install: OK
 pmp#nebbiolo2#buildsrc: OK
-pmp#nebbiolo2#checksrc: ERROR
+pmp#nebbiolo2#checksrc: OK
 PMScanR#nebbiolo2#install: OK
 PMScanR#nebbiolo2#buildsrc: OK
 PMScanR#nebbiolo2#checksrc: OK
@@ -5865,7 +5865,7 @@ RolDE#nebbiolo2#buildsrc: OK
 RolDE#nebbiolo2#checksrc: OK
 rols#nebbiolo2#install: OK
 rols#nebbiolo2#buildsrc: OK
-rols#nebbiolo2#checksrc: ERROR
+rols#nebbiolo2#checksrc: OK
 ROntoTools#nebbiolo2#install: OK
 ROntoTools#nebbiolo2#buildsrc: OK
 ROntoTools#nebbiolo2#checksrc: WARNINGS
@@ -6153,7 +6153,7 @@ scFeatures#nebbiolo2#buildsrc: OK
 scFeatures#nebbiolo2#checksrc: WARNINGS
 scGPS#nebbiolo2#install: OK
 scGPS#nebbiolo2#buildsrc: OK
-scGPS#nebbiolo2#checksrc: OK
+scGPS#nebbiolo2#checksrc: ERROR
 scGraphVerse#nebbiolo2#install: OK
 scGraphVerse#nebbiolo2#buildsrc: OK
 scGraphVerse#nebbiolo2#checksrc: OK
@@ -6255,7 +6255,7 @@ ScreenR#nebbiolo2#buildsrc: OK
 ScreenR#nebbiolo2#checksrc: OK
 scRepertoire#nebbiolo2#install: OK
 scRepertoire#nebbiolo2#buildsrc: OK
-scRepertoire#nebbiolo2#checksrc: ERROR
+scRepertoire#nebbiolo2#checksrc: OK
 scRNAseqApp#nebbiolo2#install: OK
 scRNAseqApp#nebbiolo2#buildsrc: OK
 scRNAseqApp#nebbiolo2#checksrc: OK
@@ -6837,7 +6837,7 @@ STATegRa#nebbiolo2#buildsrc: OK
 STATegRa#nebbiolo2#checksrc: OK
 StatescopeR#nebbiolo2#install: OK
 StatescopeR#nebbiolo2#buildsrc: OK
-StatescopeR#nebbiolo2#checksrc: TIMEOUT
+StatescopeR#nebbiolo2#checksrc: OK
 Statial#nebbiolo2#install: OK
 Statial#nebbiolo2#buildsrc: OK
 Statial#nebbiolo2#checksrc: OK
@@ -7023,7 +7023,7 @@ TDbasedUFEadv#nebbiolo2#buildsrc: OK
 TDbasedUFEadv#nebbiolo2#checksrc: OK
 TEKRABber#nebbiolo2#install: OK
 TEKRABber#nebbiolo2#buildsrc: OK
-TEKRABber#nebbiolo2#checksrc: ERROR
+TEKRABber#nebbiolo2#checksrc: OK
 TENET#nebbiolo2#install: OK
 TENET#nebbiolo2#buildsrc: OK
 TENET#nebbiolo2#checksrc: OK
@@ -7431,7 +7431,7 @@ Voyager#nebbiolo2#buildsrc: OK
 Voyager#nebbiolo2#checksrc: OK
 VplotR#nebbiolo2#install: OK
 VplotR#nebbiolo2#buildsrc: OK
-VplotR#nebbiolo2#checksrc: OK
+VplotR#nebbiolo2#checksrc: ERROR
 vsclust#nebbiolo2#install: OK
 vsclust#nebbiolo2#buildsrc: OK
 vsclust#nebbiolo2#checksrc: WARNINGS
