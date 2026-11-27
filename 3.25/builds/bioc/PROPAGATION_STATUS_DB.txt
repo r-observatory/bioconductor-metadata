@@ -8,11 +8,11 @@ acde#source#propagate: UNNEEDED, same version is already published
 ACE#source#propagate: NO, package depends on 'QDNAseq' which is not available
 aCGH#source#propagate: UNNEEDED, same version is already published
 ACME#source#propagate: UNNEEDED, same version is already published
-ADAM#source#propagate: YES
-ADAMgui#source#propagate: YES
+ADAM#source#propagate: UNNEEDED, same version is already published
+ADAMgui#source#propagate: UNNEEDED, same version is already published
 ADAPT#source#propagate: NO, package depends on 'phyloseq' which is not available
 ADImpute#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-adSplit#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+adSplit#source#propagate: YES
 adverSCarial#source#propagate: UNNEEDED, same version is already published
 Aerith#source#propagate: UNNEEDED, same version is already published
 AffiXcan#source#propagate: UNNEEDED, same version is already published
@@ -21,9 +21,10 @@ affy#source#propagate: UNNEEDED, same version is already published
 affycomp#source#propagate: UNNEEDED, same version is already published
 affyContam#source#propagate: UNNEEDED, same version is already published
 affycoretools#source#propagate: NO, package depends on 'GOstats' which is not available
+affyILM#source#propagate: YES
 affyio#source#propagate: UNNEEDED, same version is already published
-affylmGUI#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-affyPLM#source#propagate: YES
+affylmGUI#source#propagate: YES
+affyPLM#source#propagate: UNNEEDED, same version is already published
 AffyRNADegradation#source#propagate: UNNEEDED, same version is already published
 AGDEX#source#propagate: NO, package depends on 'GSEABase' which is not available
 aggregateBioVar#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
@@ -32,32 +33,40 @@ AgiMicroRna#source#propagate: NO, package depends on 'affycoretools' which is no
 AIMS#source#propagate: UNNEEDED, same version is already published
 airpart#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 alabaster#source#propagate: NO, package depends on 'alabaster.sce' which is not available
+alabaster.base#source#propagate: UNNEEDED, same version is already published
 alabaster.bumpy#source#propagate: UNNEEDED, same version is already published
 alabaster.files#source#propagate: NO, package depends on 'Rsamtools' which is not available
+alabaster.mae#source#propagate: UNNEEDED, same version is already published
+alabaster.matrix#source#propagate: UNNEEDED, same version is already published
 alabaster.ranges#source#propagate: UNNEEDED, same version is already published
+alabaster.sce#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 alabaster.schemas#source#propagate: UNNEEDED, same version is already published
-alabaster.string#source#propagate: YES
+alabaster.se#source#propagate: UNNEEDED, same version is already published
+alabaster.spatial#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
+alabaster.string#source#propagate: UNNEEDED, same version is already published
+alabaster.treese#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
 alabaster.vcf#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 ALDEx2#source#propagate: UNNEEDED, same version is already published
 alevinQC#source#propagate: UNNEEDED, same version is already published
 AlphaBeta#source#propagate: UNNEEDED, same version is already published
-altcdfenvs#source#propagate: YES
+altcdfenvs#source#propagate: UNNEEDED, same version is already published
 AMOUNTAIN#source#propagate: UNNEEDED, same version is already published
 Anaquin#source#propagate: UNNEEDED, same version is already published
 ANCOMBC#source#propagate: UNNEEDED, same version is already published
 ANF#source#propagate: UNNEEDED, same version is already published
 anglemania#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 animalcules#source#propagate: UNNEEDED, same version is already published
-annaffy#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+annaffy#source#propagate: YES
 anndataR#source#propagate: UNNEEDED, same version is already published
 annmap#source#propagate: NO, package depends on 'Rsamtools' which is not available
-annoLinker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-annotate#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+annoLinker#source#propagate: NO, package depends on 'InteractionSet' which is not available
+annotate#source#propagate: YES
+AnnotationDbi#source#propagate: YES
 AnnotationFilter#source#propagate: UNNEEDED, same version is already published
-AnnotationForge#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+AnnotationForge#source#propagate: YES
 AnnotationGx#source#propagate: UNNEEDED, same version is already published
 annotationTools#source#propagate: UNNEEDED, same version is already published
-annotatr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+annotatr#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 anota#source#propagate: UNNEEDED, same version is already published
 anota2seq#source#propagate: UNNEEDED, same version is already published
 antiProfiles#source#propagate: UNNEEDED, same version is already published
@@ -73,17 +82,18 @@ apComplex#source#propagate: UNNEEDED, same version is already published
 apeglm#source#propagate: UNNEEDED, same version is already published
 APL#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 aroma.light#source#propagate: UNNEEDED, same version is already published
+ArrayExpress#source#propagate: YES
 arrayMvout#source#propagate: NO, package depends on 'lumi' which is not available
 arrayQuality#source#propagate: UNNEEDED, same version is already published
-arrayQualityMetrics#source#propagate: NO, package depends on 'beadarray' which is not available
+arrayQualityMetrics#source#propagate: YES
 ARRmNormalization#source#propagate: UNNEEDED, same version is already published
-artMS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+artMS#source#propagate: YES
 ASAFE#source#propagate: UNNEEDED, same version is already published
 ASEB#source#propagate: UNNEEDED, same version is already published
 ASGSCA#source#propagate: UNNEEDED, same version is already published
 ASICS#source#propagate: UNNEEDED, same version is already published
-ASpli#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-AssessORF#source#propagate: YES
+ASpli#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+AssessORF#source#propagate: UNNEEDED, same version is already published
 ASSET#source#propagate: UNNEEDED, same version is already published
 ASSIGN#source#propagate: NO, package depends on 'sva' which is not available
 assorthead#source#propagate: UNNEEDED, same version is already published
@@ -94,9 +104,13 @@ ATACseqQC#source#propagate: NO, package depends on 'BSgenome' which is not avail
 ATACseqTFEA#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 atena#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 atSNP#source#propagate: NO, package depends on 'BSgenome' which is not available
-attract#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+attract#source#propagate: NO, package depends on 'GOstats' which is not available
 AUCell#source#propagate: NO, package depends on 'GSEABase' which is not available
 augere.core#source#propagate: UNNEEDED, same version is already published
+augere.de#source#propagate: UNNEEDED, same version is already published
+augere.gsea#source#propagate: UNNEEDED, same version is already published
+augere.screen#source#propagate: UNNEEDED, same version is already published
+augere.solo#source#propagate: NO, package depends on 'scater' which is not available
 AWAggregator#source#propagate: UNNEEDED, same version is already published
 AWFisher#source#propagate: UNNEEDED, same version is already published
 awst#source#propagate: UNNEEDED, same version is already published
@@ -106,6 +120,7 @@ BADER#source#propagate: UNNEEDED, same version is already published
 ballgown#source#propagate: NO, package depends on 'sva' which is not available
 bambu#source#propagate: NO, package depends on 'BSgenome' which is not available
 BamScale#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+BamScaleR#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 bamsignals#source#propagate: UNNEEDED, same version is already published
 BANDITS#source#propagate: UNNEEDED, same version is already published
 bandle#source#propagate: NO, package depends on 'MSnbase' which is not available
@@ -122,16 +137,16 @@ batchCorr#source#propagate: UNNEEDED, same version is already published
 batchelor#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 BatchQC#source#propagate: NO, package depends on 'scran' which is not available
 BatchVaria#source#propagate: NO, package depends on 'sva' which is not available
-Battlefield#source#propagate: YES
+Battlefield#source#propagate: UNNEEDED, same version is already published
 BayesKnockdown#source#propagate: UNNEEDED, same version is already published
 bayNorm#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 baySeq#source#propagate: UNNEEDED, same version is already published
 BBCAnalyzer#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
-BCRANK#source#propagate: YES
+BCRANK#source#propagate: UNNEEDED, same version is already published
 beachmat#source#propagate: UNNEEDED, same version is already published
 beachmat.hdf5#source#propagate: UNNEEDED, same version is already published
 beachmat.tiledb#source#propagate: UNNEEDED, same version is already published
-beadarray#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+beadarray#source#propagate: YES
 BeadDataPackR#source#propagate: UNNEEDED, same version is already published
 BEAT#source#propagate: NO, package depends on 'ShortRead' which is not available
 BEclear#source#propagate: UNNEEDED, same version is already published
@@ -140,10 +155,10 @@ benchdamic#source#propagate: NO, package depends on 'phyloseq' which is not avai
 BenchHub#source#propagate: UNNEEDED, same version is already published
 BERT#source#propagate: NO, package depends on 'sva' which is not available
 betaHMM#source#propagate: UNNEEDED, same version is already published
-betterChromVAR#source#propagate: YES
+betterChromVAR#source#propagate: UNNEEDED, same version is already published
 bettr#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 BG2#source#propagate: UNNEEDED, same version is already published
-BgeeCall#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BgeeCall#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 bHIVE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 BicARE#source#propagate: NO, package depends on 'GSEABase' which is not available
 BiFET#source#propagate: UNNEEDED, same version is already published
@@ -153,12 +168,12 @@ bioCancer#source#propagate: NO, package depends on 'cBioPortalData' which is not
 BioCartaImage#source#propagate: UNNEEDED, same version is already published
 BiocAzul#source#propagate: UNNEEDED, same version is already published
 BiocBaseUtils#source#propagate: UNNEEDED, same version is already published
-BiocBook#source#propagate: UNNEEDED, same version is already published
 BiocCheck#source#propagate: UNNEEDED, same version is already published
 BiocDuckDB#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 BiocFHIR#source#propagate: UNNEEDED, same version is already published
+BiocFileCache#source#propagate: UNNEEDED, same version is already published
 BiocGenerics#source#propagate: UNNEEDED, same version is already published
-biocGraph#source#propagate: NO, package depends on 'geneplotter' which is not available
+biocGraph#source#propagate: YES
 BiocHubsShiny#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 BiocIO#source#propagate: UNNEEDED, same version is already published
 biocmake#source#propagate: UNNEEDED, same version is already published
@@ -181,12 +196,12 @@ BioGA#source#propagate: UNNEEDED, same version is already published
 biomformat#source#propagate: UNNEEDED, same version is already published
 BioMVCClass#source#propagate: UNNEEDED, same version is already published
 biomvRCNS#source#propagate: NO, package depends on 'Gviz' which is not available
-BioNAR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BioNAR#source#propagate: YES
 BioNERO#source#propagate: NO, package depends on 'sva' which is not available
-BioNet#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+BioNet#source#propagate: YES
 BioQC#source#propagate: UNNEEDED, same version is already published
 biosigner#source#propagate: UNNEEDED, same version is already published
-Biostrings#source#propagate: YES
+Biostrings#source#propagate: UNNEEDED, same version is already published
 BioTIP#source#propagate: NO, package depends on 'scran' which is not available
 biotmle#source#propagate: UNNEEDED, same version is already published
 biovizBase#source#propagate: NO, package depends on 'Rsamtools' which is not available
@@ -194,15 +209,15 @@ biscuiteer#source#propagate: NO, package depends on 'bsseq' which is not availab
 BiSeq#source#propagate: NO, package depends on 'rtracklayer' which is not available
 blacksheepr#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 blase#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-blima#source#propagate: NO, package depends on 'beadarray' which is not available
-BLMA#source#propagate: NO, package depends on 'PADOG' which is not available
+blima#source#propagate: YES
+BLMA#source#propagate: YES
 BloodGen3Module#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 bluster#source#propagate: UNNEEDED, same version is already published
 bnbc#source#propagate: NO, package depends on 'sva' which is not available
 bnem#source#propagate: NO, package depends on 'sva' which is not available
 BOBaFIT#source#propagate: NO, package depends on 'ggbio' which is not available
 borealis#source#propagate: NO, package depends on 'bsseq' which is not available
-BRAIN#source#propagate: YES
+BRAIN#source#propagate: UNNEEDED, same version is already published
 branchpointer#source#propagate: NO, package depends on 'biomaRt' which is not available
 breakpointR#source#propagate: NO, package depends on 'Rsamtools' which is not available
 BreastSubtypeR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
@@ -210,7 +225,7 @@ BreedingExperiment#source#propagate: UNNEEDED, same version is already published
 brendaDb#source#propagate: UNNEEDED, same version is already published
 BREW3R.r#source#propagate: UNNEEDED, same version is already published
 BridgeDbR#source#propagate: UNNEEDED, same version is already published
-broadSeq#source#propagate: NO, package depends on 'genefilter' which is not available
+broadSeq#source#propagate: NO, package depends on 'sechm' which is not available
 BrowserViz#source#propagate: UNNEEDED, same version is already published
 BSgenome#source#propagate: NO, package depends on 'rtracklayer' which is not available
 BSgenomeForge#source#propagate: NO, package depends on 'BSgenome' which is not available
@@ -219,7 +234,7 @@ BufferedMatrix#source#propagate: UNNEEDED, same version is already published
 BufferedMatrixMethods#source#propagate: UNNEEDED, same version is already published
 bugsigdbr#source#propagate: UNNEEDED, same version is already published
 BulkSignalR#source#propagate: NO, package depends on 'orthogene' which is not available
-BUMHMM#source#propagate: YES
+BUMHMM#source#propagate: UNNEEDED, same version is already published
 bumphunter#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 BumpyMatrix#source#propagate: UNNEEDED, same version is already published
 BUS#source#propagate: UNNEEDED, same version is already published
@@ -234,7 +249,7 @@ CAGEr#source#propagate: NO, package depends on 'BSgenome' which is not available
 CalibraCurve#source#propagate: UNNEEDED, same version is already published
 calm#source#propagate: UNNEEDED, same version is already published
 CAMERA#source#propagate: NO, package depends on 'xcms' which is not available
-CaMutQC#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+CaMutQC#source#propagate: NO, package depends on 'MesKit' which is not available
 canceR#source#propagate: NO, package depends on 'cBioPortalData' which is not available
 cancerclass#source#propagate: UNNEEDED, same version is already published
 CanvasXpressBio#source#propagate: UNNEEDED, same version is already published
@@ -242,17 +257,17 @@ cardelino#source#propagate: NO, package depends on 'VariantAnnotation' which is 
 Cardinal#source#propagate: UNNEEDED, same version is already published
 CardinalIO#source#propagate: UNNEEDED, same version is already published
 CARDspa#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-carnation#source#propagate: NO, package depends on 'enrichplot' which is not available
+carnation#source#propagate: NO, package depends on 'GeneTonic' which is not available
 CARNIVAL#source#propagate: UNNEEDED, same version is already published
 casper#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
-Category#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-categoryCompare#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+Category#source#propagate: NO, package depends on 'GSEABase' which is not available
+categoryCompare#source#propagate: NO, package depends on 'GSEABase' which is not available
 CatsCradle#source#propagate: NO, package depends on 'EBImage' which is not available
 causalASCEND#source#propagate: UNNEEDED, same version is already published
 CausalR#source#propagate: UNNEEDED, same version is already published
 cbaf#source#propagate: NO, package depends on 'cBioPortalData' which is not available
 cBioPortalData#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
-CBNplot#source#propagate: NO, package depends on 'graphite' which is not available
+CBNplot#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 cbpManager#source#propagate: UNNEEDED, same version is already published
 CCAFE#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 ccfindR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
@@ -266,7 +281,7 @@ CellBarcode#source#propagate: NO, package depends on 'ShortRead' which is not av
 cellbaseR#source#propagate: NO, package depends on 'Rsamtools' which is not available
 CellBench#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 cellchatr#source#propagate: UNNEEDED, same version is already published
-cellity#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+cellity#source#propagate: YES
 CellMapper#source#propagate: UNNEEDED, same version is already published
 CellMentor#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 cellmig#source#propagate: UNNEEDED, same version is already published
@@ -277,7 +292,7 @@ CellNOptR#source#propagate: UNNEEDED, same version is already published
 cellscape#source#propagate: UNNEEDED, same version is already published
 CellTrails#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 cellxgenedp#source#propagate: UNNEEDED, same version is already published
-CEMiTool#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+CEMiTool#source#propagate: YES
 censcyt#source#propagate: NO, package depends on 'diffcyt' which is not available
 ceRNAnetsim#source#propagate: UNNEEDED, same version is already published
 CeTF#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
@@ -289,43 +304,43 @@ cfTools#source#propagate: UNNEEDED, same version is already published
 CGEN#source#propagate: UNNEEDED, same version is already published
 CGHbase#source#propagate: UNNEEDED, same version is already published
 CGHcall#source#propagate: UNNEEDED, same version is already published
-cghMCR#source#propagate: NO, package depends on 'CNTools' which is not available
+cghMCR#source#propagate: YES
 CGHnormaliter#source#propagate: UNNEEDED, same version is already published
 CGHregions#source#propagate: UNNEEDED, same version is already published
-CGRphylo2#source#propagate: YES
+CGRphylo2#source#propagate: UNNEEDED, same version is already published
 CHETAH#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 chevreulPlot#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 chevreulProcess#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 chevreulShiny#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 Chicago#source#propagate: UNNEEDED, same version is already published
 ChIPanalyser#source#propagate: NO, package depends on 'BSgenome' which is not available
-chipenrich#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+chipenrich#source#propagate: NO, package depends on 'rtracklayer' which is not available
 ChIPexoQual#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
-ChIPpeakAnno#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ChIPpeakAnno#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 ChIPQC#source#propagate: NO, package depends on 'DiffBind' which is not available
-ChIPseeker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ChIPseeker#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 chipseq#source#propagate: NO, package depends on 'ShortRead' which is not available
 ChIPseqR#source#propagate: NO, package depends on 'ShortRead' which is not available
 ChIPsim#source#propagate: NO, package depends on 'ShortRead' which is not available
 chopsticks#source#propagate: UNNEEDED, same version is already published
 Chromatograms#source#propagate: UNNEEDED, same version is already published
 chromDraw#source#propagate: UNNEEDED, same version is already published
-ChromHeatMap#source#propagate: NO, package depends on 'annotate' which is not available
+ChromHeatMap#source#propagate: NO, package depends on 'rtracklayer' which is not available
 chromPlot#source#propagate: NO, package depends on 'biomaRt' which is not available
 ChromSCape#source#propagate: NO, package depends on 'rtracklayer' which is not available
 chromVAR#source#propagate: NO, package depends on 'TFBSTools' which is not available
 CHRONOS#source#propagate: NO, package depends on 'biomaRt' which is not available
 cicero#source#propagate: NO, package depends on 'Gviz' which is not available
-cigarillo#source#propagate: YES
+cigarillo#source#propagate: UNNEEDED, same version is already published
 CIMICE#source#propagate: UNNEEDED, same version is already published
 circRNAprofiler#source#propagate: NO, package depends on 'rtracklayer' which is not available
 CircSeqAlignTk#source#propagate: NO, package depends on 'ShortRead' which is not available
 CiteFuse#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 CLAMP#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
-ClassifyR#source#propagate: NO, package depends on 'genefilter' which is not available
+ClassifyR#source#propagate: YES
 cleanUpdTSeq#source#propagate: NO, package depends on 'BSgenome' which is not available
 CleanUpRNAseq#source#propagate: NO, package depends on 'BSgenome' which is not available
-cleaver#source#propagate: YES
+cleaver#source#propagate: UNNEEDED, same version is already published
 clevRvis#source#propagate: UNNEEDED, same version is already published
 clippda#source#propagate: UNNEEDED, same version is already published
 clipper#source#propagate: NO, package depends on 'qpgraph' which is not available
@@ -340,15 +355,16 @@ clustComp#source#propagate: UNNEEDED, same version is already published
 ClusterFoldSimilarity#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ClusterGVis#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ClusterJudge#source#propagate: UNNEEDED, same version is already published
-clusterProfiler#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+clusterProfiler#source#propagate: YES
 clusterSeq#source#propagate: UNNEEDED, same version is already published
 ClusterSignificance#source#propagate: UNNEEDED, same version is already published
 clusterStab#source#propagate: UNNEEDED, same version is already published
 clustifyr#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-ClustIRR#source#propagate: YES
+ClustIRR#source#propagate: UNNEEDED, same version is already published
 clustSIGNAL#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 CMA#source#propagate: UNNEEDED, same version is already published
-cn.farms#source#propagate: YES
+cmapR#source#propagate: NO, package depends on 'flowCore' which is not available
+cn.farms#source#propagate: UNNEEDED, same version is already published
 cn.mops#source#propagate: NO, package depends on 'Rsamtools' which is not available
 CNAnorm#source#propagate: UNNEEDED, same version is already published
 CNEr#source#propagate: NO, package depends on 'rtracklayer' which is not available
@@ -356,7 +372,7 @@ CNORdt#source#propagate: UNNEEDED, same version is already published
 CNORfeeder#source#propagate: UNNEEDED, same version is already published
 CNORfuzzy#source#propagate: UNNEEDED, same version is already published
 CNORode#source#propagate: UNNEEDED, same version is already published
-CNTools#source#propagate: NO, package depends on 'genefilter' which is not available
+CNTools#source#propagate: YES
 CNVfilteR#source#propagate: NO, package depends on 'regioneR' which is not available
 cnvGSA#source#propagate: UNNEEDED, same version is already published
 CNViz#source#propagate: UNNEEDED, same version is already published
@@ -364,13 +380,13 @@ CNVMetrics#source#propagate: UNNEEDED, same version is already published
 CNVPanelizer#source#propagate: NO, package depends on 'Rsamtools' which is not available
 CNVRanger#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
 CNVrd2#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
-CoCiteStats#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+CoCiteStats#source#propagate: YES
 COCOA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
-codelink#source#propagate: NO, package depends on 'annotate' which is not available
+codelink#source#propagate: YES
 CODEX#source#propagate: NO, package depends on 'Rsamtools' which is not available
 CoGAPS#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 cogena#source#propagate: UNNEEDED, same version is already published
-cogeqc#source#propagate: YES
+cogeqc#source#propagate: UNNEEDED, same version is already published
 Cogito#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 coGPS#source#propagate: UNNEEDED, same version is already published
 comapr#source#propagate: NO, package depends on 'Gviz' which is not available
@@ -378,7 +394,7 @@ combi#source#propagate: NO, package depends on 'phyloseq' which is not available
 coMethDMR#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 compcodeR#source#propagate: UNNEEDED, same version is already published
 CompensAID#source#propagate: NO, package depends on 'flowCore' which is not available
-compEpiTools#source#propagate: NO, package depends on 'topGO' which is not available
+compEpiTools#source#propagate: NO, package depends on 'Rsamtools' which is not available
 ComPrAn#source#propagate: UNNEEDED, same version is already published
 compSPOT#source#propagate: UNNEEDED, same version is already published
 CONCERTDR#source#propagate: UNNEEDED, same version is already published
@@ -390,34 +406,35 @@ ConsensusClusterPlus#source#propagate: UNNEEDED, same version is already publish
 consensusOV#source#propagate: NO, package depends on 'GSVA' which is not available
 consensusRegions#source#propagate: NO, package depends on 'Rsamtools' which is not available
 consensusSeekeR#source#propagate: NO, package depends on 'rtracklayer' which is not available
-consICA#source#propagate: NO, package depends on 'topGO' which is not available
+consICA#source#propagate: YES
 conumee#source#propagate: NO, package depends on 'minfi' which is not available
 convert#source#propagate: UNNEEDED, same version is already published
 copa#source#propagate: UNNEEDED, same version is already published
 CopyNumberPlots#source#propagate: NO, package depends on 'karyoploteR' which is not available
-coRdon#source#propagate: YES
+coRdon#source#propagate: UNNEEDED, same version is already published
 Cormotif#source#propagate: UNNEEDED, same version is already published
 CorNetto#source#propagate: UNNEEDED, same version is already published
 corral#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+coseq#source#propagate: UNNEEDED, same version is already published
 CoSIA#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 cosmiq#source#propagate: NO, package depends on 'xcms' which is not available
 cosmosR#source#propagate: NO, package depends on 'GSEABase' which is not available
 COSNet#source#propagate: UNNEEDED, same version is already published
-countsimQC#source#propagate: NO, package depends on 'genefilter' which is not available
+countsimQC#source#propagate: YES
 covEB#source#propagate: UNNEEDED, same version is already published
 CoverageView#source#propagate: NO, package depends on 'Rsamtools' which is not available
-covRNA#source#propagate: NO, package depends on 'genefilter' which is not available
+covRNA#source#propagate: YES
 CPSM#source#propagate: UNNEEDED, same version is already published
 cpvSNP#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 cqn#source#propagate: UNNEEDED, same version is already published
 CrcBiomeScreen#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
 CRImage#source#propagate: NO, package depends on 'EBImage' which is not available
 CRISPRball#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
-crisprBase#source#propagate: YES
+crisprBase#source#propagate: UNNEEDED, same version is already published
 crisprBowtie#source#propagate: NO, package depends on 'BSgenome' which is not available
 crisprBwa#source#propagate: NO, package depends on 'BSgenome' which is not available
-crisprDesign#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-crisprScore#source#propagate: YES
+crisprDesign#source#propagate: NO, package depends on 'BSgenome' which is not available
+crisprScore#source#propagate: UNNEEDED, same version is already published
 CRISPRseek#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 crisprShiny#source#propagate: NO, package depends on 'BSgenome' which is not available
 crisprVerse#source#propagate: NO, package depends on 'crisprBowtie' which is not available
@@ -432,15 +449,15 @@ CSSQ#source#propagate: NO, package depends on 'rtracklayer' which is not availab
 ctc#source#propagate: UNNEEDED, same version is already published
 CTdata#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 CTDquerier#source#propagate: UNNEEDED, same version is already published
-ctdR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ctdR#source#propagate: NO, package depends on 'GSVA' which is not available
 CTexploreR#source#propagate: NO, package depends on 'CTdata' which is not available
-cTRAP#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+cTRAP#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 ctsGE#source#propagate: UNNEEDED, same version is already published
 CTSV#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 cyanoFilter#source#propagate: NO, package depends on 'flowCore' which is not available
 cycle#source#propagate: UNNEEDED, same version is already published
 cydar#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-cypress#source#propagate: NO, package depends on 'TOAST' which is not available
+cypress#source#propagate: YES
 CySA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 CytoDx#source#propagate: NO, package depends on 'flowCore' which is not available
 CyTOFpower#source#propagate: NO, package depends on 'diffcyt' which is not available
@@ -453,7 +470,7 @@ CytoPipeline#source#propagate: NO, package depends on 'ggcyto' which is not avai
 CytoPipelineGUI#source#propagate: NO, package depends on 'CytoPipeline' which is not available
 cytoviewer#source#propagate: NO, package depends on 'EBImage' which is not available
 dada2#source#propagate: NO, package depends on 'ShortRead' which is not available
-dagLogo#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+dagLogo#source#propagate: NO, package depends on 'biomaRt' which is not available
 daMA#source#propagate: UNNEEDED, same version is already published
 DAMEfinder#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 damidBind#source#propagate: NO, package depends on 'AnnotationHub' which is not available
@@ -472,9 +489,9 @@ dcGSA#source#propagate: UNNEEDED, same version is already published
 ddCt#source#propagate: UNNEEDED, same version is already published
 ddPCRclust#source#propagate: NO, package depends on 'flowCore' which is not available
 dearseq#source#propagate: UNNEEDED, same version is already published
-debrowser#source#propagate: NO, package depends on 'annotate' which is not available
+debrowser#source#propagate: NO, package depends on 'sva' which is not available
 decemedip#source#propagate: NO, package depends on 'MEDIPS' which is not available
-DECIPHER#source#propagate: YES
+DECIPHER#source#propagate: UNNEEDED, same version is already published
 decompTumor2Sig#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 decontam#source#propagate: UNNEEDED, same version is already published
 deconvR#source#propagate: NO, package depends on 'methylKit' which is not available
@@ -488,6 +505,7 @@ DegNorm#source#propagate: NO, package depends on 'GenomicFeatures' which is not 
 DEGraph#source#propagate: UNNEEDED, same version is already published
 DEGreport#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 DEGseq#source#propagate: UNNEEDED, same version is already published
+DelayedArray#source#propagate: UNNEEDED, same version is already published
 DelayedDataFrame#source#propagate: UNNEEDED, same version is already published
 DelayedMatrixStats#source#propagate: UNNEEDED, same version is already published
 DelayedRandomArray#source#propagate: UNNEEDED, same version is already published
@@ -502,8 +520,9 @@ demuxSNP#source#propagate: NO, package depends on 'SingleCellExperiment' which i
 DenoIST#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 densvis#source#propagate: UNNEEDED, same version is already published
 DEP#source#propagate: NO, package depends on 'MSnbase' which is not available
+DepecheR#source#propagate: UNNEEDED, same version is already published
 DepInfeR#source#propagate: UNNEEDED, same version is already published
-derfinder#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+derfinder#source#propagate: NO, package depends on 'bumphunter' which is not available
 derfinderHelper#source#propagate: UNNEEDED, same version is already published
 DEScan2#source#propagate: NO, package depends on 'ChIPpeakAnno' which is not available
 DESeq2#source#propagate: UNNEEDED, same version is already published
@@ -512,7 +531,7 @@ destiny#source#propagate: NO, package depends on 'SingleCellExperiment' which is
 DEsubs#source#propagate: UNNEEDED, same version is already published
 DEWSeq#source#propagate: UNNEEDED, same version is already published
 DExMA#source#propagate: NO, package depends on 'sva' which is not available
-DEXSeq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+DEXSeq#source#propagate: NO, package depends on 'biomaRt' which is not available
 DFP#source#propagate: UNNEEDED, same version is already published
 DFplyr#source#propagate: UNNEEDED, same version is already published
 DiffBind#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
@@ -537,9 +556,8 @@ divergence#source#propagate: UNNEEDED, same version is already published
 dks#source#propagate: UNNEEDED, same version is already published
 DMCFB#source#propagate: NO, package depends on 'rtracklayer' which is not available
 DMCHMM#source#propagate: NO, package depends on 'rtracklayer' which is not available
-dmGsea#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+dmGsea#source#propagate: YES
 DMRcaller#source#propagate: NO, package depends on 'Rsamtools' which is not available
-DMRcate#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 DMRScan#source#propagate: UNNEEDED, same version is already published
 dmrseq#source#propagate: NO, package depends on 'bsseq' which is not available
 DNABarcodeCompatibility#source#propagate: UNNEEDED, same version is already published
@@ -547,35 +565,35 @@ DNABarcodes#source#propagate: UNNEEDED, same version is already published
 DNAcopy#source#propagate: UNNEEDED, same version is already published
 DNAcycP2#source#propagate: UNNEEDED, same version is already published
 dnaEPICO#source#propagate: NO, package depends on 'AnnotationHub' which is not available
-DNAshapeR#source#propagate: YES
+DNAshapeR#source#propagate: UNNEEDED, same version is already published
 DNEA#source#propagate: UNNEEDED, same version is already published
 dominatR#source#propagate: UNNEEDED, same version is already published
 DominoEffect#source#propagate: NO, package depends on 'biomaRt' which is not available
 dominoSignal#source#propagate: NO, package depends on 'biomaRt' which is not available
 doppelgangR#source#propagate: NO, package depends on 'sva' which is not available
 Doscheda#source#propagate: UNNEEDED, same version is already published
-DOSE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+DOSE#source#propagate: YES
 doseR#source#propagate: UNNEEDED, same version is already published
-DOTSeq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-doubletrouble#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+DOTSeq#source#propagate: NO, package depends on 'BSgenome' which is not available
+doubletrouble#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 drawProteins#source#propagate: UNNEEDED, same version is already published
 dreamlet#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 DRIMSeq#source#propagate: UNNEEDED, same version is already published
 DriverNet#source#propagate: UNNEEDED, same version is already published
 drugfindR#source#propagate: UNNEEDED, same version is already published
-drugTargetInteractions#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+drugTargetInteractions#source#propagate: NO, package depends on 'biomaRt' which is not available
 DrugVsDisease#source#propagate: NO, package depends on 'biomaRt' which is not available
 DSS#source#propagate: NO, package depends on 'bsseq' which is not available
 dStruct#source#propagate: UNNEEDED, same version is already published
-DuckDBArray#source#propagate: UNNEEDED, same version is already published
+DTA#source#propagate: UNNEEDED, same version is already published
+DuckDBArray#source#propagate: YES
 DuckDBGRanges#source#propagate: UNNEEDED, same version is already published
-DuckDBSpatial#source#propagate: UNNEEDED, same version is already published
+DuckDBSpatial#source#propagate: YES
 Dune#source#propagate: UNNEEDED, same version is already published
 DuplexDiscovereR#source#propagate: NO, package depends on 'InteractionSet' which is not available
 dupRadar#source#propagate: UNNEEDED, same version is already published
 dyebias#source#propagate: UNNEEDED, same version is already published
 DynDoc#source#propagate: UNNEEDED, same version is already published
-easier#source#propagate: NO, package depends on 'progeny' which is not available
 easylift#source#propagate: NO, package depends on 'rtracklayer' which is not available
 easyreporting#source#propagate: UNNEEDED, same version is already published
 easyRNASeq#source#propagate: NO, package depends on 'biomaRt' which is not available
@@ -590,67 +608,63 @@ edge#source#propagate: NO, package depends on 'sva' which is not available
 EDIRquery#source#propagate: NO, package depends on 'InteractionSet' which is not available
 eds#source#propagate: UNNEEDED, same version is already published
 EGAD#source#propagate: UNNEEDED, same version is already published
-EGSEA#source#propagate: NO, package depends on 'gage' which is not available
+EGSEA#source#propagate: NO, package depends on 'GSVA' which is not available
 eisaR#source#propagate: UNNEEDED, same version is already published
 ELMER#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 ELViS#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 EMDomics#source#propagate: UNNEEDED, same version is already published
-EMMA#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+EMMA#source#propagate: YES
 EmpiricalBrownsMethod#source#propagate: UNNEEDED, same version is already published
 enhancerHomologSearch#source#propagate: NO, package depends on 'BSgenome' which is not available
 EnMCB#source#propagate: UNNEEDED, same version is already published
-ENmix#source#propagate: NO, package depends on 'geneplotter' which is not available
+ENmix#source#propagate: NO, package depends on 'minfi' which is not available
 EnrichDO#source#propagate: UNNEEDED, same version is already published
 EnrichedHeatmap#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 enrichmet#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
-enrichplot#source#propagate: NO, package depends on 'DOSE' which is not available
-enrichViewNet#source#propagate: NO, package depends on 'enrichplot' which is not available
+enrichplot#source#propagate: YES
+enrichViewNet#source#propagate: YES
 ensembldb#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 epialleleR#source#propagate: UNNEEDED, same version is already published
 EpiCompare#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 epidecodeR#source#propagate: NO, package depends on 'rtracklayer' which is not available
-EpiDISH#source#propagate: NO, package depends on 'genefilter' which is not available
+EpiDISH#source#propagate: YES
 epigenomix#source#propagate: NO, package depends on 'Rsamtools' which is not available
 epigraHMM#source#propagate: NO, package depends on 'rtracklayer' which is not available
 epimutacions#source#propagate: NO, package depends on 'minfi' which is not available
 epiNEM#source#propagate: UNNEEDED, same version is already published
 EpipwR#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 epiregulon#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-epiRomics#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-epiSeeker#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+epiRomics#source#propagate: NO, package depends on 'annotatr' which is not available
+epiSeeker#source#propagate: NO, package depends on 'bsseq' which is not available
 epistack#source#propagate: UNNEEDED, same version is already published
 epistasisGA#source#propagate: UNNEEDED, same version is already published
-EpiTxDb#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+EpiTxDb#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 epivizr#source#propagate: NO, package depends on 'epivizrData' which is not available
 epivizrChart#source#propagate: NO, package depends on 'epivizrData' which is not available
 epivizrData#source#propagate: NO, package depends on 'OrganismDbi' which is not available
-epivizrServer#source#propagate: YES
 epivizrStandalone#source#propagate: NO, package depends on 'epivizr' which is not available
 erccdashboard#source#propagate: UNNEEDED, same version is already published
 ERSSA#source#propagate: UNNEEDED, same version is already published
 esATAC#source#propagate: NO, package depends on 'Rsamtools' which is not available
 escape#source#propagate: UNNEEDED, same version is already published
 escheR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
-esetVis#source#propagate: NO, package depends on 'MLP' which is not available
+esetVis#source#propagate: YES
 eudysbiome#source#propagate: NO, package depends on 'Rsamtools' which is not available
 evaluomeR#source#propagate: UNNEEDED, same version is already published
 EventPointer#source#propagate: NO, package depends on 'SGSeq' which is not available
-EWCE#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ExCluster#source#propagate: NO, package depends on 'rtracklayer' which is not available
 ExiMiR#source#propagate: UNNEEDED, same version is already published
-ExperimentHub#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 ExperimentHubData#source#propagate: NO, package depends on 'AnnotationHubData' which is not available
 ExperimentSubset#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ExploreModelMatrix#source#propagate: UNNEEDED, same version is already published
 ExpoRiskR#source#propagate: UNNEEDED, same version is already published
 exposomeSC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-ExpressionAtlas#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 extraChIPs#source#propagate: NO, package depends on 'csaw' which is not available
 fabia#source#propagate: UNNEEDED, same version is already published
 factDesign#source#propagate: UNNEEDED, same version is already published
 faers#source#propagate: UNNEEDED, same version is already published
 FamAgg#source#propagate: UNNEEDED, same version is already published
-famat#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+famat#source#propagate: YES
 Fancy#source#propagate: UNNEEDED, same version is already published
 fastLiquidAssociation#source#propagate: UNNEEDED, same version is already published
 fastRanges#source#propagate: UNNEEDED, same version is already published
@@ -699,39 +713,39 @@ flowVS#source#propagate: NO, package depends on 'flowCore' which is not availabl
 fmrs#source#propagate: UNNEEDED, same version is already published
 fourSynergy#source#propagate: NO, package depends on 'karyoploteR' which is not available
 fRagmentomics#source#propagate: NO, package depends on 'Rsamtools' which is not available
-fraq#source#propagate: YES
+fraq#source#propagate: UNNEEDED, same version is already published
 FRASER#source#propagate: NO, package depends on 'Rsamtools' which is not available
 frenchFISH#source#propagate: UNNEEDED, same version is already published
 FRGEpistasis#source#propagate: UNNEEDED, same version is already published
 frmaTools#source#propagate: UNNEEDED, same version is already published
-funOmics#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+funOmics#source#propagate: YES
 funtooNorm#source#propagate: NO, package depends on 'minfi' which is not available
 FuseSOM#source#propagate: UNNEEDED, same version is already published
 G4SNVHunter#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 GA4GHclient#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 GA4GHshiny#source#propagate: NO, package depends on 'GA4GHclient' which is not available
 gaga#source#propagate: UNNEEDED, same version is already published
-gage#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+gage#source#propagate: YES
 GAprediction#source#propagate: UNNEEDED, same version is already published
 garfield#source#propagate: UNNEEDED, same version is already published
 GARS#source#propagate: NO, package depends on 'DaMiRseq' which is not available
 GateFinder#source#propagate: NO, package depends on 'flowCore' which is not available
-gatom#source#propagate: NO, package depends on 'BioNet' which is not available
-GBScleanR#source#propagate: YES
+gatom#source#propagate: YES
+GBScleanR#source#propagate: UNNEEDED, same version is already published
 gcapc#source#propagate: NO, package depends on 'BSgenome' which is not available
 gcatest#source#propagate: UNNEEDED, same version is already published
 GCPtools#source#propagate: UNNEEDED, same version is already published
-gcrma#source#propagate: YES
-GDCRNATools#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+gcrma#source#propagate: UNNEEDED, same version is already published
+GDCRNATools#source#propagate: NO, package depends on 'biomaRt' which is not available
 gDNAx#source#propagate: NO, package depends on 'GenomicFiles' which is not available
-gDR#source#propagate: YES
+gDR#source#propagate: UNNEEDED, same version is already published
 gDRcore#source#propagate: YES
 gDRimport#source#propagate: UNNEEDED, same version is already published
-gDRplots#source#propagate: UNNEEDED, same version is already published
+gDRplots#source#propagate: YES
 gDRstyle#source#propagate: UNNEEDED, same version is already published
-gDRutils#source#propagate: UNNEEDED, same version is already published
-GDSAnnotator#source#propagate: YES
-GDSArray#source#propagate: YES
+gDRutils#source#propagate: YES
+GDSAnnotator#source#propagate: UNNEEDED, same version is already published
+GDSArray#source#propagate: UNNEEDED, same version is already published
 gdscloud#source#propagate: UNNEEDED, same version is already published
 gdsfmt#source#propagate: UNNEEDED, same version is already published
 GeDi#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
@@ -744,36 +758,36 @@ GeneBreak#source#propagate: NO, package depends on 'QDNAseq' which is not availa
 geneClassifiers#source#propagate: UNNEEDED, same version is already published
 geneClusterPattern#source#propagate: NO, package depends on 'biomaRt' which is not available
 GeneExpressionSignature#source#propagate: UNNEEDED, same version is already published
-genefilter#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+genefilter#source#propagate: YES
 genefu#source#propagate: NO, package depends on 'biomaRt' which is not available
 GeneGA#source#propagate: UNNEEDED, same version is already published
-GeneMeta#source#propagate: NO, package depends on 'genefilter' which is not available
+GeneMeta#source#propagate: YES
 GeneNetworkBuilder#source#propagate: UNNEEDED, same version is already published
 GeneOverlap#source#propagate: UNNEEDED, same version is already published
 geneplast#source#propagate: UNNEEDED, same version is already published
-geneplotter#source#propagate: NO, package depends on 'annotate' which is not available
+geneplotter#source#propagate: YES
 geneRecommender#source#propagate: UNNEEDED, same version is already published
-GeneRegionScan#source#propagate: YES
+GeneRegionScan#source#propagate: UNNEEDED, same version is already published
 geneRxCluster#source#propagate: UNNEEDED, same version is already published
 GeneSelectMMD#source#propagate: UNNEEDED, same version is already published
-GENESIS#source#propagate: YES
+GENESIS#source#propagate: UNNEEDED, same version is already published
 GeneStructureTools#source#propagate: NO, package depends on 'Gviz' which is not available
 geNetClassifier#source#propagate: UNNEEDED, same version is already published
 GeneticsPed#source#propagate: UNNEEDED, same version is already published
-GeneTonic#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GeneTonic#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 GENIE3#source#propagate: UNNEEDED, same version is already published
 genomation#source#propagate: NO, package depends on 'BSgenome' which is not available
-GenomAutomorphism#source#propagate: YES
+GenomAutomorphism#source#propagate: UNNEEDED, same version is already published
 GenomeInfoDb#source#propagate: UNNEEDED, same version is already published
 genomes#source#propagate: UNNEEDED, same version is already published
 GenomicAlignments#source#propagate: NO, package depends on 'Rsamtools' which is not available
 GenomicCoordinates#source#propagate: NO, package depends on 'InteractionSet' which is not available
 GenomicDataCommons#source#propagate: UNNEEDED, same version is already published
-GenomicDistributions#source#propagate: YES
-GenomicFeatures#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GenomicDistributions#source#propagate: UNNEEDED, same version is already published
+GenomicFeatures#source#propagate: NO, package depends on 'rtracklayer' which is not available
 GenomicFiles#source#propagate: NO, package depends on 'Rsamtools' which is not available
 genomicInstability#source#propagate: UNNEEDED, same version is already published
-GenomicInteractionNodes#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GenomicInteractionNodes#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 GenomicInteractions#source#propagate: NO, package depends on 'InteractionSet' which is not available
 GenomicOZone#source#propagate: NO, package depends on 'biomaRt' which is not available
 GenomicPlot#source#propagate: NO, package depends on 'Rsamtools' which is not available
@@ -782,11 +796,11 @@ GenomicScores#source#propagate: NO, package depends on 'AnnotationHub' which is 
 GenomicSuperSignature#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 GenomicTuples#source#propagate: UNNEEDED, same version is already published
 GenProSeq#source#propagate: UNNEEDED, same version is already published
-GeoDiff#source#propagate: YES
+GeoDiff#source#propagate: UNNEEDED, same version is already published
 GEOfastq#source#propagate: UNNEEDED, same version is already published
 GEOmetadb#source#propagate: UNNEEDED, same version is already published
 geomeTriD#source#propagate: NO, package depends on 'InteractionSet' which is not available
-GeomxTools#source#propagate: YES
+GeomxTools#source#propagate: UNNEEDED, same version is already published
 GEOquery#source#propagate: UNNEEDED, same version is already published
 GEOsubmission#source#propagate: UNNEEDED, same version is already published
 GeoTcgaData#source#propagate: UNNEEDED, same version is already published
@@ -795,49 +809,50 @@ gesel#source#propagate: UNNEEDED, same version is already published
 getDEE2#source#propagate: UNNEEDED, same version is already published
 geva#source#propagate: UNNEEDED, same version is already published
 GEWIST#source#propagate: UNNEEDED, same version is already published
-GExPipe#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GExPipe#source#propagate: NO, package depends on 'biomaRt' which is not available
 geyser#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 gg4way#source#propagate: UNNEEDED, same version is already published
 ggkegg#source#propagate: UNNEEDED, same version is already published
-ggmanh#source#propagate: YES
-ggmsa#source#propagate: YES
+ggmanh#source#propagate: UNNEEDED, same version is already published
+ggmsa#source#propagate: UNNEEDED, same version is already published
 GGPA#source#propagate: UNNEEDED, same version is already published
 ggsc#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-ggseqalign#source#propagate: YES
+ggseqalign#source#propagate: UNNEEDED, same version is already published
+ggspavis#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 ggtree#source#propagate: UNNEEDED, same version is already published
 ggtreeDendro#source#propagate: UNNEEDED, same version is already published
 ggtreeExtra#source#propagate: UNNEEDED, same version is already published
 ggtreeSpace#source#propagate: UNNEEDED, same version is already published
 GIGSEA#source#propagate: UNNEEDED, same version is already published
-ginmappeR#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+ginmappeR#source#propagate: YES
 gINTomics#source#propagate: NO, package depends on 'biomaRt' which is not available
 GLAD#source#propagate: UNNEEDED, same version is already published
 GladiaTOX#source#propagate: UNNEEDED, same version is already published
 Glimma#source#propagate: UNNEEDED, same version is already published
 glmGamPoi#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 glmSparseNet#source#propagate: NO, package depends on 'biomaRt' which is not available
-GlobalAncova#source#propagate: NO, package depends on 'globaltest' which is not available
+GlobalAncova#source#propagate: NO, package depends on 'GSEABase' which is not available
 globalSeq#source#propagate: UNNEEDED, same version is already published
-globaltest#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+globaltest#source#propagate: YES
 GloScope#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 glycoTraitR#source#propagate: UNNEEDED, same version is already published
 gmapR#source#propagate: NO, package depends on 'Rsamtools' which is not available
-GmicR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GmicR#source#propagate: NO, package depends on 'Category' which is not available
 GMRP#source#propagate: UNNEEDED, same version is already published
 GNOSIS#source#propagate: NO, package depends on 'cBioPortalData' which is not available
-GOaGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+GOaGO#source#propagate: YES
 goatea#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 GOexpress#source#propagate: NO, package depends on 'biomaRt' which is not available
-GOfan#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-GOfuncR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-GOpro#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-goProfiles#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-GOSemSim#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-goseq#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-goSorensen#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+GOfan#source#propagate: YES
+GOfuncR#source#propagate: YES
+GOpro#source#propagate: YES
+goProfiles#source#propagate: YES
+GOSemSim#source#propagate: YES
+goseq#source#propagate: NO, package depends on 'rtracklayer' which is not available
+goSorensen#source#propagate: YES
 GOstats#source#propagate: NO, package depends on 'Category' which is not available
 GOTHiC#source#propagate: NO, package depends on 'BSgenome' which is not available
-goTools#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+goTools#source#propagate: YES
 GPA#source#propagate: UNNEEDED, same version is already published
 GPlinksR#source#propagate: NO, package depends on 'ensembldb' which is not available
 gpls#source#propagate: UNNEEDED, same version is already published
@@ -848,7 +863,7 @@ graph#source#propagate: UNNEEDED, same version is already published
 GraphAlignment#source#propagate: UNNEEDED, same version is already published
 GraphAT#source#propagate: UNNEEDED, same version is already published
 GraphExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-graphite#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+graphite#source#propagate: YES
 grayleafspotr#source#propagate: NO, package depends on 'EBImage' which is not available
 GRENITS#source#propagate: UNNEEDED, same version is already published
 GreyListChIP#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
@@ -859,14 +874,14 @@ GSABenchmark#source#propagate: NO, package depends on 'decoupleR' which is not a
 GSALightning#source#propagate: UNNEEDED, same version is already published
 GSAR#source#propagate: UNNEEDED, same version is already published
 gscreend#source#propagate: UNNEEDED, same version is already published
-GSEABenchmarkeR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-GSEAlens#source#propagate: NO, package depends on 'enrichplot' which is not available
+GSEABenchmarkeR#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+GSEAlens#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 GSEAlm#source#propagate: UNNEEDED, same version is already published
 GSEAmining#source#propagate: UNNEEDED, same version is already published
 gsean#source#propagate: NO, package depends on 'PPInfer' which is not available
 GSgalgoR#source#propagate: UNNEEDED, same version is already published
 GSReg#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
-GSRI#source#propagate: NO, package depends on 'genefilter' which is not available
+GSRI#source#propagate: NO, package depends on 'GSEABase' which is not available
 GUIDEseq#source#propagate: NO, package depends on 'CRISPRseek' which is not available
 Guitar#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 GWAS.BAYES#source#propagate: UNNEEDED, same version is already published
@@ -881,7 +896,7 @@ hammers#source#propagate: NO, package depends on 'scLang' which is not available
 hapFabia#source#propagate: UNNEEDED, same version is already published
 Harman#source#propagate: UNNEEDED, same version is already published
 HarmonizR#source#propagate: NO, package depends on 'sva' which is not available
-HDF5Array#source#propagate: UNNEEDED, same version is already published
+HDF5Array#source#propagate: YES
 HDTD#source#propagate: UNNEEDED, same version is already published
 hdxmsqc#source#propagate: NO, package depends on 'QFeatures' which is not available
 Heatplus#source#propagate: UNNEEDED, same version is already published
@@ -920,7 +935,7 @@ HTAN#source#propagate: NO, package depends on 'SingleCellExperiment' which is no
 HTqPCR#source#propagate: UNNEEDED, same version is already published
 HTSFilter#source#propagate: UNNEEDED, same version is already published
 HuBMAPR#source#propagate: UNNEEDED, same version is already published
-HubPub#source#propagate: YES
+HubPub#source#propagate: UNNEEDED, same version is already published
 hummingbird#source#propagate: UNNEEDED, same version is already published
 HVP#source#propagate: UNNEEDED, same version is already published
 HybridExpress#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
@@ -941,13 +956,13 @@ iClusterPlus#source#propagate: UNNEEDED, same version is already published
 iCNV#source#propagate: NO, package depends on 'CODEX' which is not available
 iCOBRA#source#propagate: UNNEEDED, same version is already published
 iconic#source#propagate: UNNEEDED, same version is already published
-ideal#source#propagate: NO, package depends on 'topGO' which is not available
+ideal#source#propagate: NO, package depends on 'mosdef' which is not available
 IdeoViz#source#propagate: NO, package depends on 'rtracklayer' which is not available
-idiogram#source#propagate: NO, package depends on 'annotate' which is not available
-idpr#source#propagate: YES
+idiogram#source#propagate: YES
+idpr#source#propagate: UNNEEDED, same version is already published
 idr2d#source#propagate: UNNEEDED, same version is already published
 IFAA#source#propagate: UNNEEDED, same version is already published
-igblastr#source#propagate: YES
+igblastr#source#propagate: UNNEEDED, same version is already published
 iGC#source#propagate: UNNEEDED, same version is already published
 IgGeneUsage#source#propagate: UNNEEDED, same version is already published
 igvR#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
@@ -959,22 +974,22 @@ imageFeatureTCGA#source#propagate: NO, package depends on 'SingleCellExperiment'
 imageTCGA#source#propagate: UNNEEDED, same version is already published
 imageTCGAutils#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 imcRtools#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
-IMMAN#source#propagate: YES
+IMMAN#source#propagate: UNNEEDED, same version is already published
 immApex#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 immGLIPH#source#propagate: NO, package depends on 'immApex' which is not available
 immLynx#source#propagate: NO, package depends on 'immApex' which is not available
-immReferent#source#propagate: YES
+immReferent#source#propagate: UNNEEDED, same version is already published
 immunoClust#source#propagate: NO, package depends on 'flowCore' which is not available
-immunogenViewer#source#propagate: NO, package depends on 'UniProt.ws' which is not available
+immunogenViewer#source#propagate: YES
 IMPCdata#source#propagate: UNNEEDED, same version is already published
 impute#source#propagate: UNNEEDED, same version is already published
 INDEED#source#propagate: UNNEEDED, same version is already published
-iNETgrate#source#propagate: NO, package depends on 'Pigengene' which is not available
+iNETgrate#source#propagate: NO, package depends on 'minfi' which is not available
 infercnv#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 inferRecom#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 infinityFlow#source#propagate: NO, package depends on 'flowCore' which is not available
 Informeasure#source#propagate: UNNEEDED, same version is already published
-InPAS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+InPAS#source#propagate: NO, package depends on 'BSgenome' which is not available
 INPower#source#propagate: UNNEEDED, same version is already published
 INSPEcT#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 INTACT#source#propagate: UNNEEDED, same version is already published
@@ -987,7 +1002,7 @@ IntEREst#source#propagate: NO, package depends on 'Rsamtools' which is not avail
 IntramiRExploreR#source#propagate: UNNEEDED, same version is already published
 IntrinsicScan#source#propagate: UNNEEDED, same version is already published
 iPath#source#propagate: UNNEEDED, same version is already published
-ipdDb#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ipdDb#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 IPO#source#propagate: NO, package depends on 'xcms' which is not available
 IRanges#source#propagate: UNNEEDED, same version is already published
 ISAnalytics#source#propagate: UNNEEDED, same version is already published
@@ -1011,9 +1026,9 @@ IsoCorrectoR#source#propagate: UNNEEDED, same version is already published
 IsoCorrectoRGUI#source#propagate: UNNEEDED, same version is already published
 IsoformSwitchAnalyzeR#source#propagate: NO, package depends on 'DEXSeq' which is not available
 ISoLDE#source#propagate: UNNEEDED, same version is already published
-isomiRs#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+isomiRs#source#propagate: NO, package depends on 'DEGreport' which is not available
 IsoNetAnalyzeR#source#propagate: NO, package depends on 'AnnotationHub' which is not available
-ITALICS#source#propagate: YES
+ITALICS#source#propagate: UNNEEDED, same version is already published
 iterativeBMA#source#propagate: UNNEEDED, same version is already published
 iterativeBMAsurv#source#propagate: UNNEEDED, same version is already published
 IVAS#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
@@ -1026,18 +1041,18 @@ karyoploteR#source#propagate: NO, package depends on 'regioneR' which is not ava
 katdetectr#source#propagate: NO, package depends on 'BSgenome' which is not available
 KBoost#source#propagate: UNNEEDED, same version is already published
 KCsmart#source#propagate: UNNEEDED, same version is already published
-kebabs#source#propagate: YES
-KEGGemUP#source#propagate: YES
+kebabs#source#propagate: UNNEEDED, same version is already published
+KEGGemUP#source#propagate: UNNEEDED, same version is already published
 KEGGgraph#source#propagate: UNNEEDED, same version is already published
-KEGGlincs#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-keggorthology#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-KEGGREST#source#propagate: YES
+KEGGlincs#source#propagate: YES
+keggorthology#source#propagate: YES
+KEGGREST#source#propagate: UNNEEDED, same version is already published
 KinSwingR#source#propagate: UNNEEDED, same version is already published
 kissDE#source#propagate: NO, package depends on 'DSS' which is not available
 kmcut#source#propagate: UNNEEDED, same version is already published
 koinar#source#propagate: UNNEEDED, same version is already published
 LACE#source#propagate: NO, package depends on 'biomaRt' which is not available
-lantern#source#propagate: YES
+lantern#source#propagate: UNNEEDED, same version is already published
 LBE#source#propagate: UNNEEDED, same version is already published
 ldblock#source#propagate: UNNEEDED, same version is already published
 LEA#source#propagate: UNNEEDED, same version is already published
@@ -1074,7 +1089,7 @@ LoomExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' w
 LPE#source#propagate: UNNEEDED, same version is already published
 lpNet#source#propagate: UNNEEDED, same version is already published
 lpsymphony#source#propagate: UNNEEDED, same version is already published
-LRBaseDbi#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+LRBaseDbi#source#propagate: YES
 LRcell#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 LRDE#source#propagate: UNNEEDED, same version is already published
 lumi#source#propagate: NO, package depends on 'methylumi' which is not available
@@ -1099,7 +1114,7 @@ makecdfenv#source#propagate: UNNEEDED, same version is already published
 MANOR#source#propagate: UNNEEDED, same version is already published
 MantelCorr#source#propagate: UNNEEDED, same version is already published
 MAPFX#source#propagate: NO, package depends on 'flowCore' which is not available
-maPredictDSC#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+maPredictDSC#source#propagate: YES
 mapscape#source#propagate: UNNEEDED, same version is already published
 markeR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 marr#source#propagate: UNNEEDED, same version is already published
@@ -1107,12 +1122,12 @@ marray#source#propagate: UNNEEDED, same version is already published
 martini#source#propagate: UNNEEDED, same version is already published
 maser#source#propagate: NO, package depends on 'rtracklayer' which is not available
 maSigPro#source#propagate: UNNEEDED, same version is already published
-maskBAD#source#propagate: YES
+maskBAD#source#propagate: UNNEEDED, same version is already published
 MassArray#source#propagate: UNNEEDED, same version is already published
 massiR#source#propagate: UNNEEDED, same version is already published
 MassSpecWavelet#source#propagate: UNNEEDED, same version is already published
 MAST#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-mastR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+mastR#source#propagate: NO, package depends on 'GSEABase' which is not available
 matchBox#source#propagate: UNNEEDED, same version is already published
 MatrixGenerics#source#propagate: UNNEEDED, same version is already published
 MatrixRider#source#propagate: NO, package depends on 'TFBSTools' which is not available
@@ -1122,11 +1137,11 @@ MBASED#source#propagate: UNNEEDED, same version is already published
 MBCB#source#propagate: UNNEEDED, same version is already published
 MBECS#source#propagate: NO, package depends on 'phyloseq' which is not available
 mbkmeans#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-mBPCR#source#propagate: YES
+mBPCR#source#propagate: UNNEEDED, same version is already published
 MBQN#source#propagate: UNNEEDED, same version is already published
 mbQTL#source#propagate: UNNEEDED, same version is already published
 MBttest#source#propagate: UNNEEDED, same version is already published
-MCbiclust#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MCbiclust#source#propagate: YES
 mCSEA#source#propagate: NO, package depends on 'biomaRt' which is not available
 mdp#source#propagate: UNNEEDED, same version is already published
 mdqc#source#propagate: UNNEEDED, same version is already published
@@ -1136,21 +1151,21 @@ MeasurementError.cor#source#propagate: UNNEEDED, same version is already publish
 MEAT#source#propagate: NO, package depends on 'minfi' which is not available
 MEB#source#propagate: NO, package depends on 'scater' which is not available
 MEDIPS#source#propagate: NO, package depends on 'BSgenome' which is not available
-MEDME#source#propagate: YES
+MEDME#source#propagate: UNNEEDED, same version is already published
 MEIGOR#source#propagate: UNNEEDED, same version is already published
 MeLSI#source#propagate: UNNEEDED, same version is already published
-memes#source#propagate: NO, package depends on 'universalmotif' which is not available
+memes#source#propagate: YES
 Mergeomics#source#propagate: UNNEEDED, same version is already published
 mesa#source#propagate: NO, package depends on 'qsea' which is not available
-MeSHDbi#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-meshes#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-meshr#source#propagate: NO, package depends on 'MeSHDbi' which is not available
-MesKit#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MeSHDbi#source#propagate: YES
+meshes#source#propagate: NO, package depends on 'AnnotationHub' which is not available
+meshr#source#propagate: NO, package depends on 'Category' which is not available
+MesKit#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 messina#source#propagate: UNNEEDED, same version is already published
 metabCombiner#source#propagate: UNNEEDED, same version is already published
 metabinR#source#propagate: NO, package depends on 'ShortRead' which is not available
 MetaboCoreUtils#source#propagate: UNNEEDED, same version is already published
-MetaboDynamics#source#propagate: YES
+MetaboDynamics#source#propagate: UNNEEDED, same version is already published
 metabolomicsWorkbenchR#source#propagate: UNNEEDED, same version is already published
 metabom8#source#propagate: UNNEEDED, same version is already published
 metabomxtr#source#propagate: UNNEEDED, same version is already published
@@ -1162,52 +1177,54 @@ metagene2#source#propagate: NO, package depends on 'rtracklayer' which is not av
 metagenomeSeq#source#propagate: UNNEEDED, same version is already published
 metaMS#source#propagate: NO, package depends on 'CAMERA' which is not available
 MetaPathNet#source#propagate: NO, package depends on 'mygene' which is not available
-MetaPhOR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+MetaPhOR#source#propagate: YES
 metapod#source#propagate: UNNEEDED, same version is already published
 metapone#source#propagate: UNNEEDED, same version is already published
 MetaProViz#source#propagate: NO, package depends on 'cosmosR' which is not available
 metaSeq#source#propagate: UNNEEDED, same version is already published
 metaseqR2#source#propagate: NO, package depends on 'biomaRt' which is not available
 MetCirc#source#propagate: UNNEEDED, same version is already published
-methimpute#source#propagate: YES
+methimpute#source#propagate: UNNEEDED, same version is already published
 methInheritSim#source#propagate: NO, package depends on 'methylKit' which is not available
+methodical#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 MethPed#source#propagate: UNNEEDED, same version is already published
 methrix#source#propagate: NO, package depends on 'rtracklayer' which is not available
-MethTargetedNGS#source#propagate: YES
+MethTargetedNGS#source#propagate: UNNEEDED, same version is already published
 MethylAid#source#propagate: NO, package depends on 'minfi' which is not available
 methylCC#source#propagate: NO, package depends on 'minfi' which is not available
 methylclock#source#propagate: NO, package depends on 'ExperimentHub' which is not available
-methylGSA#source#propagate: NO, package depends on 'clusterProfiler' which is not available
-methyLImp2#source#propagate: YES
+methylGSA#source#propagate: NO, package depends on 'missMethyl' which is not available
+methyLImp2#source#propagate: UNNEEDED, same version is already published
 methylInheritance#source#propagate: NO, package depends on 'methylKit' which is not available
 methylKit#source#propagate: NO, package depends on 'Rsamtools' which is not available
 MethylMix#source#propagate: UNNEEDED, same version is already published
 methylMnM#source#propagate: UNNEEDED, same version is already published
 methylPipe#source#propagate: NO, package depends on 'Rsamtools' which is not available
-methylscaper#source#propagate: YES
+methylscaper#source#propagate: UNNEEDED, same version is already published
 MethylSeekR#source#propagate: NO, package depends on 'rtracklayer' which is not available
 methylSig#source#propagate: NO, package depends on 'bsseq' which is not available
 methylTFR#source#propagate: UNNEEDED, same version is already published
 methylumi#source#propagate: NO, package depends on 'minfi' which is not available
 MetNet#source#propagate: UNNEEDED, same version is already published
 Mfuzz#source#propagate: UNNEEDED, same version is already published
-MGFM#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MGFM#source#propagate: YES
 MGFR#source#propagate: NO, package depends on 'biomaRt' which is not available
 MGnifyR#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+mia#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 miaDash#source#propagate: NO, package depends on 'iSEE' which is not available
-miaSim#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
+miaTime#source#propagate: NO, package depends on 'mia' which is not available
 miaViz#source#propagate: NO, package depends on 'mia' which is not available
 MiCARA#source#propagate: UNNEEDED, same version is already published
 MiChip#source#propagate: UNNEEDED, same version is already published
 microbiomeDASim#source#propagate: NO, package depends on 'phyloseq' which is not available
 microbiomeExplorer#source#propagate: UNNEEDED, same version is already published
-MicrobiomeProfiler#source#propagate: NO, package depends on 'clusterProfiler' which is not available
-MicrobiotaProcess#source#propagate: YES
-microRNA#source#propagate: YES
-MICSQTL#source#propagate: NO, package depends on 'TOAST' which is not available
+MicrobiomeProfiler#source#propagate: YES
+MicrobiotaProcess#source#propagate: UNNEEDED, same version is already published
+microRNA#source#propagate: UNNEEDED, same version is already published
+MICSQTL#source#propagate: YES
 midasHLA#source#propagate: UNNEEDED, same version is already published
 miloR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-mimager#source#propagate: YES
+mimager#source#propagate: UNNEEDED, same version is already published
 mina#source#propagate: UNNEEDED, same version is already published
 minet#source#propagate: UNNEEDED, same version is already published
 minfi#source#propagate: NO, package depends on 'bumphunter' which is not available
@@ -1215,58 +1232,61 @@ MinimumDistance#source#propagate: NO, package depends on 'VanillaICE' which is n
 MiPP#source#propagate: UNNEEDED, same version is already published
 miQC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 MIRA#source#propagate: NO, package depends on 'bsseq' which is not available
-MiRaGE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MiRaGE#source#propagate: YES
 miRBaseConverter#source#propagate: UNNEEDED, same version is already published
 miRcomp#source#propagate: UNNEEDED, same version is already published
-mirIntegrator#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+mirIntegrator#source#propagate: YES
 miRLAB#source#propagate: NO, package depends on 'TCGAbiolinks' which is not available
-miRNAmeConverter#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+miRNAmeConverter#source#propagate: YES
 miRNApath#source#propagate: UNNEEDED, same version is already published
-miRNAtap#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+miRNAtap#source#propagate: YES
 miRSM#source#propagate: NO, package depends on 'BicARE' which is not available
 miRspongeR#source#propagate: NO, package depends on 'SPONGE' which is not available
 mirTarRnaSeq#source#propagate: UNNEEDED, same version is already published
-missMethyl#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+missMethyl#source#propagate: NO, package depends on 'methylumi' which is not available
 missRows#source#propagate: UNNEEDED, same version is already published
 mist#source#propagate: NO, package depends on 'rtracklayer' which is not available
+mistyR#source#propagate: UNNEEDED, same version is already published
 mitch#source#propagate: UNNEEDED, same version is already published
 mitoClone2#source#propagate: NO, package depends on 'deepSNV' which is not available
-mitology#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+mitology#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 mixOmics#source#propagate: UNNEEDED, same version is already published
-MLInterfaces#source#propagate: NO, package depends on 'annotate' which is not available
-MLP#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MLInterfaces#source#propagate: YES
+MLP#source#propagate: YES
 MMUPHin#source#propagate: UNNEEDED, same version is already published
 mnem#source#propagate: UNNEEDED, same version is already published
 mobileRNA#source#propagate: NO, package depends on 'rtracklayer' which is not available
 MODA#source#propagate: UNNEEDED, same version is already published
 ModCon#source#propagate: UNNEEDED, same version is already published
-Modstrings#source#propagate: YES
-mogsa#source#propagate: NO, package depends on 'graphite' which is not available
+Modstrings#source#propagate: UNNEEDED, same version is already published
+mogsa#source#propagate: NO, package depends on 'GSEABase' which is not available
 MoleculeExperiment#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 MOMA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 monaLisa#source#propagate: NO, package depends on 'BSgenome' which is not available
 monocle#source#propagate: UNNEEDED, same version is already published
-Moonlight2R#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+Moonlight2R#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 mosaics#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
-MOSClip#source#propagate: NO, package depends on 'graphite' which is not available
-mosdef#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+MOSClip#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+mosdef#source#propagate: NO, package depends on 'goseq' which is not available
 MOSim#source#propagate: NO, package depends on 'scran' which is not available
 Motif2Site#source#propagate: NO, package depends on 'BSgenome' which is not available
 motifbreakR#source#propagate: NO, package depends on 'MotifDb' which is not available
 MotifDb#source#propagate: NO, package depends on 'rtracklayer' which is not available
 motifmatchr#source#propagate: NO, package depends on 'TFBSTools' which is not available
-MotifPeeker#source#propagate: NO, package depends on 'universalmotif' which is not available
-motifTestR#source#propagate: NO, package depends on 'universalmotif' which is not available
+MotifPeeker#source#propagate: NO, package depends on 'rtracklayer' which is not available
+motifTestR#source#propagate: YES
+MouseFM#source#propagate: NO, package depends on 'biomaRt' which is not available
 MPAC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 MPFE#source#propagate: UNNEEDED, same version is already published
 mpra#source#propagate: UNNEEDED, same version is already published
 MPRAnalyze#source#propagate: UNNEEDED, same version is already published
 MRCCC#source#propagate: UNNEEDED, same version is already published
 MRManalyzeR#source#propagate: UNNEEDED, same version is already published
-msa#source#propagate: YES
-MSA2dist#source#propagate: YES
+msa#source#propagate: UNNEEDED, same version is already published
+MSA2dist#source#propagate: UNNEEDED, same version is already published
 MsBackendMassbank#source#propagate: UNNEEDED, same version is already published
 MsBackendMassIVE#source#propagate: UNNEEDED, same version is already published
+MsBackendMetaboLights#source#propagate: YES
 MsBackendMetabolomicsWorkbench#source#propagate: UNNEEDED, same version is already published
 MsBackendMgf#source#propagate: UNNEEDED, same version is already published
 MsBackendMsp#source#propagate: UNNEEDED, same version is already published
@@ -1285,31 +1305,32 @@ mspms#source#propagate: NO, package depends on 'QFeatures' which is not availabl
 msqrob2#source#propagate: NO, package depends on 'QFeatures' which is not available
 MsQuality#source#propagate: NO, package depends on 'MsDataHub' which is not available
 MsStash#source#propagate: UNNEEDED, same version is already published
-MSstats#source#propagate: YES
+MSstats#source#propagate: UNNEEDED, same version is already published
 MSstatsBig#source#propagate: UNNEEDED, same version is already published
 MSstatsBioNet#source#propagate: UNNEEDED, same version is already published
 MSstatsConvert#source#propagate: UNNEEDED, same version is already published
-MSstatsLiP#source#propagate: YES
+MSstatsLiP#source#propagate: UNNEEDED, same version is already published
 MSstatsLOBD#source#propagate: UNNEEDED, same version is already published
-MSstatsPTM#source#propagate: YES
+MSstatsPTM#source#propagate: UNNEEDED, same version is already published
 MSstatsQC#source#propagate: NO, package depends on 'MSnbase' which is not available
 MSstatsQCgui#source#propagate: NO, package depends on 'MSstatsQC' which is not available
 MSstatsResponse#source#propagate: UNNEEDED, same version is already published
-MSstatsShiny#source#propagate: YES
+MSstatsShiny#source#propagate: UNNEEDED, same version is already published
 MSstatsTMT#source#propagate: UNNEEDED, same version is already published
 MSTree#source#propagate: UNNEEDED, same version is already published
+MuData#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 Mulcom#source#propagate: UNNEEDED, same version is already published
 MultiAssayExperiment#source#propagate: UNNEEDED, same version is already published
 MultiBaC#source#propagate: UNNEEDED, same version is already published
 multiClust#source#propagate: UNNEEDED, same version is already published
 MultiDataSet#source#propagate: UNNEEDED, same version is already published
-multiGSEA#source#propagate: NO, package depends on 'graphite' which is not available
+multiGSEA#source#propagate: YES
 multiHiCcompare#source#propagate: NO, package depends on 'HiCcompare' which is not available
 MultiMed#source#propagate: UNNEEDED, same version is already published
-multiMiR#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+multiMiR#source#propagate: YES
 MultimodalExperiment#source#propagate: UNNEEDED, same version is already published
 MultiOmicsBridge#source#propagate: UNNEEDED, same version is already published
-MultipleAlignment#source#propagate: YES
+MultipleAlignment#source#propagate: UNNEEDED, same version is already published
 multipletR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 multipointR#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 MultiRNAflow#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
@@ -1329,9 +1350,9 @@ mzID#source#propagate: UNNEEDED, same version is already published
 mzR#source#propagate: UNNEEDED, same version is already published
 NADfinder#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 NanoStringDiff#source#propagate: UNNEEDED, same version is already published
-NanoStringNCTools#source#propagate: YES
+NanoStringNCTools#source#propagate: UNNEEDED, same version is already published
 NanoTube#source#propagate: UNNEEDED, same version is already published
-NBAMSeq#source#propagate: NO, package depends on 'genefilter' which is not available
+NBAMSeq#source#propagate: YES
 ncdfFlow#source#propagate: NO, package depends on 'flowCore' which is not available
 ncGTW#source#propagate: NO, package depends on 'xcms' which is not available
 NCIgraph#source#propagate: UNNEEDED, same version is already published
@@ -1370,14 +1391,14 @@ OAtools#source#propagate: UNNEEDED, same version is already published
 occugene#source#propagate: UNNEEDED, same version is already published
 OCplus#source#propagate: UNNEEDED, same version is already published
 octad#source#propagate: NO, package depends on 'RUVSeq' which is not available
-odseq#source#propagate: YES
+odseq#source#propagate: UNNEEDED, same version is already published
 OGRE#source#propagate: NO, package depends on 'Gviz' which is not available
-oligo#source#propagate: YES
-oligoClasses#source#propagate: YES
+oligo#source#propagate: UNNEEDED, same version is already published
+oligoClasses#source#propagate: UNNEEDED, same version is already published
 OLIN#source#propagate: UNNEEDED, same version is already published
 OLINgui#source#propagate: UNNEEDED, same version is already published
 omada#source#propagate: UNNEEDED, same version is already published
-OmaDB#source#propagate: NO, package depends on 'topGO' which is not available
+OmaDB#source#propagate: YES
 omicade4#source#propagate: UNNEEDED, same version is already published
 OmicCircos#source#propagate: UNNEEDED, same version is already published
 omicplotR#source#propagate: UNNEEDED, same version is already published
@@ -1400,30 +1421,30 @@ OpenStats#source#propagate: UNNEEDED, same version is already published
 oposSOM#source#propagate: NO, package depends on 'biomaRt' which is not available
 oppar#source#propagate: NO, package depends on 'GSEABase' which is not available
 optimalFlow#source#propagate: NO, package depends on 'flowMeans' which is not available
-OPWeight#source#propagate: YES
-OrderedList#source#propagate: UNNEEDED, same version is already published
+OPWeight#source#propagate: UNNEEDED, same version is already published
+OrderedList#source#propagate: YES
 ORFhunteR#source#propagate: NO, package depends on 'rtracklayer' which is not available
-orthoRibbon#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+orthoRibbon#source#propagate: NO, package depends on 'biomaRt' which is not available
 orthos#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 OSAT#source#propagate: UNNEEDED, same version is already published
 Oscope#source#propagate: UNNEEDED, same version is already published
 OSTA.data#source#propagate: UNNEEDED, same version is already published
 OTUbase#source#propagate: NO, package depends on 'ShortRead' which is not available
 OUTRIDER#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
-OutSplice#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+OutSplice#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 OVESEG#source#propagate: UNNEEDED, same version is already published
 PAA#source#propagate: NO, package depends on 'sva' which is not available
 PACE#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
-packFinder#source#propagate: YES
+packFinder#source#propagate: UNNEEDED, same version is already published
 padma#source#propagate: UNNEEDED, same version is already published
-PADOG#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+PADOG#source#propagate: YES
 pageRank#source#propagate: NO, package depends on 'motifmatchr' which is not available
 PAIRADISE#source#propagate: UNNEEDED, same version is already published
 paircompviz#source#propagate: UNNEEDED, same version is already published
 pairedGSEA#source#propagate: NO, package depends on 'DEXSeq' which is not available
 pandaR#source#propagate: UNNEEDED, same version is already published
 panelcn.mops#source#propagate: NO, package depends on 'cn.mops' which is not available
-PanomiR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+PanomiR#source#propagate: NO, package depends on 'GSEABase' which is not available
 panoramic#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 panp#source#propagate: UNNEEDED, same version is already published
 panpathAudit#source#propagate: UNNEEDED, same version is already published
@@ -1435,55 +1456,55 @@ PAST#source#propagate: NO, package depends on 'rtracklayer' which is not availab
 path2path#source#propagate: UNNEEDED, same version is already published
 Path2PPI#source#propagate: UNNEEDED, same version is already published
 pathifier#source#propagate: UNNEEDED, same version is already published
-pathlinkR#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+pathlinkR#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 pathMED#source#propagate: NO, package depends on 'decoupleR' which is not available
 PathNet#source#propagate: UNNEEDED, same version is already published
 PathoStat#source#propagate: NO, package depends on 'phyloseq' which is not available
-pathview#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+pathview#source#propagate: YES
 pathwayPCA#source#propagate: UNNEEDED, same version is already published
 pcaExplorer#source#propagate: NO, package depends on 'mosdef' which is not available
 pcaMethods#source#propagate: UNNEEDED, same version is already published
 PCAN#source#propagate: UNNEEDED, same version is already published
 PCAtools#source#propagate: UNNEEDED, same version is already published
 PDATK#source#propagate: NO, package depends on 'CoreGx' which is not available
-pdInfoBuilder#source#propagate: YES
+pdInfoBuilder#source#propagate: UNNEEDED, same version is already published
 PeacoQC#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
-PECA#source#propagate: NO, package depends on 'genefilter' which is not available
+PECA#source#propagate: YES
 peco#source#propagate: NO, package depends on 'scater' which is not available
 Pedixplorer#source#propagate: UNNEEDED, same version is already published
 pengls#source#propagate: UNNEEDED, same version is already published
 PepSetTest#source#propagate: UNNEEDED, same version is already published
 PepsNMR#source#propagate: UNNEEDED, same version is already published
-pepVet#source#propagate: YES
+pepVet#source#propagate: UNNEEDED, same version is already published
 pepXMLTab#source#propagate: UNNEEDED, same version is already published
 periodicDNA#source#propagate: NO, package depends on 'BSgenome' which is not available
 pfamAnalyzeR#source#propagate: UNNEEDED, same version is already published
 pgca#source#propagate: UNNEEDED, same version is already published
-pgen2gds#source#propagate: YES
+pgen2gds#source#propagate: UNNEEDED, same version is already published
 phantasusLite#source#propagate: UNNEEDED, same version is already published
 PharmacoGx#source#propagate: NO, package depends on 'CoreGx' which is not available
 PhenoGeneRanker#source#propagate: UNNEEDED, same version is already published
 phenomis#source#propagate: UNNEEDED, same version is already published
 phenopath#source#propagate: UNNEEDED, same version is already published
-phenoTest#source#propagate: NO, package depends on 'annotate' which is not available
+phenoTest#source#propagate: NO, package depends on 'Category' which is not available
 philr#source#propagate: UNNEEDED, same version is already published
 PhIPData#source#propagate: UNNEEDED, same version is already published
 phosphonormalizer#source#propagate: UNNEEDED, same version is already published
 PhosR#source#propagate: UNNEEDED, same version is already published
 phylobar#source#propagate: UNNEEDED, same version is already published
-PhyloProfile#source#propagate: YES
+PhyloProfile#source#propagate: UNNEEDED, same version is already published
 piano#source#propagate: UNNEEDED, same version is already published
 PICB#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 pickgene#source#propagate: UNNEEDED, same version is already published
-Pigengene#source#propagate: NO, package depends on 'clusterProfiler' which is not available
-PinPath#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+Pigengene#source#propagate: YES
+PinPath#source#propagate: YES
 pipeComp#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 pipeFrame#source#propagate: NO, package depends on 'BSgenome' which is not available
 Pirat#source#propagate: UNNEEDED, same version is already published
 PIUMA#source#propagate: UNNEEDED, same version is already published
 plaid#source#propagate: NO, package depends on 'GSVA' which is not available
 planet#source#propagate: UNNEEDED, same version is already published
-planttfhunter#source#propagate: YES
+planttfhunter#source#propagate: UNNEEDED, same version is already published
 plasmut#source#propagate: UNNEEDED, same version is already published
 plgem#source#propagate: UNNEEDED, same version is already published
 plier#source#propagate: UNNEEDED, same version is already published
@@ -1504,24 +1525,24 @@ Polytect#source#propagate: UNNEEDED, same version is already published
 POMA#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 posDemux#source#propagate: NO, package depends on 'ShortRead' which is not available
 PostChicago#source#propagate: NO, package depends on 'rtracklayer' which is not available
-postNet#source#propagate: NO, package depends on 'memes' which is not available
+postNet#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 powerTCR#source#propagate: UNNEEDED, same version is already published
 POWSC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 ppcseq#source#propagate: UNNEEDED, same version is already published
 PPInfer#source#propagate: NO, package depends on 'biomaRt' which is not available
-pqsfinder#source#propagate: YES
+pqsfinder#source#propagate: UNNEEDED, same version is already published
 pram#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 prebs#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 preciseTAD#source#propagate: NO, package depends on 'rCGH' which is not available
-PREDA#source#propagate: NO, package depends on 'annotate' which is not available
+PREDA#source#propagate: YES
 preprocessCore#source#propagate: UNNEEDED, same version is already published
 primirTSS#source#propagate: NO, package depends on 'rtracklayer' which is not available
 PrInCE#source#propagate: NO, package depends on 'MSnbase' which is not available
-proActiv#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-proBAMr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+proActiv#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+proBAMr#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 proBatch#source#propagate: NO, package depends on 'QFeatures' which is not available
 PROcess#source#propagate: UNNEEDED, same version is already published
-procoil#source#propagate: YES
+procoil#source#propagate: UNNEEDED, same version is already published
 proDA#source#propagate: UNNEEDED, same version is already published
 progeny#source#propagate: NO, package depends on 'decoupleR' which is not available
 projectR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
@@ -1537,32 +1558,32 @@ ProteinBatcher#source#propagate: UNNEEDED, same version is already published
 proteinProfiles#source#propagate: UNNEEDED, same version is already published
 ProteoDisco#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 ProteoMM#source#propagate: NO, package depends on 'biomaRt' which is not available
-protGear#source#propagate: NO, package depends on 'genefilter' which is not available
+protGear#source#propagate: YES
 ProtGenerics#source#propagate: UNNEEDED, same version is already published
 PscanR#source#propagate: NO, package depends on 'ExperimentHub' which is not available
-psichomics#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+psichomics#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 PSMatch#source#propagate: NO, package depends on 'QFeatures' which is not available
 ptairMS#source#propagate: NO, package depends on 'MSnbase' which is not available
 PTMods#source#propagate: UNNEEDED, same version is already published
-puma#source#propagate: YES
-punKEGGer#source#propagate: YES
+puma#source#propagate: UNNEEDED, same version is already published
+punKEGGer#source#propagate: UNNEEDED, same version is already published
 PureCN#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 pvac#source#propagate: UNNEEDED, same version is already published
 pvca#source#propagate: UNNEEDED, same version is already published
 Pviz#source#propagate: NO, package depends on 'Gviz' which is not available
-pwalign#source#propagate: YES
-PWMEnrich#source#propagate: YES
+pwalign#source#propagate: UNNEEDED, same version is already published
+PWMEnrich#source#propagate: UNNEEDED, same version is already published
 qcmetrics#source#propagate: UNNEEDED, same version is already published
 QDNAseq#source#propagate: NO, package depends on 'Rsamtools' which is not available
 QFeaturesGUI#source#propagate: NO, package depends on 'QFeatures' which is not available
 qmtools#source#propagate: UNNEEDED, same version is already published
 qpcrNorm#source#propagate: UNNEEDED, same version is already published
-qpgraph#source#propagate: NO, package depends on 'annotate' which is not available
+qpgraph#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 qPLEXanalyzer#source#propagate: NO, package depends on 'MSnbase' which is not available
 QRscore#source#propagate: UNNEEDED, same version is already published
 qsea#source#propagate: NO, package depends on 'rtracklayer' which is not available
 qsmooth#source#propagate: NO, package depends on 'sva' which is not available
-QSutils#source#propagate: YES
+QSutils#source#propagate: UNNEEDED, same version is already published
 qsvaR#source#propagate: NO, package depends on 'sva' which is not available
 QTLExperiment#source#propagate: UNNEEDED, same version is already published
 Qtlizer#source#propagate: UNNEEDED, same version is already published
@@ -1573,13 +1594,13 @@ quantsmooth#source#propagate: UNNEEDED, same version is already published
 QuasR#source#propagate: NO, package depends on 'BSgenome' which is not available
 QuaternaryProd#source#propagate: UNNEEDED, same version is already published
 QUBIC#source#propagate: UNNEEDED, same version is already published
-queeems#source#propagate: YES
+queeems#source#propagate: UNNEEDED, same version is already published
 qusage#source#propagate: UNNEEDED, same version is already published
 qvalue#source#propagate: UNNEEDED, same version is already published
 R3CPET#source#propagate: NO, package depends on 'ggbio' which is not available
 r3Cseq#source#propagate: NO, package depends on 'Rsamtools' which is not available
 R453Plus1Toolbox#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
-R4RNA#source#propagate: YES
+R4RNA#source#propagate: UNNEEDED, same version is already published
 RadioGx#source#propagate: NO, package depends on 'CoreGx' which is not available
 raer#source#propagate: NO, package depends on 'Rsamtools' which is not available
 RAIDS#source#propagate: NO, package depends on 'Rsamtools' which is not available
@@ -1593,14 +1614,14 @@ RAREsim#source#propagate: UNNEEDED, same version is already published
 RareVariantVis#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 Rarr#source#propagate: UNNEEDED, same version is already published
 rawDiag#source#propagate: UNNEEDED, same version is already published
-rawrr#source#propagate: YES
+rawrr#source#propagate: UNNEEDED, same version is already published
 RbcBook1#source#propagate: UNNEEDED, same version is already published
 Rbec#source#propagate: NO, package depends on 'dada2' which is not available
 RBedMethyl#source#propagate: NO, package depends on 'bsseq' which is not available
 RBGL#source#propagate: UNNEEDED, same version is already published
 RBioFormats#source#propagate: NO, package depends on 'EBImage' which is not available
 rBiopaxParser#source#propagate: UNNEEDED, same version is already published
-rBLAST#source#propagate: YES
+rBLAST#source#propagate: UNNEEDED, same version is already published
 RBM#source#propagate: UNNEEDED, same version is already published
 Rbowtie#source#propagate: UNNEEDED, same version is already published
 Rbowtie2#source#propagate: NO, package depends on 'Rsamtools' which is not available
@@ -1614,8 +1635,7 @@ rcellminer#source#propagate: UNNEEDED, same version is already published
 rCGH#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 RcisTarget#source#propagate: NO, package depends on 'AUCell' which is not available
 RCM#source#propagate: NO, package depends on 'phyloseq' which is not available
-Rcollectl#source#propagate: UNNEEDED, same version is already published
-Rcpi#source#propagate: NO, package depends on 'GOSemSim' which is not available
+Rcpi#source#propagate: YES
 RCSL#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 Rcwl#source#propagate: UNNEEDED, same version is already published
 RcwlPipelines#source#propagate: UNNEEDED, same version is already published
@@ -1624,13 +1644,11 @@ RCy3#source#propagate: UNNEEDED, same version is already published
 RCyjs#source#propagate: UNNEEDED, same version is already published
 Rdisop#source#propagate: UNNEEDED, same version is already published
 RDRToolbox#source#propagate: UNNEEDED, same version is already published
-ReactomeGSA#source#propagate: UNNEEDED, same version is already published
-ReactomePA#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ReactomePA#source#propagate: YES
 ReadqPCR#source#propagate: UNNEEDED, same version is already published
 REBET#source#propagate: UNNEEDED, same version is already published
 rebook#source#propagate: UNNEEDED, same version is already published
 reconsi#source#propagate: NO, package depends on 'phyloseq' which is not available
-recount#source#propagate: NO, package depends on 'derfinder' which is not available
 recountmethylation#source#propagate: NO, package depends on 'minfi' which is not available
 recoup#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 RedeR#source#propagate: UNNEEDED, same version is already published
@@ -1644,7 +1662,7 @@ regioneR#source#propagate: NO, package depends on 'BSgenome' which is not availa
 regioneReloaded#source#propagate: NO, package depends on 'regioneR' which is not available
 reglScatterplotR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 regsplice#source#propagate: UNNEEDED, same version is already published
-regutools#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+regutools#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 REMP#source#propagate: NO, package depends on 'minfi' which is not available
 RepViz#source#propagate: NO, package depends on 'Rsamtools' which is not available
 ResidualMatrix#source#propagate: UNNEEDED, same version is already published
@@ -1653,7 +1671,7 @@ retrofit#source#propagate: UNNEEDED, same version is already published
 ReUseData#source#propagate: UNNEEDED, same version is already published
 rexposome#source#propagate: UNNEEDED, same version is already published
 Rfastp#source#propagate: UNNEEDED, same version is already published
-RFLOMICS#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+RFLOMICS#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 rfPred#source#propagate: NO, package depends on 'Rsamtools' which is not available
 rGenomeTracks#source#propagate: UNNEEDED, same version is already published
 rgoslin#source#propagate: UNNEEDED, same version is already published
@@ -1661,18 +1679,18 @@ RGraph2js#source#propagate: UNNEEDED, same version is already published
 Rgraphviz#source#propagate: UNNEEDED, same version is already published
 rGREAT#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 RGSEA#source#propagate: UNNEEDED, same version is already published
-rhdf5#source#propagate: YES
+rhdf5#source#propagate: UNNEEDED, same version is already published
 rhdf5client#source#propagate: UNNEEDED, same version is already published
 rhdf5filters#source#propagate: UNNEEDED, same version is already published
 Rhdf5lib#source#propagate: UNNEEDED, same version is already published
-rhinotypeR#source#propagate: YES
+rhinotypeR#source#propagate: UNNEEDED, same version is already published
 Rhisat2#source#propagate: NO, package depends on 'txdbmaker' which is not available
 Rhtslib#source#propagate: UNNEEDED, same version is already published
 RhyME#source#propagate: UNNEEDED, same version is already published
 RiboDiPA#source#propagate: NO, package depends on 'Rsamtools' which is not available
 ribor#source#propagate: UNNEEDED, same version is already published
 riboSeqR#source#propagate: NO, package depends on 'Rsamtools' which is not available
-ribosomeProfilingQC#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ribosomeProfilingQC#source#propagate: NO, package depends on 'BSgenome' which is not available
 rifiComparative#source#propagate: NO, package depends on 'rtracklayer' which is not available
 Rigraphlib#source#propagate: UNNEEDED, same version is already published
 rigvf#source#propagate: UNNEEDED, same version is already published
@@ -1702,29 +1720,30 @@ RnaSeqSampleSize#source#propagate: NO, package depends on 'biomaRt' which is not
 RNAshapeQC#source#propagate: NO, package depends on 'Rsamtools' which is not available
 RnBeads#source#propagate: NO, package depends on 'methylumi' which is not available
 roar#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
-roastgsa#source#propagate: YES
+roastgsa#source#propagate: UNNEEDED, same version is already published
 ROC#source#propagate: UNNEEDED, same version is already published
 ROCpAI#source#propagate: UNNEEDED, same version is already published
 RolDE#source#propagate: UNNEEDED, same version is already published
-ROntoTools#source#propagate: YES
+ROntoTools#source#propagate: UNNEEDED, same version is already published
 ropls#source#propagate: UNNEEDED, same version is already published
 ROSeq#source#propagate: UNNEEDED, same version is already published
 ROTS#source#propagate: UNNEEDED, same version is already published
 RPA#source#propagate: NO, package depends on 'phyloseq' which is not available
 RPBC#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
-rprimer#source#propagate: YES
+rprimer#source#propagate: UNNEEDED, same version is already published
 RProtoBufLib#source#propagate: UNNEEDED, same version is already published
+rpx#source#propagate: UNNEEDED, same version is already published
 Rqc#source#propagate: NO, package depends on 'ShortRead' which is not available
 rqt#source#propagate: UNNEEDED, same version is already published
 RRHO#source#propagate: UNNEEDED, same version is already published
-rrvgo#source#propagate: NO, package depends on 'GOSemSim' which is not available
+rrvgo#source#propagate: YES
 rsbml#source#propagate: UNNEEDED, same version is already published
 rScudo#source#propagate: UNNEEDED, same version is already published
 rsemmed#source#propagate: UNNEEDED, same version is already published
 RSeqAn#source#propagate: UNNEEDED, same version is already published
 Rsubread#source#propagate: UNNEEDED, same version is already published
 RSVSim#source#propagate: NO, package depends on 'ShortRead' which is not available
-rSWeeP#source#propagate: YES
+rSWeeP#source#propagate: UNNEEDED, same version is already published
 RTCA#source#propagate: UNNEEDED, same version is already published
 RTCGAToolbox#source#propagate: NO, package depends on 'RaggedExperiment' which is not available
 RTN#source#propagate: UNNEEDED, same version is already published
@@ -1732,8 +1751,8 @@ RTNduals#source#propagate: UNNEEDED, same version is already published
 RTNsurvival#source#propagate: UNNEEDED, same version is already published
 RTopper#source#propagate: UNNEEDED, same version is already published
 Rtpca#source#propagate: UNNEEDED, same version is already published
-rTRM#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-rTRMui#source#propagate: NO, package depends on 'rTRM' which is not available
+rTRM#source#propagate: YES
+rTRMui#source#propagate: NO, package depends on 'MotifDb' which is not available
 RUCova#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 RUVcorr#source#propagate: UNNEEDED, same version is already published
 RUVnormalize#source#propagate: UNNEEDED, same version is already published
@@ -1744,16 +1763,16 @@ rWikiPathways#source#propagate: UNNEEDED, same version is already published
 S4Arrays#source#propagate: UNNEEDED, same version is already published
 S4Cartographer#source#propagate: UNNEEDED, same version is already published
 S4Vectors#source#propagate: UNNEEDED, same version is already published
-safe#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+safe#source#propagate: YES
 sagenhaft#source#propagate: UNNEEDED, same version is already published
-SAIGEgds#source#propagate: YES
-sampleClassifier#source#propagate: NO, package depends on 'MGFM' which is not available
+SAIGEgds#source#propagate: UNNEEDED, same version is already published
+sampleClassifier#source#propagate: NO, package depends on 'MGFR' which is not available
 SamSPECTRAL#source#propagate: UNNEEDED, same version is already published
-sangeranalyseR#source#propagate: YES
-sangerseqR#source#propagate: YES
+sangeranalyseR#source#propagate: UNNEEDED, same version is already published
+sangerseqR#source#propagate: UNNEEDED, same version is already published
 SanityR#source#propagate: NO, package depends on 'scuttle' which is not available
 SANTA#source#propagate: UNNEEDED, same version is already published
-sarks#source#propagate: YES
+sarks#source#propagate: UNNEEDED, same version is already published
 satuRn#source#propagate: UNNEEDED, same version is already published
 sbivar#source#propagate: NO, package depends on 'smoppix' which is not available
 SBMLR#source#propagate: UNNEEDED, same version is already published
@@ -1762,8 +1781,8 @@ scafari#source#propagate: NO, package depends on 'ggbio' which is not available
 Scale4C#source#propagate: UNNEEDED, same version is already published
 ScaledMatrix#source#propagate: UNNEEDED, same version is already published
 SCAN.UPC#source#propagate: NO, package depends on 'sva' which is not available
-scanMiR#source#propagate: YES
-scanMiRApp#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+scanMiR#source#propagate: UNNEEDED, same version is already published
+scanMiRApp#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 SCANVIS#source#propagate: NO, package depends on 'rtracklayer' which is not available
 SCArray#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 SCArray.sat#source#propagate: NO, package depends on 'SCArray' which is not available
@@ -1808,7 +1827,7 @@ scone#source#propagate: NO, package depends on 'RUVSeq' which is not available
 Sconify#source#propagate: NO, package depends on 'flowCore' which is not available
 SCOPE#source#propagate: NO, package depends on 'Rsamtools' which is not available
 scoreInvHap#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
-scoup#source#propagate: YES
+scoup#source#propagate: UNNEEDED, same version is already published
 scp#source#propagate: NO, package depends on 'QFeatures' which is not available
 scPassport#source#propagate: UNNEEDED, same version is already published
 scPCA#source#propagate: UNNEEDED, same version is already published
@@ -1825,6 +1844,7 @@ scruff#source#propagate: NO, package depends on 'GenomicAlignments' which is not
 scry#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 scShapes#source#propagate: UNNEEDED, same version is already published
 scSimEval#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+scTensor#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 scTGIF#source#propagate: NO, package depends on 'GSEABase' which is not available
 scTHI#source#propagate: UNNEEDED, same version is already published
 scToppR#source#propagate: UNNEEDED, same version is already published
@@ -1837,25 +1857,25 @@ sechm#source#propagate: NO, package depends on 'ComplexHeatmap' which is not ava
 segmenter#source#propagate: NO, package depends on 'ChIPseeker' which is not available
 segmentSeq#source#propagate: NO, package depends on 'ShortRead' which is not available
 selectKSigs#source#propagate: NO, package depends on 'HiLDA' which is not available
-SELEX#source#propagate: YES
-selexprepR#source#propagate: YES
-SemDist#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+SELEX#source#propagate: UNNEEDED, same version is already published
+selexprepR#source#propagate: UNNEEDED, same version is already published
+SemDist#source#propagate: YES
 semisup#source#propagate: UNNEEDED, same version is already published
 seq.hotSPOT#source#propagate: UNNEEDED, same version is already published
 seq2pathway#source#propagate: NO, package depends on 'biomaRt' which is not available
-SeqArray#source#propagate: YES
+SeqArray#source#propagate: UNNEEDED, same version is already published
 seqCAT#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 seqcombo#source#propagate: UNNEEDED, same version is already published
-SeqGate#source#propagate: YES
+SeqGate#source#propagate: UNNEEDED, same version is already published
 SeqGSEA#source#propagate: NO, package depends on 'biomaRt' which is not available
 Seqinfo#source#propagate: UNNEEDED, same version is already published
 seqLogo#source#propagate: UNNEEDED, same version is already published
-seqPattern#source#propagate: YES
+seqPattern#source#propagate: UNNEEDED, same version is already published
 seqRdna#source#propagate: NO, package depends on 'methylKit' which is not available
 seqsetvis#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 SeqSQC#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 Seqtometry#source#propagate: UNNEEDED, same version is already published
-SeqVarTools#source#propagate: YES
+SeqVarTools#source#propagate: UNNEEDED, same version is already published
 SEraster#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 sesame#source#propagate: UNNEEDED, same version is already published
 SETA#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
@@ -1872,17 +1892,17 @@ shinyMethyl#source#propagate: NO, package depends on 'minfi' which is not availa
 ShortRead#source#propagate: NO, package depends on 'Rsamtools' which is not available
 SIAMCAT#source#propagate: NO, package depends on 'phyloseq' which is not available
 SICtools#source#propagate: NO, package depends on 'Rsamtools' which is not available
-SigCheck#source#propagate: NO, package depends on 'MLInterfaces' which is not available
+SigCheck#source#propagate: YES
 sigFeature#source#propagate: UNNEEDED, same version is already published
 siggenes#source#propagate: UNNEEDED, same version is already published
 sights#source#propagate: UNNEEDED, same version is already published
-signatureSearch#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+signatureSearch#source#propagate: NO, package depends on 'ExperimentHub' which is not available
 signeR#source#propagate: NO, package depends on 'rtracklayer' which is not available
-signifinder#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+signifinder#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 SigsPack#source#propagate: NO, package depends on 'BSgenome' which is not available
 sigsquared#source#propagate: UNNEEDED, same version is already published
 sigvar#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
-SIM#source#propagate: NO, package depends on 'globaltest' which is not available
+SIM#source#propagate: YES
 SIMAT#source#propagate: UNNEEDED, same version is already published
 SimBu#source#propagate: NO, package depends on 'phyloseq' which is not available
 SIMD#source#propagate: UNNEEDED, same version is already published
@@ -1914,7 +1934,7 @@ SLqPCR#source#propagate: UNNEEDED, same version is already published
 SMAD#source#propagate: UNNEEDED, same version is already published
 smartid#source#propagate: UNNEEDED, same version is already published
 SmartPhos#source#propagate: NO, package depends on 'decoupleR' which is not available
-SMITE#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+SMITE#source#propagate: NO, package depends on 'goseq' which is not available
 smoothclust#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 smoppix#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 SMTrackR#source#propagate: NO, package depends on 'rtracklayer' which is not available
@@ -1946,7 +1966,7 @@ SpatialData.data#source#propagate: NO, package depends on 'spatialdataR' which i
 SpatialData.plot#source#propagate: NO, package depends on 'spatialdataR' which is not available
 spatialdataR#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 spatialDE#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
-SpatialDecon#source#propagate: YES
+SpatialDecon#source#propagate: UNNEEDED, same version is already published
 SpatialExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 SpatialExperimentIO#source#propagate: NO, package depends on 'DropletUtils' which is not available
 spatialFDA#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
@@ -1966,6 +1986,7 @@ SpiecEasi#source#propagate: NO, package depends on 'phyloseq' which is not avail
 spikeLI#source#propagate: UNNEEDED, same version is already published
 spiky#source#propagate: NO, package depends on 'Rsamtools' which is not available
 spillR#source#propagate: NO, package depends on 'CATALYST' which is not available
+spiSEE#source#propagate: NO, package depends on 'iSEE' which is not available
 spkTools#source#propagate: UNNEEDED, same version is already published
 splatter#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 SpliceImpactR#source#propagate: NO, package depends on 'biomaRt' which is not available
@@ -1987,10 +2008,10 @@ SPsimSeq#source#propagate: NO, package depends on 'SingleCellExperiment' which i
 sRACIPE#source#propagate: UNNEEDED, same version is already published
 SRAdb#source#propagate: UNNEEDED, same version is already published
 srnadiff#source#propagate: NO, package depends on 'rtracklayer' which is not available
-sscu#source#propagate: YES
+sscu#source#propagate: UNNEEDED, same version is already published
 sSeq#source#propagate: UNNEEDED, same version is already published
 ssize#source#propagate: UNNEEDED, same version is already published
-sSNAPPY#source#propagate: NO, package depends on 'graphite' which is not available
+sSNAPPY#source#propagate: YES
 ssPATHS#source#propagate: UNNEEDED, same version is already published
 ssrch#source#propagate: UNNEEDED, same version is already published
 ssviz#source#propagate: NO, package depends on 'Rsamtools' which is not available
@@ -2008,9 +2029,9 @@ strandCheckR#source#propagate: NO, package depends on 'Rsamtools' which is not a
 STRINGdb#source#propagate: UNNEEDED, same version is already published
 STRprofilerR#source#propagate: UNNEEDED, same version is already published
 struct#source#propagate: UNNEEDED, same version is already published
-Structstrings#source#propagate: YES
+Structstrings#source#propagate: UNNEEDED, same version is already published
 StructuralVariantAnnotation#source#propagate: NO, package depends on 'rtracklayer' which is not available
-SubCellBarCode#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+SubCellBarCode#source#propagate: YES
 subSeq#source#propagate: UNNEEDED, same version is already published
 SUITOR#source#propagate: UNNEEDED, same version is already published
 SummarizedExperiment#source#propagate: UNNEEDED, same version is already published
@@ -2031,8 +2052,8 @@ switchBox#source#propagate: UNNEEDED, same version is already published
 switchde#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 synapsis#source#propagate: NO, package depends on 'EBImage' which is not available
 synlet#source#propagate: UNNEEDED, same version is already published
-SynMut#source#propagate: YES
-syntenet#source#propagate: YES
+SynMut#source#propagate: UNNEEDED, same version is already published
+syntenet#source#propagate: UNNEEDED, same version is already published
 systemPipeR#source#propagate: NO, package depends on 'Rsamtools' which is not available
 systemPipeShiny#source#propagate: UNNEEDED, same version is already published
 tadar#source#propagate: NO, package depends on 'Gviz' which is not available
@@ -2047,10 +2068,11 @@ TaxSEA#source#propagate: UNNEEDED, same version is already published
 TBSignatureProfiler#source#propagate: NO, package depends on 'ASSIGN' which is not available
 TCC#source#propagate: UNNEEDED, same version is already published
 TCGAbiolinks#source#propagate: NO, package depends on 'biomaRt' which is not available
-TCGAutils#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+TCGAutils#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 TCseq#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
 TDbasedUFE#source#propagate: UNNEEDED, same version is already published
 TDbasedUFEadv#source#propagate: UNNEEDED, same version is already published
+TENET#source#propagate: NO, package depends on 'TCGAbiolinks' which is not available
 tenXplore#source#propagate: NO, package depends on 'ontoProc' which is not available
 TEQC#source#propagate: NO, package depends on 'Rsamtools' which is not available
 terapadog#source#propagate: NO, package depends on 'biomaRt' which is not available
@@ -2062,6 +2084,8 @@ TFEA.ChIP#source#propagate: NO, package depends on 'biomaRt' which is not availa
 TFHAZ#source#propagate: NO, package depends on 'ORFik' which is not available
 TFutils#source#propagate: NO, package depends on 'Rsamtools' which is not available
 thyroidBRS#source#propagate: UNNEEDED, same version is already published
+TiDEomics#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
+tidybulk#source#propagate: UNNEEDED, same version is already published
 tidyexposomics#source#propagate: UNNEEDED, same version is already published
 tidyFlowCore#source#propagate: NO, package depends on 'flowCore' which is not available
 tidyomics#source#propagate: NO, package depends on 'tidySingleCellExperiment' which is not available
@@ -2070,9 +2094,9 @@ tidysbml#source#propagate: UNNEEDED, same version is already published
 tidySingleCellExperiment#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 tidySpatialExperiment#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 tidySummarizedExperiment#source#propagate: UNNEEDED, same version is already published
-tigre#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+tigre#source#propagate: YES
 TileDBArray#source#propagate: UNNEEDED, same version is already published
-tilingArray#source#propagate: NO, package depends on 'genefilter' which is not available
+tilingArray#source#propagate: YES
 timecourse#source#propagate: UNNEEDED, same version is already published
 timeOmics#source#propagate: UNNEEDED, same version is already published
 timescape#source#propagate: UNNEEDED, same version is already published
@@ -2082,29 +2106,31 @@ tkWidgets#source#propagate: UNNEEDED, same version is already published
 TMixClust#source#propagate: UNNEEDED, same version is already published
 TMSig#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 TnT#source#propagate: UNNEEDED, same version is already published
-TOAST#source#propagate: NO, package depends on 'EpiDISH' which is not available
+TOAST#source#propagate: YES
 tomoda#source#propagate: UNNEEDED, same version is already published
 tomoseqr#source#propagate: UNNEEDED, same version is already published
-TOP#source#propagate: NO, package depends on 'ClassifyR' which is not available
+TOP#source#propagate: YES
 topconfects#source#propagate: UNNEEDED, same version is already published
 topdownr#source#propagate: NO, package depends on 'MSnbase' which is not available
-topGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+topGO#source#propagate: YES
 toppgene#source#propagate: UNNEEDED, same version is already published
 ToxicoGx#source#propagate: NO, package depends on 'CoreGx' which is not available
 TPP#source#propagate: UNNEEDED, same version is already published
 TPP2D#source#propagate: UNNEEDED, same version is already published
 tpSVG#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 tracktables#source#propagate: NO, package depends on 'Rsamtools' which is not available
-TraianProt#source#propagate: NO, package depends on 'DOSE' which is not available
+trackViewer#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+tradeSeq#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
+TraianProt#source#propagate: YES
 TrajectoryGeometry#source#propagate: UNNEEDED, same version is already published
 TrajectoryUtils#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 transcriptogramer#source#propagate: NO, package depends on 'biomaRt' which is not available
 transcriptR#source#propagate: NO, package depends on 'chipseq' which is not available
 transformGamPoi#source#propagate: NO, package depends on 'glmGamPoi' which is not available
-transite#source#propagate: YES
-tRanslatome#source#propagate: NO, package depends on 'topGO' which is not available
+transite#source#propagate: UNNEEDED, same version is already published
+tRanslatome#source#propagate: YES
 transmogR#source#propagate: NO, package depends on 'BSgenome' which is not available
-transomics2cytoscape#source#propagate: YES
+transomics2cytoscape#source#propagate: UNNEEDED, same version is already published
 TreeAndLeaf#source#propagate: UNNEEDED, same version is already published
 treeclimbR#source#propagate: NO, package depends on 'TreeSummarizedExperiment' which is not available
 treeio#source#propagate: UNNEEDED, same version is already published
@@ -2116,10 +2142,10 @@ TRESS#source#propagate: NO, package depends on 'rtracklayer' which is not availa
 tricycle#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 TrIdent#source#propagate: UNNEEDED, same version is already published
 trio#source#propagate: UNNEEDED, same version is already published
-triplex#source#propagate: YES
+triplex#source#propagate: UNNEEDED, same version is already published
 tripr#source#propagate: UNNEEDED, same version is already published
-tRNA#source#propagate: YES
-tRNAdbImport#source#propagate: YES
+tRNA#source#propagate: UNNEEDED, same version is already published
+tRNAdbImport#source#propagate: UNNEEDED, same version is already published
 tRNAscanImport#source#propagate: NO, package depends on 'rtracklayer' which is not available
 TRONCO#source#propagate: UNNEEDED, same version is already published
 TSCAN#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
@@ -2132,17 +2158,19 @@ TVTB#source#propagate: NO, package depends on 'ensembldb' which is not available
 tweeDEseq#source#propagate: UNNEEDED, same version is already published
 twilight#source#propagate: UNNEEDED, same version is already published
 twoddpcr#source#propagate: UNNEEDED, same version is already published
-txcutr#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
-tximeta#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+txcutr#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+tximeta#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
 tximport#source#propagate: UNNEEDED, same version is already published
+UCell#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 UCSC.utils#source#propagate: UNNEEDED, same version is already published
 Ularcirc#source#propagate: NO, package depends on 'AnnotationHub' which is not available
 UMI4Cats#source#propagate: NO, package depends on 'ShortRead' which is not available
 uncoverappLib#source#propagate: NO, package depends on 'Gviz' which is not available
 UNDO#source#propagate: UNNEEDED, same version is already published
 unifiedWMWqPCR#source#propagate: UNNEEDED, same version is already published
-UniProt.ws#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+UniProt.ws#source#propagate: YES
 Uniquorn#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
+universalmotif#source#propagate: YES
 updateObject#source#propagate: UNNEEDED, same version is already published
 UPDhmm#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 uSORT#source#propagate: UNNEEDED, same version is already published
@@ -2150,7 +2178,7 @@ VAExprs#source#propagate: NO, package depends on 'SingleCellExperiment' which is
 VanillaICE#source#propagate: NO, package depends on 'crlmm' which is not available
 VarCon#source#propagate: NO, package depends on 'BSgenome' which is not available
 variancePartition#source#propagate: UNNEEDED, same version is already published
-VariantExperiment#source#propagate: YES
+VariantExperiment#source#propagate: UNNEEDED, same version is already published
 VariantFiltering#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 VariantTools#source#propagate: NO, package depends on 'VariantAnnotation' which is not available
 VaSP#source#propagate: NO, package depends on 'ballgown' which is not available
@@ -2164,13 +2192,13 @@ VennDetail#source#propagate: UNNEEDED, same version is already published
 VERSO#source#propagate: UNNEEDED, same version is already published
 vidger#source#propagate: UNNEEDED, same version is already published
 viper#source#propagate: UNNEEDED, same version is already published
-ViSEAGO#source#propagate: NO, package depends on 'AnnotationDbi' which is not available
+ViSEAGO#source#propagate: NO, package depends on 'biomaRt' which is not available
 VisiumIO#source#propagate: NO, package depends on 'TENxIO' which is not available
 vissE#source#propagate: NO, package depends on 'GSEABase' which is not available
 vmrseq#source#propagate: NO, package depends on 'bumphunter' which is not available
 Voyager#source#propagate: NO, package depends on 'SpatialFeatureExperiment' which is not available
 VplotR#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
-vsclust#source#propagate: NO, package depends on 'clusterProfiler' which is not available
+vsclust#source#propagate: YES
 vsn#source#propagate: UNNEEDED, same version is already published
 vtpnet#source#propagate: NO, package depends on 'gwascat' which is not available
 vulcan#source#propagate: NO, package depends on 'ChIPpeakAnno' which is not available
@@ -2179,7 +2207,7 @@ wateRmelon#source#propagate: NO, package depends on 'methylumi' which is not ava
 wavClusteR#source#propagate: NO, package depends on 'Rsamtools' which is not available
 wavFeatExt#source#propagate: UNNEEDED, same version is already published
 weaver#source#propagate: UNNEEDED, same version is already published
-webbioc#source#propagate: NO, package depends on 'annaffy' which is not available
+webbioc#source#propagate: YES
 weitrix#source#propagate: UNNEEDED, same version is already published
 widgetTools#source#propagate: UNNEEDED, same version is already published
 WithinHostExperiment#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
@@ -2191,7 +2219,7 @@ wSIR#source#propagate: NO, package depends on 'SingleCellExperiment' which is no
 XAItest#source#propagate: UNNEEDED, same version is already published
 xCell2#source#propagate: NO, package depends on 'SingleCellExperiment' which is not available
 xcore#source#propagate: UNNEEDED, same version is already published
-XDE#source#propagate: NO, package depends on 'genefilter' which is not available
+XDE#source#propagate: YES
 xenLite#source#propagate: NO, package depends on 'SpatialExperiment' which is not available
 Xeva#source#propagate: NO, package depends on 'ComplexHeatmap' which is not available
 XINA#source#propagate: UNNEEDED, same version is already published
