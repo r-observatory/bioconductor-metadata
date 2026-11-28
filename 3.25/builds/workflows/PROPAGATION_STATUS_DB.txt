@@ -1,0 +1,23 @@
+arrays#source#propagate: YES
+BP4RNAseq#source#propagate: YES
+CAGEWorkflow#source#propagate: NO, package depends on 'CAGEfightR' which is not available
+chipseqDB#source#propagate: YES
+csawUsersGuide#source#propagate: YES
+cytofWorkflow#source#propagate: NO, package depends on 'CATALYST' which is not available
+EGSEA123#source#propagate: NO, package depends on 'EGSEA' which is not available
+ExpHunterSuite#source#propagate: NO, package depends on 'annotatr' which is not available
+ExpressionNormalizationWorkflow#source#propagate: NO, package depends on 'sva' which is not available
+fluentGenomics#source#propagate: NO, package depends on 'plyranges' which is not available
+generegulation#source#propagate: NO, package depends on 'GenomicFeatures' which is not available
+GeoMxWorkflows#source#propagate: YES
+liftOver#source#propagate: NO, package depends on 'gwascat' which is not available
+recountWorkflow#source#propagate: NO, package depends on 'recount' which is not available
+RNAseq123#source#propagate: YES
+rnaseqDTU#source#propagate: NO, package depends on 'DEXSeq' which is not available
+rnaseqGene#source#propagate: NO, package depends on 'tximeta' which is not available
+RnaSeqGeneEdgeRQL#source#propagate: YES
+savingBiocObjects#source#propagate: YES
+seqpac#source#propagate: NO, package depends on 'ShortRead' which is not available
+sequencing#source#propagate: NO, package depends on 'GenomicAlignments' which is not available
+simpleSingleCell#source#propagate: YES
+variants#source#propagate: NO, package depends on 'VariantAnnotation' which is not available

@@ -239,7 +239,7 @@ hasREADME: FALSE
 hasNEWS: FALSE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
-dependencyCount: 230
+dependencyCount: 233
 
 Package: EGSEA123
 Version: 1.38.0
@@ -317,7 +317,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/ExpHunterSuite/inst/doc/hunter.R
-dependencyCount: 313
+dependencyCount: 316
 
 Package: ExpressionNormalizationWorkflow
 Version: 1.40.0
@@ -482,7 +482,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: TRUE
 Rfiles: vignettes/GeoMxWorkflows/inst/doc/GeomxTools_RNA-NGS_Analysis.R
-dependencyCount: 147
+dependencyCount: 150
 
 Package: highthroughputassays
 Version: 1.38.0
@@ -704,7 +704,7 @@ hasNEWS: TRUE
 hasINSTALL: FALSE
 hasLICENSE: FALSE
 Rfiles: vignettes/recountWorkflow/inst/doc/recount-workflow.R
-dependencyCount: 243
+dependencyCount: 246
 
 Package: RNAseq123
 Version: 1.38.0
